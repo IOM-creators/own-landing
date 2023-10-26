@@ -1,7 +1,8 @@
 import React from "react";
 import "./App.scss";
-import Button from "./components/button";
+
 import HeroBanner from "./components/hero-banner";
+import Header from "./components/header";
 
 function App() {
   return (
@@ -13,7 +14,9 @@ function App() {
         <p>hello</p>
         <Button primary >MY btn</Button>
       </header> */}
+
       <HeroBanner showAnimation />
+      <Header />
     </div>
   );
 }
