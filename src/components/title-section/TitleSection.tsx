@@ -1,12 +1,13 @@
 import React from "react";
 import DynamicTag from "../dynamic-tag";
 
-interface ITitle {
+interface ITitleSection {
   tag: string;
   fontSize?: string;
   children: string;
   supText?: string;
   position?: string;
+  className?: string;
 }
 const sizes: any = [
   { "12": "text-xs" },
@@ -24,17 +25,18 @@ const sizes: any = [
   { "128": "text-9xl" },
 ];
 
-const TitleSection: React.FC<ITitle> = ({
+const TitleSection: React.FC<ITitleSection> = ({
   tag,
   children,
-  fontSize = "20",
+  fontSize = "48",
   supText,
-  position = "text-center",
+  position = "text-left",
+  className = "",
 }) => {
   const size = sizes.find((size: any) => size[fontSize]);
-  console.log("size", size);
+  const classes = [position, className];
   return (
-    <div className={position}>
+    <div className={classes.join(" ")}>
       {supText && <span className="text-gray mt-1 mb-1 block">{supText}</span>}
       <DynamicTag tag={tag} className={size && size[fontSize]}>
         {children}

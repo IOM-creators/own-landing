@@ -1,8 +1,8 @@
 import React from "react";
-import Upload from "../../assets/icons/upload.svg";
+import LeftArrow from "../../assets/icons/left-arrow.svg";
 
 const icons: any = {
-  upload: Upload,
+  "left-arrow": LeftArrow,
 };
 
 interface IIcon {

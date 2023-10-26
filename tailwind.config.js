@@ -2,12 +2,12 @@ module.exports = {
   content: ["./src/**/*.{js,jsx,ts,tsx}"],
   theme: {
     screens: {
-      xsm: '320px',
-      sm: '480px',
-      md: '768px',
-      lg: '1024px',
-      lap:'1280px',
-      xl: '1440px',
+      xsm: "320px",
+      sm: "480px",
+      md: "768px",
+      lg: "1024px",
+      lap: "1280px",
+      xl: "1440px",
     },
     colors: {
       blue: "#1fb6ff",
@@ -31,6 +31,9 @@ module.exports = {
       borderRadius: {
         "4xl": "2rem",
       },
+    },
+    container: {
+      center: true,
     },
   },
   plugins: [
