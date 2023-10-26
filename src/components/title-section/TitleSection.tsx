@@ -27,7 +27,7 @@ const sizes: any = [
 const TitleSection: React.FC<ITitle> = ({
   tag,
   children,
-  fontSize = "48",
+  fontSize = "20",
   supText,
   position = "text-center",
 }) => {
@@ -36,7 +36,7 @@ const TitleSection: React.FC<ITitle> = ({
   return (
     <div className={position}>
       {supText && <span className="text-gray mt-1 mb-1 block">{supText}</span>}
-      <DynamicTag tag={tag} className={size ? size[fontSize] : "16"}>
+      <DynamicTag tag={tag} className={size && size[fontSize]}>
         {children}
       </DynamicTag>
     </div>
