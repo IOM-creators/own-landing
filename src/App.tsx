@@ -6,7 +6,7 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <h1 className="text-highlight">IOM</h1>
+        <h1 className="font-bold">IOM</h1>
         <p>hello</p>
         <Button primary >MY btn</Button>
       </header>

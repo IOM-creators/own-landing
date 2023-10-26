@@ -2,12 +2,12 @@ module.exports = {
   content: [
     './src/**/*.{js,jsx,ts,tsx}'
   ],
-  theme: {
+  theme: { 
     screens: {
       xsm: '320px',
       sm: '480px',
       md: '768px',
-      lg: '976px',
+      lg: '1024',
       xl: '1440px',
     },
     colors: {
@@ -22,8 +22,7 @@ module.exports = {
       'highlight': '#e31b6d',
     },
     fontFamily: {
-      sans: ['Graphik', 'sans-serif'],
-      serif: ['Merriweather', 'serif']
+      sans: ['Manrope', 'sans-serif']
     },
     extend: {
       spacing: {
