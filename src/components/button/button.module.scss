@@ -1,0 +1,44 @@
+.button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  border: 0;
+  outline: 0;
+  font-size: 1.4rem;
+  font-weight: 500;
+  line-height: 1.2;
+  cursor: pointer;
+  a {
+    padding: 1.5rem;
+    margin: -1.5rem;
+  }
+  &:not(.right-text) > img {
+    margin-left: 0.5rem;
+  }
+  &.right-text img{
+    margin-right: 1rem;
+  }
+  &.primary {
+    padding: 1.5rem;
+    background: var(--white);
+    border: 0.1rem solid var(--black);
+    &:hover {
+      background: var(--black);
+      color: var(--white);
+    }
+  }
+  &.secondary {
+    padding: 1.5rem;
+    background: var(--black);
+    border: 0.1rem solid var(--black);
+    color: var(--white);
+    &:hover {
+      background: var(--white);
+      color: var(--black);
+    }
+  }
+  &.active{
+    border: 0.1rem solid var(--black);
+  }
+}

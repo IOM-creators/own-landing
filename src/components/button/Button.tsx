@@ -1,6 +1,6 @@
 import React, { MouseEventHandler } from 'react';
 import cn from 'classnames';
-import styles from './button.module.css';
+import styles from './button.module.scss';
 import Icon from '../icon';
 interface IButton {
   icon?: string;

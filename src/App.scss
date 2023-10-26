@@ -1,0 +1,30 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+:root { 
+  --black: #000000; 
+  --dark: #121212; 
+  --white: #ffffff; 
+  --white-second: #f4f6f8; 
+  --light-grey: #929292; 
+  --dark-grey: #4d4d4d; 
+  --error: #ed1c24; 
+  --blue: #334fb4; 
+  --green: #1a8000; 
+  --blue: #334fb4; 
+}
+
+.App {
+  text-align: center;
+}
+
+
+.App-header{
+   p{
+    color: red;
+   }
+}
+
+
