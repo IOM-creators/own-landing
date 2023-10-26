@@ -1,44 +1,42 @@
 module.exports = {
-  content: [
-    './src/**/*.{js,jsx,ts,tsx}'
-  ],
-  theme: { 
+  content: ["./src/**/*.{js,jsx,ts,tsx}"],
+  theme: {
     screens: {
-      xsm: '320px',
-      sm: '480px',
-      md: '768px',
-      lg: '1024',
-      xl: '1440px',
+      xsm: "320px",
+      sm: "480px",
+      md: "768px",
+      lg: "1024",
+      xl: "1440px",
     },
     colors: {
-      'blue': '#1fb6ff',
-      'pink': '#ff49db',
-      'orange': '#ff7849',
-      'green': '#13ce66',
-      'gray-dark': '#273444',
-      'gray': '#8492a6',
-      'gray-light': '#d3dce6',
-      'white': '#ffffff',
-      'highlight': '#e31b6d',
+      blue: "#1fb6ff",
+      pink: "#ff49db",
+      orange: "#ff7849",
+      green: "#13ce66",
+      "gray-dark": "#273444",
+      gray: "#777",
+      "gray-light": "#d3dce6",
+      white: "#ffffff",
+      highlight: "#e31b6d",
     },
     fontFamily: {
-      sans: ['Manrope', 'sans-serif']
+      sans: ["Manrope", "sans-serif"],
     },
     extend: {
       spacing: {
-        '128': '32rem',
-        '144': '36rem',
+        128: "32rem",
+        144: "36rem",
       },
       borderRadius: {
-        '4xl': '2rem',
-      }
-    }
+        "4xl": "2rem",
+      },
+    },
   },
   plugins: [
-    require('tailwindcss'),
-    require('autoprefixer'),
+    require("tailwindcss"),
+    require("autoprefixer"),
     {
-      cssnano: {}
-    }
-  ]
-}
+      cssnano: {},
+    },
+  ],
+};
