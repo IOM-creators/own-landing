@@ -2,7 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-
 :root { 
   --black: #000000; 
   --dark: #121212; 
@@ -15,20 +14,6 @@
   --green: #1a8000; 
   --blue: #334fb4; 
 }
-
-.App {
-  text-align: center;
-}
-
-
-.App-header{
-   p{
-    color: red;
-   }
-}
-
-
-
 
 @font-face { 
   font-family: 'Manrope'; 
