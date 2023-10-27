@@ -3,7 +3,7 @@ import { TypeAnimation } from "react-type-animation";
 import cn from "classnames";
 import styles from "./hero-banner.module.scss";
 
-interface Letter {
+interface ILetter {
   letter: string;
   fullText: string;
   delay: number;
@@ -12,7 +12,7 @@ interface Letter {
 interface IHeroSection {
   showAnimation?: boolean;
 }
-const letters: Letter[] = [
+const letters: ILetter[] = [
   {
     letter: "I",
     fullText: "- Interactive Web Development",
@@ -37,12 +37,12 @@ const HeroSection: React.FC<IHeroSection> = ({ showAnimation = false }) => {
         <div id="pt" className={cn(styles.canvas)}>
           <canvas id="canvas" width="973" height="1048"></canvas>
         </div>
-        <div className="absolute inset-0 flex flex-col items-left justify-center ml-10 sm:ml-10 md:ml-20">
+        <div className="absolute inset-0 flex flex-col items-left justify-center container mx-lg">
           <div className="text-left max-w-3xl lap:max-w-6xl">
-            {letters.map((item: Letter, index: number) => {
+            {letters.map((item: ILetter, index: number) => {
               return (
                 <div
-                  className="flex mb-3 text-lg sm:text-2xl md:text-4xl lg:text-5xl lap:text-6xl"
+                  className="flex mb-3 text-xl sm:text-3xl md:text-4xl lg:text-5xl"
                   key={index}
                 >
                   {!showAnimation && (

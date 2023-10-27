@@ -35,7 +35,7 @@ const cards = [
 function App() {
   return (
     <div className="App">
-      <HeroBanner />
+      <HeroBanner showAnimation />
       <main className=" container mx-lg">
         <Section className="mb-10 mt-20">
           <TitleSection
@@ -43,10 +43,11 @@ function App() {
             position="text-center"
             className="mb-20"
             supText="Our Services"
+            fontSize="lg:text-5xl md:text-4xl sm:text-3xl"
           >
             Handshake infographic mass market crowdfunding iteration.
           </TitleSection>
-          <div className="grid grid-cols-3 gap-24 mt-10 mb-10">
+          <div className="grid ms:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-24 mt-10 mb-10">
             {cards.map((card: any, index: number) => (
               <InfoCard
                 card={card}
