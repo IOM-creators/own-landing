@@ -33,31 +33,28 @@ const cards = [
 
 interface ISection1 {
   className?: string;
-  children?: React.ReactNode;
 }
-const Section1: React.FC<ISection1> = ({ className, children }) => {
+const Section1: React.FC<ISection1> = ({ className }) => {
   return (
-    <Section>
-      <Section className="mb-10 mt-20">
-        <TitleSection
-          tag="h2"
-          position="text-center"
-          className="mb-20"
-          supText="Our Services"
-          fontSize="lg:text-5xl md:text-4xl sm:text-3xl"
-        >
-          Handshake infographic mass market crowdfunding iteration.
-        </TitleSection>
-        <div className="grid ms:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-24 mt-10 mb-10">
-          {cards.map((card: any, index: number) => (
-            <InfoCard
-              card={card}
-              key={index}
-              className="flex flex-col justify-center"
-            />
-          ))}
-        </div>
-      </Section>
+    <Section className={className}>
+      <TitleSection
+        tag="h2"
+        position="text-center"
+        className="mb-20"
+        supText="Our Services"
+        fontSize="lg:text-5xl md:text-4xl sm:text-3xl"
+      >
+        Handshake infographic mass market crowdfunding iteration.
+      </TitleSection>
+      <div className="grid ms:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-24 mt-10 mb-10">
+        {cards.map((card: any, index: number) => (
+          <InfoCard
+            card={card}
+            key={index}
+            className="flex flex-col justify-center"
+          />
+        ))}
+      </div>
     </Section>
   );
 };

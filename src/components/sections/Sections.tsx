@@ -1,5 +1,6 @@
 import React from "react";
 import Section1 from "../section1";
+import Section2 from "../section2";
 
 interface ISections {
   className?: string;
@@ -7,7 +8,8 @@ interface ISections {
 const Sections: React.FC<ISections> = ({ className }) => {
   return (
     <div className={className}>
-      <Section1 />
+      <Section1 className="mb-10 mt-10 md:mt-20" />
+      <Section2 className="mb-40 mt-40" />
     </div>
   );
 };
