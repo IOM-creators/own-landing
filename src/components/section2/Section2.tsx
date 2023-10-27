@@ -33,8 +33,6 @@ const cards = [
     image: Person5,
     title:
       "We connect our customers with the best, and help them keep up-and stay open.",
-    btnText: "Start now",
-    link: "/",
     list: [
       {
         text: "We connect our customers with the best.",
@@ -62,10 +60,9 @@ const Section2: React.FC<ISection2> = ({ className }) => {
   return (
     <>
       {cards.map((card: any, index: number) => (
-        <Section className={className}>
+        <Section className={className} key={index}>
           <InfoWithList
             card={card}
-            key={index}
             className="grid grid-cols-1 md:grid-cols-2 gap-16 md:gap-36"
           />
         </Section>

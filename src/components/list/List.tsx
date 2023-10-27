@@ -32,7 +32,7 @@ const List: React.FC<IList> = ({ list, className }) => {
             {item.icon && (
               <Icon
                 icon={item.icon}
-                className={cn({
+                strokeClass={cn({
                   "group-hover:stroke-white": item.shadow,
                 })}
               />

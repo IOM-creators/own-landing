@@ -16,11 +16,14 @@ import SVGGenerate from "../svg-generate";
 
 interface IIcon {
   icon: string;
+  strokeClass?: string;
   className?: string;
 }
 
-const Icon: React.FC<IIcon> = ({ icon, className }) => {
-  return <SVGGenerate name={icon} className={className} />;
+const Icon: React.FC<IIcon> = ({ icon, strokeClass, className }) => {
+  return (
+    <SVGGenerate name={icon} className={className} strokeClass={strokeClass} />
+  );
 };
 
 export default Icon;
