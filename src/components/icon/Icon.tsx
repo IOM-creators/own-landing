@@ -1,8 +1,10 @@
 import React from "react";
 import LeftArrow from "../../assets/icons/left-arrow.svg";
+import Logo from "../../assets/icons/logo.svg";
 
 const icons: any = {
   "left-arrow": LeftArrow,
+  "logo": Logo,
 };
 
 interface IIcon {

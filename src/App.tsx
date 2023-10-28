@@ -8,6 +8,8 @@ import Person1 from "./assets/images/person1.png";
 import Person2 from "./assets/images/person2.png";
 import Person3 from "./assets/images/person3.png";
 import Section from "./components/section";
+import Header from "./components/header";
+
 
 const cards = [
   {
@@ -34,10 +36,11 @@ const cards = [
 ];
 function App() {
   return (
-    <div className="App">
-      <HeroBanner showAnimation />
-      <main className=" container mx-lg">
-        <Section className="mb-10 mt-20">
+    <div className="App relative" >
+      <Header />
+      <main className=" mx-full">
+        <HeroBanner showAnimation />
+        <Section id='section1' className="container mb-10 mt-20">
           <TitleSection
             tag="h2"
             position="text-center"

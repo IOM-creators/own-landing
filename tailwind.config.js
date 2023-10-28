@@ -24,6 +24,9 @@ module.exports = {
       sans: ["Manrope", "sans-serif"],
     },
     extend: {
+      padding: {
+        'container-descktop': '10px 0 10px 0',
+      },
       spacing: {
         128: "32rem",
         144: "36rem",
