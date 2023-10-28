@@ -40,7 +40,7 @@ const Button: React.FC<IButton> = ({
       {!rightText && children}
       {icon && (
         <Icon
-          className=" group-hover:translate-x-3 duration-500 transition-transform "
+          className=" group-hover:translate-x-1 duration-300 transition-transform "
           icon={icon}
         />
       )}

@@ -11,6 +11,7 @@ module.exports = {
     },
     colors: {
       blue: "#1fb6ff",
+      "dark-blue": "#0A2640",
       pink: "#ff49db",
       orange: "#ff7849",
       green: "#13ce66",
@@ -33,6 +34,13 @@ module.exports = {
       },
       borderRadius: {
         "4xl": "2rem",
+      },
+      backgroundColor: {
+        black: "#000",
+        "dark-blue": "#0A2640",
+      },
+      boxShadow: {
+        simle: "0px 4px 32px 0px rgba(0, 0, 0, 0.08);",
       },
     },
     container: {
