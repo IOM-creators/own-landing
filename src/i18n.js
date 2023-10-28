@@ -19,7 +19,7 @@ i18n
   .init({
     resources,
     fallbackLng: "en",
-    debug: true,
+    debug: false,
     ns: ["translations"],
     defaultNS: "translations",
     keySeparator: false, 

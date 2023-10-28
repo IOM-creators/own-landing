@@ -4,7 +4,6 @@ import { UseTranslationResponse } from 'react-i18next';
 
 export const useLanguageFromURL = (navigate: NavigateFunction, translation: UseTranslationResponse<any, any>) => {
   useEffect(() => {
-    console.log('languages', typeof translation.i18n.options.resources);
     const languageFromURL = window.location.pathname.split('/')[1];
     const keys = (translation.i18n.options.resources && Object.keys(translation.i18n.options.resources)) || []
     keys.includes(languageFromURL) ? translation.i18n.changeLanguage(languageFromURL) : navigate('/en');
