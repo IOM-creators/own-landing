@@ -1,5 +1,73 @@
 {
-  "To get started, edit <1>src/App.js</1> and save to reload.": "To get started, edit <1>src/App.js</1> and save to reload.",
-  "Welcome to React": "Welcome to React and react-i18next",
-  "welcome": "Hello <br/> <strong>World</strong>"
+  "section1": {
+    "supTitle": "Our Services",
+    "title": "Handshake infographic mass market crowdfunding iteration.",
+    "cards": [
+      {
+        "title": "Cool feature title",
+        "description": "Learning curve network effects return on investment.",
+        "btnText": "Explore page",
+        "link": "/"
+      },
+      {
+        "title": "Even cooler feature",
+        "description": "Learning curve network effects return on investment.",
+        "btnText": "Explore page",
+        "link": "/"
+      },
+      {
+        "title": "Cool feature title",
+        "description": "Learning curve network effects return on investment.",
+        "btnText": "Explore page",
+        "link": "/"
+      }
+    ]
+  },
+  "section2": {
+    "supTitle": "Our Services",
+    "title": "Handshake infographic mass market crowdfunding iteration.",
+    "cards": [
+      {
+        "title": "We connect our customers with the best, and help them keep up-and stay open.",
+        "revert": false,
+        "btnText": "Start now",
+        "link": "/",
+        "list": [
+          {
+            "text": "We connect our customers with the best.",
+            "icon": "check"
+          },
+          {
+            "text": "We connect our customers with the best.",
+            "icon": "check"
+          },
+          {
+            "text": "We connect our customers with the best.",
+            "icon": "check"
+          }
+        ]
+      },
+      {
+        "title": "We connect our customers with the best, and help them keep up-and stay open.",
+        "revert": true,
+        "list": [
+          {
+            "text": "We connect our customers with the best.",
+            "icon": "leaf",
+            "shadow": true
+          },
+          {
+            "text": "We connect our customers with the best.",
+            "icon": "eye",
+            "shadow": true
+          },
+          {
+            "text": "We connect our customers with the best.",
+            "icon": "sun",
+            "shadow": true
+          }
+        ]
+      }
+    ]
+  }
 }

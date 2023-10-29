@@ -27,7 +27,9 @@ const InfoWithList: React.FC<IInfoWithList> = ({ card, className }) => {
   return (
     <div className={className}>
       <div>
-        {card.image && <Image src={card.image} borderRadius="rounded-3xl" />}
+        {card.image && (
+          <Image src={card.image} borderRadius="rounded-3xl w-full" />
+        )}
       </div>
       <div className={card.revert ? "md:order-first" : ""}>
         {card.title && (
