@@ -1,26 +1,29 @@
 import React from "react";
+import SwiperCore from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { EffectCoverflow, Pagination } from "swiper/modules";
+import {
+  EffectCoverflow,
+  Autoplay,
+  Navigation,
+  Pagination,
+} from "swiper/modules";
 
 import "swiper/css";
 import "swiper/css/effect-coverflow";
 import "swiper/css/pagination";
-
-import Person3 from "../../assets/images/person3.png";
-import Person4 from "../../assets/images/person4.png";
-import Person5 from "../../assets/images/person5.png";
-import Person2 from "../../assets/images/person2.png";
-
+import InfoCard from "../info-card";
 interface ISlider {
+  slides: any[];
   className?: string;
 }
-const Slider: React.FC<ISlider> = ({ className }) => {
+SwiperCore.use([Navigation, Pagination]);
+
+const Slider: React.FC<ISlider> = ({ slides, className }) => {
   return (
     <Swiper
       effect={"coverflow"}
       grabCursor={true}
       centeredSlides={true}
-      slidesPerView={3}
       loop={true}
       coverflowEffect={{
         rotate: 50,
@@ -29,22 +32,38 @@ const Slider: React.FC<ISlider> = ({ className }) => {
         modifier: 1,
         slideShadows: true,
       }}
-      pagination={false}
-      modules={[EffectCoverflow, Pagination]}
-      className="mySwiper"
+      autoplay={{
+        delay: 10000,
+        disableOnInteraction: false,
+      }}
+      pagination={{
+        el: ".swiper-pagination",
+        clickable: true,
+      }}
+      navigation={{
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+      }}
+      modules={[EffectCoverflow, Autoplay]}
+      breakpoints={{
+        320: {
+          slidesPerView: 1,
+        },
+        768: {
+          slidesPerView: 2,
+          pagination: false,
+        },
+        1024: {
+          slidesPerView: 3,
+        },
+      }}
+      className="mySwiper !py-10"
     >
-      <SwiperSlide>
-        <img src={Person2} alt="" />
-      </SwiperSlide>
-      <SwiperSlide>
-        <img src={Person4} alt="" />
-      </SwiperSlide>
-      <SwiperSlide>
-        <img src={Person3} alt="" />
-      </SwiperSlide>
-      <SwiperSlide>
-        <img src={Person5} alt="" />
-      </SwiperSlide>
+      {slides.map((slide: any, index: number) => (
+        <SwiperSlide key={index}>
+          <InfoCard card={slide} className="bg-white px-5 py-5" />
+        </SwiperSlide>
+      ))}
     </Swiper>
   );
 };

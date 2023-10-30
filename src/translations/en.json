@@ -69,5 +69,34 @@
         ]
       }
     ]
+  },
+  "section4": {
+    "title": "An enterprise template to ramp up your company website",
+    "cards": [
+      {
+        "title": "Cool feature title",
+        "description": "Learning curve network effects return on investment.",
+        "btnText": "Explore page",
+        "link": "/"
+      },
+      {
+        "title": "Even cooler feature",
+        "description": "Learning curve network effects return on investment.",
+        "btnText": "Explore page",
+        "link": "/"
+      },
+      {
+        "title": "Cool feature title",
+        "description": "Learning curve network effects return on investment.",
+        "btnText": "Explore page",
+        "link": "/"
+      },
+      {
+        "title": "Cool feature title",
+        "description": "Learning curve network effects return on investment.",
+        "btnText": "Explore page",
+        "link": "/"
+      }
+    ]
   }
 }

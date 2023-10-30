@@ -23,11 +23,15 @@ module.exports = {
     },
     fontFamily: {
       sans: ["Manrope", "sans-serif"],
-      serif: ['Open Sans', 'serif'],
+      serif: ["Open Sans", "serif"],
     },
     extend: {
       padding: {
-        'container-descktop': '10px 0 10px 0',
+        "container-descktop": "10px 0 10px 0",
+      },
+      inset: {
+        "100-20": "calc(100% + 20px)",
+        "100-240": "calc(100% - 240px);",
       },
       spacing: {
         128: "32rem",
@@ -38,6 +42,7 @@ module.exports = {
       },
       backgroundColor: {
         black: "#000",
+        white: "#fff",
         "dark-blue": "#0A2640",
       },
       boxShadow: {

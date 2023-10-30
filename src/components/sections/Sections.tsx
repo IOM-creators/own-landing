@@ -9,9 +9,9 @@ interface ISections {
 const Sections: React.FC<ISections> = ({ className }) => {
   return (
     <div className={className}>
-      <Section1 className="mb-10 mt-10 md:mt-20" />
-      <Section2 className="mb-40 mt-40" />
-      <Section4 className="mb-40 mt-40 bg-dark-blue py-40" />
+      <Section1 className="mb-10 mt-10 md:mt-20 container mx-lg" />
+      <Section2 className="my-20 md:my-40 container mx-lg" />
+      <Section4 className="my-20 md:my-40 pt-20 pb-28 md:py-40 container mx-lg" />
     </div>
   );
 };
