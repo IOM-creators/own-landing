@@ -23,6 +23,7 @@ module.exports = {
     },
     fontFamily: {
       sans: ["Manrope", "sans-serif"],
+      serif: ['Open Sans', 'serif'],
     },
     extend: {
       padding: {
