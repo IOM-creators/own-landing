@@ -1,10 +1,8 @@
-import Icon from "../icon";
-
 import { useScrollEvent, useWindowWidth } from "../../helpers/reactHooks";
 import HeaderNavigation from "./HeaderNavigation";
 import LanguageSelector from "./LanguageSelector";
 import HamburgerMenu from "./Hamburger";
-
+import Logo from "../../assets/icons/logo.svg";
 interface INavigation {
   scrollTo: string;
   textId: string;
@@ -37,7 +35,6 @@ const Header = () => {
   const { scrollingDown } = useScrollEvent();
 
   const windowWidth = useWindowWidth();
-
   return (
     <header
       className={`py-5 sticky top-0 z-50 bg-dark-blue w-full  transition-transform transform ${
@@ -45,7 +42,9 @@ const Header = () => {
       }`}
     >
       <div className="container flex items-center font-serif text-base font-semibold ">
-        <Icon icon="logo" />
+        <div className="img-wrapper !w-28">
+          <img src={Logo} alt="logo" />
+        </div>
         {windowWidth < 1024 ? (
           <HamburgerMenu navigation={headernavigation} />
         ) : (

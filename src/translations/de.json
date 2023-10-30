@@ -1,4 +1,12 @@
 {
+  "hero_banner": {
+    "letter_1": "I",
+    "letter_2": "O",
+    "letter_3": "M",
+    "text_1": "- Interaktive Webentwicklung",
+    "text_2": "- Optimierte Code-Effizienz",
+    "text_3": "- Moderne Framework-Kenntnisse"
+  },
   "section1": {
     "supTitle": "Unsere Dienstleistungen",
     "title": "Handshake-Infografik-Massenmarkt-Crowdfunding-Iteration.",

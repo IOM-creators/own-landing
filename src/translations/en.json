@@ -1,4 +1,12 @@
 {
+  "hero_banner": {
+    "letter_1": "I",
+    "letter_2": "O",
+    "letter_3": "M",
+    "text_1": "- Interactive Web Development",
+    "text_2": "- Optimized Code Efficiency",
+    "text_3": "- Modern Framework Proficiency"
+  },
   "section1": {
     "supTitle": "Our Services",
     "title": "Handshake infographic mass market crowdfunding iteration.",
