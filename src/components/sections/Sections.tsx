@@ -10,10 +10,10 @@ interface ISections {
 const Sections: React.FC<ISections> = ({ className }) => {
   return (
     <div className={className}>
-      <Section1 className="mb-10 mt-10 md:mt-20 container mx-lg" />
-      <Section2 className="my-20 md:my-40 container mx-lg" />
-      <Section4 className="my-20 md:my-40 pt-20 pb-28 md:py-40 container mx-lg" />
-      <Section5 className="my-20 md:my-40 container mx-lg" />
+      <Section1 className="section mb-10 mt-10 md:mt-20 container mx-lg" />
+      <Section2 className="section my-20 md:my-40 container mx-lg" />
+      <Section4 className="section my-20 md:my-40 pt-20 pb-28 md:py-40 container mx-lg" />
+      <Section5 className="section my-20 md:my-40 container mx-lg" />
     </div>
   );
 };
