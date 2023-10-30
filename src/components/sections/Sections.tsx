@@ -8,8 +8,8 @@ interface ISections {
 const Sections: React.FC<ISections> = ({ className }) => {
   return (
     <div className={className}>
-      <Section1 className="mb-10 mt-10 md:mt-20" />
-      <Section2 className="mb-40 mt-40" />
+      <Section1 className="section mb-10 mt-10 md:mt-20" />
+      <Section2 className="section mb-40 mt-40" />
     </div>
   );
 };
