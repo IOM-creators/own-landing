@@ -2,22 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-:root { 
-  --black: #000000; 
-  --dark: #121212; 
-  --white: #ffffff; 
-  --white-second: #f4f6f8; 
-  --light-grey: #929292; 
-  --dark-grey: #273444;
-  --error: #ed1c24; 
-  --blue: #334fb4; 
-  --dark-blue: #0A2640; 
-  --green: #1a8000;
-}
-body {
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
   
 @font-face { 
   font-family: 'Manrope'; 
@@ -47,3 +31,38 @@ body {
   src: url('./assets/fonts/Manrope-Bold.woff2') format('woff2'); 
 } 
 
+
+:root { 
+  --black: #000000; 
+  --dark: #121212; 
+  --white: #ffffff; 
+  --white-second: #f4f6f8; 
+  --light-grey: #929292; 
+  --dark-grey: #273444;
+  --error: #ed1c24; 
+  --blue: #334fb4; 
+  --dark-blue: #0A2640; 
+  --green: #1a8000;
+}
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.swiper {
+  width: 100%;
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+
+.swiper-slide {
+  background-position: center;
+  background-size: cover;
+  width: 300px;
+  height: 300px;
+}
+
+.swiper-slide img {
+  display: block;
+  width: 100%;
+}
