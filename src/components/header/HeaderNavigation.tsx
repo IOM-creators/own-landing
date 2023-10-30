@@ -7,6 +7,8 @@ const HeaderNavigation: React.FC<IHeaderNavigation> = ({ classname = '', navigat
   const scrollTo = (e: any) => {
     e.preventDefault();
     const id = e.target.getAttribute("data-scroll-to");
+    const url = `#${id}`;
+    window.history.pushState(null, '', url);
     const sectionScrollTo = document.getElementById(`${id}`);
     sectionScrollTo && sectionScrollTo.scrollIntoView({ behavior: "smooth" });
   };
@@ -16,9 +18,10 @@ const HeaderNavigation: React.FC<IHeaderNavigation> = ({ classname = '', navigat
         {navigation &&
           navigation.map((navItem: INavigation, index: number) => {
             return (
-              <li key={navItem.textId} className={`text-white ${index === 1 ? 'px-2 sm:px-10' : ''}`}>
+              <li key={navItem.textId} className={`text-white ${(index === (navigation.length - 1)) ? '' : 'pr-2 sm:pr-10'}`}>
                 <a
                   href="/"
+                  className="rounded-3xl"
                   data-scroll-to={navItem.scrollTo}
                   onClick={(e) => scrollTo(e)}
                 >

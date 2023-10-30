@@ -23,6 +23,14 @@ const headernavigation: INavigation[] = [
     scrollTo: "section3",
     textId: "Section3",
   },
+  {
+    scrollTo: "section4",
+    textId: "Section4",
+  },
+  {
+    scrollTo: "section5",
+    textId: "Section5",
+  },
 ];
 
 const Header = () => {
