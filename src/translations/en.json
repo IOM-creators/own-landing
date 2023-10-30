@@ -75,27 +75,19 @@
     "cards": [
       {
         "title": "Cool feature title",
-        "description": "Learning curve network effects return on investment.",
-        "btnText": "Explore page",
-        "link": "/"
+        "description": "Learning curve network effects return on investment."
       },
       {
         "title": "Even cooler feature",
-        "description": "Learning curve network effects return on investment.",
-        "btnText": "Explore page",
-        "link": "/"
+        "description": "Learning curve network effects return on investment."
       },
       {
         "title": "Cool feature title",
-        "description": "Learning curve network effects return on investment.",
-        "btnText": "Explore page",
-        "link": "/"
+        "description": "Learning curve network effects return on investment."
       },
       {
         "title": "Cool feature title",
-        "description": "Learning curve network effects return on investment.",
-        "btnText": "Explore page",
-        "link": "/"
+        "description": "Learning curve network effects return on investment."
       }
     ]
   }

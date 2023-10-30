@@ -69,6 +69,24 @@
     ]
   },
   "section4": {
-    "title": "Eine Unternehmensvorlage zur Optimierung Ihrer Unternehmenswebsite"
+    "title": "Eine Unternehmensvorlage zur Optimierung Ihrer Unternehmenswebsite",
+    "cards": [
+      {
+        "title": "Cooler Feature-Titel",
+        "description": "Die Lernkurve des Netzwerks wirkt sich auf die Kapitalrendite aus."
+      },
+      {
+        "title": "Noch cooleres Feature",
+        "description": "Die Lernkurve des Netzwerks wirkt sich auf die Kapitalrendite aus."
+      },
+      {
+        "title": "Cooler Feature-Titel",
+        "description": "Die Lernkurve des Netzwerks wirkt sich auf die Kapitalrendite aus."
+      },
+      {
+        "title": "Noch cooleres Feature",
+        "description": "Die Lernkurve des Netzwerks wirkt sich auf die Kapitalrendite aus."
+      }
+    ]
   }
 }
