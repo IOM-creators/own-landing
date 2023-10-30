@@ -4,6 +4,7 @@ import "./App.scss";
 import HeroBanner from "./components/hero-banner";
 import Sections from "./components/sections";
 import Header from "./components/header";
+import Footer from "./components/footer";
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
       <main className="">
         <Sections />
       </main>
+      <Footer />
     </div>
   );
 }
