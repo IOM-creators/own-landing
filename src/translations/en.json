@@ -90,5 +90,18 @@
         "description": "Learning curve network effects return on investment."
       }
     ]
+  },
+  "section5": {
+    "title": "We connect our customers with the best, and help them keep up-and stay open.",
+    "list": [
+      {
+        "text": "We connect our customers with the best?",
+        "icon": "check"
+      },
+      {
+        "text": "Android research & development rockstar? ",
+        "icon": "check"
+      }
+    ]
   }
 }

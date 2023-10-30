@@ -42,6 +42,7 @@ module.exports = {
       },
       backgroundColor: {
         black: "#000",
+        silver: "#C4C4C4",
         white: "#fff",
         "dark-blue": "#0A2640",
       },

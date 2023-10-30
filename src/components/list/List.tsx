@@ -11,10 +11,12 @@ interface IList {
       shadow?: boolean;
     }
   ];
+  classesItem?: string;
+  rightIcon?: boolean;
   className?: string;
 }
 
-const List: React.FC<IList> = ({ list, className }) => {
+const List: React.FC<IList> = ({ list, rightIcon, classesItem, className }) => {
   return (
     <ul className={className}>
       {list.map((item, index: number) => {
@@ -25,19 +27,31 @@ const List: React.FC<IList> = ({ list, className }) => {
                 "group shadow-simle px-5 py-4 hover:bg-dark-blue cursor-pointer hover:text-white":
                   item.shadow,
               },
+              classesItem,
               "flex items-center mt-6 mb-6"
             )}
             key={index}
           >
-            {item.icon && (
+            {item.icon && !rightIcon && (
               <Icon
                 icon={item.icon}
+                className="mr-6"
                 strokeClass={cn({
                   "group-hover:stroke-white": item.shadow,
                 })}
               />
-            )}{" "}
-            <span className="text-xl ml-6">{item.text}</span>
+            )}
+            <span className="text-xl">{item.text}</span>
+
+            {item.icon && rightIcon && (
+              <Icon
+                icon={item.icon}
+                className="ml-6"
+                strokeClass={cn({
+                  "group-hover:stroke-white": item.shadow,
+                })}
+              />
+            )}
           </li>
         );
       })}

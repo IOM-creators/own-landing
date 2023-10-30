@@ -85,6 +85,9 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+svg{
+  flex-shrink: 0;
+}
 .img-wrapper {
   position: relative;
   width: 100%;

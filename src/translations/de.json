@@ -88,5 +88,18 @@
         "description": "Die Lernkurve des Netzwerks wirkt sich auf die Kapitalrendite aus."
       }
     ]
+  },
+  "section5": {
+    "title": "Wir verbinden unsere Kunden mit den Besten und helfen ihnen, mitzuhalten und offen zu bleiben.",
+    "list": [
+      {
+        "text": "Wir verbinden unsere Kunden mit den Besten?",
+        "icon": "check"
+      },
+      {
+        "text": "Rockstar in der Android-Forschung und -Entwicklung?",
+        "icon": "check"
+      }
+    ]
   }
 }
