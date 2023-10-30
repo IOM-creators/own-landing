@@ -9,11 +9,13 @@ interface IImage {
 
 const Image: React.FC<IImage> = ({ src, alt, borderRadius }) => {
   return (
-    <img
-      src={src || Placeholder}
-      className={borderRadius && borderRadius}
-      alt={alt}
-    />
+    <div className="img-wrapper">
+      <img
+        src={src || Placeholder}
+        className={borderRadius && borderRadius}
+        alt={alt}
+      />
+    </div>
   );
 };
 

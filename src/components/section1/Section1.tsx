@@ -40,7 +40,7 @@ const Section1: React.FC<ISection1> = ({ className }) => {
       >
         {t("section1.title")}
       </TitleSection>
-      <div className="grid ms:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-24 mt-10 mb-10">
+      <div className="grid ms:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-16 md:gap-24 mt-10 mb-10">
         {cards.map((card: any, index: number) => (
           <InfoCard
             card={card}

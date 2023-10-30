@@ -5,12 +5,10 @@ import HeaderNavigation from "./HeaderNavigation";
 import LanguageSelector from "./LanguageSelector";
 import HamburgerMenu from "./Hamburger";
 
-
 interface INavigation {
   scrollTo: string;
   textId: string;
 }
-
 
 const headernavigation: INavigation[] = [
   {
@@ -25,37 +23,38 @@ const headernavigation: INavigation[] = [
     scrollTo: "section3",
     textId: "Section3",
   },
+  {
+    scrollTo: "section4",
+    textId: "Section4",
+  },
 ];
 
 const Header = () => {
   const { scrollingDown } = useScrollEvent();
 
-  const windowWidth = useWindowWidth()
-
+  const windowWidth = useWindowWidth();
 
   return (
     <header
-      className={`py-5 sticky top-0 z-50 bg-gray-dark w-full  transition-transform transform ${scrollingDown ? "translate-y-0" : "-translate-y-full"}`}
+      className={`py-5 sticky top-0 z-50 bg-dark-blue w-full  transition-transform transform ${scrollingDown ? "translate-y-0" : "-translate-y-full"
+        }`}
     >
       <div className="container flex items-center font-serif text-base font-semibold ">
         <Icon icon="logo" />
         {windowWidth < 1024 ? (
           <HamburgerMenu navigation={headernavigation} />
-        ) : <>
-          <HeaderNavigation classname="ml-auto mr-10" navigation={headernavigation} />
-          <LanguageSelector classname="mr-0" />
-        </>}
-
+        ) : (
+          <>
+            <HeaderNavigation
+              classname="ml-auto mr-10"
+              navigation={headernavigation}
+            />
+            <LanguageSelector classname="mr-0" />
+          </>
+        )}
       </div>
-
     </header>
   );
 };
-
-
-
-
-
-
 
 export default Header;

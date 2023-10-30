@@ -10,7 +10,7 @@ function App() {
     <div className="App">
       <Header />
       <HeroBanner showAnimation />
-      <main className=" container mx-lg">
+      <main className="">
         <Sections />
       </main>
     </div>
