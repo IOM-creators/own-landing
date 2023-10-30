@@ -2,7 +2,7 @@ import { useScrollEvent, useWindowWidth } from "../../helpers/reactHooks";
 import HeaderNavigation from "./HeaderNavigation";
 import LanguageSelector from "./LanguageSelector";
 import HamburgerMenu from "./Hamburger";
-import Logo from "../../assets/icons/logo.svg";
+import Icon from "../icon";
 interface INavigation {
   scrollTo: string;
   textId: string;
@@ -42,9 +42,7 @@ const Header = () => {
       }`}
     >
       <div className="container flex items-center font-serif text-base font-semibold ">
-        <div className="img-wrapper !w-28">
-          <img src={Logo} alt="logo" />
-        </div>
+        <Icon icon="logo" />
         {windowWidth < 1024 ? (
           <HamburgerMenu navigation={headernavigation} />
         ) : (
