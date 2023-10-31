@@ -2,90 +2,89 @@
 @tailwind components;
 @tailwind utilities;
 
-@font-face { 
-  font-family: 'Manrope'; 
-  font-weight: 300; 
-  font-style: normal; 
-  src: url('./assets/fonts/Manrope-Light.woff2') format('woff2'); 
-} 
+@font-face {
+  font-family: "Manrope";
+  font-weight: 300;
+  font-style: normal;
+  src: url("./assets/fonts/Manrope-Light.woff2") format("woff2");
+}
 
-@font-face { 
-  font-family: 'Manrope'; 
-  font-weight: 400; 
-  font-style: normal; 
-  src: url('./assets/fonts/Manrope-Regular.woff2') format('woff2'); 
-} 
+@font-face {
+  font-family: "Manrope";
+  font-weight: 400;
+  font-style: normal;
+  src: url("./assets/fonts/Manrope-Regular.woff2") format("woff2");
+}
 
-@font-face { 
-  font-family: 'Manrope'; 
-  font-weight: 500; 
-  font-style: normal; 
-  src: url('./assets/fonts/Manrope-Medium.woff2') format('woff2'); 
-} 
+@font-face {
+  font-family: "Manrope";
+  font-weight: 500;
+  font-style: normal;
+  src: url("./assets/fonts/Manrope-Medium.woff2") format("woff2");
+}
 
-@font-face { 
-  font-family: 'Manrope'; 
-  font-weight: 700; 
-  font-style: bold; 
-  src: url('./assets/fonts/Manrope-Bold.woff2') format('woff2'); 
-} 
+@font-face {
+  font-family: "Manrope";
+  font-weight: 700;
+  font-style: bold;
+  src: url("./assets/fonts/Manrope-Bold.woff2") format("woff2");
+}
 
+@font-face {
+  font-family: "Open Sans";
+  font-weight: 300;
+  font-style: normal;
+  src: url("./assets/fonts/OpenSans-Light.woff2") format("woff2");
+}
 
-@font-face { 
-  font-family: 'Open Sans'; 
-  font-weight: 300; 
-  font-style: normal; 
-  src: url('./assets/fonts/OpenSans-Light.woff2') format('woff2'); 
-} 
+@font-face {
+  font-family: "Open Sans";
+  font-weight: 400;
+  font-style: normal;
+  src: url("./assets/fonts/OpenSans-Regular.woff2") format("woff2");
+}
 
-@font-face { 
-  font-family: 'Open Sans'; 
-  font-weight: 400; 
-  font-style: normal; 
-  src: url('./assets/fonts/OpenSans-Regular.woff2') format('woff2'); 
-} 
+@font-face {
+  font-family: "Open Sans";
+  font-weight: 500;
+  font-style: normal;
+  src: url("./assets/fonts/OpenSans-Medium.woff2") format("woff2");
+}
 
-@font-face { 
-  font-family: 'Open Sans'; 
-  font-weight: 500; 
-  font-style: normal; 
-  src: url('./assets/fonts/OpenSans-Medium.woff2') format('woff2'); 
-} 
+@font-face {
+  font-family: "Open Sans";
+  font-weight: 600;
+  font-style: normal;
+  src: url("./assets/fonts/OpenSans-SemiBold.woff2") format("woff2");
+}
 
+@font-face {
+  font-family: "Open Sans";
+  font-weight: 700;
+  font-style: bold;
+  src: url("./assets/fonts/OpenSans-Bold.woff2") format("woff2");
+}
 
-@font-face { 
-  font-family: 'Open Sans'; 
-  font-weight:600; 
-  font-style: normal; 
-  src: url('./assets/fonts/OpenSans-SemiBold.woff2') format('woff2'); 
-} 
-
-
-@font-face { 
-  font-family: 'Open Sans'; 
-  font-weight: 700; 
-  font-style: bold; 
-  src: url('./assets/fonts/OpenSans-Bold.woff2') format('woff2'); 
-} 
-
-:root { 
-  --black: #000000; 
-  --dark: #121212; 
-  --white: #ffffff; 
-  --white-second: #f4f6f8; 
-  --light-grey: #929292; 
+:root {
+  --black: #000000;
+  --dark: #121212;
+  --white: #ffffff;
+  --white-second: #f4f6f8;
+  --light-grey: #929292;
   --dark-grey: #273444;
-  --error: #ed1c24; 
-  --blue: #334fb4; 
-  --dark-blue: #0A2640; 
-  --green: #1a8000;
+  --error: #ed1c24;
+  --blue: #334fb4;
+  --dark-blue: #0a2640;
+  --light-blue: #1c3d5b;
+  --green: #65e4a3;
 }
 body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
 }
 
-svg{
+svg {
   flex-shrink: 0;
 }
 .img-wrapper {
@@ -105,11 +104,11 @@ svg{
   height: 100%;
   object-fit: cover;
 }
-body .swiper-pagination-bullet{
+body .swiper-pagination-bullet {
   background: var(--dark-blue);
   border: 1px solid var(--white);
   opacity: 1;
 }
-body .swiper-pagination-bullet-active{
+body .swiper-pagination-bullet-active {
   background: var(--white);
 }

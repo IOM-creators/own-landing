@@ -4,14 +4,14 @@
   background: none;
   border: 0;
   outline: 0;
-  font-size: 1.4rem;
+  font-size: 20px;
   font-weight: 500;
   line-height: 1.2;
   cursor: pointer;
   &:not(.right-text) > img {
     margin-left: 0.5rem;
   }
-  &.right-text img{
+  &.right-text img {
     margin-right: 1rem;
   }
   &.primary {
@@ -22,22 +22,27 @@
     border-radius: 56px;
     color: var(--white);
     justify-content: center;
+    font-weight: 700;
     &:hover {
       background: var(--white);
-      color: var(--black);
+      color: var(---dark-blue);
     }
   }
   &.secondary {
-    padding: 1.5rem;
-    background: var(--black);
-    border: 0.1rem solid var(--black);
-    color: var(--white);
+    justify-content: center;
+    min-width: 210px;
+    padding: 16px;
+    background: var(--green);
+    border: 0.1rem solid var(--green);
+    border-radius: 56px;
+    color: var(--dark-blue);
+    font-weight: 700;
     &:hover {
       background: var(--white);
-      color: var(--black);
+      color: var(--dark-blue);
     }
   }
-  &.active{
-    border: 0.1rem solid var(--black);
+  &.active {
+    border: 0.1rem solid var(---dark-blue);
   }
 }

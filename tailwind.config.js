@@ -12,6 +12,7 @@ module.exports = {
     colors: {
       blue: "#1fb6ff",
       "dark-blue": "#0A2640",
+      "light-blue": "#1c3d5b",
       pink: "#ff49db",
       orange: "#ff7849",
       green: "#13ce66",
@@ -20,6 +21,7 @@ module.exports = {
       "gray-light": "#d3dce6",
       white: "#ffffff",
       highlight: "#e31b6d",
+      error: "#ff4c4c",
     },
     fontFamily: {
       sans: ["Manrope", "sans-serif"],
@@ -45,6 +47,10 @@ module.exports = {
         silver: "#C4C4C4",
         white: "#fff",
         "dark-blue": "#0A2640",
+        "light-blue": "#1c3d5b",
+      },
+      backgroundImage: {
+        ellipse: "url('./assets/images/ellipse.png')",
       },
       boxShadow: {
         simle: "0px 4px 32px 0px rgba(0, 0, 0, 0.08);",

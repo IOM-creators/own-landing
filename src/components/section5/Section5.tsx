@@ -27,7 +27,7 @@ const Section5: React.FC<ISection5> = ({ className }) => {
           tag="h2"
           position="text-left"
           className="md:mb-0 mb-10"
-          fontSize="lg:text-4xl md:text-4xl sm:text-3xl"
+          fontSize="lg:text-4xl text-4xl"
         >
           {t("section5.title")}
         </TitleSection>
