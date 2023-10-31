@@ -42,7 +42,7 @@ export const useScrollEvent = () => {
       const sectionTop = position.top;
       const sectionBottom = position.bottom;
 
-      let classesToAdd = ['active', 'px-1', 'py-2', 'bg-white', 'text-dark-blue', 'sm:px-5'];
+      let classesToAdd = ['active', 'bg-white', 'text-dark-blue', 'sm:px-5'];
 
       if (!navLinks[index]) {
         return;
