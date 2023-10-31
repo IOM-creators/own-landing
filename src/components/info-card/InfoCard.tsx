@@ -32,7 +32,7 @@ const InfoCard: React.FC<IInfoCard> = ({ card, className }) => {
       {card.btnText && (
         <Button
           icon="left-arrow"
-          className="mt-5 pb-2 w-max group relative before:block  before:absolute before:content-'' before:w-full before:top-full before:h-0.5 before:bg-black"
+          className="mt-5 pb-2 w-max group relative before:block  before:absolute before:content-'' before:w-full before:top-full before:h-0.5 before:bg-dark-blue"
         >
           <a href={card.btnLink} className="text-xl mr-2">
             {card.btnText}

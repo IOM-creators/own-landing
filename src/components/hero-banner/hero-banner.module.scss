@@ -1,14 +1,11 @@
-
-.hero-banner{
-  color: var(--white);
-}
 .canvas-container {
   width: 100%;
   height: 100vh;
 }
 
 .canvas {
-  background: url("../../assets/images/filter.png") center center/cover var(--dark-blue);
+  background: url("../../assets/images/filter.png") center center/cover
+    var(--dark-blue);
   height: 100%;
   left: 0;
   position: absolute;

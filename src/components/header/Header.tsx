@@ -1,10 +1,8 @@
-import Icon from "../icon";
-
 import { useScrollEvent, useWindowWidth } from "../../helpers/reactHooks";
 import HeaderNavigation from "./HeaderNavigation";
 import LanguageSelector from "./LanguageSelector";
 import HamburgerMenu from "./Hamburger";
-
+import Icon from "../icon";
 interface INavigation {
   scrollTo: string;
   textId: string;
@@ -37,7 +35,6 @@ const Header = () => {
   const { scrollingDown } = useScrollEvent();
 
   const windowWidth = useWindowWidth();
-
   return (
     <header
       className={`py-5 sticky top-0 z-50 bg-dark-blue w-full  transition-transform transform ${
