@@ -31,7 +31,7 @@ const HeaderNavigation: React.FC<IHeaderNavigation> = ({
               >
                 <a
                   href="/"
-                  className="rounded-3xl px-1 py-2 text-lg lg:text-base"
+                  className="rounded-3xl px-3 py-2 text-lg lg:text-base"
                   data-scroll-to={navItem.scrollTo}
                   onClick={(e) => scrollTo(e)}
                 >

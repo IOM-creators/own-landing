@@ -2,42 +2,45 @@ import { useNavigate } from "react-router";
 import { useLanguageFromURL } from "../../helpers/reactHooks";
 import { useTranslation } from "react-i18next";
 import { useEffect, useState } from "react";
-import Select from 'react-select';
+import Select from "react-select";
 
 interface ILanguageSelector {
   classname?: string;
+  setOpenChangeNav?: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 type Option = { value: string; label: string };
 
 const languages: Option[] = [
-  { value: 'de', label: 'DE' },
-  { value: 'en', label: 'EN' },
+  { value: "de", label: "DE" },
+  { value: "en", label: "EN" },
 ];
 
-
-const LanguageSelector: React.FC<ILanguageSelector> = ({ classname = '' }) => {
+const LanguageSelector: React.FC<ILanguageSelector> = ({
+  classname = "",
+  setOpenChangeNav = () => false,
+}) => {
   const navigate = useNavigate();
   const translation = useTranslation();
 
   useLanguageFromURL(navigate, translation);
 
-
-  const findCurrentLanguage = () => languages.find((option) => option.value === translation.i18n.language) || languages[0]
+  const findCurrentLanguage = () =>
+    languages.find((option) => option.value === translation.i18n.language) ||
+    languages[0];
 
   const [selectedOption, setSelectedOption] = useState(findCurrentLanguage());
 
-
   useEffect(() => {
-    setSelectedOption(findCurrentLanguage())
-  }, [translation.i18n.language, findCurrentLanguage])
-
+    setSelectedOption(findCurrentLanguage());
+  }, [translation.i18n.language, findCurrentLanguage]);
 
   const changeLanguage = (e: any) => {
+    setOpenChangeNav(false);
     const lng = e.value;
     translation.i18n.changeLanguage(lng);
     navigate(`/${lng}`);
-    setSelectedOption(e)
+    setSelectedOption(e);
   };
   return (
     <div className={classname}>
@@ -54,4 +57,4 @@ const LanguageSelector: React.FC<ILanguageSelector> = ({ classname = '' }) => {
   );
 };
 
-export default LanguageSelector
+export default LanguageSelector;

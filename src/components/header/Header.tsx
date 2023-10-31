@@ -29,6 +29,10 @@ const headernavigation: INavigation[] = [
     scrollTo: "section5",
     textId: "Section5",
   },
+  {
+    scrollTo: "ContactUs",
+    textId: "ContactUs",
+  },
 ];
 
 const Header = () => {

@@ -35,7 +35,7 @@ const ContactForm: React.FC<IContactForm> = ({ className }) => {
   };
   const onError = (errors: any, e: any) => console.log(errors, e);
   return (
-    <Section className={className}>
+    <Section id="ContactUs" className={className}>
       <div className="bg-dark-blue py-20 px-10 md:px-40 rounded-2xl bg-ellipse bg-right-top bg-no-repeat">
         <TitleSection
           tag="h2"

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import LanguageSelector from "./LanguageSelector";
 import HeaderNavigation from "./HeaderNavigation";
 import { IHeaderNavigation } from "../../helpers/commonInterfaces";
@@ -15,6 +15,11 @@ const HamburgerMenu: React.FC<IHeaderNavigation> = ({
       : document.body.classList.remove("overflow-hidden");
     setIsOpen(!isOpen);
   };
+
+  useEffect(() => {
+    !isOpen && document.body.classList.remove("overflow-hidden");
+  }, [isOpen]);
+
   return (
     <div className="lg:hidden ml-auto mr-0">
       <button onClick={toggleMenu} className="text-white p-2">
@@ -56,7 +61,10 @@ const HamburgerMenu: React.FC<IHeaderNavigation> = ({
             navigation={navigation}
             setOpenNavChange={setIsOpen}
           />
-          <LanguageSelector classname="mr-0 w-24 mt-8 lg:mt-0" />
+          <LanguageSelector
+            classname="mr-0 w-24 mt-8 lg:mt-0"
+            setOpenChangeNav={setIsOpen}
+          />
         </div>
       </div>
     </div>
