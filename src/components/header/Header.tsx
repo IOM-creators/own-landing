@@ -37,12 +37,11 @@ const Header = () => {
   const windowWidth = useWindowWidth();
   return (
     <header
-      className={`py-5 sticky top-0 z-50 bg-dark-blue w-full  transition-transform transform ${
-        scrollingDown ? "translate-y-0" : "-translate-y-full"
-      }`}
+      className={`pt-2 sticky top-0 z-50 bg-dark-blue w-full lg:py-5  transition-transform transform ${scrollingDown ? "translate-y-0" : "-translate-y-full"
+        }`}
     >
       <div className="container flex items-center font-serif text-base font-semibold ">
-        <Icon icon="logo" />
+        <Icon className="w-12 lg:w-auto" icon="logo" />
         {windowWidth < 1024 ? (
           <HamburgerMenu navigation={headernavigation} />
         ) : (
