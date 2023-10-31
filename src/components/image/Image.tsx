@@ -1,5 +1,5 @@
 import React from "react";
-import Placeholder from "../../assets/placeholders/person.jpg";
+import Placeholder from "../../assets/placeholders/person.png";
 import cn from "classnames";
 
 interface IImage {

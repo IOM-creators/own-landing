@@ -5,7 +5,7 @@ import DynamicTag from "../dynamic-tag";
 import Button from "../button";
 
 interface IInfoCard {
-  card: {
+  card?: {
     image: string;
     title?: string;
     description?: string;
@@ -18,18 +18,18 @@ interface IInfoCard {
 const InfoCard: React.FC<IInfoCard> = ({ card, className }) => {
   return (
     <div className={className}>
-      {card.image && <Image src={card.image} borderRadius="rounded-3xl" />}
-      {card.title && (
+      {card?.image && <Image src={card.image} borderRadius="rounded-3xl" />}
+      {card?.title && (
         <TitleSection tag="h4" fontSize="text-2xl" className="mt-6">
           {card.title}
         </TitleSection>
       )}
-      {card.description && (
+      {card?.description && (
         <DynamicTag tag="p" className="text-xl text-gray mt-2">
           {card.description}
         </DynamicTag>
       )}
-      {card.btnText && (
+      {card?.btnText && (
         <Button
           icon="left-arrow"
           className="mt-5 pb-2 w-max group relative before:block  before:absolute before:content-'' before:w-full before:top-full before:h-0.5 before:bg-dark-blue"

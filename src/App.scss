@@ -104,11 +104,19 @@ svg {
   height: 100%;
   object-fit: cover;
 }
-body .swiper-pagination-bullet {
+.swiper-pagination-gallery .swiper-pagination-bullet {
   background: var(--dark-blue);
   border: 1px solid var(--white);
   opacity: 1;
 }
-body .swiper-pagination-bullet-active {
+.swiper-pagination-gallery .swiper-pagination-bullet-active {
   background: var(--white);
+}
+.swiper-pagination-feedback .swiper-pagination-bullet {
+  background: var(--white);
+  border: 1px solid var(--dark-blue);
+  opacity: 1;
+}
+.swiper-pagination-feedback .swiper-pagination-bullet-active {
+  background: var(--dark-blue);
 }
