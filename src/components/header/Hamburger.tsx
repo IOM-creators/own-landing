@@ -7,6 +7,7 @@ const HamburgerMenu: React.FC<IHeaderNavigation> = ({ classname = '', navigation
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleMenu = () => {
+    !isOpen ? document.body.classList.add('overflow-hidden') : document.body.classList.remove('overflow-hidden')
     setIsOpen(!isOpen);
   };
   return (
@@ -36,16 +37,15 @@ const HamburgerMenu: React.FC<IHeaderNavigation> = ({ classname = '', navigation
           )}
         </svg>
       </button>
-      {isOpen && (
-        <div className={`w-full bg-gray-dark  fixed top-0 left-0 py-5 transform transition-transform duration-300 ease-in-out ${isOpen ? 'translate-y-full ' : ''}`}>
-          <div
-            className={`w-full container flex justify-between align-center bg-gray-dark '`}
-          >
-            <HeaderNavigation classname="flex flex-col space-y-4 text-white" navigation={navigation} />
-            <LanguageSelector classname="mr-0" />
-          </div>
+
+      <div className={`w-full h-screen bg-dark-blue  fixed top-full right-0 pt-10 transform transition-transform duration-300 ease-in-out ${isOpen ? 'translate-x-0' : 'translate-x-full'}`}>
+        <div
+          className={`w-full h-full container flex items-end  align-center flex-col `}
+        >
+          <HeaderNavigation classname="flex flex-col space-y-4 text-white" navigation={navigation} />
+          <LanguageSelector classname="mr-0 w-24 mt-8 lg:mt-0" />
         </div>
-      )}
+      </div>
     </div>
   );
 };
