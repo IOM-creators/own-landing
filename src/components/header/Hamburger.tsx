@@ -36,16 +36,15 @@ const HamburgerMenu: React.FC<IHeaderNavigation> = ({ classname = '', navigation
           )}
         </svg>
       </button>
-      {isOpen && (
-        <div className={`w-full bg-gray-dark  fixed top-0 left-0 py-5 transform transition-transform duration-300 ease-in-out ${isOpen ? 'translate-y-full ' : ''}`}>
-          <div
-            className={`w-full container flex justify-between align-center bg-gray-dark '`}
-          >
-            <HeaderNavigation classname="flex flex-col space-y-4 text-white" navigation={navigation} />
-            <LanguageSelector classname="mr-0" />
-          </div>
+
+      <div className={`w-full bg-dark-blue  fixed top-full left-0 py-3 transform transition-transform duration-300 ease-in-out ${isOpen ? '' : '-translate-x-full'}`}>
+        <div
+          className={`w-full container flex justify-between align-center flex-col `}
+        >
+          <HeaderNavigation classname="flex flex-col space-y-4 text-white" navigation={navigation} />
+          <LanguageSelector classname="mr-0 w-24" />
         </div>
-      )}
+      </div>
     </div>
   );
 };

@@ -14,11 +14,11 @@ const HeaderNavigation: React.FC<IHeaderNavigation> = ({ classname = '', navigat
   };
   return (
     <nav className={classname}>
-      <ul className="flex h-full items-center">
+      <ul className="flex h-full flex-row flex-wrap items-start lg:items-center  lg:justify-center">
         {navigation &&
           navigation.map((navItem: INavigation, index: number) => {
             return (
-              <li key={navItem.textId} className={`text-white ${(index === (navigation.length - 1)) ? '' : 'pr-2 sm:pr-10'}`}>
+              <li key={navItem.textId} className={`text-white mb-3 ${(index === (navigation.length - 1)) ? '' : 'pr-2 sm:pr-10 '} lg:mb-0`}>
                 <a
                   href="/"
                   className="rounded-3xl"

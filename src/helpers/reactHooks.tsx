@@ -15,43 +15,57 @@ export const useLanguageFromURL = (navigate: NavigateFunction, translation: UseT
 export const useScrollEvent = () => {
   const [y, setY] = useState(0);
   const [scrollingDown, updateScrollingDown] = useState(window.scrollY === 0 ? true : false);
+
   const sections = document.querySelectorAll('.section');
   const navLinks = document.querySelectorAll('nav ul li a');
-  const scrollPositions: number[] = []
-  sections && sections.forEach((section: any) => {
-    scrollPositions.push((section as HTMLElement)?.offsetTop);
-  })
+  const sectionPositions: { top: number; bottom: number }[] = [];
+
+  sections.forEach((section) => {
+    const sectionTop = (section as HTMLElement).offsetTop;
+    const sectionBottom = sectionTop + (section as HTMLElement).clientHeight;
+    sectionPositions.push({ top: sectionTop, bottom: sectionBottom });
+  });
+
   const handleNavigation = useCallback((e: any) => {
     const window = e.currentTarget;
     const scrollPosition = window.scrollY;
-    y > scrollPosition ? updateScrollingDown(true) : updateScrollingDown(false);
-    const noSectionInView = Array.from(sections).every((section) => {
-      const sectionTop = (section as HTMLElement).offsetTop;
-      const sectionBottom = sectionTop + (section as HTMLElement).clientHeight;
-      return scrollPosition + 100 < sectionTop || scrollPosition >= sectionBottom;
+    if (scrollPosition > 82) {
+      y > scrollPosition ? updateScrollingDown(true) : updateScrollingDown(false);
+    }
+
+
+    const noSectionInView = sectionPositions.every((position) => {
+      return scrollPosition + 100 < position.top || scrollPosition >= position.bottom;
     });
-    sections.forEach((section, index) => {
-      const htmlSection = section as HTMLElement
-      const sectionTop = htmlSection?.offsetTop;
-      if (!scrollPositions.includes(sectionTop))
-        return;
-      const sectionBottom = sectionTop + htmlSection.clientHeight;
+
+    sectionPositions.forEach((position, index) => {
+      const sectionTop = position.top;
+      const sectionBottom = position.bottom;
+
       let classesToAdd = ['active', 'px-1', 'py-2', 'bg-white', 'text-dark-blue', 'sm:px-5'];
+
       if (!navLinks[index]) {
         return;
       }
+
       if (scrollPosition + 100 >= sectionTop && scrollPosition < sectionBottom) {
-        !navLinks[index].classList.contains('active') && navLinks[index].classList.add(...classesToAdd);
-        window.history.replaceState(null, '', `#${section.id}`);
+        if (!navLinks[index].classList.contains('active')) {
+          navLinks[index].classList.add(...classesToAdd);
+          window.history.replaceState(null, '', `#${sections[index].id}`);
+        }
       } else {
-        navLinks[index].classList.contains('active') && navLinks[index].classList.remove(...classesToAdd);
+        if (navLinks[index].classList.contains('active')) {
+          navLinks[index].classList.remove(...classesToAdd);
+        }
       }
     });
+
     if (noSectionInView && window.location.hash) {
       window.history.replaceState(null, '', window.location.pathname);
     }
+
     setY(scrollPosition);
-  }, [y]);
+  }, [sectionPositions, navLinks, sections]);
 
   useEffect(() => {
     window.addEventListener("scroll", handleNavigation);
