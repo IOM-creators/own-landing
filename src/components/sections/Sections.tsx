@@ -14,7 +14,7 @@ const Sections = () => {
       <ProjectsSection className="section my-20 md:my-40 pt-20 pb-28 md:py-40 container mx-lg" />
       <OurTeamSection className="section my-20 md:my-40 container mx-lg" />
       <Feedback className="section my-20 md:my-40 container mx-lg" />
-      <ContactForm className="section my-20 md:my-40 container mx-lg" />
+      <ContactForm className="section my-20 md:my-40 sm:container sm:mx-lg" />
     </>
   );
 };

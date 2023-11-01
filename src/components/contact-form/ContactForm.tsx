@@ -16,8 +16,6 @@ type FormValues = {
   message: string;
 };
 
-
-
 const ContactForm: React.FC<ISectionCommon> = ({ className }) => {
   const { t } = useTranslation();
   const {
@@ -33,24 +31,28 @@ const ContactForm: React.FC<ISectionCommon> = ({ className }) => {
       message: "",
     },
   });
-  const [successMessage, updateMessage] = useState(false)
-  const [errorMessage, updateError] = useState(false)
+  const [successMessage, updateMessage] = useState(false);
+  const [errorMessage, updateError] = useState(false);
 
   const onSubmit = async (data: FormValues, e: any) => {
     e.preventDefault();
     console.log("data", data);
-    axios.post('https://book-store-zt-f600bde9fca9.herokuapp.com/email/send-email', data)
+    axios
+      .post(
+        "https://book-store-zt-f600bde9fca9.herokuapp.com/email/send-email",
+        data
+      )
       .then(() => {
         updateMessage(true);
       })
       .catch(() => {
-        updateError(true)
+        updateError(true);
       });
   };
   const onError = (errors: any, e: any) => console.log(errors, e);
   return (
     <Section id="ContactUs" className={className}>
-      <div className="bg-dark-blue py-20 px-10 md:px-40 rounded-2xl bg-ellipse bg-right-top bg-no-repeat">
+      <div className="bg-dark-blue py-20 px-10 md:px-40 sm:rounded-2xl bg-ellipse bg-right-top bg-no-repeat">
         <TitleSection
           tag="h2"
           fontSize="text-3xl md:text-5xl"
@@ -164,16 +166,16 @@ const ContactForm: React.FC<ISectionCommon> = ({ className }) => {
                 <span className="text-error">{errors.message.message}</span>
               )}
             </div>
-            {successMessage && <div className="success-message">
-              <p className="text-green">{
-                t("contactUS.successMessage")
-              }</p>
-            </div>}
-            {errorMessage && <div className="error-message">
-              <p className="text-error">{
-                t("contactUS.errorMessage")
-              }</p>
-            </div>}
+            {successMessage && (
+              <div className="success-message">
+                <p className="text-green">{t("contactUS.successMessage")}</p>
+              </div>
+            )}
+            {errorMessage && (
+              <div className="error-message">
+                <p className="text-error">{t("contactUS.errorMessage")}</p>
+              </div>
+            )}
 
             <div className="mt-5 flex justify-center">
               <Button type="submit" secondary>
