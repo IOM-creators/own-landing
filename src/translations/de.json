@@ -113,5 +113,40 @@
   "contactUS": {
     "successMessage": " Danke schön! Ihre Nachricht wurde erfolgreich gesendet. Wir werden uns in Kürze bei Ihnen melden!",
     "errorMessage": "Fehler"
+  },
+  "feedback": {
+    "title": "Upwork-Kundenrezensionen",
+    "reviews": [
+      {
+        "name": "Ivan Biriuk",
+        "stars": 5,
+        "response": "Sehr aufrichtiger Mensch, absolut professionell und sehr unkompliziert in der Zusammenarbeit, ich freue mich auf die regelmäßige Zusammenarbeit mit ihm."
+      },
+      {
+        "name": "Oleg Statkevych",
+        "stars": 5,
+        "response": "Die Zusammenarbeit mit Ihnen ist großartig, Sie schreiben sauberen Code und nehmen Änderungen extrem schnell vor. Es war toll, mit ihm zusammenzuarbeiten, ich kann es nur wärmstens empfehlen!"
+      },
+      {
+        "name": "Mykola Shpakivskiy",
+        "stars": 5,
+        "response": "Es hat mir Spaß gemacht, mit Ihnen zu arbeiten. Die Aufgabe war dringend und er konnte den Termin einhalten und eine schnelle Lösung anbieten."
+      },
+      {
+        "name": "Ivan Biriuk",
+        "stars": 4,
+        "response": "Es hat mir Spaß gemacht, mit Ihnen zu arbeiten. Die Aufgabe war dringend und er konnte den Termin einhalten und eine schnelle Lösung anbieten."
+      }
+    ]
+  },
+  "contact_us": {
+    "title": "Eine Unternehmensvorlage zur Optimierung Ihrer Unternehmenswebsite",
+    "btn_text": "Einreichen",
+    "form": {
+      "first_name": "Vorname",
+      "last_name": "Familienname",
+      "email": "Email",
+      "message": "Nachricht"
+    }
   }
 }

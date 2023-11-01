@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import { Controller, useForm } from "react-hook-form";
+import { useTranslation } from "react-i18next";
+
 import Section from "../section";
 import Button from "../button";
 import TitleSection from "../title-section";
@@ -8,8 +10,8 @@ import { t } from "i18next";
 import { ISectionCommon } from "../../helpers/commonInterfaces";
 
 type FormValues = {
-  name: string;
-  surname: string;
+  first_name: string;
+  last_name: string;
   email: string;
   message: string;
 };
@@ -17,6 +19,7 @@ type FormValues = {
 
 
 const ContactForm: React.FC<ISectionCommon> = ({ className }) => {
+  const { t } = useTranslation();
   const {
     register,
     handleSubmit,
@@ -24,8 +27,8 @@ const ContactForm: React.FC<ISectionCommon> = ({ className }) => {
     formState: { errors },
   } = useForm<FormValues>({
     defaultValues: {
-      name: "",
-      surname: "",
+      first_name: "",
+      last_name: "",
       email: "",
       message: "",
     },
@@ -36,8 +39,6 @@ const ContactForm: React.FC<ISectionCommon> = ({ className }) => {
   const onSubmit = async (data: FormValues, e: any) => {
     e.preventDefault();
     console.log("data", data);
-
-    // Send a POST request to your server
     axios.post('https://book-store-zt-f600bde9fca9.herokuapp.com/email/send-email', data)
       .then(() => {
         updateMessage(true);
@@ -55,56 +56,62 @@ const ContactForm: React.FC<ISectionCommon> = ({ className }) => {
           fontSize="text-3xl md:text-5xl"
           className="text-center mb-10 max-w-lap mx-auto text-white"
         >
-          An enterprise template to ramp up your company website
+          {t("contact_us.title")}
         </TitleSection>
         <div className="max-w-lg mx-auto">
           <form onSubmit={handleSubmit(onSubmit, onError)}>
             <div className="grid grid-cols-1  sm:gap-4 sm:grid-cols-6">
               <div className="sm:col-span-3  sm:my-4">
-                <label htmlFor="name"></label>
+                <label htmlFor="first_name"></label>
                 <Controller
-                  name="name"
+                  name="first_name"
                   control={control}
-                  rules={{ required: "Name is required" }}
+                  rules={{
+                    required: t("contact_us.form.first_name") + " is required",
+                  }}
                   render={({ field }) => (
                     <input
                       {...field}
                       type="text"
                       id="first-name"
-                      placeholder="First name"
+                      placeholder={t("contact_us.form.first_name")}
                       autoComplete="given-name"
                       className="block w-full rounded-md  p-2 px-4 "
                       aria-describedby="my-helper-text"
-                      {...register("name")}
+                      {...register("first_name")}
                     />
                   )}
                 />
-                {errors.name && (
-                  <span className="text-error">{errors.name.message}</span>
+                {errors.first_name && (
+                  <span className="text-error">
+                    {errors.first_name.message}
+                  </span>
                 )}
               </div>
 
               <div className="sm:col-span-3  my-4">
-                <label htmlFor="surname"></label>
+                <label htmlFor="last_name"></label>
                 <Controller
-                  name="surname"
+                  name="last_name"
                   control={control}
-                  rules={{ required: "Surname is required" }}
+                  rules={{
+                    required: t("contact_us.form.last_name") + " is required",
+                  }}
                   render={({ field }) => (
                     <input
                       {...field}
                       type="text"
-                      id="surname"
-                      placeholder="Last name"
+                      id="last_name"
+                      placeholder={t("contact_us.form.last_name")}
                       autoComplete="family-name"
                       className="block w-full rounded-md  py-2 px-4 "
                       aria-describedby="my-helper-text"
-                      {...register("surname")}
+                      {...register("last_name")}
                     />
                   )}
                 />
-                {errors.surname && (
-                  <span className="text-error">{errors.surname.message}</span>
+                {errors.last_name && (
+                  <span className="text-error">{errors.last_name.message}</span>
                 )}
               </div>
             </div>
@@ -113,13 +120,15 @@ const ContactForm: React.FC<ISectionCommon> = ({ className }) => {
               <Controller
                 name="email"
                 control={control}
-                rules={{ required: "Email is required" }}
+                rules={{
+                  required: t("contact_us.form.email") + " is required",
+                }}
                 render={({ field }) => (
                   <input
                     {...field}
                     type="email"
                     id="email"
-                    placeholder="Email address"
+                    placeholder={t("contact_us.form.email")}
                     autoComplete="email"
                     className="block w-full rounded-md  p-2 px-4 "
                     aria-describedby="my-helper-text"
@@ -136,12 +145,14 @@ const ContactForm: React.FC<ISectionCommon> = ({ className }) => {
               <Controller
                 name="message"
                 control={control}
-                rules={{ required: "Message is required" }}
+                rules={{
+                  required: t("contact_us.form.message") + " is required",
+                }}
                 render={({ field }) => (
                   <textarea
                     {...field}
                     id="message"
-                    placeholder="Message"
+                    placeholder={t("contact_us.form.message")}
                     rows={3}
                     className="block w-full rounded-md p-2 px-4 "
                     aria-describedby="my-helper-text"
@@ -166,7 +177,7 @@ const ContactForm: React.FC<ISectionCommon> = ({ className }) => {
 
             <div className="mt-5 flex justify-center">
               <Button type="submit" secondary>
-                Submit
+                {t("contact_us.btn_text")}
               </Button>
             </div>
           </form>

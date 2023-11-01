@@ -1,10 +1,13 @@
 import React from "react";
 import cn from "classnames";
 
+import { SwiperSlide } from "swiper/react";
+import { useTranslation } from "react-i18next";
+
 import Section from "../section";
 import TitleSection from "../title-section";
 import Slider from "../slider";
-import { SwiperSlide } from "swiper/react";
+
 import Icon from "../icon";
 import { ISectionCommon } from "../../helpers/commonInterfaces";
 
@@ -35,7 +38,18 @@ const feedbacks = [
   },
 ];
 
+
+
+
 const Feedback: React.FC<ISectionCommon> = ({ className }) => {
+  const { t } = useTranslation();
+  const cardsContent = t("feedback.reviews", {
+    returnObjects: true,
+  }) as string[];
+  const feedbacks = cardsContent.map((feedback: any) => {
+    return { ...feedback };
+  });
+
   const sliderParams = {
     grabCursor: true,
     centeredSlides: true,
@@ -66,7 +80,7 @@ const Feedback: React.FC<ISectionCommon> = ({ className }) => {
         className="mb-10 md:mb-20 text-center"
         fontSize="md:text-5xl text-4xl"
       >
-        Customer reviews
+        {t("feedback.title")}
       </TitleSection>
       <div className="slider-wrapper relative">
         <Slider params={sliderParams} className="feedback-slider">
