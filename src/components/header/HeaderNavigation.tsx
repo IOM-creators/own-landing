@@ -1,14 +1,19 @@
 import { useTranslation } from "react-i18next";
 import { IHeaderNavigation, INavigation } from "../../helpers/commonInterfaces";
 
-
-const HeaderNavigation: React.FC<IHeaderNavigation> = ({ classname = '', navigation }) => {
+const HeaderNavigation: React.FC<IHeaderNavigation> = ({
+  classname = "",
+  navigation,
+  setOpenNavChange = () => false,
+}) => {
   const { t } = useTranslation();
   const scrollTo = (e: any) => {
     e.preventDefault();
+    setOpenNavChange(false);
+    document.body.classList.remove("overflow-hidden");
     const id = e.target.getAttribute("data-scroll-to");
     const url = `#${id}`;
-    window.history.pushState(null, '', url);
+    window.history.pushState(null, "", url);
     const sectionScrollTo = document.getElementById(`${id}`);
     sectionScrollTo && sectionScrollTo.scrollIntoView({ behavior: "smooth" });
   };
@@ -19,10 +24,15 @@ const HeaderNavigation: React.FC<IHeaderNavigation> = ({ classname = '', navigat
         {navigation &&
           navigation.map((navItem: INavigation, index: number) => {
             return (
-              <li key={navItem.textId} className={`text-white my-5 ${(index === (navigation.length - 1)) ? 'pr-0' : 'pr-0 lg:pr-10 '} lg:my-0 lg:mb-0`}>
+              <li
+                key={navItem.textId}
+                className={`text-white my-5 ${
+                  index === navigation.length - 1 ? "pr-0" : "pr-0 lg:pr-10 "
+                } lg:my-0 lg:mb-0`}
+              >
                 <a
                   href="/"
-                  className="rounded-3xl px-1 py-2 text-lg lg:text-base"
+                  className="rounded-3xl px-3 py-2 text-lg lg:text-base"
                   data-scroll-to={navItem.scrollTo}
                   onClick={(e) => scrollTo(e)}
                 >
@@ -36,5 +46,4 @@ const HeaderNavigation: React.FC<IHeaderNavigation> = ({ classname = '', navigat
   );
 };
 
-
-export default HeaderNavigation
+export default HeaderNavigation;

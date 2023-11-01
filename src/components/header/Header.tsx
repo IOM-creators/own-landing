@@ -29,6 +29,14 @@ const headernavigation: INavigation[] = [
     scrollTo: "section5",
     textId: "Section5",
   },
+  {
+    scrollTo: "Feedback",
+    textId: "Feedback",
+  },
+  {
+    scrollTo: "ContactUs",
+    textId: "ContactUs",
+  },
 ];
 
 const Header = () => {
@@ -37,8 +45,9 @@ const Header = () => {
   const windowWidth = useWindowWidth();
   return (
     <header
-      className={`pt-2 sticky top-0 z-50 bg-dark-blue w-full lg:py-5  transition-transform transform ${scrollingDown ? "translate-y-0" : "-translate-y-full"
-        }`}
+      className={`sticky top-0 z-50 bg-dark-blue w-full lg:py-5  transition-transform transform ${
+        scrollingDown ? "translate-y-0" : "-translate-y-full"
+      }`}
     >
       <div className="container flex items-center font-serif text-base font-semibold ">
         <Icon className="w-12 lg:w-auto" icon="logo" />

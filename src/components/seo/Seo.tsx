@@ -13,7 +13,7 @@ interface ISeo {
 // TODO  
 
 const seoData: ISeo = {
-  title: 'Interactive Web Development | Optimized Code Efficiency |  Modern Framework Proficiency | IOM',
+  title: 'IOM',
   description: 'Top-notch IT services provided by experienced professionals. Discover our managed IT solutions for businesses. Contact us for expert IT support and solutions.',
   imagePath: `${window.location.origin + siteImage}`,
   siteUrl: `${window.location.origin}`,

@@ -4,6 +4,7 @@ import styles from "./button.module.scss";
 import Icon from "../icon";
 interface IButton {
   icon?: string;
+  type?: any;
   primary?: boolean;
   secondary?: boolean;
   rightText?: boolean;
@@ -15,6 +16,7 @@ interface IButton {
 
 const Button: React.FC<IButton> = ({
   icon,
+  type = "button",
   primary,
   secondary,
   className,
@@ -25,6 +27,7 @@ const Button: React.FC<IButton> = ({
 }) => {
   return (
     <button
+      type={type}
       className={cn(
         styles.button,
         {
