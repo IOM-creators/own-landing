@@ -22,12 +22,12 @@ const HamburgerMenu: React.FC<IHeaderNavigation> = ({
 
   return (
     <div className="lg:hidden ml-auto mr-0">
-      <button onClick={toggleMenu} className="text-white p-2">
+      <button onClick={toggleMenu} className="text-white py-2">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           className="w-10 h-10"
           fill="none"
-          viewBox="0 0 32 32"
+          viewBox="-10 -2 32 32"
           stroke="currentColor"
         >
           {isOpen ? (
