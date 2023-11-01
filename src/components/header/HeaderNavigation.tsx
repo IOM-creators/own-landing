@@ -26,8 +26,8 @@ const HeaderNavigation: React.FC<IHeaderNavigation> = ({
             return (
               <li
                 key={navItem.textId}
-                className={`text-white my-5 ${
-                  index === navigation.length - 1 ? "pr-0" : "pr-0 lg:pr-10 "
+                className={`text-white my-3 md:my-5 ${
+                  index === navigation.length - 1 ? "pr-0" : "pr-0 lg:pr-5 "
                 } lg:my-0 lg:mb-0`}
               >
                 <a

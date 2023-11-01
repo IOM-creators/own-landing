@@ -45,7 +45,7 @@ const Header = () => {
   const windowWidth = useWindowWidth();
   return (
     <header
-      className={`sticky top-0 z-50 bg-dark-blue w-full lg:py-5  transition-transform transform ${
+      className={`sticky top-0 z-50 bg-dark-blue w-full py-2 lg:py-5  transition-transform transform ${
         scrollingDown ? "translate-y-0" : "-translate-y-full"
       }`}
     >
