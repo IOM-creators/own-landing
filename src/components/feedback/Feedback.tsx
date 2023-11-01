@@ -1,6 +1,7 @@
 import React from "react";
+import cn from "classnames";
+
 import Section from "../section";
-import Person from "../../assets/placeholders/person.png";
 import TitleSection from "../title-section";
 import Slider from "../slider";
 import { SwiperSlide } from "swiper/react";
@@ -27,7 +28,7 @@ const feedbacks = [
   },
   {
     name: "Ivan Biriuk",
-    stars: 5,
+    stars: 4,
     response:
       "Enjoyed working with Mykola. The task was urgent, and he was able to meet the deadline and provide a quick solution.",
   },
@@ -80,7 +81,10 @@ const Feedback: React.FC<IFeedback> = ({ className }) => {
                 <h5 className="text-xl">{feedback.name}</h5>
                 <div className="flex justify-center my-5">
                   {[1, 2, 3, 4, 5].map((i) => (
-                    <Icon icon="star" />
+                    <Icon
+                      icon="star"
+                      className={cn({ "fill-green": i <= feedback.stars })}
+                    />
                   ))}
                 </div>
                 <i>"{feedback.response}"</i>
