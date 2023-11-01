@@ -7,6 +7,7 @@ import Person1 from "../../assets/images/person1.png";
 import Person2 from "../../assets/images/person2.png";
 import Person3 from "../../assets/images/person3.png";
 import { useTranslation } from "react-i18next";
+import { ISectionCommon } from "../../helpers/commonInterfaces";
 
 const images = [
   {
@@ -20,10 +21,8 @@ const images = [
   },
 ];
 
-interface ISection1 {
-  className?: string;
-}
-const Section1: React.FC<ISection1> = ({ className }) => {
+
+const ServiceSection: React.FC<ISectionCommon> = ({ className }) => {
   const { t } = useTranslation();
   const cardsContent = t("section1.cards", { returnObjects: true }) as string[];
   const cards = cardsContent.map((card: any, index: number) => {
@@ -53,4 +52,4 @@ const Section1: React.FC<ISection1> = ({ className }) => {
   );
 };
 
-export default Section1;
+export default ServiceSection;

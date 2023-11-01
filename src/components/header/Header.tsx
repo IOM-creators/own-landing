@@ -11,31 +11,27 @@ interface INavigation {
 const headernavigation: INavigation[] = [
   {
     scrollTo: "section1",
-    textId: "Section1",
+    textId: "Service",
   },
   {
     scrollTo: "section2",
-    textId: "Section2",
-  },
-  {
-    scrollTo: "section3",
-    textId: "Section3",
+    textId: "Experience",
   },
   {
     scrollTo: "section4",
-    textId: "Section4",
+    textId: "Projects",
   },
   {
     scrollTo: "section5",
-    textId: "Section5",
+    textId: "Our Team",
   },
   {
     scrollTo: "Feedback",
-    textId: "Feedback",
+    textId: "Feedbacks",
   },
   {
     scrollTo: "ContactUs",
-    textId: "ContactUs",
+    textId: "Contact Us",
   },
 ];
 
@@ -45,9 +41,8 @@ const Header = () => {
   const windowWidth = useWindowWidth();
   return (
     <header
-      className={`sticky top-0 z-50 bg-dark-blue w-full lg:py-5  transition-transform transform ${
-        scrollingDown ? "translate-y-0" : "-translate-y-full"
-      }`}
+      className={`sticky top-0 z-50 bg-dark-blue w-full lg:py-5  transition-transform transform ${scrollingDown ? "translate-y-0" : "-translate-y-full"
+        }`}
     >
       <div className="container flex items-center font-serif text-base font-semibold ">
         <Icon className="w-12 lg:w-auto" icon="logo" />

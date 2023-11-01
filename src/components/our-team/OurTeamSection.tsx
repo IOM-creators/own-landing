@@ -6,11 +6,10 @@ import Image from "../image";
 import Team from "../../assets/images/team.png";
 import { useTranslation } from "react-i18next";
 import List from "../list";
+import { ISectionCommon } from "../../helpers/commonInterfaces";
 
-interface ISection5 {
-  className?: string;
-}
-const Section5: React.FC<ISection5> = ({ className }) => {
+
+const OurTeamSection: React.FC<ISectionCommon> = ({ className }) => {
   const { t } = useTranslation();
   const cardsContent = t("section5.list", { returnObjects: true }) as string[];
   const list: any = cardsContent.map((item: any) => {
@@ -42,4 +41,4 @@ const Section5: React.FC<ISection5> = ({ className }) => {
   );
 };
 
-export default Section5;
+export default OurTeamSection;

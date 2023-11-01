@@ -5,6 +5,7 @@ import Person4 from "../../assets/images/person4.png";
 import Person5 from "../../assets/images/person5.png";
 import InfoWithList from "../info-with-list";
 import { useTranslation } from "react-i18next";
+import { ISectionCommon } from "../../helpers/commonInterfaces";
 
 const images = [
   {
@@ -15,10 +16,8 @@ const images = [
   },
 ];
 
-interface ISection2 {
-  className?: string;
-}
-const Section2: React.FC<ISection2> = ({ className }) => {
+
+const ExperienceSection: React.FC<ISectionCommon> = ({ className }) => {
   const { t } = useTranslation();
   const cardsContent = t("section2.cards", { returnObjects: true }) as string[];
   const cards = cardsContent.map((card: any, index: number) => {
@@ -38,4 +37,4 @@ const Section2: React.FC<ISection2> = ({ className }) => {
   );
 };
 
-export default Section2;
+export default ExperienceSection;

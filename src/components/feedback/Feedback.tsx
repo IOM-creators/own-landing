@@ -6,6 +6,7 @@ import TitleSection from "../title-section";
 import Slider from "../slider";
 import { SwiperSlide } from "swiper/react";
 import Icon from "../icon";
+import { ISectionCommon } from "../../helpers/commonInterfaces";
 
 const feedbacks = [
   {
@@ -33,11 +34,8 @@ const feedbacks = [
       "Enjoyed working with Mykola. The task was urgent, and he was able to meet the deadline and provide a quick solution.",
   },
 ];
-interface IFeedback {
-  className?: string;
-}
 
-const Feedback: React.FC<IFeedback> = ({ className }) => {
+const Feedback: React.FC<ISectionCommon> = ({ className }) => {
   const sliderParams = {
     grabCursor: true,
     centeredSlides: true,
@@ -82,6 +80,7 @@ const Feedback: React.FC<IFeedback> = ({ className }) => {
                 <div className="flex justify-center my-5">
                   {[1, 2, 3, 4, 5].map((i) => (
                     <Icon
+                      key={i}
                       icon="star"
                       className={cn({ "fill-green": i <= feedback.stars })}
                     />

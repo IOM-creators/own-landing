@@ -1,8 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import { Controller, useForm } from "react-hook-form";
 import Section from "../section";
 import Button from "../button";
 import TitleSection from "../title-section";
+import axios from "axios";
+import { t } from "i18next";
+import { ISectionCommon } from "../../helpers/commonInterfaces";
 
 type FormValues = {
   name: string;
@@ -10,12 +13,10 @@ type FormValues = {
   email: string;
   message: string;
 };
-interface IContactForm {
-  className?: string;
-}
 
 
-const ContactForm: React.FC<IContactForm> = ({ className }) => {
+
+const ContactForm: React.FC<ISectionCommon> = ({ className }) => {
   const {
     register,
     handleSubmit,
@@ -29,10 +30,21 @@ const ContactForm: React.FC<IContactForm> = ({ className }) => {
       message: "",
     },
   });
+  const [successMessage, updateMessage] = useState(false)
+  const [errorMessage, updateError] = useState(false)
 
   const onSubmit = async (data: FormValues, e: any) => {
     e.preventDefault();
     console.log("data", data);
+
+    // Send a POST request to your server
+    axios.post('https://book-store-zt-f600bde9fca9.herokuapp.com/email/send-email', data)
+      .then(() => {
+        updateMessage(true);
+      })
+      .catch(() => {
+        updateError(true)
+      });
   };
   const onError = (errors: any, e: any) => console.log(errors, e);
   return (
@@ -141,6 +153,17 @@ const ContactForm: React.FC<IContactForm> = ({ className }) => {
                 <span className="text-error">{errors.message.message}</span>
               )}
             </div>
+            {successMessage && <div className="success-message">
+              <p className="text-green">{
+                t("contactUS.successMessage")
+              }</p>
+            </div>}
+            {errorMessage && <div className="error-message">
+              <p className="text-error">{
+                t("contactUS.errorMessage")
+              }</p>
+            </div>}
+
             <div className="mt-5 flex justify-center">
               <Button type="submit" secondary>
                 Submit

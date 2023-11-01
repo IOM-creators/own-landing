@@ -10,3 +10,8 @@ export interface IHeaderNavigation {
   setOpenNavChange?: React.Dispatch<React.SetStateAction<boolean>>;
   classname?: string;
 }
+
+
+export interface ISectionCommon {
+  className?: string;
+}

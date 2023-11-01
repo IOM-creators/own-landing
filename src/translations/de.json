@@ -109,5 +109,9 @@
         "icon": "check"
       }
     ]
+  },
+  "contactUS": {
+    "successMessage": " Danke schön! Ihre Nachricht wurde erfolgreich gesendet. Wir werden uns in Kürze bei Ihnen melden!",
+    "errorMessage": "Fehler"
   }
 }

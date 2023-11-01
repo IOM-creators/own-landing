@@ -13,6 +13,7 @@ import Person5 from "../../assets/images/person5.png";
 import Person2 from "../../assets/images/person2.png";
 import InfoCard from "../info-card";
 import { SwiperSlide } from "swiper/react";
+import { ISectionCommon } from "../../helpers/commonInterfaces";
 
 const images = [
   {
@@ -28,10 +29,8 @@ const images = [
     image: Person5,
   },
 ];
-interface ISection4 {
-  className?: string;
-}
-const Section4: React.FC<ISection4> = ({ className }) => {
+
+const ProjectsSection: React.FC<ISectionCommon> = ({ className }) => {
   const { t } = useTranslation();
   const cardsContent = t("section4.cards", { returnObjects: true }) as string[];
   const slides = cardsContent.map((card: any, index: number) => {
@@ -108,4 +107,4 @@ const Section4: React.FC<ISection4> = ({ className }) => {
   );
 };
 
-export default Section4;
+export default ProjectsSection;

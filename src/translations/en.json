@@ -111,5 +111,9 @@
         "icon": "check"
       }
     ]
+  },
+  "contactUS": {
+    "successMessage": " Thank you! Your message has been successfully sent. We will contact you very soon!",
+    "errorMessage": "Error"
   }
 }
