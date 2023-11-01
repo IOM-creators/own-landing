@@ -62,7 +62,7 @@ const Feedback: React.FC<IFeedback> = ({ className }) => {
     },
   };
   return (
-    <Section className={className}>
+    <Section id="Feedback" className={className}>
       <TitleSection
         tag="h2"
         className="mb-10 md:mb-20 text-center"
