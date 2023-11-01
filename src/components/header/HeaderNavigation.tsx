@@ -12,6 +12,7 @@ const HeaderNavigation: React.FC<IHeaderNavigation> = ({ classname = '', navigat
     const sectionScrollTo = document.getElementById(`${id}`);
     sectionScrollTo && sectionScrollTo.scrollIntoView({ behavior: "smooth" });
   };
+
   return (
     <nav className={classname}>
       <ul className="flex h-full flex-col flex-wrap items-end lg:items-center lg:flex-row  lg:justify-center">
