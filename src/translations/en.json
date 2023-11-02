@@ -2,10 +2,10 @@
   "header": {
     "Service": "Service",
     "Experience": "Experience",
-    "Projects": "Projects",
-    "OurTeam": "Our Team",
+    "Projects": "Our Work",
+    "OurTeam": "Team",
     "Feedbacks": "Feedbacks",
-    "ContactUs": "Contact Us"
+    "ContactUs": "Get in touch"
   },
   "hero_banner": {
     "letter_1": "I",
@@ -17,23 +17,23 @@
   },
   "section1": {
     "supTitle": "Our Services",
-    "title": "Handshake infographic mass market crowdfunding iteration.",
+    "title": "ARE YOU LOOKING FOR HELP WITH YOUR SHOPIFY STORE?",
     "cards": [
       {
-        "title": "Cool feature title",
-        "description": "Learning curve network effects return on investment.",
+        "title": "Responsive Web Design",
+        "description": "More than 50% of people browse the internet using their mobile phone. </br>If your website isn’t mobile responsive then you’re missing out on half of your potential customers and hurting your Google rankings at the same time.",
         "btnText": "Explore page",
         "link": "/"
       },
       {
-        "title": "Even cooler feature",
-        "description": "Learning curve network effects return on investment.",
+        "title": "Fast + Custom Designed Websites",
+        "description": "In today’s fast-paced world, customers expect to see a professional website that looks great and loads quickly. Your customers won’t wait for your website to load. Instead, they’ll visit one of your competitors who already has a fast website.",
         "btnText": "Explore page",
         "link": "/"
       },
       {
-        "title": "Cool feature title",
-        "description": "Learning curve network effects return on investment.",
+        "title": "Cool and Smart Shopify Apps",
+        "description": "One of our standout services is crafting custom Shopify apps tailored to your e-commerce needs. Our team is well-versed in the intricacies of the Shopify platform, enabling us to develop apps that enhance your online store's functionality and user experience.",
         "btnText": "Explore page",
         "link": "/"
       }

@@ -40,6 +40,13 @@ interface IHeader { }
 const Header: React.FC<IHeader> = () => {
   const { scrollingDown } = useScrollEvent();
 
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    })
+  }
+
   const windowWidth = useWindowWidth();
   return (
     <header
@@ -47,7 +54,10 @@ const Header: React.FC<IHeader> = () => {
         }`}
     >
       <div className="container flex items-center font-serif text-base font-semibold ">
-        <Icon className="w-12 lg:w-auto" icon="logo" />
+        <button onClick={scrollToTop}>
+          <Icon className="w-12 lg:w-auto" icon="logo" />
+        </button>
+
         {windowWidth < 1024 ? (
           <HamburgerMenu navigation={headernavigation} />
         ) : (
