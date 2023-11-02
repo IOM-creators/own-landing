@@ -11,6 +11,10 @@ export interface IHeaderNavigation {
   classname?: string;
 }
 
+export interface IHamburgerMenu {
+  classname?: string;
+  navigation: INavigation[];
+}
 
 export interface ISectionCommon {
   className?: string;

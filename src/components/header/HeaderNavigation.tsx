@@ -1,12 +1,12 @@
-import { useTranslation } from "react-i18next";
 import { IHeaderNavigation, INavigation } from "../../helpers/commonInterfaces";
+import { useI18n } from "../../helpers/i18nContext";
 
 const HeaderNavigation: React.FC<IHeaderNavigation> = ({
   classname = "",
   navigation,
   setOpenNavChange = () => false,
 }) => {
-  const { t } = useTranslation();
+  const { t, detectKey } = useI18n();
   const scrollTo = (e: any) => {
     e.preventDefault();
     setOpenNavChange(false);
@@ -17,7 +17,6 @@ const HeaderNavigation: React.FC<IHeaderNavigation> = ({
     const sectionScrollTo = document.getElementById(`${id}`);
     sectionScrollTo && sectionScrollTo.scrollIntoView({ behavior: "smooth" });
   };
-
   return (
     <nav className={classname}>
       <ul className="flex h-full flex-col flex-wrap items-end lg:items-center lg:flex-row  lg:justify-center">
@@ -25,10 +24,9 @@ const HeaderNavigation: React.FC<IHeaderNavigation> = ({
           navigation.map((navItem: INavigation, index: number) => {
             return (
               <li
-                key={navItem.textId}
-                className={`text-white my-3 md:my-5 ${
-                  index === navigation.length - 1 ? "pr-0" : "pr-0 lg:pr-5 "
-                } lg:my-0 lg:mb-0`}
+                key={detectKey + navItem.textId}
+                className={`text-white my-3 md:my-5 ${index === navigation.length - 1 ? "pr-0" : "pr-0 lg:pr-5 "
+                  } lg:my-0 lg:mb-0`}
               >
                 <a
                   href="/"
@@ -36,7 +34,7 @@ const HeaderNavigation: React.FC<IHeaderNavigation> = ({
                   data-scroll-to={navItem.scrollTo}
                   onClick={(e) => scrollTo(e)}
                 >
-                  {t(`${navItem.textId}`)}
+                  {t(`header.${navItem.textId}`)}
                 </a>
               </li>
             );

@@ -1,9 +1,11 @@
 import { useEffect, useState } from "react";
 import LanguageSelector from "./LanguageSelector";
 import HeaderNavigation from "./HeaderNavigation";
-import { IHeaderNavigation } from "../../helpers/commonInterfaces";
+import { IHamburgerMenu } from "../../helpers/commonInterfaces";
 
-const HamburgerMenu: React.FC<IHeaderNavigation> = ({
+
+
+const HamburgerMenu: React.FC<IHamburgerMenu> = ({
   classname = "",
   navigation,
 }) => {
@@ -21,7 +23,7 @@ const HamburgerMenu: React.FC<IHeaderNavigation> = ({
   }, [isOpen]);
 
   return (
-    <div className="lg:hidden ml-auto mr-0">
+    <div className="overflow-hidden lg:hidden ml-auto mr-0">
       <button onClick={toggleMenu} className="text-white py-2">
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -49,9 +51,8 @@ const HamburgerMenu: React.FC<IHeaderNavigation> = ({
       </button>
 
       <div
-        className={`w-full  bg-dark-blue fixed top-full right-0 py-10 transform transition-transform duration-300 ease-in-out ${
-          isOpen ? "translate-x-0" : "translate-x-full"
-        }`}
+        className={`w-full  bg-dark-blue absolute top-full right-0 py-8 transform transition-transform duration-300 ease-in-out ${isOpen ? "translate-x-0" : "translate-x-full"
+          }`}
       >
         <div
           className={`w-full h-full container flex items-end  align-center flex-col `}

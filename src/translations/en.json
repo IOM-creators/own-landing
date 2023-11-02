@@ -1,4 +1,12 @@
 {
+  "header": {
+    "Service": "Service",
+    "Experience": "Experience",
+    "Projects": "Projects",
+    "OurTeam": "Our Team",
+    "Feedbacks": "Feedbacks",
+    "ContactUs": "Contact Us"
+  },
   "hero_banner": {
     "letter_1": "I",
     "letter_2": "O",
@@ -79,7 +87,7 @@
     ]
   },
   "section4": {
-    "title": "An enterprise template to ramp up your company website",
+    "title": "Explore Our Completed Projects",
     "cards": [
       {
         "title": "Cool feature title",

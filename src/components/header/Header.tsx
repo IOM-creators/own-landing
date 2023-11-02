@@ -23,7 +23,7 @@ const headernavigation: INavigation[] = [
   },
   {
     scrollTo: "section5",
-    textId: "Our Team",
+    textId: "OurTeam",
   },
   {
     scrollTo: "Feedback",
@@ -31,17 +31,19 @@ const headernavigation: INavigation[] = [
   },
   {
     scrollTo: "ContactUs",
-    textId: "Contact Us",
+    textId: "ContactUs",
   },
 ];
 
-const Header = () => {
+interface IHeader { }
+
+const Header: React.FC<IHeader> = () => {
   const { scrollingDown } = useScrollEvent();
 
   const windowWidth = useWindowWidth();
   return (
     <header
-      className={`sticky top-0 z-50 bg-dark-blue w-full py-2 lg:py-5  transition-transform transform ${scrollingDown ? "translate-y-0" : "-translate-y-full"
+      className={`fixed border-none  top-0 z-50 bg-dark-blue w-full py-2 lg:py-5  transition-transform transform ${scrollingDown ? "translate-y-0" : "-translate-y-full"
         }`}
     >
       <div className="container flex items-center font-serif text-base font-semibold ">

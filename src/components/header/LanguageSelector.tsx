@@ -35,7 +35,7 @@ const LanguageSelector: React.FC<ILanguageSelector> = ({
     setSelectedOption(findCurrentLanguage());
   }, [translation.i18n.language, findCurrentLanguage]);
 
-  const changeLanguage = (e: any) => {
+  const changeLanguage1 = (e: any) => {
     setOpenChangeNav(false);
     const lng = e.value;
     translation.i18n.changeLanguage(lng);
@@ -51,7 +51,7 @@ const LanguageSelector: React.FC<ILanguageSelector> = ({
         options={languages}
         value={selectedOption}
         id="languageSelect"
-        onChange={(e) => changeLanguage(e)}
+        onChange={(e) => changeLanguage1(e)}
       />
     </div>
   );

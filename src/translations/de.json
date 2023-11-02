@@ -1,4 +1,12 @@
 {
+  "header": {
+    "Service": "Service",
+    "Experience": "Erfahrung",
+    "Projects": "Projekte",
+    "OurTeam": "Unser Team",
+    "Feedbacks": "Rückmeldungen",
+    "ContactUs": "Kontaktiere uns"
+  },
   "hero_banner": {
     "letter_1": "I",
     "letter_2": "O",
@@ -77,7 +85,7 @@
     ]
   },
   "section4": {
-    "title": "Eine Unternehmensvorlage zur Optimierung Ihrer Unternehmenswebsite",
+    "title": "Entdecken Sie unsere abgeschlossenen Projekte",
     "cards": [
       {
         "title": "Cooler Feature-Titel",
