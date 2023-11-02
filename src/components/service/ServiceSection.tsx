@@ -21,7 +21,6 @@ const images = [
   },
 ];
 
-
 const ServiceSection: React.FC<ISectionCommon> = ({ className }) => {
   const { t } = useTranslation();
   const cardsContent = t("section1.cards", { returnObjects: true }) as string[];
@@ -33,7 +32,7 @@ const ServiceSection: React.FC<ISectionCommon> = ({ className }) => {
       <TitleSection
         tag="h2"
         position="text-center"
-        className="mb-20"
+        className="mb:10 md:mb-20"
         supText={t("section1.supTitle")}
         fontSize="lg:text-5xl md:text-4xl sm:text-3xl"
       >

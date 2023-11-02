@@ -15,7 +15,13 @@ const HeaderNavigation: React.FC<IHeaderNavigation> = ({
     const url = `#${id}`;
     window.history.pushState(null, "", url);
     const sectionScrollTo = document.getElementById(`${id}`);
-    sectionScrollTo && sectionScrollTo.scrollIntoView({ behavior: "smooth" });
+    const styles = sectionScrollTo && window.getComputedStyle(sectionScrollTo);
+    const marginTop = parseInt(styles ? styles.marginTop : "0", 10);
+    sectionScrollTo &&
+      window.scrollTo({
+        top: sectionScrollTo.offsetTop - marginTop + 10,
+        behavior: "smooth",
+      });
   };
   return (
     <nav className={classname}>
@@ -25,8 +31,9 @@ const HeaderNavigation: React.FC<IHeaderNavigation> = ({
             return (
               <li
                 key={detectKey + navItem.textId}
-                className={`text-white my-3 md:my-5 ${index === navigation.length - 1 ? "pr-0" : "pr-0 lg:pr-5 "
-                  } lg:my-0 lg:mb-0`}
+                className={`text-white my-3 md:my-5 ${
+                  index === navigation.length - 1 ? "pr-0" : "pr-0 lg:pr-5 "
+                } lg:my-0 lg:mb-0`}
               >
                 <a
                   href="/"
