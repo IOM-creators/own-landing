@@ -1,4 +1,5 @@
 import React from "react";
+import parse from "html-react-parser";
 import cn from "classnames";
 
 import Icon from "../icon";
@@ -40,7 +41,8 @@ const List: React.FC<IList> = ({ list, rightIcon, classesItem, className }) => {
                 })}
               />
             )}
-            <span className="text-xl">{item.text}</span>
+
+            <span className="text-xl ">{parse(item.text)}</span>
 
             {item.icon && rightIcon && (
               <Icon

@@ -17,7 +17,7 @@ const ServicesOffered: React.FC<ISectionCommon> = ({ className }) => {
       <InfoWithList
         image={image}
         card={card}
-        className="grid grid-cols-1 md:grid-cols-2 gap-16 md:gap-36"
+        className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24"
       />
     </Section>
   );

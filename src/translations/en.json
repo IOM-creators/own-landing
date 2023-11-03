@@ -23,7 +23,7 @@
     "revert": false,
     "list": [
       {
-        "text": "At Ecommerce IOM Company, we're more than just a team of developers; we're your partners in Ecommerce success. We understand that your online store isn't just a website; it's the heart and soul of your business. That's why we're committed to delivering top-notch Shopify and Ecommerce solutions tailored to your unique needs."
+        "text": "At E-commerce, we are a dedicated team of 3 freelance developers, collectively known as IOM, each with over 4+ years of experience. We understand that your online store isn't just a website; it's the heart and soul of your business. That's why we're committed to delivering top-notch Shopify and Ecommerce solutions tailored to your unique needs."
       },
       {
         "text": "With a wealth of experience in the Ecommerce industry, we've navigated the ever-evolving landscape, tackling challenges, and capitalizing on opportunities. We've successfully delivered a wide array of projects, each contributing to our growing expertise. Our seasoned team brings a depth of knowledge that enables us to build high-performing, customer-centric Ecommerce solutions."
@@ -35,29 +35,24 @@
     "revert": true,
     "list": [
       {
-        "text": "Shopify Store Setup: We specialize in setting up fully customized Shopify stores that not only look great but also function flawlessly. From product listings to payment gateways, we've got you covered.",
-        "icon": "check",
-        "shadow": true
+        "text": "<b>Shopify Store Setup:</b> We specialize in setting up fully customized Shopify stores that not only look great but also function flawlessly. From product listings to payment gateways, we've got you covered.",
+        "icon": "check"
       },
       {
-        "text": "Ecommerce Consultation: Not sure where to start? Our experts will provide you with strategic guidance and help you make the right decisions for your online store",
-        "icon": "check",
-        "shadow": true
+        "text": "<b>Ecommerce Consultation:</b> Not sure where to start? Our experts will provide you with strategic guidance and help you make the right decisions for your online store",
+        "icon": "check"
       },
       {
-        "text": "Custom Development: Need unique features or functionality? Our team of experienced developers can tailor your Shopify store to your specific needs.",
-        "icon": "check",
-        "shadow": true
+        "text": "<b>Custom Development:</b> Need unique features or functionality? Our team of experienced developers can tailor your Shopify store to your specific needs.",
+        "icon": "check"
       },
       {
-        "text": "SEO and Marketing: Drive traffic and increase sales with our SEO and digital marketing services. We'll help you rank higher on search engines and develop campaigns that convert visitors into customers.",
-        "icon": "check",
-        "shadow": true
+        "text": "<b>SEO and Marketing:</b> Drive traffic and increase sales with our SEO and digital marketing services. We'll help you rank higher on search engines and develop campaigns that convert visitors into customers.",
+        "icon": "check"
       },
       {
-        "text": "Customer Support: Our commitment doesn't end with the project. We provide ongoing support to ensure your store operates smoothly and efficiently.",
-        "icon": "check",
-        "shadow": true
+        "text": "<b>Customer Support:</b> Our commitment doesn't end with the project. We provide ongoing support to ensure your store operates smoothly and efficiently.",
+        "icon": "check"
       }
     ]
   },
@@ -65,16 +60,16 @@
     "title": "Why choose us",
     "cards": [
       {
-        "title": "Responsive Web Design",
-        "description": "More than 50% of people browse the internet using their mobile phone. If your website isn’t mobile responsive then you’re missing out on half of your potential customers and hurting your Google rankings at the same time."
+        "title": "Responsive Design and User-Friendly Experience",
+        "description": "<p> In today's mobile-driven world, we ensure that your E-commerce site is not only visually appealing but also responsive across all devices, providing a seamless shopping experience.</p><br/><p> We design and develop intuitive user interfaces to ensure that your customers can easily navigate your site and make purchases with confidence.</p>"
       },
       {
-        "title": "Fast + Custom Designed Websites",
-        "description": "In today’s fast-paced world, customers expect to see a professional website that looks great and loads quickly. Your customers won’t wait for your website to load. Instead, they’ll visit one of your competitors who already has a fast website."
+        "title": "Proven Expertise and End-to-End Services",
+        "description": "<p>Our team of experts brings a wealth of experience in E-commerce and Shopify development. We stay updated with the latest trends and technologies to deliver top-notch results.</p><br/><p> From initial concept to design, development, and ongoing support, we offer comprehensive services that cover the entire E-commerce development lifecycle.</p>"
       },
       {
-        "title": "Cool and Smart Shopify Apps",
-        "description": "One of our standout services is crafting custom Shopify apps tailored to your e-commerce needs. Our team is well-versed in the intricacies of the Shopify platform, enabling us to develop apps that enhance your online store's functionality and user experience."
+        "title": "Optimized Performance and SEO-Friendly",
+        "description": "<p>We prioritize website speed and performance to minimize loading times, keeping your customers engaged and satisfied.</p><br/><p> Our development practices focus on search engine optimization, making it easier for potential customers to find your store through search engines like Google.</p>"
       }
     ]
   },
@@ -100,15 +95,32 @@
     ]
   },
   "our_process": {
-    "title": "We connect our customers with the best, and help them keep up-and stay open.",
+    "title": "Our Process",
     "list": [
       {
-        "text": "We connect our customers with the best?",
-        "icon": "check"
+        "text": "<b>Custom Solutions:</b> We don't believe in one-size-fits-all solutions. We tailor our services to your specific business requirements, ensuring that you get a unique and competitive edge in the market.",
+        "icon": "check",
+        "shadow": true
       },
       {
-        "text": "Android research & development rockstar? ",
-        "icon": "check"
+        "text": "<b>Project Management Excellence:</b> We take project management seriously. Our team is proficient in using industry-leading tools like Jira, ClickUp, and Asana to ensure that your project stays on track, deadlines are met, and communication is seamless. Your project's success is our top priority.",
+        "icon": "check",
+        "shadow": true
+      },
+      {
+        "text": "<b>Collaborative Approach:</b>  We see ourselves as an extension of your team. We work closely with you, fostering a collaborative approach that allows us to understand your goals and challenges thoroughly.",
+        "icon": "check",
+        "shadow": true
+      },
+      {
+        "text": "<b>Cutting-Edge Technology: </b>  We stay updated with the latest technologies and best practices in e-commerce development. Whether it's creating responsive designs, enhancing user experiences, or improving site performance, we always strive for excellence.",
+        "icon": "check",
+        "shadow": true
+      },
+      {
+        "text": "<b>Client-Centric:  </b>  Your satisfaction is our measure of success. We listen to your feedback, make adjustments as needed, and ensure that you're delighted with the results.",
+        "icon": "check",
+        "shadow": true
       }
     ]
   },
@@ -143,7 +155,7 @@
         }
       },
       {
-        "name": "Surbir Singh",
+        "name": "Sascha",
         "stars": 5,
         "response": "Mykola is great to work with, writes clean code and makes changes extremely quickly. Was great to work with him, would highly recommend!",
         "link": {
@@ -154,7 +166,7 @@
     ]
   },
   "contact_us": {
-    "title": "An enterprise template to ramp up your company website",
+    "title": "Contact Us",
     "btn_text": "Submit",
     "form": {
       "first_name": "First Name",

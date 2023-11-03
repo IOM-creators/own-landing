@@ -35,11 +35,11 @@ const WhyChooseUs: React.FC<ISectionCommon> = ({ className }) => {
         tag="h2"
         position="text-center"
         className="mb:10 md:mb-20"
-        fontSize="lg:text-5xl md:text-4xl text-3xl"
+        fontSize="md:text-5xl text-4xl"
       >
         {t("why_choose_us.title")}
       </TitleSection>
-      <div className="grid items-baseline ms:grid-cols-1  md:grid-cols-3 gap-16 md:gap-40 mt-10 mb-10">
+      <div className="grid items-baseline ms:grid-cols-1  lg:grid-cols-3 gap-16 md:gap-20 mt-10 mb-10">
         {cards.map((card: any, index: number) => (
           <InfoCard
             card={card}

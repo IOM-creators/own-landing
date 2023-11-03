@@ -1,7 +1,8 @@
 import React from "react";
+import parse from "html-react-parser";
+
 import Image from "../image";
 import TitleSection from "../title-section";
-import DynamicTag from "../dynamic-tag";
 import Button from "../button";
 
 interface IInfoCard {
@@ -18,16 +19,16 @@ interface IInfoCard {
 const InfoCard: React.FC<IInfoCard> = ({ card, className }) => {
   return (
     <div className={className}>
-      {card?.image && <Image src={card.image} className="rounded-3xl" />}
+      {card?.image && (
+        <Image src={card.image} className="rounded-3xl object-cover" />
+      )}
       {card?.title && (
-        <TitleSection tag="h4" fontSize="text-2xl" className="mt-6">
+        <TitleSection tag="h4" fontSize="text-2xl" className="mt-10 mb-4">
           {card.title}
         </TitleSection>
       )}
       {card?.description && (
-        <DynamicTag tag="p" className="text-xl text-gray mt-2">
-          {card.description}
-        </DynamicTag>
+        <div className="text-xl text-gray mt-2">{parse(card.description)}</div>
       )}
       {card?.btnText && (
         <Button

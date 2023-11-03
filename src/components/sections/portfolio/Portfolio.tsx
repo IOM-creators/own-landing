@@ -79,11 +79,11 @@ const Portfolio: React.FC<ISectionCommon> = ({ className }) => {
     },
   };
   return (
-    <div className="bg-dark-blue">
+    <div className="bg-dark-blue bg-ellipse bg-contain bg-right-top bg-no-repeat">
       <Section id="Portfolio" className={className}>
         <div className="slider-wrapper relative">
           <div className="slider-header flex justify-between mb-5 lg:mb-14 lg:mx-10">
-            <h2 className="text-white text-4xl lg:text-6xl mb-5">
+            <h2 className="text-white text-4xl md:text-5xl mb-5">
               {t("portfolio.title")}
             </h2>
             <div className="slider-buttom-wrapper relative flex justify-between w-48 self-end hidden lg:flex">

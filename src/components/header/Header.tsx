@@ -38,7 +38,7 @@ const Header: React.FC<IHeader> = () => {
         ) : (
           <>
             <HeaderNavigation
-              classname="ml-auto mr-10"
+              classname="ml-auto"
               navigation={headerNavigation}
             />
           </>

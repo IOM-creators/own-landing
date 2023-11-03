@@ -3,7 +3,7 @@ import Section from "../../section";
 import TitleSection from "../../title-section";
 import Image from "../../image";
 
-import Team from "../../../assets/images/team.png";
+import image from "../../../assets/images/our_process.png";
 import { useTranslation } from "react-i18next";
 import List from "../../list";
 import { ISectionCommon } from "../../../helpers/commonInterfaces";
@@ -18,26 +18,21 @@ const OurProcess: React.FC<ISectionCommon> = ({ className }) => {
   });
   return (
     <Section id="OurProcess" className={className}>
+      <TitleSection
+        tag="h2"
+        position="text-left"
+        className="mb-10 md:mb-20 text-center"
+        fontSize="md:text-5xl text-4xl"
+      >
+        {t("our_process.title")}
+      </TitleSection>
       <Image
-        src={Team}
+        src={image}
         classWrapper="md:before:pt-[50%] mb-12 rounded-3xl overflow-hidden"
-        className="object-cover"
+        className="object-contain"
       />
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-0 md:gap-36">
-        <TitleSection
-          tag="h2"
-          position="text-left"
-          className="md:mb-0 mb-10"
-          fontSize="lg:text-4xl text-4xl"
-        >
-          {t("our_process.title")}
-        </TitleSection>
-        <List
-          list={list}
-          rightIcon
-          classesItem="justify-between relative before:block pb-5 before:absolute before:content-'' before:w-full before:top-full before:h-0.5 before:bg-silver"
-          className="md:justify-self-end"
-        />
+      <div className="">
+        <List list={list} className="md:justify-center" />
       </div>
     </Section>
   );

@@ -1,7 +1,8 @@
 import React from "react";
+import parse from "html-react-parser";
+
 import Image from "../image";
 import TitleSection from "../title-section";
-import DynamicTag from "../dynamic-tag";
 import Button from "../button";
 import List from "../list";
 
@@ -31,16 +32,20 @@ const InfoWithList: React.FC<IInfoWithList> = ({ card, image, className }) => {
           <Image src={image} className="rounded-3xl w-fullobject-contain" />
         )}
       </div>
-      <div className={card.revert ? "md:order-first" : ""}>
+      <div className={card.revert ? "lg:order-first" : ""}>
         {card.title && (
-          <TitleSection tag="h4" fontSize="text-4xl" className="mb-10">
+          <TitleSection
+            tag="h4"
+            fontSize="text-4xl md:text-5xl"
+            className="mb-10"
+          >
             {card.title}
           </TitleSection>
         )}
         {card.description && (
-          <DynamicTag tag="p" className="text-xl text-gray mt-2">
-            {card.description}
-          </DynamicTag>
+          <div className="text-xl text-gray mt-2">
+            {parse(card.description)}
+          </div>
         )}
         {card.list.length && <List list={card.list} />}
         {card.btnText && (

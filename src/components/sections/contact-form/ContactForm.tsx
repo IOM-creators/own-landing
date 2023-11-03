@@ -36,7 +36,6 @@ const ContactForm: React.FC<ISectionCommon> = ({ className }) => {
 
   const onSubmit = async (data: FormValues, e: any) => {
     e.preventDefault();
-    console.log("data", data);
     axios
       .post(
         "https://book-store-zt-f600bde9fca9.herokuapp.com/email/send-email",
@@ -52,10 +51,10 @@ const ContactForm: React.FC<ISectionCommon> = ({ className }) => {
   const onError = (errors: any, e: any) => console.log(errors, e);
   return (
     <Section id="ContactUs" className={className}>
-      <div className="bg-dark-blue py-20 px-10 md:px-40 sm:rounded-2xl bg-ellipse bg-right-top bg-no-repeat">
+      <div className="bg-dark-blue py-20 px-10 md:px-40 sm:rounded-2xl bg-contain bg-ellipse bg-right-top bg-no-repeat">
         <TitleSection
           tag="h2"
-          fontSize="text-3xl md:text-5xl"
+          fontSize="text-4xl md:text-5xl"
           className="text-center mb-10 max-w-lap mx-auto text-white"
         >
           {t("contact_us.title")}

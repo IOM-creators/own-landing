@@ -45,7 +45,7 @@ const HeroSection: React.FC<IHeroSection> = ({ showAnimation = false }) => {
               {letters.map((item: ILetter, index: number) => {
                 return (
                   <template
-                    className="flex mb-3 text-lg sm:text-2xl md:text-4xl lg:text-5xl"
+                    className="flex my-3 md:my-6 text-xl md:text-5xl"
                     key={detectKey + index}
                   >
                     {!showAnimation && (
@@ -53,7 +53,9 @@ const HeroSection: React.FC<IHeroSection> = ({ showAnimation = false }) => {
                         {item.letter} {item.fullText}
                       </span>
                     )}
-                    {showAnimation && <span className="mr-2">{item.letter}</span>}
+                    {showAnimation && (
+                      <span className="mr-2">{item.letter}</span>
+                    )}
                     {showAnimation && (
                       <TypeAnimation
                         key={detectKey + index}
@@ -69,7 +71,6 @@ const HeroSection: React.FC<IHeroSection> = ({ showAnimation = false }) => {
           </div>
         </div>
       </div>
-
     </section>
   );
 };
