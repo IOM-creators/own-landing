@@ -6,6 +6,13 @@ const HeaderNavigation: React.FC<IHeaderNavigation> = ({
   navigation,
   setOpenNavChange = () => false,
 }) => {
+  const sectionRef = useRef<HTMLDivElement | null>(null);
+  const scrollTo = (e: any, navLink: string) => {
+    e.preventDefault();
+    console.log("sectionRef", navLink);
+    sectionRef.current &&
+      sectionRef.current.scrollIntoView({ behavior: "smooth" });
+  };
   return (
     <nav className={classname}>
       <ul className="flex h-full flex-col flex-wrap items-end lg:items-center lg:flex-row  lg:justify-center">
