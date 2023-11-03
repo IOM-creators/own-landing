@@ -35,7 +35,7 @@ const List: React.FC<IList> = ({ list, rightIcon, classesItem, className }) => {
             {item.icon && !rightIcon && (
               <Icon
                 icon={item.icon}
-                className="mr-6"
+                className="mr-6 md:block hidden"
                 strokeClass={cn({
                   "group-hover:stroke-white": item.shadow,
                 })}
@@ -47,7 +47,7 @@ const List: React.FC<IList> = ({ list, rightIcon, classesItem, className }) => {
             {item.icon && rightIcon && (
               <Icon
                 icon={item.icon}
-                className="ml-6"
+                className="ml-6 md:block hidden"
                 strokeClass={cn({
                   "group-hover:stroke-white": item.shadow,
                 })}

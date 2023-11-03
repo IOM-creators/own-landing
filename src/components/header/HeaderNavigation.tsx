@@ -4,6 +4,7 @@ import { IHeaderNavigation } from "../../helpers/commonInterfaces";
 const HeaderNavigation: React.FC<IHeaderNavigation> = ({
   classname = "",
   navigation,
+  setOpenNavChange = () => false,
 }) => {
   return (
     <nav className={classname}>
@@ -21,6 +22,7 @@ const HeaderNavigation: React.FC<IHeaderNavigation> = ({
                 <a
                   href={`#${navLink}`}
                   className="rounded-3xl px-3 py-2 text-lg lg:text-base"
+                  onClick={() => setOpenNavChange(false)}
                 >
                   {navItem}
                 </a>

@@ -36,23 +36,28 @@
     "list": [
       {
         "text": "<b>Shopify Store Setup:</b> We specialize in setting up fully customized Shopify stores that not only look great but also function flawlessly. From product listings to payment gateways, we've got you covered.",
-        "icon": "check"
+        "icon": "check",
+        "shadow": true
       },
       {
         "text": "<b>Ecommerce Consultation:</b> Not sure where to start? Our experts will provide you with strategic guidance and help you make the right decisions for your online store",
-        "icon": "check"
+        "icon": "check",
+        "shadow": true
       },
       {
         "text": "<b>Custom Development:</b> Need unique features or functionality? Our team of experienced developers can tailor your Shopify store to your specific needs.",
-        "icon": "check"
+        "icon": "check",
+        "shadow": true
       },
       {
         "text": "<b>SEO and Marketing:</b> Drive traffic and increase sales with our SEO and digital marketing services. We'll help you rank higher on search engines and develop campaigns that convert visitors into customers.",
-        "icon": "check"
+        "icon": "check",
+        "shadow": true
       },
       {
         "text": "<b>Customer Support:</b> Our commitment doesn't end with the project. We provide ongoing support to ensure your store operates smoothly and efficiently.",
-        "icon": "check"
+        "icon": "check",
+        "shadow": true
       }
     ]
   },
