@@ -4,12 +4,12 @@ import cn from "classnames";
 import { SwiperSlide } from "swiper/react";
 import { useTranslation } from "react-i18next";
 
-import Section from "../section";
-import TitleSection from "../title-section";
-import Slider from "../slider";
+import Section from "..";
+import TitleSection from "../../title-section";
+import Slider from "../../slider";
 
-import Icon from "../icon";
-import { ISectionCommon } from "../../helpers/commonInterfaces";
+import Icon from "../../icon";
+import { ISectionCommon } from "../../../helpers/commonInterfaces";
 
 const feedbacks = [
   {
@@ -37,9 +37,6 @@ const feedbacks = [
       "Enjoyed working with Mykola. The task was urgent, and he was able to meet the deadline and provide a quick solution.",
   },
 ];
-
-
-
 
 const Feedback: React.FC<ISectionCommon> = ({ className }) => {
   const { t } = useTranslation();
@@ -86,9 +83,11 @@ const Feedback: React.FC<ISectionCommon> = ({ className }) => {
         <Slider params={sliderParams} className="feedback-slider">
           {feedbacks.map((feedback: any, index: number) => (
             <SwiperSlide key={index}>
-              <div className="text-center">
-                <div className="w-10 h-10 mx-auto">
-                  <Icon icon="person" />
+              <div className="text-center py-2 ">
+                <div className="flex items-center justify-center w-10 h-10 mb-5 mx-auto rounded-full bg-gray">
+                  <span className="text-700 text-2xl text-white">
+                    {feedback.name[0]}
+                  </span>
                 </div>
                 <h5 className="text-xl">{feedback.name}</h5>
                 <div className="flex justify-center my-5">
@@ -100,7 +99,14 @@ const Feedback: React.FC<ISectionCommon> = ({ className }) => {
                     />
                   ))}
                 </div>
-                <i>"{feedback.response}"</i>
+                <i className="truncate-2">"{feedback.response}"</i>
+                <br />
+                <a
+                  href={feedback.link.url}
+                  className="mt-3 pb-1 relative before:block before:left-0  before:absolute before:content-'' before:w-full before:top-full before:h-px before:bg-dark-blue"
+                >
+                  {feedback.link.text}
+                </a>
               </div>
             </SwiperSlide>
           ))}

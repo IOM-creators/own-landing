@@ -18,7 +18,7 @@ interface IInfoCard {
 const InfoCard: React.FC<IInfoCard> = ({ card, className }) => {
   return (
     <div className={className}>
-      {card?.image && <Image src={card.image} borderRadius="rounded-3xl" />}
+      {card?.image && <Image src={card.image} className="rounded-3xl" />}
       {card?.title && (
         <TitleSection tag="h4" fontSize="text-2xl" className="mt-6">
           {card.title}

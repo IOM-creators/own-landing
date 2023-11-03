@@ -1,25 +1,27 @@
 import React from "react";
-import Section from "../section";
-import TitleSection from "../title-section";
-import Image from "../image";
+import Section from "..";
+import TitleSection from "../../title-section";
+import Image from "../../image";
 
-import Team from "../../assets/images/team.png";
+import Team from "../../../assets/images/team.png";
 import { useTranslation } from "react-i18next";
-import List from "../list";
-import { ISectionCommon } from "../../helpers/commonInterfaces";
+import List from "../../list";
+import { ISectionCommon } from "../../../helpers/commonInterfaces";
 
-
-const OurTeamSection: React.FC<ISectionCommon> = ({ className }) => {
+const OurProcess: React.FC<ISectionCommon> = ({ className }) => {
   const { t } = useTranslation();
-  const cardsContent = t("section5.list", { returnObjects: true }) as string[];
+  const cardsContent = t("our_process.list", {
+    returnObjects: true,
+  }) as string[];
   const list: any = cardsContent.map((item: any) => {
     return { ...item };
   });
   return (
-    <Section id="section5" className={className}>
+    <Section id="OurProcess" className={className}>
       <Image
         src={Team}
         classWrapper="md:before:pt-[50%] mb-12 rounded-3xl overflow-hidden"
+        className="object-cover"
       />
       <div className="grid grid-cols-1 md:grid-cols-2 gap-0 md:gap-36">
         <TitleSection
@@ -28,7 +30,7 @@ const OurTeamSection: React.FC<ISectionCommon> = ({ className }) => {
           className="md:mb-0 mb-10"
           fontSize="lg:text-4xl text-4xl"
         >
-          {t("section5.title")}
+          {t("our_process.title")}
         </TitleSection>
         <List
           list={list}
@@ -41,4 +43,4 @@ const OurTeamSection: React.FC<ISectionCommon> = ({ className }) => {
   );
 };
 
-export default OurTeamSection;
+export default OurProcess;

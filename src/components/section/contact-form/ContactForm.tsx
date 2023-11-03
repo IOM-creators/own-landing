@@ -2,12 +2,12 @@ import React, { useState } from "react";
 import { Controller, useForm } from "react-hook-form";
 import { useTranslation } from "react-i18next";
 
-import Section from "../section";
-import Button from "../button";
-import TitleSection from "../title-section";
+import Section from "..";
+import Button from "../../button";
+import TitleSection from "../../title-section";
 import axios from "axios";
 import { t } from "i18next";
-import { ISectionCommon } from "../../helpers/commonInterfaces";
+import { ISectionCommon } from "../../../helpers/commonInterfaces";
 
 type FormValues = {
   first_name: string;

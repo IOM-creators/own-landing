@@ -8,7 +8,6 @@ import Footer from "./components/footer";
 import Seo from "./components/seo";
 import { I18nProvider } from "./helpers/i18nContext";
 
-
 function App() {
   return (
     <div className="App">

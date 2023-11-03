@@ -8,7 +8,6 @@ import List from "../list";
 interface IInfoWithList {
   card: {
     revert: boolean;
-    image: string;
     list: [
       {
         text: string;
@@ -20,20 +19,21 @@ interface IInfoWithList {
     btnText?: string;
     btnLink?: string;
   };
+  image?: string;
   className?: string;
 }
 
-const InfoWithList: React.FC<IInfoWithList> = ({ card, className }) => {
+const InfoWithList: React.FC<IInfoWithList> = ({ card, image, className }) => {
   return (
     <div className={className}>
       <div>
-        {card.image && (
-          <Image src={card.image} borderRadius="rounded-3xl w-full" />
+        {image && (
+          <Image src={image} className="rounded-3xl w-fullobject-contain" />
         )}
       </div>
       <div className={card.revert ? "md:order-first" : ""}>
         {card.title && (
-          <TitleSection tag="h4" fontSize="text-4xl">
+          <TitleSection tag="h4" fontSize="text-4xl" className="mb-10">
             {card.title}
           </TitleSection>
         )}

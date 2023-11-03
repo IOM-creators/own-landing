@@ -24,8 +24,7 @@ const List: React.FC<IList> = ({ list, rightIcon, classesItem, className }) => {
           <li
             className={cn(
               {
-                "group shadow-simle px-5 py-4 hover:bg-dark-blue cursor-pointer hover:text-white":
-                  item.shadow,
+                "group shadow-simle px-5 py-4 ": item.shadow,
               },
               classesItem,
               "flex items-center mt-6 mb-6"

@@ -3,17 +3,17 @@ import React from "react";
 import { useTranslation } from "react-i18next";
 import { EffectCoverflow, Autoplay } from "swiper/modules";
 
-import Section from "../section";
-import Slider from "../slider";
-import Icon from "../icon";
+import Section from "..";
+import Slider from "../../slider";
+import Icon from "../../icon";
 
-import Person3 from "../../assets/images/person3.png";
-import Person4 from "../../assets/images/person4.png";
-import Person5 from "../../assets/images/person5.png";
-import Person2 from "../../assets/images/person2.png";
-import InfoCard from "../info-card";
+import Person3 from "../../../assets/images/person3.png";
+import Person4 from "../../../assets/images/person4.png";
+import Person5 from "../../../assets/images/person5.png";
+import Person2 from "../../../assets/images/person2.png";
+import InfoCard from "../../info-card";
 import { SwiperSlide } from "swiper/react";
-import { ISectionCommon } from "../../helpers/commonInterfaces";
+import { ISectionCommon } from "../../../helpers/commonInterfaces";
 
 const images = [
   {
@@ -30,9 +30,11 @@ const images = [
   },
 ];
 
-const ProjectsSection: React.FC<ISectionCommon> = ({ className }) => {
+const Portfolio: React.FC<ISectionCommon> = ({ className }) => {
   const { t } = useTranslation();
-  const cardsContent = t("section4.cards", { returnObjects: true }) as string[];
+  const cardsContent = t("portfolio.cards", {
+    returnObjects: true,
+  }) as string[];
   const slides = cardsContent.map((card: any, index: number) => {
     return { ...card, image: images[index].image };
   });
@@ -78,11 +80,11 @@ const ProjectsSection: React.FC<ISectionCommon> = ({ className }) => {
   };
   return (
     <div className="bg-dark-blue">
-      <Section id="section4" className={className}>
+      <Section id="Portfolio" className={className}>
         <div className="slider-wrapper relative">
           <div className="slider-header flex justify-between mb-5 lg:mb-14 lg:mx-10">
             <h2 className="text-white text-4xl lg:text-6xl mb-5">
-              {t("section4.title")}
+              {t("portfolio.title")}
             </h2>
             <div className="slider-buttom-wrapper relative flex justify-between w-48 self-end hidden lg:flex">
               <div className="swiper-button-prev flex items-center justify-center rounded-full w-16 h-16 bg-white cursor-pointer mr-2">
@@ -107,4 +109,4 @@ const ProjectsSection: React.FC<ISectionCommon> = ({ className }) => {
   );
 };
 
-export default ProjectsSection;
+export default Portfolio;

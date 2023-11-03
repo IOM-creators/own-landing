@@ -1,57 +1,33 @@
 import { useScrollEvent, useWindowWidth } from "../../helpers/reactHooks";
-import HeaderNavigation from "./HeaderNavigation";
 import LanguageSelector from "./LanguageSelector";
 import HamburgerMenu from "./Hamburger";
 import Icon from "../icon";
-interface INavigation {
-  scrollTo: string;
-  textId: string;
-}
+import { useTranslation } from "react-i18next";
+import HeaderNavigation from "./HeaderNavigation";
 
-const headernavigation: INavigation[] = [
-  {
-    scrollTo: "section1",
-    textId: "Service",
-  },
-  {
-    scrollTo: "section2",
-    textId: "Experience",
-  },
-  {
-    scrollTo: "section4",
-    textId: "Projects",
-  },
-  {
-    scrollTo: "section5",
-    textId: "OurTeam",
-  },
-  {
-    scrollTo: "Feedback",
-    textId: "Feedbacks",
-  },
-  {
-    scrollTo: "ContactUs",
-    textId: "ContactUs",
-  },
-];
-
-interface IHeader { }
+interface IHeader {}
 
 const Header: React.FC<IHeader> = () => {
   const { scrollingDown } = useScrollEvent();
+  const { t } = useTranslation();
+  const cardsContent = t("header.navigation", {
+    returnObjects: true,
+  }) as string[];
+  const headerNavigation = cardsContent.map((navigation: any) => navigation);
 
   const scrollToTop = () => {
     window.scrollTo({
       top: 0,
-      behavior: 'smooth'
-    })
-  }
+      behavior: "smooth",
+    });
+  };
 
   const windowWidth = useWindowWidth();
   return (
     <header
-      className={`fixed border-none  top-0 z-50 bg-dark-blue w-full py-2 lg:py-5  transition-transform transform ${scrollingDown ? "translate-y-0" : "-translate-y-full"
-        }`}
+      className={`fixed border-none  top-0 z-50 bg-dark-blue w-full py-2 lg:py-5  transition-transform transform ${
+        scrollingDown ? "translate-y-0" : "-translate-y-full"
+      }`}
     >
       <div className="container flex items-center font-serif text-base font-semibold ">
         <button onClick={scrollToTop}>
@@ -59,12 +35,12 @@ const Header: React.FC<IHeader> = () => {
         </button>
 
         {windowWidth < 1024 ? (
-          <HamburgerMenu navigation={headernavigation} />
+          <HamburgerMenu navigation={headerNavigation} />
         ) : (
           <>
             <HeaderNavigation
               classname="ml-auto mr-10"
-              navigation={headernavigation}
+              navigation={headerNavigation}
             />
             <LanguageSelector classname="mr-0" />
           </>

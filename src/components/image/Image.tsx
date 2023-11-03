@@ -4,19 +4,15 @@ import cn from "classnames";
 
 interface IImage {
   src: string;
-  borderRadius?: string;
   alt?: string;
   classWrapper?: string;
+  className?: string;
 }
 
-const Image: React.FC<IImage> = ({ src, alt, classWrapper, borderRadius }) => {
+const Image: React.FC<IImage> = ({ src, alt, classWrapper, className }) => {
   return (
     <div className={cn(classWrapper, "img-wrapper")}>
-      <img
-        src={src || Placeholder}
-        className={borderRadius && borderRadius}
-        alt={alt}
-      />
+      <img src={src || Placeholder} className={className} alt={alt} />
     </div>
   );
 };

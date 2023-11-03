@@ -1,11 +1,14 @@
 {
   "header": {
-    "Service": "Service",
-    "Experience": "Experience",
-    "Projects": "Our Work",
-    "OurTeam": "Team",
-    "Feedbacks": "Feedbacks",
-    "ContactUs": "Get in touch"
+    "navigation": [
+      "About US",
+      "Services Offered",
+      "Why Choose US",
+      "Portfolio",
+      "Our Process",
+      "Feedbacks",
+      "Contact US"
+    ]
   },
   "hero_banner": {
     "letter_1": "I",
@@ -15,78 +18,71 @@
     "text_2": "- Optimized Code Efficiency",
     "text_3": "- Modern Framework Proficiency"
   },
-  "section1": {
-    "supTitle": "Our Services",
-    "title": "ARE YOU LOOKING FOR HELP WITH YOUR SHOPIFY STORE?",
+  "about_us": {
     "cards": [
       {
-        "title": "Responsive Web Design",
-        "description": "More than 50% of people browse the internet using their mobile phone. </br>If your website isn’t mobile responsive then you’re missing out on half of your potential customers and hurting your Google rankings at the same time.",
-        "btnText": "Explore page",
-        "link": "/"
-      },
-      {
-        "title": "Fast + Custom Designed Websites",
-        "description": "In today’s fast-paced world, customers expect to see a professional website that looks great and loads quickly. Your customers won’t wait for your website to load. Instead, they’ll visit one of your competitors who already has a fast website.",
-        "btnText": "Explore page",
-        "link": "/"
-      },
-      {
-        "title": "Cool and Smart Shopify Apps",
-        "description": "One of our standout services is crafting custom Shopify apps tailored to your e-commerce needs. Our team is well-versed in the intricacies of the Shopify platform, enabling us to develop apps that enhance your online store's functionality and user experience.",
-        "btnText": "Explore page",
-        "link": "/"
+        "title": "About us",
+        "revert": false,
+        "list": [
+          {
+            "text": "At Ecommerce IOM Company, we're more than just a team of developers; we're your partners in Ecommerce success. We understand that your online store isn't just a website; it's the heart and soul of your business. That's why we're committed to delivering top-notch Shopify and Ecommerce solutions tailored to your unique needs."
+          },
+          {
+            "text": "With a wealth of experience in the Ecommerce industry, we've navigated the ever-evolving landscape, tackling challenges, and capitalizing on opportunities. We've successfully delivered a wide array of projects, each contributing to our growing expertise. Our seasoned team brings a depth of knowledge that enables us to build high-performing, customer-centric Ecommerce solutions."
+          }
+        ]
       }
     ]
   },
-  "section2": {
-    "supTitle": "Our Services",
-    "title": "Handshake infographic mass market crowdfunding iteration.",
+  "services_offered": {
     "cards": [
       {
-        "title": "We connect our customers with the best, and help them keep up-and stay open.",
-        "revert": false,
-        "btnText": "Start now",
-        "link": "/",
-        "list": [
-          {
-            "text": "We connect our customers with the best.",
-            "icon": "check"
-          },
-          {
-            "text": "We connect our customers with the best.",
-            "icon": "check"
-          },
-          {
-            "text": "We connect our customers with the best.",
-            "icon": "check"
-          }
-        ]
-      },
-      {
-        "title": "We connect our customers with the best, and help them keep up-and stay open.",
+        "title": "Services Offered",
         "revert": true,
         "list": [
           {
-            "text": "We connect our customers with the best.",
-            "icon": "leaf",
+            "text": "Shopify Store Setup: We specialize in setting up fully customized Shopify stores that not only look great but also function flawlessly. From product listings to payment gateways, we've got you covered.",
+            "icon": "check",
             "shadow": true
           },
           {
-            "text": "We connect our customers with the best.",
-            "icon": "eye",
+            "text": "Ecommerce Consultation: Not sure where to start? Our experts will provide you with strategic guidance and help you make the right decisions for your online store",
+            "icon": "check",
             "shadow": true
           },
           {
-            "text": "We connect our customers with the best.",
-            "icon": "sun",
+            "text": "Custom Development: Need unique features or functionality? Our team of experienced developers can tailor your Shopify store to your specific needs.",
+            "icon": "check",
+            "shadow": true
+          },
+          {
+            "text": "SEO and Marketing: Drive traffic and increase sales with our SEO and digital marketing services. We'll help you rank higher on search engines and develop campaigns that convert visitors into customers.",
+            "icon": "check",
+            "shadow": true
+          },
+          {
+            "text": "Customer Support: Our commitment doesn't end with the project. We provide ongoing support to ensure your store operates smoothly and efficiently.",
+            "icon": "check",
             "shadow": true
           }
         ]
       }
     ]
   },
-  "section4": {
+  "why_choose_us": {
+    "title": "Why choose us",
+    "cards": [
+      {
+        "title": "Responsive Web Design",
+        "description": "More than 50% of people browse the internet using their mobile phone. If your website isn’t mobile responsive then you’re missing out on half of your potential customers and hurting your Google rankings at the same time."
+      },
+      {
+        "title": "Fast + Custom Designed Websites",
+        "description": "In today’s fast-paced world, customers expect to see a professional website that looks great and loads quickly. Your customers won’t wait for your website to load. Instead, they’ll visit one of your competitors who already has a fast website."
+      }
+    ]
+  },
+  "portfolio": {
     "title": "Explore Our Completed Projects",
     "cards": [
       {
@@ -107,7 +103,7 @@
       }
     ]
   },
-  "section5": {
+  "our_process": {
     "title": "We connect our customers with the best, and help them keep up-and stay open.",
     "list": [
       {
@@ -120,32 +116,44 @@
       }
     ]
   },
-  "contactUS": {
-    "successMessage": " Thank you! Your message has been successfully sent. We will contact you very soon!",
-    "errorMessage": "Error"
-  },
   "feedback": {
     "title": "Upwork Customer reviews",
     "reviews": [
       {
-        "name": "Ivan Biriuk",
+        "name": "Alok Panchal",
         "stars": 5,
-        "response": "Very Genuine person, Strictly professional, and very easy to work with, looking forward to working with him on a regular basis."
+        "response": "A good person with a brilliant skill set and professionalism. He met all deadlines.",
+        "link": {
+          "url": "https://www.upwork.com/freelancers/~01a9efbe9a36e060f6",
+          "text": "View feedback"
+        }
       },
       {
-        "name": "Oleg Statkevych",
+        "name": "Surbir Singh",
         "stars": 5,
-        "response": "Mykola is great to work with, writes clean code and makes changes extremely quickly. Was great to work with him, would highly recommend!"
+        "response": "Very Genuine person, Strictly professional, and very easy to work with, looking forward to working with him on a regular basis.",
+        "link": {
+          "url": "https://www.upwork.com/freelancers/~01a9efbe9a36e060f6",
+          "text": "View feedback"
+        }
       },
       {
-        "name": "Mykola Shpakivskiy",
+        "name": "Lilit Hayer",
         "stars": 5,
-        "response": "Enjoyed working with Mykola. The task was urgent, and he was able to meet the deadline and provide a quick solution."
+        "response": "Enjoyed working with Mykola. The task was urgent, and he was able to meet the deadline and provide a quick solution.",
+        "link": {
+          "url": "https://www.upwork.com/freelancers/~01a9efbe9a36e060f6",
+          "text": "View feedback"
+        }
       },
       {
-        "name": "Ivan Biriuk",
-        "stars": 4,
-        "response": "Enjoyed working with Mykola. The task was urgent, and he was able to meet the deadline and provide a quick solution."
+        "name": "Surbir Singh",
+        "stars": 5,
+        "response": "Mykola is great to work with, writes clean code and makes changes extremely quickly. Was great to work with him, would highly recommend!",
+        "link": {
+          "url": "https://www.upwork.com/freelancers/~01a9efbe9a36e060f6",
+          "text": "View feedback"
+        }
       }
     ]
   },
@@ -157,6 +165,19 @@
       "last_name": "Last Name",
       "email": "Email",
       "message": "Message"
-    }
+    },
+    "success_message": " Thank you! Your message has been successfully sent. We will contact you very soon!",
+    "error_message": "Error"
+  },
+  "footer": {
+    "navigation": [
+      "About US",
+      "Services Offered",
+      "Why Choose US",
+      "Portfolio",
+      "Our Process",
+      "Feedbacks",
+      "Contact US"
+    ]
   }
 }
