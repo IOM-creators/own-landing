@@ -14,6 +14,7 @@ import Person2 from "../../../assets/images/person2.png";
 import InfoCard from "../../info-card";
 import { SwiperSlide } from "swiper/react";
 import { ISectionCommon } from "../../../helpers/commonInterfaces";
+import TitleSection from "../../title-section";
 
 const images = [
   {
@@ -83,9 +84,13 @@ const Portfolio: React.FC<ISectionCommon> = ({ className }) => {
       <Section id="Portfolio" className={className}>
         <div className="slider-wrapper relative">
           <div className="slider-header flex justify-between mb-5 lg:mb-14 lg:mx-10">
-            <h2 className="text-white text-4xl md:text-5xl mb-5">
+            <TitleSection
+              tag="h2"
+              fontSize="text-4xl md:text-5xl"
+              className="text-white text-center md:text-left  mb-5"
+            >
               {t("portfolio.title")}
-            </h2>
+            </TitleSection>
             <div className="slider-buttom-wrapper relative flex justify-between w-48 self-end hidden lg:flex">
               <div className="swiper-button-prev flex items-center justify-center rounded-full w-16 h-16 bg-white cursor-pointer mr-2">
                 <Icon icon="arrow" />

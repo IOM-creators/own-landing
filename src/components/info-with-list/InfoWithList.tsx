@@ -36,7 +36,7 @@ const InfoWithList: React.FC<IInfoWithList> = ({ card, image, className }) => {
         {card.title && (
           <TitleSection
             tag="h4"
-            fontSize="text-4xl md:text-5xl"
+            fontSize="text-4xl md:text-5xl text-center md:text-left "
             className="mb-10"
           >
             {card.title}
