@@ -4,43 +4,16 @@ import cn from "classnames";
 import { SwiperSlide } from "swiper/react";
 import { useTranslation } from "react-i18next";
 
-import Section from "..";
+import Section from "../../section";
 import TitleSection from "../../title-section";
 import Slider from "../../slider";
 
 import Icon from "../../icon";
 import { ISectionCommon } from "../../../helpers/commonInterfaces";
 
-const feedbacks = [
-  {
-    name: "Ivan Biriuk",
-    stars: 5,
-    response:
-      "Very Genuine person, Strictly professional, and very easy to work with, looking forward to working with him on a regular basis.",
-  },
-  {
-    name: "Oleg Statkevych",
-    stars: 5,
-    response:
-      "Mykola is great to work with, writes clean code and makes changes extremely quickly. Was great to work with him, would highly recommend!",
-  },
-  {
-    name: "Mykola Shpakivskiy",
-    stars: 5,
-    response:
-      "Enjoyed working with Mykola. The task was urgent, and he was able to meet the deadline and provide a quick solution.",
-  },
-  {
-    name: "Ivan Biriuk",
-    stars: 4,
-    response:
-      "Enjoyed working with Mykola. The task was urgent, and he was able to meet the deadline and provide a quick solution.",
-  },
-];
-
 const Feedback: React.FC<ISectionCommon> = ({ className }) => {
   const { t } = useTranslation();
-  const cardsContent = t("feedback.reviews", {
+  const cardsContent = t("feedbacks.reviews", {
     returnObjects: true,
   }) as string[];
   const feedbacks = cardsContent.map((feedback: any) => {
@@ -71,13 +44,13 @@ const Feedback: React.FC<ISectionCommon> = ({ className }) => {
     },
   };
   return (
-    <Section id="Feedback" className={className}>
+    <Section id="Feedbacks" className={className}>
       <TitleSection
         tag="h2"
         className="mb-10 md:mb-20 text-center"
         fontSize="md:text-5xl text-4xl"
       >
-        {t("feedback.title")}
+        {t("feedbacks.title")}
       </TitleSection>
       <div className="slider-wrapper relative">
         <Slider params={sliderParams} className="feedback-slider">

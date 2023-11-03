@@ -1,13 +1,13 @@
 {
   "header": {
     "navigation": [
-      "About US",
+      "About Us",
       "Services Offered",
-      "Why Choose US",
+      "Why Choose Us",
       "Portfolio",
       "Our Process",
       "Feedbacks",
-      "Contact US"
+      "Contact Us"
     ]
   },
   "hero_banner": {
@@ -19,53 +19,45 @@
     "text_3": "- Modern Framework Proficiency"
   },
   "about_us": {
-    "cards": [
+    "title": "About us",
+    "revert": false,
+    "list": [
       {
-        "title": "About us",
-        "revert": false,
-        "list": [
-          {
-            "text": "At Ecommerce IOM Company, we're more than just a team of developers; we're your partners in Ecommerce success. We understand that your online store isn't just a website; it's the heart and soul of your business. That's why we're committed to delivering top-notch Shopify and Ecommerce solutions tailored to your unique needs."
-          },
-          {
-            "text": "With a wealth of experience in the Ecommerce industry, we've navigated the ever-evolving landscape, tackling challenges, and capitalizing on opportunities. We've successfully delivered a wide array of projects, each contributing to our growing expertise. Our seasoned team brings a depth of knowledge that enables us to build high-performing, customer-centric Ecommerce solutions."
-          }
-        ]
+        "text": "At Ecommerce IOM Company, we're more than just a team of developers; we're your partners in Ecommerce success. We understand that your online store isn't just a website; it's the heart and soul of your business. That's why we're committed to delivering top-notch Shopify and Ecommerce solutions tailored to your unique needs."
+      },
+      {
+        "text": "With a wealth of experience in the Ecommerce industry, we've navigated the ever-evolving landscape, tackling challenges, and capitalizing on opportunities. We've successfully delivered a wide array of projects, each contributing to our growing expertise. Our seasoned team brings a depth of knowledge that enables us to build high-performing, customer-centric Ecommerce solutions."
       }
     ]
   },
   "services_offered": {
-    "cards": [
+    "title": "Services Offered",
+    "revert": true,
+    "list": [
       {
-        "title": "Services Offered",
-        "revert": true,
-        "list": [
-          {
-            "text": "Shopify Store Setup: We specialize in setting up fully customized Shopify stores that not only look great but also function flawlessly. From product listings to payment gateways, we've got you covered.",
-            "icon": "check",
-            "shadow": true
-          },
-          {
-            "text": "Ecommerce Consultation: Not sure where to start? Our experts will provide you with strategic guidance and help you make the right decisions for your online store",
-            "icon": "check",
-            "shadow": true
-          },
-          {
-            "text": "Custom Development: Need unique features or functionality? Our team of experienced developers can tailor your Shopify store to your specific needs.",
-            "icon": "check",
-            "shadow": true
-          },
-          {
-            "text": "SEO and Marketing: Drive traffic and increase sales with our SEO and digital marketing services. We'll help you rank higher on search engines and develop campaigns that convert visitors into customers.",
-            "icon": "check",
-            "shadow": true
-          },
-          {
-            "text": "Customer Support: Our commitment doesn't end with the project. We provide ongoing support to ensure your store operates smoothly and efficiently.",
-            "icon": "check",
-            "shadow": true
-          }
-        ]
+        "text": "Shopify Store Setup: We specialize in setting up fully customized Shopify stores that not only look great but also function flawlessly. From product listings to payment gateways, we've got you covered.",
+        "icon": "check",
+        "shadow": true
+      },
+      {
+        "text": "Ecommerce Consultation: Not sure where to start? Our experts will provide you with strategic guidance and help you make the right decisions for your online store",
+        "icon": "check",
+        "shadow": true
+      },
+      {
+        "text": "Custom Development: Need unique features or functionality? Our team of experienced developers can tailor your Shopify store to your specific needs.",
+        "icon": "check",
+        "shadow": true
+      },
+      {
+        "text": "SEO and Marketing: Drive traffic and increase sales with our SEO and digital marketing services. We'll help you rank higher on search engines and develop campaigns that convert visitors into customers.",
+        "icon": "check",
+        "shadow": true
+      },
+      {
+        "text": "Customer Support: Our commitment doesn't end with the project. We provide ongoing support to ensure your store operates smoothly and efficiently.",
+        "icon": "check",
+        "shadow": true
       }
     ]
   },
@@ -79,6 +71,10 @@
       {
         "title": "Fast + Custom Designed Websites",
         "description": "In today’s fast-paced world, customers expect to see a professional website that looks great and loads quickly. Your customers won’t wait for your website to load. Instead, they’ll visit one of your competitors who already has a fast website."
+      },
+      {
+        "title": "Cool and Smart Shopify Apps",
+        "description": "One of our standout services is crafting custom Shopify apps tailored to your e-commerce needs. Our team is well-versed in the intricacies of the Shopify platform, enabling us to develop apps that enhance your online store's functionality and user experience."
       }
     ]
   },
@@ -116,7 +112,7 @@
       }
     ]
   },
-  "feedback": {
+  "feedbacks": {
     "title": "Upwork Customer reviews",
     "reviews": [
       {
@@ -171,13 +167,13 @@
   },
   "footer": {
     "navigation": [
-      "About US",
+      "About Us",
       "Services Offered",
-      "Why Choose US",
+      "Why Choose Us",
       "Portfolio",
       "Our Process",
       "Feedbacks",
-      "Contact US"
+      "Contact Us"
     ]
   }
 }

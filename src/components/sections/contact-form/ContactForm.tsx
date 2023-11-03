@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Controller, useForm } from "react-hook-form";
 import { useTranslation } from "react-i18next";
 
-import Section from "..";
+import Section from "../../section";
 import Button from "../../button";
 import TitleSection from "../../title-section";
 import axios from "axios";

@@ -1,5 +1,4 @@
 import { useScrollEvent, useWindowWidth } from "../../helpers/reactHooks";
-import LanguageSelector from "./LanguageSelector";
 import HamburgerMenu from "./Hamburger";
 import Icon from "../icon";
 import { useTranslation } from "react-i18next";
@@ -42,7 +41,6 @@ const Header: React.FC<IHeader> = () => {
               classname="ml-auto mr-10"
               navigation={headerNavigation}
             />
-            <LanguageSelector classname="mr-0" />
           </>
         )}
       </div>

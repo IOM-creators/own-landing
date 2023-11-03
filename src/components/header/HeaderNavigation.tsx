@@ -8,8 +8,9 @@ const HeaderNavigation: React.FC<IHeaderNavigation> = ({
 }) => {
   const sectionRef = useRef<HTMLDivElement | null>(null);
 
-  const scrollTo = () => {
-    console.log("sectionRef", sectionRef);
+  const scrollTo = (e: any, navLink: string) => {
+    e.preventDefault();
+    console.log("sectionRef", navLink);
     sectionRef.current &&
       sectionRef.current.scrollIntoView({ behavior: "smooth" });
   };
@@ -17,7 +18,8 @@ const HeaderNavigation: React.FC<IHeaderNavigation> = ({
     <nav className={classname}>
       <ul className="flex h-full flex-col flex-wrap items-end lg:items-center lg:flex-row  lg:justify-center">
         {navigation &&
-          navigation.map((navItem: any, index: number) => {
+          navigation.map((navItem: string, index: number) => {
+            const navLink = navItem.split(" ").join("");
             return (
               <li
                 key={index}
@@ -26,9 +28,9 @@ const HeaderNavigation: React.FC<IHeaderNavigation> = ({
                 } lg:my-0 lg:mb-0`}
               >
                 <a
-                  href="/"
+                  href={"#" + navLink}
                   className="rounded-3xl px-3 py-2 text-lg lg:text-base"
-                  onClick={scrollTo}
+                  onClick={(e) => scrollTo(e, navLink)}
                 >
                   {navItem}
                 </a>

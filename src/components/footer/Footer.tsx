@@ -12,21 +12,27 @@ const Footer = () => {
   return (
     <footer className="footer py-12 font-serif relative before:block  before:absolute before:content-'' before:w-full before:top-0 before:h-px before:bg-dark-blue">
       <div className="container lg:flex lg:justify-between text-center lg:text-left">
-        <div className="footer-item lg:max-w-[300px] lg:mr-[11%]">
+        <div className="footer-item  mb-5 lg:max-w-[300px] lg:mr-[11%]">
           <a href="/" className="footer-logo">
             <Icon icon="light-logo" className="inline-block" />
           </a>
         </div>
 
         <div className="footer-item">
-          <ul className="text-dark-blue text-xl flex">
-            {footerNavigation.map((navItem, index: number) => (
-              <li className="p-5" key={index}>
-                <a href="/" className=" hover:underline font-bold">
-                  {navItem}
-                </a>
-              </li>
-            ))}
+          <ul className="text-dark-blue text-xl flex flex-wrap flex-col md:flex-row">
+            {footerNavigation.map((navItem, index: number) => {
+              const navLink = navItem.split(" ").join("");
+              return (
+                <li className="p-3 md:p-5" key={index}>
+                  <a
+                    href={"#" + navLink}
+                    className=" hover:underline font-bold"
+                  >
+                    {navItem}
+                  </a>
+                </li>
+              );
+            })}
           </ul>
         </div>
       </div>

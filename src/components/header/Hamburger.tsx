@@ -1,9 +1,6 @@
 import { useEffect, useState } from "react";
-import LanguageSelector from "./LanguageSelector";
 import HeaderNavigation from "./HeaderNavigation";
 import { IHamburgerMenu } from "../../helpers/commonInterfaces";
-
-
 
 const HamburgerMenu: React.FC<IHamburgerMenu> = ({
   classname = "",
@@ -51,8 +48,9 @@ const HamburgerMenu: React.FC<IHamburgerMenu> = ({
       </button>
 
       <div
-        className={`w-full  bg-dark-blue absolute top-full right-0 py-8 transform transition-transform duration-300 ease-in-out ${isOpen ? "translate-x-0" : "translate-x-full"
-          }`}
+        className={`w-full  bg-dark-blue absolute top-full right-0 py-8 transform transition-transform duration-300 ease-in-out ${
+          isOpen ? "translate-x-0" : "translate-x-full"
+        }`}
       >
         <div
           className={`w-full h-full container flex items-end  align-center flex-col `}
@@ -61,10 +59,6 @@ const HamburgerMenu: React.FC<IHamburgerMenu> = ({
             classname="flex flex-col space-y-4 text-white"
             navigation={navigation}
             setOpenNavChange={setIsOpen}
-          />
-          <LanguageSelector
-            classname="mr-0 w-24 mt-8 lg:mt-0"
-            setOpenChangeNav={setIsOpen}
           />
         </div>
       </div>

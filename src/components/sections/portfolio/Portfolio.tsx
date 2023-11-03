@@ -3,7 +3,7 @@ import React from "react";
 import { useTranslation } from "react-i18next";
 import { EffectCoverflow, Autoplay } from "swiper/modules";
 
-import Section from "..";
+import Section from "../../section";
 import Slider from "../../slider";
 import Icon from "../../icon";
 
