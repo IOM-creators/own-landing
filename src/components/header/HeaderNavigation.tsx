@@ -15,9 +15,9 @@ const HeaderNavigation: React.FC<IHeaderNavigation> = ({
             return (
               <li
                 key={index}
-                className={`text-white my-3 md:my-5 ${
+                className={`text-white my-3 ${
                   index === navigation.length - 1 ? "pr-0" : "pr-0 lg:pr-5 "
-                } lg:my-0 lg:mb-0`}
+                } lg:my-2`}
               >
                 <a
                   href={`#${navLink}`}

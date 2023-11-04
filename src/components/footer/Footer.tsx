@@ -10,7 +10,7 @@ const Footer = () => {
   const footerNavigation = cardsContent.map((navigation: any) => navigation);
 
   return (
-    <footer className="footer py-12 font-serif relative before:block  before:absolute before:content-'' before:w-full before:top-0 before:h-px before:bg-dark-blue">
+    <footer className="footer py-12 font-serif">
       <div className="container lg:flex lg:justify-between text-center lg:text-left">
         <div className="footer-item  mb-5 lg:max-w-[300px] lg:mr-[11%]">
           <a href="/" className="footer-logo">
@@ -26,7 +26,7 @@ const Footer = () => {
                 <li className="p-3 md:p-5" key={index}>
                   <a
                     href={"#" + navLink}
-                    className=" hover:underline font-bold"
+                    className=" hover:underline font-semibold"
                   >
                     {navItem}
                   </a>
