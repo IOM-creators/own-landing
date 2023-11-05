@@ -110,3 +110,64 @@ export const useWindowWidth = () => {
 
   return windowWidth;
 };
+
+export const useScrollAnimation = (
+  elementsRef: any,
+  isAnimated: boolean[],
+  setIsAnimated: any
+): boolean[] => {
+  useEffect(() => {
+    const handleScroll = () => {
+      elementsRef.current.forEach((element: any, index: number) => {
+        if (element) {
+          const elementTop = element.getBoundingClientRect().top;
+          const windowHeight = window.innerHeight;
+          if (elementTop < windowHeight) {
+            if (!isAnimated[index]) {
+              setIsAnimated((prev: any) => {
+                const updated = [...prev];
+                updated[index] = true;
+                return updated;
+              });
+            }
+          }
+        }
+      });
+    }
+    window.addEventListener('scroll', handleScroll);
+    handleScroll();
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+
+  return isAnimated;
+};
+
+
+export const useScrollAnimationForOne = (
+  elementsRef: any,
+  isAnimated: boolean,
+  setIsAnimated: any
+): boolean => {
+  useEffect(() => {
+    const handleScroll = () => {
+      if (elementsRef.current) {
+        const elementTop = elementsRef.current.getBoundingClientRect().top;
+        const windowHeight = window.innerHeight;
+        if (elementTop < windowHeight) {
+          if (!isAnimated) {
+            setIsAnimated(true);
+          }
+        }
+      }
+    }
+    window.addEventListener('scroll', handleScroll);
+    handleScroll();
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+
+  return isAnimated;
+};

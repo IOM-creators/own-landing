@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useRef, useState } from "react";
 import parse from "html-react-parser";
 import cn from "classnames";
 
 import Icon from "../icon";
+import { useScrollAnimation } from "../../helpers/reactHooks";
 
 interface IList {
   list: [
@@ -18,17 +19,23 @@ interface IList {
 }
 
 const List: React.FC<IList> = ({ list, rightIcon, classesItem, className }) => {
+  const [isAnimated, setIsAnimated] = useState<boolean[]>([]);
+  const elementsRef = useRef<Array<HTMLLIElement | null>>([]);
+  useScrollAnimation(elementsRef, isAnimated, setIsAnimated)
   return (
     <ul className={className}>
       {list.map((item, index: number) => {
+        const animationDelayClass = `animate-slide-up-delay-${index + 2}`;
         return (
           <li
+            ref={(el) => (elementsRef.current[index] = el)}
             className={cn(
               {
                 "group shadow-simle px-5 py-4 ": item.shadow,
               },
               classesItem,
-              "flex items-center mt-6 mb-6"
+              `${isAnimated[index] ? 'listAnimation' : 'opacity-0'} ${animationDelayClass}`,
+              "flex items-center mt-6 mb-6 "
             )}
             key={index}
           >

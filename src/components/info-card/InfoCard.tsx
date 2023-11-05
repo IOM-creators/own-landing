@@ -1,9 +1,10 @@
-import React from "react";
+import React, { useRef, useState } from "react";
 import parse from "html-react-parser";
 
 import Image from "../image";
 import TitleSection from "../title-section";
 import Button from "../button";
+import { useScrollAnimationForOne } from "../../helpers/reactHooks";
 
 interface IInfoCard {
   card?: {
@@ -14,11 +15,18 @@ interface IInfoCard {
     btnLink?: string;
   };
   className?: string;
+  index?: number
+  animated?: boolean
 }
 
-const InfoCard: React.FC<IInfoCard> = ({ card, className }) => {
+const InfoCard: React.FC<IInfoCard> = ({ card, className, index, animated = false }) => {
+  const [isAnimated, setIsAnimated] = useState<boolean>(false);
+  const elementsRef = useRef<HTMLDivElement | null>(null);
+  useScrollAnimationForOne(elementsRef, isAnimated, setIsAnimated)
+  const animationDelayClass = index ? `animate-slide-up-delay-${index + 3}` : '';
+
   return (
-    <div className={className}>
+    <div ref={elementsRef} className={`${className} ${!animated ? '' : isAnimated && animated ? ' divAnimation' : 'opacity-0'} ${animationDelayClass}`}>
       {card?.image && (
         <Image src={card.image} className="rounded-3xl object-cover" />
       )}
