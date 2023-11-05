@@ -47,7 +47,7 @@ const InfoWithList: React.FC<IInfoWithList> = ({ card, image, className }) => {
             {parse(card.description)}
           </div>
         )}
-        {card.list.length && <List list={card.list} />}
+        {card.list.length && <List list={card.list} revert={card.revert} />}
         {card.btnText && (
           <Button primary className="pb-2 w-max group relative mt-12 md:mt-16">
             <a href={card.btnLink} className="text-xl">

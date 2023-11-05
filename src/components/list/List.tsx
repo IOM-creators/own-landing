@@ -13,15 +13,22 @@ interface IList {
       shadow?: boolean;
     }
   ];
+  revert?: boolean;
   classesItem?: string;
   rightIcon?: boolean;
   className?: string;
 }
 
-const List: React.FC<IList> = ({ list, rightIcon, classesItem, className }) => {
+const List: React.FC<IList> = ({
+  list,
+  rightIcon,
+  revert,
+  classesItem,
+  className,
+}) => {
   const [isAnimated, setIsAnimated] = useState<boolean[]>([]);
   const elementsRef = useRef<Array<HTMLLIElement | null>>([]);
-  useScrollAnimation(elementsRef, isAnimated, setIsAnimated)
+  useScrollAnimation(elementsRef, isAnimated, setIsAnimated);
   return (
     <ul className={className}>
       {list.map((item, index: number) => {
@@ -34,8 +41,13 @@ const List: React.FC<IList> = ({ list, rightIcon, classesItem, className }) => {
                 "group shadow-simle px-5 py-4 ": item.shadow,
               },
               classesItem,
-              `${isAnimated[index] ? 'listAnimation' : 'opacity-0'} ${animationDelayClass}`,
-              "flex items-center mt-6 mb-6 "
+              `${
+                isAnimated[index] && revert && "listAnimationLeft"
+              } ${animationDelayClass}`,
+              `${
+                isAnimated[index] && !revert && "listAnimation"
+              } ${animationDelayClass}`,
+              "flex items-center mt-6 mb-6 opacity-0"
             )}
             key={index}
           >

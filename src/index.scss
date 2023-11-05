@@ -5,16 +5,16 @@ html {
   scroll-behavior: smooth;
 }
 
-
-
-.listAnimation{
-  animation: slideInRight 1s ease-in-out ;
+.listAnimation {
+  animation: slideInRight 1s ease-in-out forwards;
+}
+.listAnimationLeft {
+  animation: slideInLeft 1s ease-in-out forwards;
 }
 
-.divAnimation{
-  animation: flipInX 2s ease-in-out ;
+.divAnimation {
+  animation: flipInX 2s ease-in-out;
 }
-
 
 @keyframes flipInX {
   from {
@@ -157,32 +157,29 @@ html {
   }
 }
 
-
-
 @keyframes rubberBand {
-
   0% {
     transform: scaleX(1);
   }
 
   30% {
-    transform: scale3d(1.25, .75, 1);
+    transform: scale3d(1.25, 0.75, 1);
   }
 
   40% {
-    transform: scale3d(.75, 1.25, 1);
+    transform: scale3d(0.75, 1.25, 1);
   }
 
   50% {
-    transform: scale3d(1.15, .85, 1);
+    transform: scale3d(1.15, 0.85, 1);
   }
 
   65% {
-    transform: scale3d(.95, 1.05, 1);
+    transform: scale3d(0.95, 1.05, 1);
   }
 
   75% {
-    transform: scale3d(1.05, .95, 1);
+    transform: scale3d(1.05, 0.95, 1);
   }
 
   100% {

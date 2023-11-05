@@ -1,6 +1,9 @@
 import React from "react";
-import Placeholder from "../../assets/placeholders/person.png";
 import cn from "classnames";
+import { LazyLoadImage } from "react-lazy-load-image-component";
+import "react-lazy-load-image-component/src/effects/opacity.css";
+
+import Placeholder from "../../assets/placeholders/person.png";
 
 interface IImage {
   src: string;
@@ -12,7 +15,13 @@ interface IImage {
 const Image: React.FC<IImage> = ({ src, alt, classWrapper, className }) => {
   return (
     <div className={cn(classWrapper, "img-wrapper")}>
-      <img src={src || Placeholder} className={className} alt={alt} />
+      <LazyLoadImage
+        src={src}
+        alt={alt}
+        effect="opacity"
+        placeholderSrc={Placeholder}
+        className={className}
+      />
     </div>
   );
 };
