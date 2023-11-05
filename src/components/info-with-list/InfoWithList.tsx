@@ -29,7 +29,7 @@ const InfoWithList: React.FC<IInfoWithList> = ({ card, image, className }) => {
     <div className={className}>
       <div>
         {image && (
-          <Image src={image} className="rounded-3xl w-fullobject-contain" />
+          <Image src={image} className="rounded-3xl w-full object-contain" />
         )}
       </div>
       <div className={card.revert ? "lg:order-first" : ""}>

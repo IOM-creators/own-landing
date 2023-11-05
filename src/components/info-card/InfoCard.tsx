@@ -15,21 +15,31 @@ interface IInfoCard {
     btnLink?: string;
   };
   className?: string;
-  index?: number
-  animated?: boolean
+  index?: number;
+  animated?: boolean;
 }
 
-const InfoCard: React.FC<IInfoCard> = ({ card, className, index, animated = false }) => {
+const InfoCard: React.FC<IInfoCard> = ({
+  card,
+  className,
+  index,
+  animated = false,
+}) => {
   const [isAnimated, setIsAnimated] = useState<boolean>(false);
   const elementsRef = useRef<HTMLDivElement | null>(null);
-  useScrollAnimationForOne(elementsRef, isAnimated, setIsAnimated)
-  const animationDelayClass = index ? `animate-slide-up-delay-${index + 3}` : '';
+  useScrollAnimationForOne(elementsRef, isAnimated, setIsAnimated);
+  const animationDelayClass = index
+    ? `animate-slide-up-delay-${index + 3}`
+    : "";
 
   return (
-    <div ref={elementsRef} className={`${className} ${!animated ? '' : isAnimated && animated ? ' divAnimation' : 'opacity-0'} ${animationDelayClass}`}>
-      {card?.image && (
-        <Image src={card.image} className="rounded-3xl object-cover" />
-      )}
+    <div
+      ref={elementsRef}
+      className={`${className} ${
+        !animated ? "" : isAnimated && animated ? " divAnimation" : "opacity-0"
+      } ${animationDelayClass}`}
+    >
+      {card?.image && <Image src={card.image} className="rounded-3xl" />}
       {card?.title && (
         <TitleSection tag="h4" fontSize="text-2xl" className="mt-10 mb-4">
           {card.title}
