@@ -39,7 +39,9 @@ const InfoCard: React.FC<IInfoCard> = ({
         !animated ? "" : isAnimated && animated ? " divAnimation" : "opacity-0"
       } ${animationDelayClass}`}
     >
-      {card?.image && <Image src={card.image} className="rounded-3xl" />}
+      {card?.image && (
+        <Image src={card.image} className="rounded-3xl object-contain" />
+      )}
       {card?.title && (
         <TitleSection tag="h4" fontSize="text-2xl" className="mt-10 mb-4">
           {card.title}
