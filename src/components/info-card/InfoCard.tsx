@@ -40,10 +40,10 @@ const InfoCard: React.FC<IInfoCard> = ({
       } ${animationDelayClass}`}
     >
       {card?.image && (
-        <Image src={card.image} className="rounded-3xl object-contain" />
+        <Image src={card.image} className="rounded-3xl object-contain mb-10" />
       )}
       {card?.title && (
-        <TitleSection tag="h4" fontSize="text-2xl" className="mt-10 mb-4">
+        <TitleSection tag="h4" fontSize="text-2xl" className="mb-4">
           {card.title}
         </TitleSection>
       )}

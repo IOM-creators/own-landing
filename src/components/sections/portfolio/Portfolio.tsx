@@ -7,29 +7,10 @@ import Section from "../../section";
 import Slider from "../../slider";
 import Icon from "../../icon";
 
-import Person3 from "../../../assets/images/person3.png";
-import Person4 from "../../../assets/images/person4.png";
-import Person5 from "../../../assets/images/person5.png";
-import Person2 from "../../../assets/images/person2.png";
 import InfoCard from "../../info-card";
 import { SwiperSlide } from "swiper/react";
 import { ISectionCommon } from "../../../helpers/commonInterfaces";
 import TitleSection from "../../title-section";
-
-const images = [
-  {
-    image: Person2,
-  },
-  {
-    image: Person4,
-  },
-  {
-    image: Person3,
-  },
-  {
-    image: Person5,
-  },
-];
 
 const Portfolio: React.FC<ISectionCommon> = ({ className }) => {
   const { t } = useTranslation();
@@ -37,7 +18,7 @@ const Portfolio: React.FC<ISectionCommon> = ({ className }) => {
     returnObjects: true,
   }) as string[];
   const slides = cardsContent.map((card: any, index: number) => {
-    return { ...card, image: images[index].image };
+    return { ...card };
   });
   const sliderParams = {
     effect: "coverflow",
@@ -86,7 +67,7 @@ const Portfolio: React.FC<ISectionCommon> = ({ className }) => {
           <div className="slider-header flex justify-between mb-5 lg:mb-14 lg:mx-10">
             <TitleSection
               tag="h2"
-              fontSize="text-4xl md:text-5xl"
+              fontSize="text-4xl md:text-5xl font-semibold"
               className="text-white text-center md:text-left  mb-5"
             >
               {t("portfolio.title")}
@@ -103,7 +84,7 @@ const Portfolio: React.FC<ISectionCommon> = ({ className }) => {
           <Slider params={sliderParams} className="gallery-slider !py-10">
             {slides.map((slide: any, index: number) => (
               <SwiperSlide key={index}>
-                <InfoCard card={slide} className="bg-white px-5 py-5" />
+                <InfoCard card={slide} className="bg-white px-5 py-10" />
               </SwiperSlide>
             ))}
           </Slider>

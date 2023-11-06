@@ -82,16 +82,16 @@
     "title": "Our Completed Projects",
     "cards": [
       {
-        "title": "Cool feature title",
-        "description": "Learning curve network effects return on investment."
+        "title": "Creation of Shopify App",
+        "description": "<p>App was used to export images from the client's database in order to import them to specific products in Shopify. This app provided the ability to change the order, delete, and download images from a local PC.<p> <br><b>Technologies used to create:</b> Node.js, React.js Typescript, SCSS, HTML5"
       },
       {
-        "title": "Even cooler feature",
-        "description": "Learning curve network effects return on investment."
+        "title": "Creation of Shopify Sites",
+        "description": "<p>The sites created by us are used to sell various products. Our sites allow you to change and customize all the necessary content.</p><p> We also often write our own custom solutions for example (custom filters, size chart, discount logic).</p> <br><b>Technologies used to create:</b> JavaScript, Alpin.Js, SCSS, HTML5"
       },
       {
-        "title": "Cool feature title",
-        "description": "Learning curve network effects return on investment."
+        "title": "Creation of sites",
+        "description": "Some decription"
       },
       {
         "title": "Cool feature title",
