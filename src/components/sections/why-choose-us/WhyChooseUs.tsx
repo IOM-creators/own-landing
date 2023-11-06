@@ -13,12 +13,15 @@ import { useScrollAnimation } from "../../../helpers/reactHooks";
 const images = [
   {
     image: image1,
+    showImage: true
   },
   {
     image: image3,
+    showImage: true
   },
   {
     image: image2,
+    showImage: true
   },
 ];
 
@@ -31,7 +34,7 @@ const WhyChooseUs: React.FC<ISectionCommon> = ({ className }) => {
     returnObjects: true,
   }) as string[];
   const cards = cardsContent.map((card: any, index: number) => {
-    return { ...card, image: images[index].image };
+    return { ...card, image: images[index].image, showImage: images[index].showImage };
   });
   useScrollAnimation(elementsRef, isAnimated, setIsAnimated)
   return (
