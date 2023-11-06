@@ -179,8 +179,7 @@
       "email": "Email",
       "message": "Message"
     },
-    "success_message": " Thank you! Your message has been successfully sent. We will contact you very soon!",
-    "error_message": "Error"
+    "success_message": " Thank you! Your message has been successfully sent. We will contact you very soon!"
   },
   "footer": {
     "navigation": [

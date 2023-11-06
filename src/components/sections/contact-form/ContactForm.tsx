@@ -1,13 +1,14 @@
 import React, { useState } from "react";
 import { Controller, useForm } from "react-hook-form";
 import { useTranslation } from "react-i18next";
+import cn from "classnames";
+import axios from "axios";
 
 import Section from "../../section";
 import Button from "../../button";
 import TitleSection from "../../title-section";
-import axios from "axios";
-import { t } from "i18next";
 import { ISectionCommon } from "../../../helpers/commonInterfaces";
+import Icon from "../../icon";
 
 type FormValues = {
   first_name: string;
@@ -32,7 +33,7 @@ const ContactForm: React.FC<ISectionCommon> = ({ className }) => {
     },
   });
   const [successMessage, updateMessage] = useState(false);
-  const [errorMessage, updateError] = useState(false);
+  const [errorMessage, updateError] = useState("");
 
   const onSubmit = async (data: FormValues, e: any) => {
     e.preventDefault();
@@ -44,8 +45,8 @@ const ContactForm: React.FC<ISectionCommon> = ({ className }) => {
       .then(() => {
         updateMessage(true);
       })
-      .catch(() => {
-        updateError(true);
+      .catch((e) => {
+        updateError(e.message);
       });
   };
   const onError = (errors: any, e: any) => console.log(errors, e);
@@ -59,8 +60,13 @@ const ContactForm: React.FC<ISectionCommon> = ({ className }) => {
         >
           {t("contact_us.title")}
         </TitleSection>
-        <div className="max-w-lg mx-auto">
-          <form onSubmit={handleSubmit(onSubmit, onError)}>
+        <div className="max-w-lg mx-auto relative">
+          <form
+            onSubmit={handleSubmit(onSubmit, onError)}
+            className={cn({
+              invisible: successMessage,
+            })}
+          >
             <div className="grid grid-cols-1  sm:gap-4 sm:grid-cols-6">
               <div className="sm:col-span-3  sm:my-4">
                 <label htmlFor="first_name"></label>
@@ -165,23 +171,23 @@ const ContactForm: React.FC<ISectionCommon> = ({ className }) => {
                 <span className="text-error">{errors.message.message}</span>
               )}
             </div>
-            {successMessage && (
-              <div className="success-message">
-                <p className="text-green">{t("contactUS.successMessage")}</p>
-              </div>
-            )}
             {errorMessage && (
               <div className="error-message">
-                <p className="text-error">{t("contactUS.errorMessage")}</p>
+                <p className="text-error">{errorMessage}</p>
               </div>
             )}
-
             <div className="mt-5 flex justify-center">
               <Button type="submit" secondary>
                 {t("contact_us.btn_text")}
               </Button>
             </div>
           </form>
+          {successMessage && (
+            <div className="success-message text-center absolute h-full w-full top-0 left-0 flex flex-col items-center justify-center">
+              <Icon icon="success" className="mb-5" />
+              <p className="text-green">{t("contact_us.success_message")}</p>
+            </div>
+          )}
         </div>
       </div>
     </Section>
