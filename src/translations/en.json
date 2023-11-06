@@ -92,8 +92,8 @@
         "description": "We've meticulously crafted a user-friendly booking process with a seamless credit and membership purchase flow. Our integration with the Stripe payment system ensures secure transactions. We've also created user account pages for a convenient experience. Our robust registration and authorization system leverages OAuth 2.0, while we use the MarianaTek API to fetch data from the backend. To ensure data consistency and accessibility, we've efficiently stored it using Vuex. "
       },
       {
-        "title": "Cool feature title",
-        "description": "Learning curve network effects return on investment."
+        "title": "Creation of sites",
+        "description": "Some decription"
       },
       {
         "title": "Cool feature title",

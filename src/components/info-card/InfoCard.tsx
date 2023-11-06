@@ -45,7 +45,7 @@ const InfoCard: React.FC<IInfoCard> = ({
         <Image src={card.image} className="rounded-3xl object-contain" />
       )}
       {card?.title && (
-        <TitleSection tag="h4" fontSize="text-2xl" className="mt-10 mb-4">
+        <TitleSection tag="h4" fontSize="text-2xl" className="mb-4">
           {card.title}
         </TitleSection>
       )}
