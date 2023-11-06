@@ -7,33 +7,10 @@ import Section from "../../section";
 import Slider from "../../slider";
 import Icon from "../../icon";
 
-import Person3 from "../../../assets/images/person3.png";
-import Person4 from "../../../assets/images/person4.png";
-import Person5 from "../../../assets/images/person5.png";
-import Person2 from "../../../assets/images/person2.png";
 import InfoCard from "../../info-card";
 import { SwiperSlide } from "swiper/react";
 import { ISectionCommon } from "../../../helpers/commonInterfaces";
 import TitleSection from "../../title-section";
-
-const images: any = [
-  {
-    image: Person2,
-    showImage: false
-  },
-  {
-    image: Person4,
-    showImage: false
-  },
-  {
-    image: Person3,
-    showImage: true
-  },
-  {
-    image: Person5,
-    showImage: true
-  },
-];
 
 const Portfolio: React.FC<ISectionCommon> = ({ className }) => {
   const { t } = useTranslation();
@@ -41,7 +18,7 @@ const Portfolio: React.FC<ISectionCommon> = ({ className }) => {
     returnObjects: true,
   }) as string[];
   const slides = cardsContent.map((card: any, index: number) => {
-    return { ...card, image: images.length ? images[index].image : null, showImage: images[index].showImage };
+    return { ...card };
   });
   const sliderParams = {
     effect: "coverflow",
