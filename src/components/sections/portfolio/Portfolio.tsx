@@ -67,8 +67,8 @@ const Portfolio: React.FC<ISectionCommon> = ({ className }) => {
           <div className="slider-header flex justify-between mb-5 lg:mb-14 lg:mx-10">
             <TitleSection
               tag="h2"
-              fontSize="text-4xl md:text-5xl font-semibold"
-              className="text-white text-center md:text-left  mb-5"
+              fontSize="text-4xl md:text-5xl"
+              className="text-white text-center md:text-left mb-5"
             >
               {t("portfolio.title")}
             </TitleSection>
@@ -84,7 +84,7 @@ const Portfolio: React.FC<ISectionCommon> = ({ className }) => {
           <Slider params={sliderParams} className="gallery-slider !py-10">
             {slides.map((slide: any, index: number) => (
               <SwiperSlide key={index}>
-                <InfoCard card={slide} className="bg-white px-5 py-10" />
+                <InfoCard card={slide} className="bg-white px-5 py-5" />
               </SwiperSlide>
             ))}
           </Slider>
