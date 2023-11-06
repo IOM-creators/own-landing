@@ -8,8 +8,10 @@ import { useScrollAnimationForOne } from "../../helpers/reactHooks";
 
 interface IInfoCard {
   card?: {
-    image: string;
+    image?: string;
+    showImage?: boolean;
     title?: string;
+    technologies?: string;
     description?: string;
     btnText?: string;
     btnLink?: string;
@@ -31,21 +33,26 @@ const InfoCard: React.FC<IInfoCard> = ({
   const animationDelayClass = index
     ? `animate-slide-up-delay-${index + 3}`
     : "";
+  console.log(card?.image);
 
   return (
     <div
       ref={elementsRef}
-      className={`${className} ${
-        !animated ? "" : isAnimated && animated ? " divAnimation" : "opacity-0"
-      } ${animationDelayClass}`}
+      className={`${className} ${!animated ? "" : isAnimated && animated ? " divAnimation" : "opacity-0"
+        } ${animationDelayClass}`}
     >
-      {card?.image && (
+      {card?.image && card.showImage == true && (
         <Image src={card.image} className="rounded-3xl object-contain" />
       )}
       {card?.title && (
         <TitleSection tag="h4" fontSize="text-2xl" className="mt-10 mb-4">
           {card.title}
         </TitleSection>
+      )}
+      {card?.technologies && (
+        <div className="text-xl mt-2">
+          <strong>Tech Stack:</strong>  {parse(card.technologies)}
+        </div>
       )}
       {card?.description && (
         <div className="text-xl text-gray mt-2">{parse(card.description)}</div>

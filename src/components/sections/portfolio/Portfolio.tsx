@@ -16,18 +16,22 @@ import { SwiperSlide } from "swiper/react";
 import { ISectionCommon } from "../../../helpers/commonInterfaces";
 import TitleSection from "../../title-section";
 
-const images = [
+const images: any = [
   {
     image: Person2,
+    showImage: false
   },
   {
     image: Person4,
+    showImage: false
   },
   {
     image: Person3,
+    showImage: true
   },
   {
     image: Person5,
+    showImage: true
   },
 ];
 
@@ -37,7 +41,7 @@ const Portfolio: React.FC<ISectionCommon> = ({ className }) => {
     returnObjects: true,
   }) as string[];
   const slides = cardsContent.map((card: any, index: number) => {
-    return { ...card, image: images[index].image };
+    return { ...card, image: images.length ? images[index].image : null, showImage: images[index].showImage };
   });
   const sliderParams = {
     effect: "coverflow",

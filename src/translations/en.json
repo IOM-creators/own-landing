@@ -82,12 +82,14 @@
     "title": "Our Completed Projects",
     "cards": [
       {
-        "title": "Cool feature title",
-        "description": "Learning curve network effects return on investment."
+        "title": "Learning Manage System",
+        "technologies": "Next.js, GraphQL, Contentful.",
+        "description": "Our application is powered by Next.js, GraphQL, and Contentful. We've customized Contentful templates, created backend models for our components, and harnessed GraphQL to seamlessly retrieve and convert CMS content into dynamic Next.js components. To enhance performance, we've optimized the application by achieving a remarkable 90% speed boost. For analytics, we've integrated OneTrust and Google Analytics. Additionally, we've prioritized SEO by enabling you to configure SEO settings from your Contentful account, tailoring keywords and data for each page."
       },
       {
-        "title": "Even cooler feature",
-        "description": "Learning curve network effects return on investment."
+        "title": "Booking Class Spot App",
+        "technologies": "Vue.js, Vuex, MarianaTek API, Stripe.js, OAUTH 2.0 .",
+        "description": "We've meticulously crafted a user-friendly booking process with a seamless credit and membership purchase flow. Our integration with the Stripe payment system ensures secure transactions. We've also created user account pages for a convenient experience. Our robust registration and authorization system leverages OAuth 2.0, while we use the MarianaTek API to fetch data from the backend. To ensure data consistency and accessibility, we've efficiently stored it using Vuex. "
       },
       {
         "title": "Cool feature title",
