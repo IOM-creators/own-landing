@@ -133,17 +133,16 @@ export const useScrollAnimation = (
           }
         }
       });
-    }
-    window.addEventListener('scroll', handleScroll);
+    };
+    window.addEventListener("scroll", handleScroll);
     handleScroll();
     return () => {
-      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener("scroll", handleScroll);
     };
   }, []);
 
   return isAnimated;
 };
-
 
 export const useScrollAnimationForOne = (
   elementsRef: any,
@@ -161,11 +160,11 @@ export const useScrollAnimationForOne = (
           }
         }
       }
-    }
-    window.addEventListener('scroll', handleScroll);
+    };
+    window.addEventListener("scroll", handleScroll);
     handleScroll();
     return () => {
-      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener("scroll", handleScroll);
     };
   }, []);
 

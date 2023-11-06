@@ -3,6 +3,7 @@
     "navigation": [
       "About Us",
       "Services Offered",
+      "Core Technologies",
       "Why Choose Us",
       "Portfolio",
       "Our Process",
@@ -59,6 +60,23 @@
         "icon": "check",
         "shadow": true
       }
+    ]
+  },
+  "technologies": {
+    "title": "Turning your ideas into the code by core technologies",
+    "list": [
+      { "icon": "javascript", "name": "JavaScript" },
+      { "icon": "react", "name": "React.JS" },
+      { "icon": "next", "name": "Next.JS" },
+      { "icon": "vue", "name": "Vue.JS" },
+      { "icon": "nuxt", "name": "Nuxt.JS" },
+      { "icon": "shopify", "name": "Shopify" },
+      { "icon": "node", "name": "Node.JS" },
+      { "icon": "typescript", "name": "TypeScript" },
+      { "icon": "jest", "name": "Jest" },
+      { "icon": "tailwind", "name": "Tailwind" },
+      { "icon": "materialui", "name": "MaterialUI" },
+      { "icon": "alpine", "name": "Alpine.JS" }
     ]
   },
   "why_choose_us": {

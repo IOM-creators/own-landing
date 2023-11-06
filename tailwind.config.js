@@ -56,6 +56,7 @@ module.exports = {
       },
       boxShadow: {
         simle: "0px 4px 32px 0px rgba(0, 0, 0, 0.08);",
+        primary: "0px 4px 15px 0px rgba(10, 38, 64, 0.4)",
       },
     },
     container: {
