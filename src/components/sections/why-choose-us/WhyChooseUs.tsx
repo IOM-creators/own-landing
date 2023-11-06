@@ -3,9 +3,24 @@ import Section from "../../section";
 import TitleSection from "../../title-section";
 import InfoCard from "../../info-card";
 
+import image1 from "../../../assets/images/why_choose_us_1.png";
+import image2 from "../../../assets/images/why_choose_us_2.png";
+import image3 from "../../../assets/images/why_choose_us_3.png";
 import { useTranslation } from "react-i18next";
 import { ISectionCommon } from "../../../helpers/commonInterfaces";
 import { useScrollAnimation } from "../../../helpers/reactHooks";
+
+const images = [
+  {
+    image: image1,
+  },
+  {
+    image: image3,
+  },
+  {
+    image: image2,
+  },
+];
 
 const WhyChooseUs: React.FC<ISectionCommon> = ({ className }) => {
   const { t } = useTranslation();
@@ -16,7 +31,7 @@ const WhyChooseUs: React.FC<ISectionCommon> = ({ className }) => {
     returnObjects: true,
   }) as string[];
   const cards = cardsContent.map((card: any, index: number) => {
-    return { ...card };
+    return { ...card, image: images[index].image };
   });
   useScrollAnimation(elementsRef, isAnimated, setIsAnimated)
   return (

@@ -9,7 +9,6 @@ import { useScrollAnimationForOne } from "../../helpers/reactHooks";
 interface IInfoCard {
   card?: {
     image?: string;
-    showImage?: boolean;
     title?: string;
     technologies?: string;
     description?: string;
@@ -33,15 +32,13 @@ const InfoCard: React.FC<IInfoCard> = ({
   const animationDelayClass = index
     ? `animate-slide-up-delay-${index + 3}`
     : "";
-  console.log(card?.image);
-
   return (
     <div
       ref={elementsRef}
       className={`${className} ${!animated ? "" : isAnimated && animated ? " divAnimation" : "opacity-0"
         } ${animationDelayClass}`}
     >
-      {card?.image && card.showImage == true && (
+      {card?.image && (
         <Image src={card.image} className="rounded-3xl object-contain" />
       )}
       {card?.title && (
