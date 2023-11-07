@@ -1,33 +1,63 @@
-import React from "react";
+import React, { useRef, useState } from "react";
+import parse from "html-react-parser";
+
 import Image from "../image";
 import TitleSection from "../title-section";
-import DynamicTag from "../dynamic-tag";
 import Button from "../button";
+import { useScrollAnimationForOne } from "../../helpers/reactHooks";
 
 interface IInfoCard {
   card?: {
-    image: string;
+    image?: string;
     title?: string;
+    technologies?: string;
     description?: string;
     btnText?: string;
     btnLink?: string;
   };
   className?: string;
+  index?: number;
+  animated?: boolean;
 }
 
-const InfoCard: React.FC<IInfoCard> = ({ card, className }) => {
+const InfoCard: React.FC<IInfoCard> = ({
+  card,
+  className,
+  index,
+  animated = false,
+}) => {
+  const [isAnimated, setIsAnimated] = useState<boolean>(false);
+  const elementsRef = useRef<HTMLDivElement | null>(null);
+  useScrollAnimationForOne(elementsRef, isAnimated, setIsAnimated);
+  const animationDelayClass = index
+    ? `animate-slide-up-delay-${index + 3}`
+    : "";
   return (
-    <div className={className}>
-      {card?.image && <Image src={card.image} borderRadius="rounded-3xl" />}
+    <div
+      ref={elementsRef}
+      className={`${className} ${
+        !animated ? "" : isAnimated && animated ? " divAnimation" : "opacity-0"
+      } ${animationDelayClass}`}
+    >
+      {card?.image && (
+        <Image
+          src={card.image}
+          className="rounded-3xl object-contain"
+          classWrapper="mb-10"
+        />
+      )}
       {card?.title && (
-        <TitleSection tag="h4" fontSize="text-2xl" className="mt-6">
+        <TitleSection tag="h4" fontSize="text-2xl" className="mb-4 text-black">
           {card.title}
         </TitleSection>
       )}
+      {card?.technologies && (
+        <div className="text-xl mt-2">
+          <strong>Tech Stack:</strong> {parse(card.technologies)}
+        </div>
+      )}
       {card?.description && (
-        <DynamicTag tag="p" className="text-xl text-gray mt-2">
-          {card.description}
-        </DynamicTag>
+        <div className="text-xl mt-2">{parse(card.description)}</div>
       )}
       {card?.btnText && (
         <Button

@@ -1,23 +1,31 @@
-import { useCallback, useEffect, useState } from 'react';
-import { NavigateFunction } from 'react-router-dom';
-import { UseTranslationResponse } from 'react-i18next';
+import { useCallback, useEffect, useState } from "react";
+import { NavigateFunction } from "react-router-dom";
+import { UseTranslationResponse } from "react-i18next";
 
-export const useLanguageFromURL = (navigate: NavigateFunction, translation: UseTranslationResponse<any, any>) => {
+export const useLanguageFromURL = (
+  navigate: NavigateFunction,
+  translation: UseTranslationResponse<any, any>
+) => {
   useEffect(() => {
-    const languageFromURL = window.location.pathname.split('/')[1];
-    const keys = (translation.i18n.options.resources && Object.keys(translation.i18n.options.resources)) || []
-    keys.includes(languageFromURL) ? translation.i18n.changeLanguage(languageFromURL) : navigate('/en');
+    const languageFromURL = window.location.pathname.split("/")[1];
+    const keys =
+      (translation.i18n.options.resources &&
+        Object.keys(translation.i18n.options.resources)) ||
+      [];
+    keys.includes(languageFromURL)
+      ? translation.i18n.changeLanguage(languageFromURL)
+      : navigate("/en");
   }, [navigate, translation.i18n]);
-}
-
-
+};
 
 export const useScrollEvent = () => {
   const [y, setY] = useState(0);
-  const [scrollingDown, updateScrollingDown] = useState(window.scrollY === 0 ? true : false);
+  const [scrollingDown, updateScrollingDown] = useState(
+    window.scrollY === 0 ? true : false
+  );
 
-  const sections = document.querySelectorAll('.section');
-  const navLinks = document.querySelectorAll('nav ul li a');
+  const sections = document.querySelectorAll(".section");
+  const navLinks = document.querySelectorAll("nav ul li a");
   const sectionPositions: { top: number; bottom: number }[] = [];
 
   sections.forEach((section) => {
@@ -26,46 +34,56 @@ export const useScrollEvent = () => {
     sectionPositions.push({ top: sectionTop, bottom: sectionBottom });
   });
 
-  const handleNavigation = useCallback((e: any) => {
-    const window = e.currentTarget;
-    const scrollPosition = window.scrollY;
-    if (scrollPosition > 82) {
-      y > scrollPosition ? updateScrollingDown(true) : updateScrollingDown(false);
-    }
-
-
-    const noSectionInView = sectionPositions.every((position) => {
-      return scrollPosition + 100 < position.top || scrollPosition >= position.bottom;
-    });
-
-    sectionPositions.forEach((position, index) => {
-      const sectionTop = position.top;
-      const sectionBottom = position.bottom;
-
-      let classesToAdd = ['active', 'bg-white', 'text-dark-blue', 'sm:px-5'];
-
-      if (!navLinks[index]) {
-        return;
+  const handleNavigation = useCallback(
+    (e: any) => {
+      const window = e.currentTarget;
+      const scrollPosition = window.scrollY;
+      if (scrollPosition > 82) {
+        y > scrollPosition
+          ? updateScrollingDown(true)
+          : updateScrollingDown(false);
       }
 
-      if (scrollPosition + 100 >= sectionTop && scrollPosition < sectionBottom) {
-        if (!navLinks[index].classList.contains('active')) {
-          navLinks[index].classList.add(...classesToAdd);
-          window.history.replaceState(null, '', `#${sections[index].id}`);
+      const noSectionInView = sectionPositions.every((position) => {
+        return (
+          scrollPosition + 100 < position.top ||
+          scrollPosition >= position.bottom
+        );
+      });
+
+      sectionPositions.forEach((position, index) => {
+        const sectionTop = position.top;
+        const sectionBottom = position.bottom;
+
+        let classesToAdd = ["active", "bg-white", "text-dark-blue", "sm:px-3"];
+
+        if (!navLinks[index]) {
+          return;
         }
-      } else {
-        if (navLinks[index].classList.contains('active')) {
-          navLinks[index].classList.remove(...classesToAdd);
+
+        if (
+          scrollPosition + 100 >= sectionTop &&
+          scrollPosition < sectionBottom
+        ) {
+          if (!navLinks[index].classList.contains("active")) {
+            navLinks[index].classList.add(...classesToAdd);
+            window.history.replaceState(null, "", `#${sections[index].id}`);
+          }
+        } else {
+          if (navLinks[index].classList.contains("active")) {
+            navLinks[index].classList.remove(...classesToAdd);
+          }
         }
+      });
+
+      if (noSectionInView && window.location.hash) {
+        window.history.replaceState(null, "", window.location.pathname);
       }
-    });
 
-    if (noSectionInView && window.location.hash) {
-      window.history.replaceState(null, '', window.location.pathname);
-    }
-
-    setY(scrollPosition);
-  }, [sectionPositions, navLinks, sections]);
+      setY(scrollPosition);
+    },
+    [sectionPositions, navLinks, sections]
+  );
 
   useEffect(() => {
     window.addEventListener("scroll", handleNavigation);
@@ -77,7 +95,6 @@ export const useScrollEvent = () => {
   return { y, scrollingDown };
 };
 
-
 export const useWindowWidth = () => {
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
@@ -85,11 +102,71 @@ export const useWindowWidth = () => {
     const handleResize = () => {
       setWindowWidth(window.innerWidth);
     };
-    window.addEventListener('resize', handleResize);
+    window.addEventListener("resize", handleResize);
     return () => {
-      window.removeEventListener('resize', handleResize);
+      window.removeEventListener("resize", handleResize);
     };
   }, []);
 
   return windowWidth;
+};
+
+export const useScrollAnimation = (
+  elementsRef: any,
+  isAnimated: boolean[],
+  setIsAnimated: any
+): boolean[] => {
+  useEffect(() => {
+    const handleScroll = () => {
+      elementsRef.current.forEach((element: any, index: number) => {
+        if (element) {
+          const elementTop = element.getBoundingClientRect().top;
+          const windowHeight = window.innerHeight;
+          if (elementTop < windowHeight) {
+            if (!isAnimated[index]) {
+              setIsAnimated((prev: any) => {
+                const updated = [...prev];
+                updated[index] = true;
+                return updated;
+              });
+            }
+          }
+        }
+      });
+    };
+    window.addEventListener("scroll", handleScroll);
+    handleScroll();
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
+  return isAnimated;
+};
+
+export const useScrollAnimationForOne = (
+  elementsRef: any,
+  isAnimated: boolean,
+  setIsAnimated: any
+): boolean => {
+  useEffect(() => {
+    const handleScroll = () => {
+      if (elementsRef.current) {
+        const elementTop = elementsRef.current.getBoundingClientRect().top;
+        const windowHeight = window.innerHeight;
+        if (elementTop < windowHeight) {
+          if (!isAnimated) {
+            setIsAnimated(true);
+          }
+        }
+      }
+    };
+    window.addEventListener("scroll", handleScroll);
+    handleScroll();
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
+  return isAnimated;
 };

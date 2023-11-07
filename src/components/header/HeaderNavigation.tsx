@@ -1,42 +1,30 @@
-import { useTranslation } from "react-i18next";
-import { IHeaderNavigation, INavigation } from "../../helpers/commonInterfaces";
+import React from "react";
+import { IHeaderNavigation } from "../../helpers/commonInterfaces";
 
 const HeaderNavigation: React.FC<IHeaderNavigation> = ({
   classname = "",
   navigation,
   setOpenNavChange = () => false,
 }) => {
-  const { t } = useTranslation();
-  const scrollTo = (e: any) => {
-    e.preventDefault();
-    setOpenNavChange(false);
-    document.body.classList.remove("overflow-hidden");
-    const id = e.target.getAttribute("data-scroll-to");
-    const url = `#${id}`;
-    window.history.pushState(null, "", url);
-    const sectionScrollTo = document.getElementById(`${id}`);
-    sectionScrollTo && sectionScrollTo.scrollIntoView({ behavior: "smooth" });
-  };
-
   return (
     <nav className={classname}>
       <ul className="flex h-full flex-col flex-wrap items-end lg:items-center lg:flex-row  lg:justify-center">
         {navigation &&
-          navigation.map((navItem: INavigation, index: number) => {
+          navigation.map((navItem: string, index: number) => {
+            const navLink = navItem.split(" ").join("");
             return (
               <li
-                key={navItem.textId}
-                className={`text-white my-5 ${
-                  index === navigation.length - 1 ? "pr-0" : "pr-0 lg:pr-10 "
-                } lg:my-0 lg:mb-0`}
+                key={index}
+                className={`text-white my-3 ${
+                  index === navigation.length - 1 ? "pr-0" : "pr-0 lg:pr-5 "
+                } lg:my-2`}
               >
                 <a
-                  href="/"
+                  href={`#${navLink}`}
                   className="rounded-3xl px-3 py-2 text-lg lg:text-base"
-                  data-scroll-to={navItem.scrollTo}
-                  onClick={(e) => scrollTo(e)}
+                  onClick={() => setOpenNavChange(false)}
                 >
-                  {t(`${navItem.textId}`)}
+                  {navItem}
                 </a>
               </li>
             );

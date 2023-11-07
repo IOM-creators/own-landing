@@ -11,6 +11,7 @@ module.exports = {
     },
     colors: {
       blue: "#1fb6ff",
+      black: "#000",
       "dark-blue": "#0A2640",
       "light-blue": "#1c3d5b",
       pink: "#ff49db",
@@ -47,6 +48,7 @@ module.exports = {
         silver: "#C4C4C4",
         white: "#fff",
         green: "#65e4a3",
+        "gray-light": "#d3dce6",
         "dark-blue": "#0A2640",
         "light-blue": "#1c3d5b",
       },
@@ -55,6 +57,7 @@ module.exports = {
       },
       boxShadow: {
         simle: "0px 4px 32px 0px rgba(0, 0, 0, 0.08);",
+        primary: "0px 4px 15px 0px rgba(10, 38, 64, 0.4)",
       },
     },
     container: {

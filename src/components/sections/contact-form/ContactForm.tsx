@@ -1,21 +1,24 @@
-import React from "react";
+import React, { useState } from "react";
 import { Controller, useForm } from "react-hook-form";
-import Section from "../section";
-import Button from "../button";
-import TitleSection from "../title-section";
+import { useTranslation } from "react-i18next";
+import cn from "classnames";
+import axios from "axios";
+
+import Section from "../../section";
+import Button from "../../button";
+import TitleSection from "../../title-section";
+import { ISectionCommon } from "../../../helpers/commonInterfaces";
+import Icon from "../../icon";
 
 type FormValues = {
-  name: string;
-  surname: string;
+  first_name: string;
+  last_name: string;
   email: string;
   message: string;
 };
-interface IContactForm {
-  className?: string;
-}
 
-
-const ContactForm: React.FC<IContactForm> = ({ className }) => {
+const ContactForm: React.FC<ISectionCommon> = ({ className }) => {
+  const { t } = useTranslation();
   const {
     register,
     handleSubmit,
@@ -23,76 +26,99 @@ const ContactForm: React.FC<IContactForm> = ({ className }) => {
     formState: { errors },
   } = useForm<FormValues>({
     defaultValues: {
-      name: "",
-      surname: "",
+      first_name: "",
+      last_name: "",
       email: "",
       message: "",
     },
   });
+  const [successMessage, updateMessage] = useState(false);
+  const [errorMessage, updateError] = useState("");
 
   const onSubmit = async (data: FormValues, e: any) => {
     e.preventDefault();
-    console.log("data", data);
+    axios
+      .post(
+        "https://book-store-zt-f600bde9fca9.herokuapp.com/email/send-email",
+        data
+      )
+      .then(() => {
+        updateMessage(true);
+      })
+      .catch((e) => {
+        updateError(e.message);
+      });
   };
   const onError = (errors: any, e: any) => console.log(errors, e);
   return (
     <Section id="ContactUs" className={className}>
-      <div className="bg-dark-blue py-20 px-10 md:px-40 rounded-2xl bg-ellipse bg-right-top bg-no-repeat">
+      <div className="bg-dark-blue py-20 px-10 md:px-40 sm:rounded-2xl bg-contain bg-ellipse bg-right-top bg-no-repeat">
         <TitleSection
           tag="h2"
-          fontSize="text-3xl md:text-5xl"
+          fontSize="text-4xl md:text-5xl"
           className="text-center mb-10 max-w-lap mx-auto text-white"
         >
-          An enterprise template to ramp up your company website
+          {t("contact_us.title")}
         </TitleSection>
-        <div className="max-w-lg mx-auto">
-          <form onSubmit={handleSubmit(onSubmit, onError)}>
+        <div className="max-w-lg mx-auto relative">
+          <form
+            onSubmit={handleSubmit(onSubmit, onError)}
+            className={cn({
+              invisible: successMessage,
+            })}
+          >
             <div className="grid grid-cols-1  sm:gap-4 sm:grid-cols-6">
               <div className="sm:col-span-3  sm:my-4">
-                <label htmlFor="name"></label>
+                <label htmlFor="first_name"></label>
                 <Controller
-                  name="name"
+                  name="first_name"
                   control={control}
-                  rules={{ required: "Name is required" }}
+                  rules={{
+                    required: t("contact_us.form.first_name") + " is required",
+                  }}
                   render={({ field }) => (
                     <input
                       {...field}
                       type="text"
                       id="first-name"
-                      placeholder="First name"
+                      placeholder={t("contact_us.form.first_name")}
                       autoComplete="given-name"
                       className="block w-full rounded-md  p-2 px-4 "
                       aria-describedby="my-helper-text"
-                      {...register("name")}
+                      {...register("first_name")}
                     />
                   )}
                 />
-                {errors.name && (
-                  <span className="text-error">{errors.name.message}</span>
+                {errors.first_name && (
+                  <span className="text-error">
+                    {errors.first_name.message}
+                  </span>
                 )}
               </div>
 
               <div className="sm:col-span-3  my-4">
-                <label htmlFor="surname"></label>
+                <label htmlFor="last_name"></label>
                 <Controller
-                  name="surname"
+                  name="last_name"
                   control={control}
-                  rules={{ required: "Surname is required" }}
+                  rules={{
+                    required: t("contact_us.form.last_name") + " is required",
+                  }}
                   render={({ field }) => (
                     <input
                       {...field}
                       type="text"
-                      id="surname"
-                      placeholder="Last name"
+                      id="last_name"
+                      placeholder={t("contact_us.form.last_name")}
                       autoComplete="family-name"
                       className="block w-full rounded-md  py-2 px-4 "
                       aria-describedby="my-helper-text"
-                      {...register("surname")}
+                      {...register("last_name")}
                     />
                   )}
                 />
-                {errors.surname && (
-                  <span className="text-error">{errors.surname.message}</span>
+                {errors.last_name && (
+                  <span className="text-error">{errors.last_name.message}</span>
                 )}
               </div>
             </div>
@@ -101,13 +127,15 @@ const ContactForm: React.FC<IContactForm> = ({ className }) => {
               <Controller
                 name="email"
                 control={control}
-                rules={{ required: "Email is required" }}
+                rules={{
+                  required: t("contact_us.form.email") + " is required",
+                }}
                 render={({ field }) => (
                   <input
                     {...field}
                     type="email"
                     id="email"
-                    placeholder="Email address"
+                    placeholder={t("contact_us.form.email")}
                     autoComplete="email"
                     className="block w-full rounded-md  p-2 px-4 "
                     aria-describedby="my-helper-text"
@@ -124,12 +152,14 @@ const ContactForm: React.FC<IContactForm> = ({ className }) => {
               <Controller
                 name="message"
                 control={control}
-                rules={{ required: "Message is required" }}
+                rules={{
+                  required: t("contact_us.form.message") + " is required",
+                }}
                 render={({ field }) => (
                   <textarea
                     {...field}
                     id="message"
-                    placeholder="Message"
+                    placeholder={t("contact_us.form.message")}
                     rows={3}
                     className="block w-full rounded-md p-2 px-4 "
                     aria-describedby="my-helper-text"
@@ -141,12 +171,23 @@ const ContactForm: React.FC<IContactForm> = ({ className }) => {
                 <span className="text-error">{errors.message.message}</span>
               )}
             </div>
+            {errorMessage && (
+              <div className="error-message">
+                <p className="text-error">{errorMessage}</p>
+              </div>
+            )}
             <div className="mt-5 flex justify-center">
               <Button type="submit" secondary>
-                Submit
+                {t("contact_us.btn_text")}
               </Button>
             </div>
           </form>
+          {successMessage && (
+            <div className="success-message text-center absolute h-full w-full top-0 left-0 flex flex-col items-center justify-center">
+              <Icon icon="success" className="mb-5" />
+              <p className="text-green">{t("contact_us.success_message")}</p>
+            </div>
+          )}
         </div>
       </div>
     </Section>
