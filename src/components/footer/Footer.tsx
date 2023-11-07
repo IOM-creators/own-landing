@@ -4,7 +4,7 @@ import { useTranslation } from "react-i18next";
 
 const Footer = () => {
   const { t } = useTranslation();
-  const cardsContent = t("header.navigation", {
+  const cardsContent = t("footer.navigation", {
     returnObjects: true,
   }) as string[];
   const footerNavigation = cardsContent.map((navigation: any) => navigation);
