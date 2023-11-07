@@ -19,6 +19,7 @@ const Image: React.FC<IImage> = ({ src, alt, classWrapper, className }) => {
         src={src}
         alt={alt}
         effect="opacity"
+        threshold={500} 
         placeholderSrc={Placeholder}
         className={className}
       />
