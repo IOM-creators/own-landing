@@ -53,7 +53,6 @@ const Portfolio: React.FC<ISectionCommon> = ({ className }) => {
       },
       768: {
         slidesPerView: 2,
-        pagination: false,
       },
       1024: {
         slidesPerView: 3,
@@ -84,11 +83,14 @@ const Portfolio: React.FC<ISectionCommon> = ({ className }) => {
           <Slider params={sliderParams} className="gallery-slider !py-10">
             {slides.map((slide: any, index: number) => (
               <SwiperSlide key={index}>
-                <InfoCard card={slide} className="bg-white px-5 py-5" />
+                <InfoCard
+                  card={slide}
+                  className="bg-white px-5 py-5 rounded-lg h-full"
+                />
               </SwiperSlide>
             ))}
           </Slider>
-          <div className="swiper-pagination-gallery text-center !top-100-20 md:hidden"></div>
+          <div className="swiper-pagination-gallery text-center !top-100-20 "></div>
         </div>
       </Section>
     </div>

@@ -33,7 +33,7 @@ const WhyChooseUs: React.FC<ISectionCommon> = ({ className }) => {
   const cards = cardsContent.map((card: any, index: number) => {
     return { ...card, image: images[index].image };
   });
-  useScrollAnimation(elementsRef, isAnimated, setIsAnimated)
+  useScrollAnimation(elementsRef, isAnimated, setIsAnimated);
   return (
     <Section id="WhyChooseUs" className={className}>
       <TitleSection
@@ -51,7 +51,7 @@ const WhyChooseUs: React.FC<ISectionCommon> = ({ className }) => {
             index={index}
             card={card}
             key={index}
-            className="flex flex-col justify-center"
+            className="flex flex-col justify-center text-gray"
           />
         ))}
       </div>

@@ -33,7 +33,7 @@ const Technologies: React.FC<ITechnologies> = ({ className = "" }) => {
       </TitleSection>
       <div className="flex flex-wrap justify-center">
         {list.map((item, index: number) => {
-          const animationDelayClass = `animate-delay-${index + 1}`;
+          const animationDelayClass = `animate-slide-up-delay-${index + 2}`;
 
           return (
             <div

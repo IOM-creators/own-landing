@@ -47,7 +47,7 @@ const InfoCard: React.FC<IInfoCard> = ({
         />
       )}
       {card?.title && (
-        <TitleSection tag="h4" fontSize="text-2xl" className="mb-4">
+        <TitleSection tag="h4" fontSize="text-2xl" className="mb-4 text-black">
           {card.title}
         </TitleSection>
       )}
@@ -57,7 +57,7 @@ const InfoCard: React.FC<IInfoCard> = ({
         </div>
       )}
       {card?.description && (
-        <div className="text-xl text-gray mt-2">{parse(card.description)}</div>
+        <div className="text-xl mt-2">{parse(card.description)}</div>
       )}
       {card?.btnText && (
         <Button

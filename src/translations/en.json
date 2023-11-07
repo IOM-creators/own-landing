@@ -67,11 +67,13 @@
     "list": [
       { "icon": "javascript", "name": "JavaScript" },
       { "icon": "react", "name": "React.JS" },
+      { "icon": "redux", "name": "Redux.JS" },
       { "icon": "next", "name": "Next.JS" },
       { "icon": "vue", "name": "Vue.JS" },
       { "icon": "nuxt", "name": "Nuxt.JS" },
       { "icon": "shopify", "name": "Shopify" },
       { "icon": "node", "name": "Node.JS" },
+      { "icon": "graphql", "name": "GraphQL" },
       { "icon": "typescript", "name": "TypeScript" },
       { "icon": "jest", "name": "Jest" },
       { "icon": "tailwind", "name": "Tailwind" },
@@ -101,7 +103,7 @@
     "cards": [
       {
         "title": "Creation of Shopify App",
-        "description": "<p>App was used to export images from the client's database in order to import them to specific products in Shopify. This app provided the ability to change the order, delete, and download images from a local PC.<p> <br><b>Technologies used to create:</b> Node.js, React.js Typescript, SCSS, HTML5"
+        "description": "<p>App was used to export images from the client's database in order to import them to specific products in Shopify. This app provided the ability to change the order, delete, and upload images from a local PC.<p> <br><b>Technologies used to create:</b> Node.js, React.js Typescript, SCSS, HTML5"
       },
       {
         "title": "Creation of Shopify Sites",
@@ -203,6 +205,7 @@
     "navigation": [
       "About Us",
       "Services Offered",
+      "Core Technologies",
       "Why Choose Us",
       "Portfolio",
       "Our Process",
