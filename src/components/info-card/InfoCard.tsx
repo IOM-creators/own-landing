@@ -5,7 +5,7 @@ import Image from "../image";
 import TitleSection from "../title-section";
 import Button from "../button";
 import { useScrollAnimationForOne } from "../../helpers/reactHooks";
-
+import Icon from "../icon";
 interface IInfoCard {
   card?: {
     image?: string;
@@ -15,6 +15,7 @@ interface IInfoCard {
     btnText?: string;
     btnLink?: string;
   };
+  icon?: string;
   className?: string;
   index?: number;
   animated?: boolean;
@@ -23,6 +24,7 @@ interface IInfoCard {
 const InfoCard: React.FC<IInfoCard> = ({
   card,
   className,
+  icon,
   index,
   animated = false,
 }) => {
@@ -35,17 +37,21 @@ const InfoCard: React.FC<IInfoCard> = ({
   return (
     <div
       ref={elementsRef}
-      className={`${className} ${
-        !animated ? "" : isAnimated && animated ? " divAnimation" : "opacity-0"
-      } ${animationDelayClass}`}
+      className={`${className} ${!animated ? "" : isAnimated && animated ? " divAnimation" : "opacity-0"
+        } ${animationDelayClass}`}
     >
-      {card?.image && (
-        <Image
-          src={card.image}
-          className="rounded-3xl object-contain"
-          classWrapper="mb-10 md:before:pt-[80%]"
-        />
-      )}
+      <div>
+        {card?.image && (
+          <Image
+            src={card.image}
+            className="rounded-3xl object-contain"
+            classWrapper="mb-10 md:before:pt-[80%]"
+          />
+        )}{
+          icon && (
+            <div className="img-wrapper mb-10 md:before:pt-[80%]"><Icon icon={icon} /></div>
+          )}
+      </div>
       {card?.title && (
         <TitleSection tag="h4" fontSize="text-2xl" className="mb-4 text-black">
           {card.title}
