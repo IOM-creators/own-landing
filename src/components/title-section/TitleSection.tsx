@@ -18,7 +18,7 @@ const TitleSection: React.FC<ITitleSection> = ({
   position = "text-left",
   className = "",
 }) => {
-  const classes = [position, className];
+  const classes = [position, className, 'font-medium'];
   return (
     <div className={classes.join(" ")}>
       {supText && <span className="text-gray mt-1 mb-1 block">{supText}</span>}

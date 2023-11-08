@@ -102,20 +102,24 @@
     "title": "Our Completed Projects",
     "cards": [
       {
-        "title": "Creation of Shopify App",
-        "description": "<p>App was used to export images from the client's database in order to import them to specific products in Shopify. This app provided the ability to change the order, delete, and upload images from a local PC.<p> <br><b>Technologies used to create:</b> Node.js, React.js Typescript, SCSS, HTML5"
-      },
-      {
-        "title": "Creation of Shopify Sites",
-        "description": "<p>The sites created by us are used to sell various products. Our sites allow you to change and customize all the necessary content.</p><p> We also often write our own custom solutions for example (custom filters, size chart, discount logic).</p> <br><b>Technologies used to create:</b> JavaScript, Alpin.Js, SCSS, HTML5"
+        "title": "Booking Class Spot App",
+        "description": "<p>We've meticulously crafted a user-friendly booking process with a seamless credit and membership purchase flow. Our integration with the Stripe payment system ensures secure transactions. We've also created user account pages for a convenient experience. Our robust registration and authorization system leverages OAuth 2.0, while we use the MarianaTek API to fetch data from the backend. To ensure data consistency and accessibility, we've efficiently stored it using Vuex.</p> <br><p><b>Technologies used to create:</b> Vue.js, Vuex, MarianaTek API, Stripe.js, OAUTH 2.0.</p>"
       },
       {
         "title": "Learning Manage System",
-        "description": "<p>Our application is powered by Next.js, GraphQL, and Contentful. We've customized Contentful templates, created backend models for our components, and harnessed GraphQL to seamlessly retrieve and convert CMS content into dynamic Next.js components. To enhance performance, we've optimized the application by achieving a remarkable 90% speed boost. For analytics, we've integrated OneTrust and Google Analytics. Additionally, we've prioritized SEO by enabling you to configure SEO settings from your Contentful account, tailoring keywords and data for each page.</p> <br><b>Technologies used to create:</b> Next.js, GraphQL, Contentful."
+        "description": "<p>Our application is powered by Next.js, GraphQL, and Contentful. We've customized Contentful templates, created backend models for our components, and harnessed GraphQL to seamlessly retrieve and convert CMS content into dynamic Next.js components. To enhance performance, we've optimized the application by achieving a remarkable 90% speed boost. For analytics, we've integrated OneTrust and Google Analytics. Additionally, we've prioritized SEO by enabling you to configure SEO settings from your Contentful account, tailoring keywords and data for each page.</p> <br><p><b>Technologies used to create:</b> Next.js, GraphQL, Contentful.</p>"
       },
       {
-        "title": "Booking Class Spot App",
-        "description": "<p>We've meticulously crafted a user-friendly booking process with a seamless credit and membership purchase flow. Our integration with the Stripe payment system ensures secure transactions. We've also created user account pages for a convenient experience. Our robust registration and authorization system leverages OAuth 2.0, while we use the MarianaTek API to fetch data from the backend. To ensure data consistency and accessibility, we've efficiently stored it using Vuex.</p> <br><b>Technologies used to create:</b> Vue.js, Vuex, MarianaTek API, Stripe.js, OAUTH 2.0. "
+        "title": "Creation of Shopify Sites",
+        "description": "<p>The sites created by us are used to sell various products. Our sites allow you to change and customize all the necessary content.</p><p> We also often write our own custom solutions for example (custom filters, size chart, discount logic).</p> <br><p><b>Technologies used to create:</b> JavaScript, Alpin.Js, SCSS, HTML5</p>"
+      },
+      {
+        "title": "Develop site on WordPress",
+        "description": "<p>The site created by us are used to sell an electric scooter on the WordPress platform: creation of the main page, collection page, product page, Ajax cart, and successful application page. Implementation of Ajax filters on the collection page, as well as the addition of a price calculator on the product page, dependent on selected additional features and services.</p><br><p><b>Technologies used to create: </b>PHP, MySql, Java Script, Html5, CSS( SASS), Slick, Animate.css, Bootstrap, jQuery.</p>"
+      },
+      {
+        "title": "Creation of Shopify App",
+        "description": "<p>App was used to export images from the client's database in order to import them to specific products in Shopify. This app provided the ability to change the order, delete, and upload images from a local PC.<p> <br><p><b>Technologies used to create:</b> Node.js, React.js Typescript, MaterialUI</p>"
       }
     ]
   },

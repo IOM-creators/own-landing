@@ -44,7 +44,7 @@ const WhyChooseUs: React.FC<ISectionCommon> = ({ className }) => {
       >
         {t("why_choose_us.title")}
       </TitleSection>
-      <div className="grid items-baseline ms:grid-cols-1  lg:grid-cols-3 gap-16 md:gap-20 mt-10 mb-10">
+      <div className="grid ms:grid-cols-1  lg:grid-cols-3 gap-16 md:gap-20 mt-10 mb-10">
         {cards.map((card: any, index: number) => (
           <InfoCard
             animated
