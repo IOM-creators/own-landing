@@ -19,6 +19,38 @@ html {
   animation: flipInX 2s ease-in-out;
 }
 
+.position-path{
+  transform-origin: center;
+  transform-box: border-box;
+}
+.lamp{
+  transform: scale(0.2);
+  animation: lightLamp 4s linear infinite;
+}
+.gear{
+  transform: rotate(0deg);
+  animation: rotateGear 4s linear infinite;
+}
+@keyframes lightLamp {
+  0% {
+    transform: scale(0.2);
+  }
+  50% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(0.2);
+  }
+}
+@keyframes rotateGear {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
 @keyframes flipInX {
   from {
     -webkit-animation-timing-function: ease-in;

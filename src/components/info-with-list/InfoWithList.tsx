@@ -5,6 +5,7 @@ import Image from "../image";
 import TitleSection from "../title-section";
 import Button from "../button";
 import List from "../list";
+import Icon from "../icon";
 
 interface IInfoWithList {
   card: {
@@ -21,15 +22,19 @@ interface IInfoWithList {
     btnLink?: string;
   };
   image?: string;
+  icon?: string;
   className?: string;
 }
 
-const InfoWithList: React.FC<IInfoWithList> = ({ card, image, className }) => {
+const InfoWithList: React.FC<IInfoWithList> = ({ card, image, icon, className }) => {
   return (
     <div className={className}>
       <div>
         {image && (
-          <Image src={image} className="rounded-3xl w-full object-contain" />
+          <Image src={image} className="rounded-3xl w-full object-contain" classWrapper="md:before:pt-[80%]" />
+        )}{
+          icon && (
+          <div className="img-wrapper md:before:pt-[80%]"><Icon icon={icon} /></div>
         )}
       </div>
       <div className={card.revert ? "lg:order-first" : ""}>

@@ -28,7 +28,7 @@ const OurProcess: React.FC<ISectionCommon> = ({ className }) => {
       </TitleSection>
       <Image
         src={image}
-        classWrapper="md:before:pt-[50%] mb-12 rounded-3xl overflow-hidden"
+        classWrapper="md:before:pt-[40%] mb-12 rounded-3xl overflow-hidden"
         className="object-contain"
       />
       <div className="">

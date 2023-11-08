@@ -1,7 +1,6 @@
 import React from "react";
 import Section from "../../section";
 
-import image from "../../../assets/images/services_offered.png";
 import InfoWithList from "../../info-with-list";
 import { useTranslation } from "react-i18next";
 import { ISectionCommon } from "../../../helpers/commonInterfaces";
@@ -15,7 +14,7 @@ const ServicesOffered: React.FC<ISectionCommon> = ({ className }) => {
   return (
     <Section id="ServicesOffered" className={className}>
       <InfoWithList
-        image={image}
+        icon="services_offered"
         card={card}
         className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24"
       />

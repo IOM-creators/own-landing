@@ -15,7 +15,7 @@ const ServicesOffered: React.FC<ISectionCommon> = ({ className }) => {
   return (
     <Section id="AboutUs" sectionRef="AboutUs" className={className}>
       <InfoWithList
-        image={image}
+        icon="about_us"
         card={card}
         className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24"
       />

@@ -43,7 +43,7 @@ const InfoCard: React.FC<IInfoCard> = ({
         <Image
           src={card.image}
           className="rounded-3xl object-contain"
-          classWrapper="mb-10"
+          classWrapper="mb-10 md:before:pt-[80%]"
         />
       )}
       {card?.title && (
