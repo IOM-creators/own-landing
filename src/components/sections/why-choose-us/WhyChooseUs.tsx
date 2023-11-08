@@ -10,6 +10,17 @@ import { useTranslation } from "react-i18next";
 import { ISectionCommon } from "../../../helpers/commonInterfaces";
 import { useScrollAnimation } from "../../../helpers/reactHooks";
 
+const images = [
+  {
+    icon: "why-choose-us-1",
+  },
+  {
+    icon: "why-choose-us-2",
+  },
+  {
+    icon: "why-choose-us-3",
+  },
+];
 
 const WhyChooseUs: React.FC<ISectionCommon> = ({ className }) => {
   const { t } = useTranslation();
@@ -20,7 +31,7 @@ const WhyChooseUs: React.FC<ISectionCommon> = ({ className }) => {
     returnObjects: true,
   }) as string[];
   const cards = cardsContent.map((card: any, index: number) => {
-    return { ...card };
+    return { ...card, icon: images[index].icon };
   });
   useScrollAnimation(elementsRef, isAnimated, setIsAnimated);
   return (
