@@ -19,17 +19,20 @@ html {
   animation: flipInX 2s ease-in-out;
 }
 
-.position-path{
+.position-path {
   transform-origin: center;
   transform-box: border-box;
 }
-.lamp{
+.lamp {
   transform: scale(0.2);
-  animation: lightLamp 4s linear infinite;
+  animation: lightLamp 3s linear infinite;
 }
-.gear{
+.gear {
   transform: rotate(0deg);
   animation: rotateGear 4s linear infinite;
+}
+.move-up {
+  animation: moveUp 3s linear infinite;
 }
 @keyframes lightLamp {
   0% {
@@ -48,6 +51,17 @@ html {
   }
   100% {
     transform: rotate(360deg);
+  }
+}
+@keyframes moveUp {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(20px);
+  }
+  100% {
+    transform: translateY(0);
   }
 }
 
