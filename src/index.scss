@@ -25,7 +25,7 @@ html {
 }
 .lamp {
   transform: scale(0.2);
-  animation: lightLamp 3s linear infinite;
+  animation: lightLamp 2s linear infinite;
 }
 .gear {
   transform: rotate(0deg);
@@ -33,6 +33,67 @@ html {
 }
 .move-up {
   animation: moveUp 3s linear infinite;
+}
+.move-down {
+  animation: moveDown 4s ease-out infinite;
+}
+.rotate-360 {
+  animation: rotate360 5s linear infinite;
+}
+.move-left-right {
+  animation: moveLeftRight 3s linear infinite;
+}
+.move-left-right2 {
+  animation: moveLeftRight2 3s linear infinite;
+}
+
+@keyframes moveLeftRight {
+  0% {
+    transform: skewX(0) translateX(0);
+  }
+  20% {
+    transform: skewX(-10deg) translateX(50px);
+  }
+  60% {
+    transform: skewX(10deg) translateX(-50px);
+  }
+  100% {
+    transform: skewX(0) translateX(0);
+  }
+}
+@keyframes moveLeftRight2 {
+  0% {
+    transform: skewX(0) translateX(0);
+  }
+  20% {
+    transform: skewX(-5deg) translateX(15px);
+  }
+  60% {
+    transform: skewX(5deg) translateX(-15px);
+  }
+  100% {
+    transform: skewX(0) translateX(0);
+  }
+}
+@keyframes rotate360 {
+  0% {
+    transform: rotate(0);
+  }
+  10% {
+    transform: rotate(360deg) scale(0.2);
+  }
+  20% {
+    transform: scale(1);
+  }
+  80% {
+    transform: scale(1);
+  }
+  90% {
+    transform: rotate(360deg) scale(0.2);
+  }
+  100% {
+    transform: rotate(0);
+  }
 }
 @keyframes lightLamp {
   0% {
@@ -53,11 +114,15 @@ html {
     transform: rotate(360deg);
   }
 }
+
 @keyframes moveUp {
   0% {
     transform: translateY(0);
   }
-  50% {
+  33% {
+    transform: translateY(-20px);
+  }
+  66% {
     transform: translateY(20px);
   }
   100% {

@@ -1,12 +1,11 @@
 import React from "react";
 import Section from "../../section";
 import TitleSection from "../../title-section";
-import Image from "../../image";
 
-import image from "../../../assets/images/our_process.png";
 import { useTranslation } from "react-i18next";
 import List from "../../list";
 import { ISectionCommon } from "../../../helpers/commonInterfaces";
+import Icon from "../../icon";
 
 const OurProcess: React.FC<ISectionCommon> = ({ className }) => {
   const { t } = useTranslation();
@@ -26,11 +25,9 @@ const OurProcess: React.FC<ISectionCommon> = ({ className }) => {
       >
         {t("our_process.title")}
       </TitleSection>
-      <Image
-        src={image}
-        classWrapper="md:before:pt-[40%] mb-12 rounded-3xl overflow-hidden"
-        className="object-contain"
-      />
+      <div className="img-wrapper md:before:pt-[40%]">
+        <Icon icon="our_process" />
+      </div>
       <div className="">
         <List list={list} className="md:justify-center" />
       </div>
