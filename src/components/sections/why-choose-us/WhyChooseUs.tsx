@@ -15,7 +15,7 @@ const images = [
     image: image1,
   },
   {
-    image: image3,
+    icon: "why_choose_us_2",
   },
   {
     image: image2,
@@ -31,7 +31,7 @@ const WhyChooseUs: React.FC<ISectionCommon> = ({ className }) => {
     returnObjects: true,
   }) as string[];
   const cards = cardsContent.map((card: any, index: number) => {
-    return { ...card, image: images[index].image };
+    return { ...card, image: images[index].image, icon: images[index].icon };
   });
   useScrollAnimation(elementsRef, isAnimated, setIsAnimated);
   return (
