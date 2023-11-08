@@ -112,6 +112,10 @@ svg {
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
+
+.swiper .swiper-slide {
+  height: auto;
+}
 .swiper-pagination-gallery .swiper-pagination-bullet {
   background: var(--dark-blue);
   border: 1px solid var(--white);

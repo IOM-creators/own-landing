@@ -14,21 +14,6 @@ interface ISlider {
 SwiperCore.use([Navigation, Pagination]);
 
 const Slider: React.FC<ISlider> = ({ params, children, className }) => {
-  useEffect(() => {
-    const slides = document.querySelectorAll(".gallery-slider .swiper-slide");
-    let maxHeight = 0;
-
-    slides.forEach((slide) => {
-      const slideHeight = slide.clientHeight;
-      if (slideHeight > maxHeight) {
-        maxHeight = slideHeight;
-      }
-    });
-
-    slides.forEach((slide: any) => {
-      slide.style.height = `${maxHeight}px`;
-    });
-  }, []);
   return (
     <Swiper {...params} className={className}>
       {children}
