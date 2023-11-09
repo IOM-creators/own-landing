@@ -30,7 +30,7 @@ const Header: React.FC<IHeader> = () => {
     >
       <div className="container flex items-center font-serif text-base font-semibold ">
         <button onClick={scrollToTop}>
-          <Icon className="w-12 lg:w-auto" icon="logo" />
+          <Icon className="w-12 lg:w-auto animation-logo" icon="logo" />
         </button>
 
         {windowWidth < 1024 ? (

@@ -38,8 +38,9 @@ const InfoCard: React.FC<IInfoCard> = ({
   return (
     <div
       ref={elementsRef}
-      className={`${className} ${!animated ? "" : isAnimated && animated ? " divAnimation" : "opacity-0"
-        } ${animationDelayClass}`}
+      className={`${className} ${
+        !animated ? "" : isAnimated && animated ? " divAnimation" : "opacity-0"
+      } ${animationDelayClass}`}
     >
       {card?.image && (
         <Image
@@ -49,7 +50,7 @@ const InfoCard: React.FC<IInfoCard> = ({
         />
       )}
       {card?.icon && (
-        <div className="img-wrapper mb:10 md:before:pt-[80%]">
+        <div className="img-wrapper mb-10 md:before:pt-[80%]">
           <Icon icon={card.icon} />
         </div>
       )}

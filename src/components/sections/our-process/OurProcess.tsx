@@ -25,7 +25,7 @@ const OurProcess: React.FC<ISectionCommon> = ({ className }) => {
       >
         {t("our_process.title")}
       </TitleSection>
-      <div className="img-wrapper md:before:pt-[40%]">
+      <div className="img-wrapper mb-10 md:before:pt-[40%]">
         <Icon icon="our_process" />
       </div>
       <div className="">

@@ -55,6 +55,30 @@ html {
   transform: scaleY(0);
   animation: moveUpDown 5s linear infinite;
 }
+.animation-logo {
+  animation: animLogo 1s linear forwards;
+}
+.scale-show {
+  transform: scale(0);
+  animation: scaleShow 0.5s 1s linear forwards;
+}
+
+@keyframes animLogo {
+  0% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+@keyframes scaleShow {
+  0% {
+    transform: scale(0);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
 
 @keyframes moveUpDown {
   0% {
