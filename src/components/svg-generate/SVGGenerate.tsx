@@ -1140,70 +1140,100 @@ const SVGGenerate: React.FC<ISVGGenerate> = ({
             </g>
             <g opacity="0.69">
               <path
+                className="position-bottom-path move-up-down"
                 d="M1190.13 1329.91L1177.78 1330.61V1269.13L1190.13 1268.51V1329.91Z"
                 fill="#0A2640"
               />
               <path
+                className="position-bottom-path move-up-down"
                 d="M1212 1328.68L1199.71 1329.37V1321.99L1212 1321.3V1328.68Z"
                 fill="#0A2640"
               />
               <path
+                className="position-bottom-path move-up-down"
+                style={{ animationDelay: "0.1s" }}
                 d="M1233.77 1327.44L1221.54 1328.14V1286.25L1233.77 1285.61V1327.44Z"
                 fill="#0A2640"
               />
               <path
+                className="position-bottom-path move-up-down"
+                style={{ animationDelay: "0.3s" }}
                 d="M1255.44 1326.22L1243.26 1326.91V1308.86L1255.44 1308.2V1326.22Z"
                 fill="#0A2640"
               />
               <path
+                className="position-bottom-path move-up-down"
+                style={{ animationDelay: "0.2s" }}
                 d="M1276.99 1325L1264.88 1325.68V1279.57L1276.99 1278.95V1325Z"
                 fill="#0A2640"
               />
               <path
+                className="position-bottom-path move-up-down"
+                style={{ animationDelay: "0.4s" }}
                 d="M1298.45 1323.78L1286.39 1324.46V1292.75L1298.45 1292.1V1323.78Z"
                 fill="#0A2640"
               />
               <path
+                className="position-bottom-path move-up-down"
+                style={{ animationDelay: "0.3s" }}
                 d="M1319.81 1322.57L1307.81 1323.25V1268.3L1319.81 1267.69V1322.57Z"
                 fill="#0A2640"
               />
               <path
+                className="position-bottom-path move-up-down"
+                style={{ animationDelay: "0.1s" }}
                 d="M1341.06 1321.37L1329.12 1322.05V1261.58L1341.06 1260.98V1321.37Z"
                 fill="#0A2640"
               />
               <path
+                className="position-bottom-path move-up-down"
+                style={{ animationDelay: "0.2s" }}
                 d="M1362.21 1320.17L1350.33 1320.84V1290.68L1362.21 1290.05V1320.17Z"
                 fill="#0A2640"
               />
               <path
+                className="position-bottom-path move-up-down"
+                style={{ animationDelay: "0.5s" }}
                 d="M1383.27 1318.98L1371.44 1319.65V1253.77L1383.27 1253.19V1318.98Z"
                 fill="#0A2640"
               />
               <path
+                className="position-bottom-path move-up-down"
+                style={{ animationDelay: "0.3s" }}
                 d="M1404.22 1317.79L1392.44 1318.46V1262.48L1404.22 1261.89V1317.79Z"
                 fill="#0A2640"
               />
               <path
+                className="position-bottom-path move-up-down"
+                style={{ animationDelay: "0.6s" }}
                 d="M1425.07 1316.61L1413.35 1317.28V1302.3L1425.07 1301.66V1316.61Z"
                 fill="#0A2640"
               />
               <path
+                className="position-bottom-path move-up-down"
+                style={{ animationDelay: "0.1s" }}
                 d="M1445.83 1315.44L1434.17 1316.1V1280.99L1445.83 1280.37V1315.44Z"
                 fill="#0A2640"
               />
               <path
+                className="position-bottom-path move-up-down"
+                style={{ animationDelay: "0.4s" }}
                 d="M1466.49 1314.27L1454.88 1314.92V1264.44L1466.49 1263.85V1314.27Z"
                 fill="#0A2640"
               />
               <path
+                className="position-bottom-path move-up-down"
+                style={{ animationDelay: "0.6s" }}
                 d="M1487.05 1313.1L1475.5 1313.76V1277.03L1487.05 1276.42V1313.1Z"
                 fill="#0A2640"
               />
               <path
+                className="position-bottom-path move-up-down"
                 d="M1507.52 1311.94L1496.02 1312.6V1255.75L1507.52 1255.17V1311.94Z"
                 fill="#0A2640"
               />
               <path
+                className="position-bottom-path move-up-down"
                 d="M1527.89 1310.79L1516.44 1311.44V1248.4L1527.89 1247.84V1310.79Z"
                 fill="#0A2640"
               />
@@ -1311,70 +1341,87 @@ const SVGGenerate: React.FC<ISVGGenerate> = ({
             </g>
             <g opacity="0.69">
               <path
+                className="position-bottom-path move-up-down"
                 d="M1190.13 1195.01L1177.78 1195.52V1134.03L1190.13 1133.6V1195.01Z"
                 fill="#0A2640"
               />
               <path
+                className="position-bottom-path move-up-down"
                 d="M1212 1194.09L1199.71 1194.61V1187.22L1212 1186.72V1194.09Z"
                 fill="#0A2640"
               />
               <path
+                className="position-bottom-path move-up-down"
                 d="M1233.77 1193.18L1221.54 1193.69V1151.81L1233.77 1151.35V1193.18Z"
                 fill="#0A2640"
               />
               <path
+                className="position-bottom-path move-up-down"
                 d="M1255.44 1192.28L1243.26 1192.79V1174.74L1255.44 1174.26V1192.28Z"
                 fill="#0A2640"
               />
               <path
+                className="position-bottom-path move-up-down"
                 d="M1276.99 1191.38L1264.88 1191.88V1145.78L1276.99 1145.33V1191.38Z"
                 fill="#0A2640"
               />
               <path
+                className="position-bottom-path move-up-down"
                 d="M1298.45 1190.48L1286.39 1190.99V1159.27L1298.45 1158.81V1190.48Z"
                 fill="#0A2640"
               />
               <path
+                className="position-bottom-path move-up-down"
                 d="M1319.81 1189.59L1307.81 1190.09V1135.14L1319.81 1134.71V1189.59Z"
                 fill="#0A2640"
               />
               <path
+                className="position-bottom-path move-up-down"
                 d="M1341.06 1188.7L1329.12 1189.2V1128.74L1341.06 1128.32V1188.7Z"
                 fill="#0A2640"
               />
               <path
+                className="position-bottom-path move-up-down"
                 d="M1362.21 1187.82L1350.33 1188.32V1158.16L1362.21 1157.7V1187.82Z"
                 fill="#0A2640"
               />
               <path
+                className="position-bottom-path move-up-down"
                 d="M1383.27 1186.94L1371.44 1187.44V1121.55L1383.27 1121.15V1186.94Z"
                 fill="#0A2640"
               />
               <path
+                className="position-bottom-path move-up-down"
                 d="M1404.22 1186.07L1392.44 1186.56V1130.58L1404.22 1130.16V1186.07Z"
                 fill="#0A2640"
               />
               <path
+                className="position-bottom-path move-up-down"
                 d="M1425.07 1185.19L1413.35 1185.68V1170.71L1425.07 1170.24V1185.19Z"
                 fill="#0A2640"
               />
               <path
+                className="position-bottom-path move-up-down"
                 d="M1445.83 1184.33L1434.17 1184.82V1149.7L1445.83 1149.26V1184.33Z"
                 fill="#0A2640"
               />
               <path
+                className="position-bottom-path move-up-down"
                 d="M1466.49 1183.47L1454.88 1183.95V1133.46L1466.49 1133.05V1183.47Z"
                 fill="#0A2640"
               />
               <path
+                className="position-bottom-path move-up-down"
                 d="M1487.05 1182.61L1475.5 1183.09V1146.36L1487.05 1145.92V1182.61Z"
                 fill="#0A2640"
               />
               <path
+                className="position-bottom-path move-up-down"
                 d="M1507.52 1181.75L1496.02 1182.23V1125.39L1507.52 1124.98V1181.75Z"
                 fill="#0A2640"
               />
               <path
+                className="position-bottom-path move-up-down"
                 d="M1527.89 1180.9L1516.44 1181.38V1118.34L1527.89 1117.95V1180.9Z"
                 fill="#0A2640"
               />
@@ -3197,19 +3244,14 @@ const SVGGenerate: React.FC<ISVGGenerate> = ({
             />
             <g opacity="0.54">
               <path
-                className="position-left-path move-left"
                 d="M1942.05 217.553L2751.83 236.073V197.792L1942.05 178.308V217.553Z"
                 fill="white"
               />
               <path
-                className="position-left-path move-left"
-                style={{ animationDelay: "0.2s" }}
                 d="M1942.05 293.97L2751.83 310.612V272.331L1942.05 254.725V293.97Z"
                 fill="white"
               />
               <path
-                className="position-left-path move-left"
-                style={{ animationDelay: "0.5s" }}
                 d="M2260.67 376.196L2751.83 385.151V346.87L2260.67 337.33V376.196Z"
                 fill="white"
               />
