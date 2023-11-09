@@ -23,13 +23,17 @@ html {
   transform-origin: center;
   transform-box: border-box;
 }
+.position-left-path {
+  transform-origin: left;
+  transform-box: border-box;
+}
 .lamp {
   transform: scale(0.2);
   animation: lightLamp 2s linear infinite;
 }
 .gear {
   transform: rotate(0deg);
-  animation: rotateGear 4s linear infinite;
+  animation: rotateGear 8s linear infinite;
 }
 .move-up {
   animation: moveUp 3s linear infinite;
@@ -47,7 +51,28 @@ html {
 .move-left-right2 {
   animation: moveLeftRight2 3s linear infinite;
 }
+.move-left {
+  transform: scaleX(0);
+  animation: moveLeft 6s linear infinite;
+}
 
+@keyframes moveLeft {
+  0% {
+    transform: scaleX(0);
+  }
+  25% {
+    transform: scaleX(1);
+  }
+  50% {
+    transform: scaleX(0);
+  }
+  75% {
+    transform: scaleX(1);
+  }
+  100% {
+    transform: scaleX(0);
+  }
+}
 @keyframes moveLeftRight {
   0% {
     transform: skewX(0) translateX(0);

@@ -3197,14 +3197,19 @@ const SVGGenerate: React.FC<ISVGGenerate> = ({
             />
             <g opacity="0.54">
               <path
+                className="position-left-path move-left"
                 d="M1942.05 217.553L2751.83 236.073V197.792L1942.05 178.308V217.553Z"
                 fill="white"
               />
               <path
+                className="position-left-path move-left"
+                style={{ animationDelay: "0.2s" }}
                 d="M1942.05 293.97L2751.83 310.612V272.331L1942.05 254.725V293.97Z"
                 fill="white"
               />
               <path
+                className="position-left-path move-left"
+                style={{ animationDelay: "0.5s" }}
                 d="M2260.67 376.196L2751.83 385.151V346.87L2260.67 337.33V376.196Z"
                 fill="white"
               />
