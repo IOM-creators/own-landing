@@ -35,6 +35,7 @@ const ContactForm: React.FC<ISectionCommon> = ({ className }) => {
   const [successMessage, updateMessage] = useState(false);
   const [errorMessage, updateError] = useState("");
   const formRef = useRef<HTMLFormElement>(null);
+  const [isSending, seSisSending] = useState(false);
 
   const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -42,6 +43,7 @@ const ContactForm: React.FC<ISectionCommon> = ({ className }) => {
       return
     }
     const formData = new FormData(formRef.current)
+    seSisSending(true);
     axios
       .post(
         "mail.php",
@@ -49,6 +51,7 @@ const ContactForm: React.FC<ISectionCommon> = ({ className }) => {
       )
       .then(() => {
         updateMessage(true);
+        seSisSending(false);
       })
       .catch((e) => {
         updateError(e.message);
@@ -195,7 +198,7 @@ const ContactForm: React.FC<ISectionCommon> = ({ className }) => {
               </div>
             )}
             <div className="mt-5 flex justify-center">
-              <Button type="submit" secondary>
+              <Button type="submit" secondary loading={isSending}>
                 {t("contact_us.btn_text")}
               </Button>
             </div>

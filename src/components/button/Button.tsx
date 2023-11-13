@@ -9,6 +9,7 @@ interface IButton {
   secondary?: boolean;
   rightText?: boolean;
   active?: boolean;
+  loading?: boolean;
   children?: React.ReactNode;
   className?: string | undefined;
   onClick?: MouseEventHandler<HTMLButtonElement>;
@@ -23,6 +24,7 @@ const Button: React.FC<IButton> = ({
   children,
   rightText,
   active,
+  loading,
   ...props
 }) => {
   return (
@@ -34,6 +36,7 @@ const Button: React.FC<IButton> = ({
           [styles.primary]: primary,
           [styles.secondary]: secondary,
           [styles.active]: active,
+          [styles.loading]: loading,
           [styles["right-text"]]: rightText,
         },
         className

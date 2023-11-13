@@ -45,4 +45,20 @@
   &.active {
     border: 0.1rem solid var(---dark-blue);
   }
+  &.loading {
+    position: relative;
+    pointer-events: none;
+    &:before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url("../../assets/icons/loading.svg") no-repeat center/4rem
+        var(--green);
+      z-index: 1;
+      border-radius: 56px;
+    }
+  }
 }
