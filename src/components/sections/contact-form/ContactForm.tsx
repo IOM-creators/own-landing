@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import { Controller, useForm } from "react-hook-form";
 import { useTranslation } from "react-i18next";
 import cn from "classnames";
@@ -34,13 +34,18 @@ const ContactForm: React.FC<ISectionCommon> = ({ className }) => {
   });
   const [successMessage, updateMessage] = useState(false);
   const [errorMessage, updateError] = useState("");
+  const formRef = useRef<HTMLFormElement>(null);
 
-  const onSubmit = async (data: FormValues, e: any) => {
+  const onSubmit = async (data: FormValues, e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    if(!formRef.current){
+      return
+    }
+    const formData = new FormData(formRef.current)
     axios
       .post(
-        "https://book-store-zt-f600bde9fca9.herokuapp.com/email/send-email",
-        data
+        "mail.php",
+        formData
       )
       .then(() => {
         updateMessage(true);
@@ -48,6 +53,18 @@ const ContactForm: React.FC<ISectionCommon> = ({ className }) => {
       .catch((e) => {
         updateError(e.message);
       });
+
+      // axios
+      // .post(
+      //   "https://book-store-zt-f600bde9fca9.herokuapp.com/email/send-email",
+      //   data
+      // )
+      // .then(() => {
+      //   updateMessage(true);
+      // })
+      // .catch((e) => {
+      //   updateError(e.message);
+      // });
   };
   const onError = (errors: any, e: any) => console.log(errors, e);
   return (
@@ -62,6 +79,7 @@ const ContactForm: React.FC<ISectionCommon> = ({ className }) => {
         </TitleSection>
         <div className="max-w-lg mx-auto relative">
           <form
+            ref={formRef}
             onSubmit={handleSubmit(onSubmit, onError)}
             className={cn({
               invisible: successMessage,
