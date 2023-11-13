@@ -36,7 +36,7 @@ const ContactForm: React.FC<ISectionCommon> = ({ className }) => {
   const [errorMessage, updateError] = useState("");
   const formRef = useRef<HTMLFormElement>(null);
 
-  const onSubmit = async (data: FormValues, e: React.FormEvent<HTMLFormElement>) => {
+  const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if(!formRef.current){
       return
@@ -80,7 +80,7 @@ const ContactForm: React.FC<ISectionCommon> = ({ className }) => {
         <div className="max-w-lg mx-auto relative">
           <form
             ref={formRef}
-            onSubmit={handleSubmit(onSubmit, onError)}
+            onSubmit={(e:any)=> handleSubmit(e)}
             className={cn({
               invisible: successMessage,
             })}
