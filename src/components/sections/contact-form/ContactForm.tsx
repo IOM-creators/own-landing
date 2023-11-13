@@ -34,9 +34,11 @@ const ContactForm: React.FC<ISectionCommon> = ({ className }) => {
   });
   const [successMessage, updateMessage] = useState(false);
   const [errorMessage, updateError] = useState("");
+  const [isSending, seSisSending] = useState(false);
 
   const onSubmit = async (data: FormValues, e: any) => {
     e.preventDefault();
+    seSisSending(true);
     axios
       .post(
         "https://book-store-zt-f600bde9fca9.herokuapp.com/email/send-email",
@@ -44,6 +46,7 @@ const ContactForm: React.FC<ISectionCommon> = ({ className }) => {
       )
       .then(() => {
         updateMessage(true);
+        seSisSending(false);
       })
       .catch((e) => {
         updateError(e.message);
@@ -177,7 +180,7 @@ const ContactForm: React.FC<ISectionCommon> = ({ className }) => {
               </div>
             )}
             <div className="mt-5 flex justify-center">
-              <Button type="submit" secondary>
+              <Button type="submit" secondary loading={isSending}>
                 {t("contact_us.btn_text")}
               </Button>
             </div>
