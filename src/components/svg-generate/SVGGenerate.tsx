@@ -34,6 +34,19 @@ const SVGGenerate: React.FC<ISVGGenerate> = ({
             />
           </svg>
         );
+      case "close":
+        return (
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            x="0px"
+            y="0px"
+            width="25"
+            height="25"
+            viewBox="0 0 50 50"
+          >
+            <path d="M 7.71875 6.28125 L 6.28125 7.71875 L 23.5625 25 L 6.28125 42.28125 L 7.71875 43.71875 L 25 26.4375 L 42.28125 43.71875 L 43.71875 42.28125 L 26.4375 25 L 43.71875 7.71875 L 42.28125 6.28125 L 25 23.5625 Z"></path>
+          </svg>
+        );
       case "success":
         return (
           <svg
@@ -1610,8 +1623,8 @@ const SVGGenerate: React.FC<ISVGGenerate> = ({
                 y2="734.829"
                 gradientUnits="userSpaceOnUse"
               >
-                <stop stop-color="#D8DEE8" />
-                <stop offset="1" stop-color="#A2A7AE" />
+                <stop stopColor="#D8DEE8" />
+                <stop offset="1" stopColor="#A2A7AE" />
               </linearGradient>
               <linearGradient
                 id="paint1_linear_24_7"
@@ -1621,8 +1634,8 @@ const SVGGenerate: React.FC<ISVGGenerate> = ({
                 y2="1376.21"
                 gradientUnits="userSpaceOnUse"
               >
-                <stop stop-color="white" />
-                <stop offset="0.9964" stop-color="#EBEFF2" />
+                <stop stopColor="white" />
+                <stop offset="0.9964" stopColor="#EBEFF2" />
               </linearGradient>
               <linearGradient
                 id="paint2_linear_24_7"
@@ -1632,8 +1645,8 @@ const SVGGenerate: React.FC<ISVGGenerate> = ({
                 y2="766.297"
                 gradientUnits="userSpaceOnUse"
               >
-                <stop stop-color="#FFC444" />
-                <stop offset="1" stop-color="#F36F56" />
+                <stop stopColor="#FFC444" />
+                <stop offset="1" stopColor="#F36F56" />
               </linearGradient>
               <linearGradient
                 id="paint3_linear_24_7"
@@ -1643,8 +1656,8 @@ const SVGGenerate: React.FC<ISVGGenerate> = ({
                 y2="1149.67"
                 gradientUnits="userSpaceOnUse"
               >
-                <stop stop-color="white" />
-                <stop offset="0.9964" stop-color="#EBEFF2" />
+                <stop stopColor="white" />
+                <stop offset="0.9964" stopColor="#EBEFF2" />
               </linearGradient>
               <linearGradient
                 id="paint4_linear_24_7"
@@ -1654,8 +1667,8 @@ const SVGGenerate: React.FC<ISVGGenerate> = ({
                 y2="391.934"
                 gradientUnits="userSpaceOnUse"
               >
-                <stop stop-color="white" />
-                <stop offset="0.9964" stop-color="#EBEFF2" />
+                <stop stopColor="white" />
+                <stop offset="0.9964" stopColor="#EBEFF2" />
               </linearGradient>
               <linearGradient
                 id="paint5_linear_24_7"
@@ -1665,8 +1678,8 @@ const SVGGenerate: React.FC<ISVGGenerate> = ({
                 y2="412.502"
                 gradientUnits="userSpaceOnUse"
               >
-                <stop stop-color="white" />
-                <stop offset="0.9964" stop-color="#EBEFF2" />
+                <stop stopColor="white" />
+                <stop offset="0.9964" stopColor="#EBEFF2" />
               </linearGradient>
               <linearGradient
                 id="paint6_linear_24_7"
@@ -1676,8 +1689,8 @@ const SVGGenerate: React.FC<ISVGGenerate> = ({
                 y2="389.022"
                 gradientUnits="userSpaceOnUse"
               >
-                <stop stop-color="white" />
-                <stop offset="0.9964" stop-color="#EBEFF2" />
+                <stop stopColor="white" />
+                <stop offset="0.9964" stopColor="#EBEFF2" />
               </linearGradient>
               <linearGradient
                 id="paint7_linear_24_7"
@@ -1687,8 +1700,8 @@ const SVGGenerate: React.FC<ISVGGenerate> = ({
                 y2="395.895"
                 gradientUnits="userSpaceOnUse"
               >
-                <stop stop-color="white" />
-                <stop offset="0.9964" stop-color="#EBEFF2" />
+                <stop stopColor="white" />
+                <stop offset="0.9964" stopColor="#EBEFF2" />
               </linearGradient>
               <linearGradient
                 id="paint8_linear_24_7"
@@ -1698,8 +1711,8 @@ const SVGGenerate: React.FC<ISVGGenerate> = ({
                 y2="423.67"
                 gradientUnits="userSpaceOnUse"
               >
-                <stop stop-color="white" />
-                <stop offset="0.9964" stop-color="#EBEFF2" />
+                <stop stopColor="white" />
+                <stop offset="0.9964" stopColor="#EBEFF2" />
               </linearGradient>
               <linearGradient
                 id="paint9_linear_24_7"
@@ -1709,8 +1722,8 @@ const SVGGenerate: React.FC<ISVGGenerate> = ({
                 y2="410.411"
                 gradientUnits="userSpaceOnUse"
               >
-                <stop stop-color="white" />
-                <stop offset="0.9964" stop-color="#EBEFF2" />
+                <stop stopColor="white" />
+                <stop offset="0.9964" stopColor="#EBEFF2" />
               </linearGradient>
               <linearGradient
                 id="paint10_linear_24_7"
@@ -1720,8 +1733,8 @@ const SVGGenerate: React.FC<ISVGGenerate> = ({
                 y2="400.487"
                 gradientUnits="userSpaceOnUse"
               >
-                <stop stop-color="white" />
-                <stop offset="0.9964" stop-color="#EBEFF2" />
+                <stop stopColor="white" />
+                <stop offset="0.9964" stopColor="#EBEFF2" />
               </linearGradient>
               <linearGradient
                 id="paint11_linear_24_7"
@@ -1731,8 +1744,8 @@ const SVGGenerate: React.FC<ISVGGenerate> = ({
                 y2="409.938"
                 gradientUnits="userSpaceOnUse"
               >
-                <stop stop-color="white" />
-                <stop offset="0.9964" stop-color="#EBEFF2" />
+                <stop stopColor="white" />
+                <stop offset="0.9964" stopColor="#EBEFF2" />
               </linearGradient>
               <linearGradient
                 id="paint12_linear_24_7"
@@ -1742,8 +1755,8 @@ const SVGGenerate: React.FC<ISVGGenerate> = ({
                 y2="396.916"
                 gradientUnits="userSpaceOnUse"
               >
-                <stop stop-color="white" />
-                <stop offset="0.9964" stop-color="#EBEFF2" />
+                <stop stopColor="white" />
+                <stop offset="0.9964" stopColor="#EBEFF2" />
               </linearGradient>
               <linearGradient
                 id="paint13_linear_24_7"
@@ -1753,8 +1766,8 @@ const SVGGenerate: React.FC<ISVGGenerate> = ({
                 y2="393.163"
                 gradientUnits="userSpaceOnUse"
               >
-                <stop stop-color="white" />
-                <stop offset="0.9964" stop-color="#EBEFF2" />
+                <stop stopColor="white" />
+                <stop offset="0.9964" stopColor="#EBEFF2" />
               </linearGradient>
               <linearGradient
                 id="paint14_linear_24_7"
@@ -1764,8 +1777,8 @@ const SVGGenerate: React.FC<ISVGGenerate> = ({
                 y2="333.051"
                 gradientUnits="userSpaceOnUse"
               >
-                <stop stop-color="white" />
-                <stop offset="0.9964" stop-color="#EBEFF2" />
+                <stop stopColor="white" />
+                <stop offset="0.9964" stopColor="#EBEFF2" />
               </linearGradient>
               <linearGradient
                 id="paint15_linear_24_7"
@@ -1775,8 +1788,8 @@ const SVGGenerate: React.FC<ISVGGenerate> = ({
                 y2="334.633"
                 gradientUnits="userSpaceOnUse"
               >
-                <stop stop-color="white" />
-                <stop offset="0.9964" stop-color="#EBEFF2" />
+                <stop stopColor="white" />
+                <stop offset="0.9964" stopColor="#EBEFF2" />
               </linearGradient>
               <linearGradient
                 id="paint16_linear_24_7"
@@ -1786,8 +1799,8 @@ const SVGGenerate: React.FC<ISVGGenerate> = ({
                 y2="336.184"
                 gradientUnits="userSpaceOnUse"
               >
-                <stop stop-color="white" />
-                <stop offset="0.9964" stop-color="#EBEFF2" />
+                <stop stopColor="white" />
+                <stop offset="0.9964" stopColor="#EBEFF2" />
               </linearGradient>
               <linearGradient
                 id="paint17_linear_24_7"
@@ -1797,8 +1810,8 @@ const SVGGenerate: React.FC<ISVGGenerate> = ({
                 y2="337.703"
                 gradientUnits="userSpaceOnUse"
               >
-                <stop stop-color="white" />
-                <stop offset="0.9964" stop-color="#EBEFF2" />
+                <stop stopColor="white" />
+                <stop offset="0.9964" stopColor="#EBEFF2" />
               </linearGradient>
               <linearGradient
                 id="paint18_linear_24_7"
@@ -1808,8 +1821,8 @@ const SVGGenerate: React.FC<ISVGGenerate> = ({
                 y2="339.191"
                 gradientUnits="userSpaceOnUse"
               >
-                <stop stop-color="white" />
-                <stop offset="0.9964" stop-color="#EBEFF2" />
+                <stop stopColor="white" />
+                <stop offset="0.9964" stopColor="#EBEFF2" />
               </linearGradient>
               <linearGradient
                 id="paint19_linear_24_7"
@@ -1819,8 +1832,8 @@ const SVGGenerate: React.FC<ISVGGenerate> = ({
                 y2="365.472"
                 gradientUnits="userSpaceOnUse"
               >
-                <stop stop-color="white" />
-                <stop offset="0.9964" stop-color="#EBEFF2" />
+                <stop stopColor="white" />
+                <stop offset="0.9964" stopColor="#EBEFF2" />
               </linearGradient>
               <linearGradient
                 id="paint20_linear_24_7"
@@ -1830,8 +1843,8 @@ const SVGGenerate: React.FC<ISVGGenerate> = ({
                 y2="366.747"
                 gradientUnits="userSpaceOnUse"
               >
-                <stop stop-color="white" />
-                <stop offset="0.9964" stop-color="#EBEFF2" />
+                <stop stopColor="white" />
+                <stop offset="0.9964" stopColor="#EBEFF2" />
               </linearGradient>
               <linearGradient
                 id="paint21_linear_24_7"
@@ -1841,8 +1854,8 @@ const SVGGenerate: React.FC<ISVGGenerate> = ({
                 y2="367.997"
                 gradientUnits="userSpaceOnUse"
               >
-                <stop stop-color="white" />
-                <stop offset="0.9964" stop-color="#EBEFF2" />
+                <stop stopColor="white" />
+                <stop offset="0.9964" stopColor="#EBEFF2" />
               </linearGradient>
               <linearGradient
                 id="paint22_linear_24_7"
@@ -1852,8 +1865,8 @@ const SVGGenerate: React.FC<ISVGGenerate> = ({
                 y2="369.22"
                 gradientUnits="userSpaceOnUse"
               >
-                <stop stop-color="white" />
-                <stop offset="0.9964" stop-color="#EBEFF2" />
+                <stop stopColor="white" />
+                <stop offset="0.9964" stopColor="#EBEFF2" />
               </linearGradient>
               <linearGradient
                 id="paint23_linear_24_7"
@@ -1863,8 +1876,8 @@ const SVGGenerate: React.FC<ISVGGenerate> = ({
                 y2="370.418"
                 gradientUnits="userSpaceOnUse"
               >
-                <stop stop-color="white" />
-                <stop offset="0.9964" stop-color="#EBEFF2" />
+                <stop stopColor="white" />
+                <stop offset="0.9964" stopColor="#EBEFF2" />
               </linearGradient>
               <linearGradient
                 id="paint24_linear_24_7"
@@ -1874,8 +1887,8 @@ const SVGGenerate: React.FC<ISVGGenerate> = ({
                 y2="371.593"
                 gradientUnits="userSpaceOnUse"
               >
-                <stop stop-color="white" />
-                <stop offset="0.9964" stop-color="#EBEFF2" />
+                <stop stopColor="white" />
+                <stop offset="0.9964" stopColor="#EBEFF2" />
               </linearGradient>
               <linearGradient
                 id="paint25_linear_24_7"
@@ -1885,8 +1898,8 @@ const SVGGenerate: React.FC<ISVGGenerate> = ({
                 y2="372.744"
                 gradientUnits="userSpaceOnUse"
               >
-                <stop stop-color="white" />
-                <stop offset="0.9964" stop-color="#EBEFF2" />
+                <stop stopColor="white" />
+                <stop offset="0.9964" stopColor="#EBEFF2" />
               </linearGradient>
               <linearGradient
                 id="paint26_linear_24_7"
@@ -1896,8 +1909,8 @@ const SVGGenerate: React.FC<ISVGGenerate> = ({
                 y2="401.159"
                 gradientUnits="userSpaceOnUse"
               >
-                <stop stop-color="white" />
-                <stop offset="0.9964" stop-color="#EBEFF2" />
+                <stop stopColor="white" />
+                <stop offset="0.9964" stopColor="#EBEFF2" />
               </linearGradient>
               <linearGradient
                 id="paint27_linear_24_7"
@@ -1907,8 +1920,8 @@ const SVGGenerate: React.FC<ISVGGenerate> = ({
                 y2="402.06"
                 gradientUnits="userSpaceOnUse"
               >
-                <stop stop-color="white" />
-                <stop offset="0.9964" stop-color="#EBEFF2" />
+                <stop stopColor="white" />
+                <stop offset="0.9964" stopColor="#EBEFF2" />
               </linearGradient>
               <linearGradient
                 id="paint28_linear_24_7"
@@ -1918,8 +1931,8 @@ const SVGGenerate: React.FC<ISVGGenerate> = ({
                 y2="402.943"
                 gradientUnits="userSpaceOnUse"
               >
-                <stop stop-color="white" />
-                <stop offset="0.9964" stop-color="#EBEFF2" />
+                <stop stopColor="white" />
+                <stop offset="0.9964" stopColor="#EBEFF2" />
               </linearGradient>
               <linearGradient
                 id="paint29_linear_24_7"
@@ -1929,8 +1942,8 @@ const SVGGenerate: React.FC<ISVGGenerate> = ({
                 y2="403.807"
                 gradientUnits="userSpaceOnUse"
               >
-                <stop stop-color="white" />
-                <stop offset="0.9964" stop-color="#EBEFF2" />
+                <stop stopColor="white" />
+                <stop offset="0.9964" stopColor="#EBEFF2" />
               </linearGradient>
               <linearGradient
                 id="paint30_linear_24_7"
@@ -1940,8 +1953,8 @@ const SVGGenerate: React.FC<ISVGGenerate> = ({
                 y2="404.654"
                 gradientUnits="userSpaceOnUse"
               >
-                <stop stop-color="white" />
-                <stop offset="0.9964" stop-color="#EBEFF2" />
+                <stop stopColor="white" />
+                <stop offset="0.9964" stopColor="#EBEFF2" />
               </linearGradient>
               <linearGradient
                 id="paint31_linear_24_7"
@@ -1951,8 +1964,8 @@ const SVGGenerate: React.FC<ISVGGenerate> = ({
                 y2="405.483"
                 gradientUnits="userSpaceOnUse"
               >
-                <stop stop-color="white" />
-                <stop offset="0.9964" stop-color="#EBEFF2" />
+                <stop stopColor="white" />
+                <stop offset="0.9964" stopColor="#EBEFF2" />
               </linearGradient>
               <linearGradient
                 id="paint32_linear_24_7"
@@ -1962,8 +1975,8 @@ const SVGGenerate: React.FC<ISVGGenerate> = ({
                 y2="406.297"
                 gradientUnits="userSpaceOnUse"
               >
-                <stop stop-color="white" />
-                <stop offset="0.9964" stop-color="#EBEFF2" />
+                <stop stopColor="white" />
+                <stop offset="0.9964" stopColor="#EBEFF2" />
               </linearGradient>
               <linearGradient
                 id="paint33_linear_24_7"
@@ -1973,8 +1986,8 @@ const SVGGenerate: React.FC<ISVGGenerate> = ({
                 y2="436.845"
                 gradientUnits="userSpaceOnUse"
               >
-                <stop stop-color="white" />
-                <stop offset="0.9964" stop-color="#EBEFF2" />
+                <stop stopColor="white" />
+                <stop offset="0.9964" stopColor="#EBEFF2" />
               </linearGradient>
               <linearGradient
                 id="paint34_linear_24_7"
@@ -1984,8 +1997,8 @@ const SVGGenerate: React.FC<ISVGGenerate> = ({
                 y2="437.372"
                 gradientUnits="userSpaceOnUse"
               >
-                <stop stop-color="white" />
-                <stop offset="0.9964" stop-color="#EBEFF2" />
+                <stop stopColor="white" />
+                <stop offset="0.9964" stopColor="#EBEFF2" />
               </linearGradient>
               <linearGradient
                 id="paint35_linear_24_7"
@@ -1995,8 +2008,8 @@ const SVGGenerate: React.FC<ISVGGenerate> = ({
                 y2="438.394"
                 gradientUnits="userSpaceOnUse"
               >
-                <stop stop-color="white" />
-                <stop offset="0.9964" stop-color="#EBEFF2" />
+                <stop stopColor="white" />
+                <stop offset="0.9964" stopColor="#EBEFF2" />
               </linearGradient>
               <linearGradient
                 id="paint36_linear_24_7"
@@ -2006,8 +2019,8 @@ const SVGGenerate: React.FC<ISVGGenerate> = ({
                 y2="438.889"
                 gradientUnits="userSpaceOnUse"
               >
-                <stop stop-color="white" />
-                <stop offset="0.9964" stop-color="#EBEFF2" />
+                <stop stopColor="white" />
+                <stop offset="0.9964" stopColor="#EBEFF2" />
               </linearGradient>
               <linearGradient
                 id="paint37_linear_24_7"
@@ -2017,9 +2030,9 @@ const SVGGenerate: React.FC<ISVGGenerate> = ({
                 y2="304.111"
                 gradientUnits="userSpaceOnUse"
               >
-                <stop offset="0.0036" stop-color="#0DBBFC" />
-                <stop offset="0.583333" stop-color="#8FB6D5" />
-                <stop offset="1" stop-color="#8FB6D5" />
+                <stop offset="0.0036" stopColor="#0DBBFC" />
+                <stop offset="0.583333" stopColor="#8FB6D5" />
+                <stop offset="1" stopColor="#8FB6D5" />
               </linearGradient>
               <linearGradient
                 id="paint38_linear_24_7"
@@ -2029,8 +2042,8 @@ const SVGGenerate: React.FC<ISVGGenerate> = ({
                 y2="1368.95"
                 gradientUnits="userSpaceOnUse"
               >
-                <stop offset="0.125" stop-color="#0A2640" />
-                <stop offset="1" stop-color="#8FB6D5" />
+                <stop offset="0.125" stopColor="#0A2640" />
+                <stop offset="1" stopColor="#8FB6D5" />
               </linearGradient>
               <linearGradient
                 id="paint39_linear_24_7"
@@ -2040,8 +2053,8 @@ const SVGGenerate: React.FC<ISVGGenerate> = ({
                 y2="1359.12"
                 gradientUnits="userSpaceOnUse"
               >
-                <stop stop-color="#0A2640" />
-                <stop offset="1" stop-color="#8FB6D5" stop-opacity="0" />
+                <stop stopColor="#0A2640" />
+                <stop offset="1" stopColor="#8FB6D5" stopOpacity="0" />
               </linearGradient>
               <linearGradient
                 id="paint40_linear_24_7"
@@ -2051,8 +2064,8 @@ const SVGGenerate: React.FC<ISVGGenerate> = ({
                 y2="1229.75"
                 gradientUnits="userSpaceOnUse"
               >
-                <stop offset="0.161458" stop-color="#0A2640" />
-                <stop offset="1" stop-color="#8FB6D5" />
+                <stop offset="0.161458" stopColor="#0A2640" />
+                <stop offset="1" stopColor="#8FB6D5" />
               </linearGradient>
               <linearGradient
                 id="paint41_linear_24_7"
@@ -2062,8 +2075,8 @@ const SVGGenerate: React.FC<ISVGGenerate> = ({
                 y2="1222.74"
                 gradientUnits="userSpaceOnUse"
               >
-                <stop stop-color="#0A2640" />
-                <stop offset="1" stop-color="#8FB6D5" />
+                <stop stopColor="#0A2640" />
+                <stop offset="1" stopColor="#8FB6D5" />
               </linearGradient>
               <linearGradient
                 id="paint42_linear_24_7"
@@ -2073,8 +2086,8 @@ const SVGGenerate: React.FC<ISVGGenerate> = ({
                 y2="526.029"
                 gradientUnits="userSpaceOnUse"
               >
-                <stop offset="0.0036" stop-color="#F36F56" />
-                <stop offset="1" stop-color="#FFC444" />
+                <stop offset="0.0036" stopColor="#F36F56" />
+                <stop offset="1" stopColor="#FFC444" />
               </linearGradient>
               <linearGradient
                 id="paint43_linear_24_7"
@@ -2084,8 +2097,8 @@ const SVGGenerate: React.FC<ISVGGenerate> = ({
                 y2="579.237"
                 gradientUnits="userSpaceOnUse"
               >
-                <stop stop-color="#0A2640" />
-                <stop offset="1" stop-color="#8FB6D5" />
+                <stop stopColor="#0A2640" />
+                <stop offset="1" stopColor="#8FB6D5" />
               </linearGradient>
               <linearGradient
                 id="paint44_linear_24_7"
@@ -2095,8 +2108,8 @@ const SVGGenerate: React.FC<ISVGGenerate> = ({
                 y2="584.447"
                 gradientUnits="userSpaceOnUse"
               >
-                <stop offset="0.0036" stop-color="#8FB6D5" />
-                <stop offset="0.489583" stop-color="#0A2640" />
+                <stop offset="0.0036" stopColor="#8FB6D5" />
+                <stop offset="0.489583" stopColor="#0A2640" />
               </linearGradient>
               <linearGradient
                 id="paint45_linear_24_7"
@@ -2106,8 +2119,8 @@ const SVGGenerate: React.FC<ISVGGenerate> = ({
                 y2="518.217"
                 gradientUnits="userSpaceOnUse"
               >
-                <stop offset="0.0036" stop-color="#F36F56" />
-                <stop offset="1" stop-color="#FFC444" />
+                <stop offset="0.0036" stopColor="#F36F56" />
+                <stop offset="1" stopColor="#FFC444" />
               </linearGradient>
               <linearGradient
                 id="paint46_linear_24_7"
@@ -2117,8 +2130,8 @@ const SVGGenerate: React.FC<ISVGGenerate> = ({
                 y2="932.707"
                 gradientUnits="userSpaceOnUse"
               >
-                <stop stop-color="#FFC444" />
-                <stop offset="0.9964" stop-color="#F36F56" />
+                <stop stopColor="#FFC444" />
+                <stop offset="0.9964" stopColor="#F36F56" />
               </linearGradient>
               <linearGradient
                 id="paint47_linear_24_7"
@@ -2128,8 +2141,8 @@ const SVGGenerate: React.FC<ISVGGenerate> = ({
                 y2="927.89"
                 gradientUnits="userSpaceOnUse"
               >
-                <stop stop-color="#FFC444" />
-                <stop offset="0.9964" stop-color="#F36F56" />
+                <stop stopColor="#FFC444" />
+                <stop offset="0.9964" stopColor="#F36F56" />
               </linearGradient>
               <linearGradient
                 id="paint48_linear_24_7"
@@ -2139,8 +2152,8 @@ const SVGGenerate: React.FC<ISVGGenerate> = ({
                 y2="1045.5"
                 gradientUnits="userSpaceOnUse"
               >
-                <stop stop-color="#8FB6D5" />
-                <stop offset="1" stop-color="#0DBBFC" />
+                <stop stopColor="#8FB6D5" />
+                <stop offset="1" stopColor="#0DBBFC" />
               </linearGradient>
               <linearGradient
                 id="paint49_linear_24_7"
@@ -2150,8 +2163,8 @@ const SVGGenerate: React.FC<ISVGGenerate> = ({
                 y2="1049.88"
                 gradientUnits="userSpaceOnUse"
               >
-                <stop stop-color="#8FB6D5" />
-                <stop offset="1" stop-color="#0DBBFC" />
+                <stop stopColor="#8FB6D5" />
+                <stop offset="1" stopColor="#0DBBFC" />
               </linearGradient>
               <linearGradient
                 id="paint50_linear_24_7"
@@ -2161,8 +2174,8 @@ const SVGGenerate: React.FC<ISVGGenerate> = ({
                 y2="673.028"
                 gradientUnits="userSpaceOnUse"
               >
-                <stop stop-color="#0A2640" />
-                <stop offset="1" stop-color="#8FB6D5" />
+                <stop stopColor="#0A2640" />
+                <stop offset="1" stopColor="#8FB6D5" />
               </linearGradient>
               <linearGradient
                 id="paint51_linear_24_7"
@@ -2172,8 +2185,8 @@ const SVGGenerate: React.FC<ISVGGenerate> = ({
                 y2="884.191"
                 gradientUnits="userSpaceOnUse"
               >
-                <stop stop-color="#0A2640" />
-                <stop offset="1" stop-color="#8FB6D5" />
+                <stop stopColor="#0A2640" />
+                <stop offset="1" stopColor="#8FB6D5" />
               </linearGradient>
               <linearGradient
                 id="paint52_linear_24_7"
@@ -2183,8 +2196,8 @@ const SVGGenerate: React.FC<ISVGGenerate> = ({
                 y2="602.777"
                 gradientUnits="userSpaceOnUse"
               >
-                <stop offset="0.0036" stop-color="#F36F56" />
-                <stop offset="1" stop-color="#FFC444" />
+                <stop offset="0.0036" stopColor="#F36F56" />
+                <stop offset="1" stopColor="#FFC444" />
               </linearGradient>
               <linearGradient
                 id="paint53_linear_24_7"
@@ -2194,8 +2207,8 @@ const SVGGenerate: React.FC<ISVGGenerate> = ({
                 y2="571.535"
                 gradientUnits="userSpaceOnUse"
               >
-                <stop stop-color="#FFC444" />
-                <stop offset="0.9964" stop-color="#F36F56" />
+                <stop stopColor="#FFC444" />
+                <stop offset="0.9964" stopColor="#F36F56" />
               </linearGradient>
               <linearGradient
                 id="paint54_linear_24_7"
@@ -2205,8 +2218,8 @@ const SVGGenerate: React.FC<ISVGGenerate> = ({
                 y2="567.76"
                 gradientUnits="userSpaceOnUse"
               >
-                <stop stop-color="#FFC444" />
-                <stop offset="0.9964" stop-color="#F36F56" />
+                <stop stopColor="#FFC444" />
+                <stop offset="0.9964" stopColor="#F36F56" />
               </linearGradient>
               <linearGradient
                 id="paint55_linear_24_7"
@@ -2216,8 +2229,8 @@ const SVGGenerate: React.FC<ISVGGenerate> = ({
                 y2="635.263"
                 gradientUnits="userSpaceOnUse"
               >
-                <stop stop-color="#AB316D" />
-                <stop offset="1" stop-color="#0A2640" />
+                <stop stopColor="#AB316D" />
+                <stop offset="1" stopColor="#0A2640" />
               </linearGradient>
               <linearGradient
                 id="paint56_linear_24_7"
@@ -2227,8 +2240,8 @@ const SVGGenerate: React.FC<ISVGGenerate> = ({
                 y2="722.383"
                 gradientUnits="userSpaceOnUse"
               >
-                <stop offset="0.0036" stop-color="#F36F56" />
-                <stop offset="1" stop-color="#FFC444" />
+                <stop offset="0.0036" stopColor="#F36F56" />
+                <stop offset="1" stopColor="#FFC444" />
               </linearGradient>
               <linearGradient
                 id="paint57_linear_24_7"
@@ -2238,8 +2251,8 @@ const SVGGenerate: React.FC<ISVGGenerate> = ({
                 y2="841.246"
                 gradientUnits="userSpaceOnUse"
               >
-                <stop offset="0.0036" stop-color="#F36F56" />
-                <stop offset="1" stop-color="#FFC444" />
+                <stop offset="0.0036" stopColor="#F36F56" />
+                <stop offset="1" stopColor="#FFC444" />
               </linearGradient>
               <linearGradient
                 id="paint58_linear_24_7"
@@ -2249,8 +2262,8 @@ const SVGGenerate: React.FC<ISVGGenerate> = ({
                 y2="777.71"
                 gradientUnits="userSpaceOnUse"
               >
-                <stop offset="0.0036" stop-color="#F36F56" />
-                <stop offset="1" stop-color="#FFC444" />
+                <stop offset="0.0036" stopColor="#F36F56" />
+                <stop offset="1" stopColor="#FFC444" />
               </linearGradient>
               <linearGradient
                 id="paint59_linear_24_7"
@@ -2260,8 +2273,8 @@ const SVGGenerate: React.FC<ISVGGenerate> = ({
                 y2="749.804"
                 gradientUnits="userSpaceOnUse"
               >
-                <stop offset="0.0036" stop-color="#F36F56" />
-                <stop offset="1" stop-color="#FFC444" />
+                <stop offset="0.0036" stopColor="#F36F56" />
+                <stop offset="1" stopColor="#FFC444" />
               </linearGradient>
               <linearGradient
                 id="paint60_linear_24_7"
@@ -2271,8 +2284,8 @@ const SVGGenerate: React.FC<ISVGGenerate> = ({
                 y2="1216.65"
                 gradientUnits="userSpaceOnUse"
               >
-                <stop stop-color="#FFC444" />
-                <stop offset="0.9964" stop-color="#F36F56" />
+                <stop stopColor="#FFC444" />
+                <stop offset="0.9964" stopColor="#F36F56" />
               </linearGradient>
               <linearGradient
                 id="paint61_linear_24_7"
@@ -2282,8 +2295,8 @@ const SVGGenerate: React.FC<ISVGGenerate> = ({
                 y2="1211.5"
                 gradientUnits="userSpaceOnUse"
               >
-                <stop stop-color="#FFC444" />
-                <stop offset="0.9964" stop-color="#F36F56" />
+                <stop stopColor="#FFC444" />
+                <stop offset="0.9964" stopColor="#F36F56" />
               </linearGradient>
               <linearGradient
                 id="paint62_linear_24_7"
@@ -2293,8 +2306,8 @@ const SVGGenerate: React.FC<ISVGGenerate> = ({
                 y2="1109.84"
                 gradientUnits="userSpaceOnUse"
               >
-                <stop offset="0.171875" stop-color="#8FB6D5" />
-                <stop offset="1" stop-color="#0A2640" />
+                <stop offset="0.171875" stopColor="#8FB6D5" />
+                <stop offset="1" stopColor="#0A2640" />
               </linearGradient>
               <linearGradient
                 id="paint63_linear_24_7"
@@ -2304,8 +2317,8 @@ const SVGGenerate: React.FC<ISVGGenerate> = ({
                 y2="1118.84"
                 gradientUnits="userSpaceOnUse"
               >
-                <stop offset="0.203125" stop-color="#8FB6D5" />
-                <stop offset="1" stop-color="#0A2640" />
+                <stop offset="0.203125" stopColor="#8FB6D5" />
+                <stop offset="1" stopColor="#0A2640" />
               </linearGradient>
               <linearGradient
                 id="paint64_linear_24_7"
@@ -2315,8 +2328,8 @@ const SVGGenerate: React.FC<ISVGGenerate> = ({
                 y2="1445.25"
                 gradientUnits="userSpaceOnUse"
               >
-                <stop stop-color="#0DBBFC" />
-                <stop offset="1" stop-color="#8FB6D5" />
+                <stop stopColor="#0DBBFC" />
+                <stop offset="1" stopColor="#8FB6D5" />
               </linearGradient>
             </defs>
           </svg>

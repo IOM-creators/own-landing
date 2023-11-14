@@ -10,6 +10,8 @@
     "@types/node": "^16.18.59",
     "@types/react": "^18.2.31",
     "@types/react-dom": "^18.2.14",
+    "@types/react-redux": "^7.1.30",
+    "@types/redux-devtools-extension": "^2.13.2",
     "axios": "^1.6.0",
     "classnames": "^2.3.2",
     "html-react-parser": "^5.0.6",
@@ -21,11 +23,14 @@
     "react-hook-form": "^7.47.0",
     "react-i18next": "^13.3.1",
     "react-lazy-load-image-component": "^1.6.0",
+    "react-redux": "^8.1.3",
     "react-router": "^6.17.0",
     "react-router-dom": "^6.18.0",
     "react-scripts": "5.0.1",
     "react-select": "^5.7.7",
     "react-type-animation": "^3.2.0",
+    "redux": "^4.2.1",
+    "redux-devtools-extension": "^2.13.9",
     "router": "^1.3.8",
     "sass": "^1.69.5",
     "sitemap": "^7.1.1",
@@ -34,7 +39,7 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "PORT=3001 react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
