@@ -34,6 +34,21 @@ const Footer = () => {
               );
             })}
           </ul>
+          <ul className="flex justify-center items-center mt-5">
+            <li className="m-2">
+              <a
+                href="https://www.upwork.com/freelancers/~01a9efbe9a36e060f6"
+                target="blank"
+              >
+                <Icon icon="upwork" />
+              </a>
+            </li>
+            <li className="m-2">
+              <a href="https://github.com/IOM-creators" target="blank">
+                <Icon icon="github" />
+              </a>
+            </li>
+          </ul>
         </div>
       </div>
     </footer>

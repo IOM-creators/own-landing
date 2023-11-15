@@ -4,6 +4,7 @@ const initialState: PopupState = {
   isOpen: false,
   children: `<></>`,
   title: "",
+  closeButton: true,
   fullScreen: false,
 };
 

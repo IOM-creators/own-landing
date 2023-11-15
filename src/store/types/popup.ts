@@ -3,6 +3,7 @@ export interface PopupState {
   fullScreen?: boolean;
   children?: React.ReactNode;
   title?: string;
+  closeButton?: boolean;
 }
 
 export enum PopupActionTypes {

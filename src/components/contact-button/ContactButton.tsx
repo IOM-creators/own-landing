@@ -16,6 +16,7 @@ const ContactButton: React.FC = () => {
       isOpen: iconState,
       children: <ContactForm />,
       fullScreen: true,
+      closeButton: false,
       title: `${t("contact_us.title")}`,
     });
   };
@@ -23,7 +24,7 @@ const ContactButton: React.FC = () => {
     setIconState(!isOpen);
   }, [isOpen]);
   return (
-    <div className="fixed right-5 bottom-5 z-30 flex items-center justify-center w-[70px] h-[70px] bg-blue rounded-full p-2">
+    <div className="fixed right-5 bottom-5 z-30 flex items-center justify-center w-[60px] h-[60px] bg-blue rounded-full p-2">
       <button onClick={handleClickOpen}>
         {iconState ? (
           <Icon icon="contact" />

@@ -9,7 +9,7 @@ import Icon from "../icon";
 import TitleSection from "../title-section";
 
 const Popup: React.FC = () => {
-  const { isOpen, title, children }: PopupState = useTypedSelector(
+  const { isOpen, title, children, closeButton }: PopupState = useTypedSelector(
     (state) => state.popup
   );
   const { popupState } = useActions();
@@ -31,9 +31,11 @@ const Popup: React.FC = () => {
     >
       <div className={styles.popup__overlay} onClick={handleClose}></div>
       <div className={styles.popup__wrapper}>
-        <button onClick={handleClose} className={styles.popup__close}>
-          <Icon icon="close" className="popup__buttom" />
-        </button>
+        {closeButton && (
+          <button onClick={handleClose} className={styles.popup__close}>
+            <Icon icon="close" className="popup__buttom" />
+          </button>
+        )}
         {title && (
           <TitleSection
             tag="h2"
