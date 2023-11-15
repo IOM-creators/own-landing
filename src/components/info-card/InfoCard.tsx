@@ -6,9 +6,6 @@ import TitleSection from "../title-section";
 import Button from "../button";
 import { useScrollAnimationForOne } from "../../helpers/reactHooks";
 import Icon from "../icon";
-import ContactForm from "../contact-from";
-import { useActions } from "../../store/hooks/useActions";
-import { useTranslation } from "react-i18next";
 interface IInfoCard {
   card?: {
     image?: string;
@@ -28,12 +25,9 @@ interface IInfoCard {
 const InfoCard: React.FC<IInfoCard> = ({
   card,
   className,
-  icon,
   index,
   animated = false,
 }) => {
-  const { popupState } = useActions();
-  const { t } = useTranslation();
   const [isAnimated, setIsAnimated] = useState<boolean>(false);
   const elementsRef = useRef<HTMLDivElement | null>(null);
   useScrollAnimationForOne(elementsRef, isAnimated, setIsAnimated);
@@ -41,14 +35,6 @@ const InfoCard: React.FC<IInfoCard> = ({
     ? `animate-slide-up-delay-${index + 3}`
     : "";
 
-  const handleClickOpen = () => {
-    popupState({
-      isOpen: true,
-      children: <ContactForm />,
-      fullScreen: true,
-      title: `${t("contact_us.title")}`,
-    });
-  };
   return (
     <div
       ref={elementsRef}
@@ -83,7 +69,6 @@ const InfoCard: React.FC<IInfoCard> = ({
       )}
       {card?.btnText && (
         <Button
-          onClick={handleClickOpen}
           icon="left-arrow"
           className="mt-5 pb-2 w-max group relative before:block  before:absolute before:content-'' before:w-full before:top-full before:h-0.5 before:bg-dark-blue"
         >

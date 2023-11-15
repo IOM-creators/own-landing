@@ -24,7 +24,7 @@ const Header: React.FC<IHeader> = () => {
   const windowWidth = useWindowWidth();
   return (
     <header
-      className={`fixed border-none  top-0 z-50 bg-dark-blue w-full py-2 lg:py-5  transition-transform transform ${
+      className={`fixed border-none  top-0 z-20 bg-dark-blue w-full py-2 lg:py-5  transition-transform transform ${
         scrollingDown ? "translate-y-0" : "-translate-y-full"
       }`}
     >

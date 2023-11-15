@@ -51,6 +51,7 @@ module.exports = {
         "gray-light": "#d3dce6",
         "dark-blue": "#0A2640",
         "light-blue": "#1c3d5b",
+        blue: "#0DBBFC",
       },
       backgroundImage: {
         ellipse: "url('./assets/images/ellipse.png')",

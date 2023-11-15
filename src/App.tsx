@@ -8,6 +8,7 @@ import Footer from "./components/footer";
 import Seo from "./components/seo";
 import { I18nProvider } from "./helpers/i18nContext";
 import Popup from "./components/popup";
+import ContactButton from "./components/contact-button";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
         <HeroBanner showAnimation />
         <main className="">
           <Sections />
+          <ContactButton />
           <Popup />
         </main>
         <Footer />

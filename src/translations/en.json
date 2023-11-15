@@ -86,18 +86,15 @@
     "cards": [
       {
         "title": "Responsive Design and User-Friendly Experience",
-        "description": "<p> In today's mobile-driven world, we ensure that your E-commerce site is not only visually appealing but also responsive across all devices, providing a seamless shopping experience.</p><br/><p> We design and develop intuitive user interfaces to ensure that your customers can easily navigate your site and make purchases with confidence.</p>",
-        "btnText": "Contact to us"
+        "description": "<p> In today's mobile-driven world, we ensure that your E-commerce site is not only visually appealing but also responsive across all devices, providing a seamless shopping experience.</p><br/><p> We design and develop intuitive user interfaces to ensure that your customers can easily navigate your site and make purchases with confidence.</p>"
       },
       {
         "title": "Proven Expertise and End-to-End Services",
-        "description": "<p>Our team of experts brings a wealth of experience in E-commerce and Shopify development. We stay updated with the latest trends and technologies to deliver top-notch results.</p><br/><p> From initial concept to design, development, and ongoing support, we offer comprehensive services that cover the entire E-commerce development lifecycle.</p>",
-        "btnText": "Contact with us"
+        "description": "<p>Our team of experts brings a wealth of experience in E-commerce and Shopify development. We stay updated with the latest trends and technologies to deliver top-notch results.</p><br/><p> From initial concept to design, development, and ongoing support, we offer comprehensive services that cover the entire E-commerce development lifecycle.</p>"
       },
       {
         "title": "Optimized Performance and SEO-Friendly",
-        "description": "<p>We prioritize website speed and performance to minimize loading times, keeping your customers engaged and satisfied.</p><br/><p> Our development practices focus on search engine optimization, making it easier for potential customers to find your store through search engines like Google.</p>",
-        "btnText": "Contact to us"
+        "description": "<p>We prioritize website speed and performance to minimize loading times, keeping your customers engaged and satisfied.</p><br/><p> Our development practices focus on search engine optimization, making it easier for potential customers to find your store through search engines like Google.</p>"
       }
     ]
   },
