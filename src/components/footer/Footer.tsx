@@ -12,7 +12,7 @@ const Footer = () => {
   return (
     <footer className="footer py-12 font-serif">
       <div className="container lg:flex lg:justify-between text-center lg:text-left">
-        <div className="footer-item  mb-5 lg:max-w-[300px] lg:mr-[11%]">
+        <div className="footer-item  mb-5 lg:max-w-[300px] lg:mr-5">
           <a href="/" className="footer-logo">
             <Icon icon="light-logo" className="inline-block" />
           </a>
