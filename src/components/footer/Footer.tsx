@@ -9,13 +9,19 @@ const Footer = () => {
   }) as string[];
   const footerNavigation = cardsContent.map((navigation: any) => navigation);
 
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  };
   return (
-    <footer className="footer py-12 font-serif">
-      <div className="container lg:flex lg:justify-between text-center lg:text-left">
-        <div className="footer-item  mb-5 lg:max-w-[300px] lg:mr-[11%]">
-          <a href="/" className="footer-logo">
+    <footer className="footer container py-12 font-serif">
+      <div className="lg:flex lg:justify-between text-center lg:text-left">
+        <div className="footer-item  mb-5 lg:mb-0 lg:max-w-[300px] lg:mr-5">
+          <button onClick={scrollToTop}>
             <Icon icon="light-logo" className="inline-block" />
-          </a>
+          </button>
         </div>
 
         <div className="footer-item">
@@ -35,6 +41,23 @@ const Footer = () => {
             })}
           </ul>
         </div>
+      </div>
+      <div className="mt-5">
+        <ul className="flex justify-center items-center">
+          <li className="m-2">
+            <a
+              href="https://www.upwork.com/freelancers/~01a9efbe9a36e060f6"
+              target="blank"
+            >
+              <Icon icon="upwork" />
+            </a>
+          </li>
+          <li className="m-2">
+            <a href="https://github.com/IOM-creators" target="blank">
+              <Icon icon="github" />
+            </a>
+          </li>
+        </ul>
       </div>
     </footer>
   );

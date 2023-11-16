@@ -5,7 +5,7 @@ import WhyChooseUS from "./why-choose-us";
 import OurProcess from "./our-process";
 import Portfolio from "./portfolio";
 import Feedback from "./feedback";
-import ContactForm from "./contact-form";
+import ContactForm from "./contact-us";
 import Technologies from "../technologies";
 
 const Sections = () => {

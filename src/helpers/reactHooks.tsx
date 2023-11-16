@@ -26,6 +26,7 @@ export const useScrollEvent = () => {
 
   const sections = document.querySelectorAll(".section");
   const navLinks = document.querySelectorAll("nav ul li a");
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   const sectionPositions: { top: number; bottom: number }[] = [];
 
   sections.forEach((section) => {
@@ -82,7 +83,7 @@ export const useScrollEvent = () => {
 
       setY(scrollPosition);
     },
-    [sectionPositions, navLinks, sections]
+    [sectionPositions, y, navLinks, sections]
   );
 
   useEffect(() => {
@@ -139,7 +140,7 @@ export const useScrollAnimation = (
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
-  }, []);
+  }, [elementsRef, isAnimated, setIsAnimated]);
 
   return isAnimated;
 };
@@ -166,7 +167,7 @@ export const useScrollAnimationForOne = (
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
-  }, []);
+  }, [elementsRef, isAnimated, setIsAnimated]);
 
   return isAnimated;
 };

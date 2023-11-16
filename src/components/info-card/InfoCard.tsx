@@ -25,7 +25,6 @@ interface IInfoCard {
 const InfoCard: React.FC<IInfoCard> = ({
   card,
   className,
-  icon,
   index,
   animated = false,
 }) => {
@@ -35,6 +34,7 @@ const InfoCard: React.FC<IInfoCard> = ({
   const animationDelayClass = index
     ? `animate-slide-up-delay-${index + 3}`
     : "";
+
   return (
     <div
       ref={elementsRef}
