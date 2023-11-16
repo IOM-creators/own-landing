@@ -39,11 +39,11 @@ const ContactForm: React.FC<ISectionCommon> = ({ className }) => {
     seSisSending(true);
     const axiosInstance = axios.create({
       headers: {
-        "Content-Type": "multipart/form-data",
+        "Content-Type": "application/json",
       },
     });
     axiosInstance
-      .post("https://iom-creators.com/mail.php", data)
+      .post("https://iom-creators.com/mail", data)
       .then(() => {
         updateMessage(true);
         seSisSending(false);
