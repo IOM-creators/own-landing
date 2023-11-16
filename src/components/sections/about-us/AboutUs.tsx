@@ -1,7 +1,6 @@
 import React from "react";
 import Section from "../../section";
 
-import image from "../../../assets/images/about_us.png";
 import InfoWithList from "../../info-with-list";
 import { useTranslation } from "react-i18next";
 import { ISectionCommon } from "../../../helpers/commonInterfaces";
