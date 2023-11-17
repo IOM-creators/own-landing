@@ -1,4 +1,4 @@
-name: Build
+name: Deploy
 
 on:
   push:
@@ -6,31 +6,39 @@ on:
       - main
 
 jobs:
-  build:
+  deploy:
     runs-on: ubuntu-latest
 
     steps:
     - name: Checkout code
       uses: actions/checkout@v2
-      
+
+    - name: Setup Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '20.9.0'
+
     - name: Install Dependencies
       run: npm install
 
     - name: Build Project
       run: npm run build
-      
-    - name: Print Workspace Contents
-      run: ls -R $GITHUB_WORKSPACE
-  
-  deploy:
-    needs: build
-    runs-on: ubuntu-latest
 
-    steps:
-    - name: Deploy to Hosting
-      
-      run: | 
-        rsync -r --delete-after -e "ssh -i ${{ secrets.SSH_PRIVATE_KEY }}" $GITHUB_WORKSPACE/build neth15.s-host.com.ua/public_html
-      env:
-        SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+    - name: Create ZIP Archive
+      run: zip -r build.zip build
 
+    - name: Upload ZIP Archive to Server
+      uses: appleboy/scp-action@master
+      with:
+        host: ${{ secrets.SSH_HOST }}
+        username: ${{ secrets.SSH_USERNAME }}
+        key: ${{ secrets.SSH_PRIVATE_KEY }}
+        source: ./build.zip
+        target: /public_html
+
+    - name: SSH into Server and Extract ZIP Archive
+      run: |
+        ssh -o StrictHostKeyChecking=no -i ${{ secrets.SSH_PRIVATE_KEY }} ${{ secrets.SSH_USERNAME }}@${{ secrets.SSH_HOST }} 'cd /public_html && unzip -o build.zip'
+
+    - name: Clean Up
+      run: rm build.zip
