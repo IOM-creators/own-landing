@@ -63,6 +63,11 @@ module.exports = {
     },
     container: {
       center: true,
+      padding: {
+        DEFAULT: "1rem",
+        xsm: "0",
+        sm: "2rem",
+      },
     },
   },
   plugins: [
