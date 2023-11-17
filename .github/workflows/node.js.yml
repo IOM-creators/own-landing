@@ -36,5 +36,5 @@ jobs:
     steps:
     - name: Deploy to Hosting
       run: |
-        rsync -r --delete-after $GITHUB_WORKSPACE/dist/ neth15.s-host.com.ua:2083/home3/hohlwwxp/public_html
+        rsync -r --delete-after -e "ssh -o StrictHostKeyChecking=no" $GITHUB_WORKSPACE/dist/ neth15.s-host.com.ua:2083/home3/hohlwwxp/public_html
 
