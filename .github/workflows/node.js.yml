@@ -13,21 +13,6 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v2
 
-    - name: Setup Node.js
-      uses: actions/setup-node@v3
-      with:
-        node-version: '20.9.0'
+    - name: Print Workspace Contents
+      run: ls -R $GITHUB_WORKSPACE
 
-    - name: Install Dependencies
-      run: npm install
-
-    - name: Build Project
-      run: npm run build
-      
-  deploy:
-      needs: build
-      runs-on: ubuntu-latest
-  
-      steps:
-      - name: Deploy to Hosting
-        run: ls $GITHUB_WORKSPACE   
