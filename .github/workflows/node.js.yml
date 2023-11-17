@@ -39,6 +39,6 @@ jobs:
 
     - name: SSH into Server and Extract ZIP Archive
       run: |
-        sshpass -p "${{ secrets.SSH_PASSWORD }}" ssh -o StrictHostKeyChecking=no -i "${{ secrets.SSH_PRIVATE_KEY }}"  "${{ secrets.SSH_USERNAME }}"@"${{ secrets.SSH_HOST }}"  './public_html && unzip -o build.zip'
+        sshpass -p "${{ secrets.SSH_PASSWORD }}" ssh -o StrictHostKeyChecking=no -i "${{ secrets.SSH_PRIVATE_KEY }}"  "${{ secrets.SSH_USERNAME }}"@"${{ secrets.SSH_HOST }}"  'unzip -o build.zip'
     - name: Clean Up
       run: rm build.zip
