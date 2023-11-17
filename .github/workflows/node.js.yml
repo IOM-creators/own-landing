@@ -36,6 +36,6 @@ jobs:
     steps:
     - name: Deploy to Hosting
       run: |
-          rsync -r --delete-after -e "ssh -i ${{ secrets.SSH_PRIVATE_KEY }}" $GITHUB_WORKSPACE/dist/ neth15.s-host.com.ua:2083/home3/hohlwwxp/public_html
+          rsync -r --delete-after -e "ssh -i ${{ secrets.SSH_PRIVATE_KEY }}" $GITHUB_WORKSPACE/dist/ https://neth15.s-host.com.ua:2083/home3/hohlwwxp/public_html
       env:
           SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
