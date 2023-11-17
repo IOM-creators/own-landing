@@ -35,6 +35,6 @@ jobs:
     steps:
     - name: Deploy to Hosting
       run: |
-        ls -la $GITHUB_WORKSPACE
+        ls -la /home/runner/work/own-landing/own-landing/
       env:
           SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
