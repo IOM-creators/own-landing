@@ -35,7 +35,7 @@ jobs:
         key: ${{ secrets.SSH_PRIVATE_KEY }}
         password: ${{ secrets.SSH_PASSWORD }}
         source: ./build.zip
-        target: /path/to/destination
+        target: /public_html
 
     - name: SSH into Server and Extract ZIP Archive
       run: |
