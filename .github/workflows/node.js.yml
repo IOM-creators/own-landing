@@ -24,6 +24,9 @@ jobs:
     - name: Build Project
       run: npm run build
 
+    - name: Install unzip
+      run: sudo apt-get install unzip
+
     - name: Create ZIP Archive
       run: zip -r build.zip build
 
@@ -38,6 +41,6 @@ jobs:
 
     - name: SSH into Server and Extract ZIP Archive
       run: |
-        sshpass -p "${{ secrets.SSH_PASSWORD }}" ssh  -v "${{ secrets.SSH_USERNAME }}"@"${{ secrets.SSH_HOST }}"  'mkdir -p /public_html && unzip -o build.zip'
+        sshpass -p "${{ secrets.SSH_PASSWORD }}" ssh -v "${{ secrets.SSH_USERNAME }}"@"${{ secrets.SSH_HOST }}"  'mkdir -p /public_html && unzip -o build.zip'
     - name: Clean Up
       run: rm build.zip
