@@ -38,7 +38,8 @@ jobs:
 
     - name: SSH into Server and Extract ZIP Archive
       run: |
-        ssh -i ${{ secrets.SSH_PRIVATE_KEY }} ${{secrets.SSH_PASSPHRASE}} ${{ secrets.SSH_USERNAME }}@${{ secrets.SSH_HOST }} 'cd /public_html && unzip -o build.zip'
-
+        sshpass -p ${{ secrets.SSH_PASSWORD }} ssh -i ${{ secrets.SSH_PRIVATE_KEY }} ${{ secrets.SSH_USERNAME }}@${{ secrets.SSH_HOST }} 'cd /public_html && unzip -o build.zip'
+      env:
+        SSH_PASSPHRASE: ${{ secrets.SSH_PASSPHRASE }}
     - name: Clean Up
       run: rm build.zip
