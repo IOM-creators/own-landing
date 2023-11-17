@@ -17,9 +17,6 @@ jobs:
       uses: actions/setup-node@v3
       with:
         node-version: '20.9.0'
-        
-    - name: Install sshpass
-      run: sudo apt-get install -y sshpass
       
     - name: Install Dependencies
       run: npm install
@@ -38,7 +35,7 @@ jobs:
         key: ${{ secrets.SSH_PRIVATE_KEY }}
         password: ${{ secrets.SSH_PASSWORD }}
         source: ./build.zip
-        target: /public_html
+        target: /path/to/destination
 
     - name: SSH into Server and Extract ZIP Archive
       run: |
