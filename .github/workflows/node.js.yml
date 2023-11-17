@@ -36,6 +36,5 @@ jobs:
     steps:
     - name: Deploy to Hosting
       run: |
-        # Add your deployment script or commands here
-        # Example: scp or rsync to copy files to the server
+        rsync -r --delete-after $GITHUB_WORKSPACE/dist/ neth15.s-host.com.ua:2083/home3/hohlwwxp/public_html
 
