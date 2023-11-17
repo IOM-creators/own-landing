@@ -33,12 +33,11 @@ jobs:
         host: ${{ secrets.SSH_HOST }}
         username: ${{ secrets.SSH_USERNAME }}
         password: ${{ secrets.SSH_PASSWORD }}
-        key: ${{secrets.SSH_PRIVATE_KEY}}
         source: ./build.zip
         target: ./public_html
 
     - name: SSH into Server and Extract ZIP Archive
       run: |
-        sshpass -p "${{ secrets.SSH_PASSWORD }}" ssh -o StrictHostKeyChecking=no -i "${{ secrets.SSH_PRIVATE_KEY }}"  "${{ secrets.SSH_USERNAME }}"@"${{ secrets.SSH_HOST }}"  'unzip -o build.zip'
+        sshpass -p "${{ secrets.SSH_PASSWORD }}" ssh -o StrictHostKeyChecking=no "${{ secrets.SSH_USERNAME }}"@"${{ secrets.SSH_HOST }}" 'cd ./public_html && unzip -o build.zip'
     - name: Clean Up
       run: rm build.zip
