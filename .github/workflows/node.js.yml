@@ -23,10 +23,7 @@ jobs:
 
     - name: Build Project
       run: npm run build
-
-    - name: Install unzip
-      run: sudo apt-get install unzip
-
+      
     - name: Create ZIP Archive
       run: zip -r build.zip build
 
