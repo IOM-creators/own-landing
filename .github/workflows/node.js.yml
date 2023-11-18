@@ -1,4 +1,4 @@
-name: Deploy
+name: CI/CD
 
 on:
   push:
@@ -20,14 +20,15 @@ jobs:
       
     - name: Install Dependencies
       run: npm install
-
+      
+    - name: Test Project
+      run: npm run test
+      
     - name: Build Project
       run: npm run build
       
     - name: Create ZIP Archive
       run: zip -r build.zip build
-      
-
       
     - name: Upload ZIP Archive to Server
       uses: appleboy/scp-action@master
@@ -40,16 +41,7 @@ jobs:
       
     - name: SSH into Server and Extract ZIP Archive
       run: |
-         sshpass -p "${{ secrets.SSH_PASSWORD }}" ssh -o StrictHostKeyChecking=no "${{ secrets.SSH_USERNAME }}"@"${{ secrets.SSH_HOST }}" 'cd ./public_html && unzip -o build.zip && rm -r static'
-    
-    - name: Move files
-      run: |
-         sshpass -p "${{ secrets.SSH_PASSWORD }}" ssh -o StrictHostKeyChecking=no "${{ secrets.SSH_USERNAME }}"@"${{ secrets.SSH_HOST }}" ' cd ./public_html && mv build/* ./'
-    
-    - name: Remove build folders
-      run: |
-         sshpass -p "${{ secrets.SSH_PASSWORD }}" ssh -o StrictHostKeyChecking=no "${{ secrets.SSH_USERNAME }}"@"${{ secrets.SSH_HOST }}" 'cd ./public_html && rm -r build.zip && rm -r build'
-          
-         
+         sshpass -p "${{ secrets.SSH_PASSWORD }}" ssh -o StrictHostKeyChecking=no "${{ secrets.SSH_USERNAME }}"@"${{ secrets.SSH_HOST }}" 'cd ./public_html && unzip -o build.zip && rm -r static && mv build/* ./ && rm -r build.zip && rm -r build'
+
 
 
