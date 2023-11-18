@@ -9,7 +9,6 @@ import Icon from "../icon";
 import TitleSection from "../title-section";
 
 const Popup: React.FC = () => {
-  console.log("===========");
   const { isOpen, title, children, closeButton }: PopupState = useTypedSelector(
     (state) => state.popup
   );
