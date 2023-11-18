@@ -11,6 +11,7 @@ import Popup from "./components/popup";
 import ContactButton from "./components/contact-button";
 
 function App() {
+  console.log('App')
   return (
     <div className="App">
       <I18nProvider>
