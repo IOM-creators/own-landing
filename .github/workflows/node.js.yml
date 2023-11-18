@@ -33,7 +33,6 @@ jobs:
         host: ${{ secrets.SSH_HOST }}
         username: ${{ secrets.SSH_USERNAME }}
         password: ${{ secrets.SSH_PASSWORD }}
-        key: ${{ secrets.SSH_PRIVATE_KEY }}
         source: ./build.zip
         target: ./public_html
 
@@ -43,7 +42,7 @@ jobs:
     
     - name: Move files
       run: |
-         sshpass -p "${{ secrets.SSH_PASSWORD }}" ssh -i ${{ secrets.SSH_PRIVATE_KEY }} "${{ secrets.SSH_USERNAME }}"@"${{ secrets.SSH_HOST }}" ' cd ./public_html && mv build/* /'
+         sshpass -p "${{ secrets.SSH_PASSWORD }}" ssh -o StrictHostKeyChecking=no "${{ secrets.SSH_USERNAME }}"@"${{ secrets.SSH_HOST }}" ' cd ./public_html && mv build/* /'
     
     - name: Remove build folders
       run: |
