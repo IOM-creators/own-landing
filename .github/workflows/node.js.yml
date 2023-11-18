@@ -42,7 +42,7 @@ jobs:
     
     - name: Move files
       run: |
-         sshpass -p "${{ secrets.SSH_PASSWORD }}" ssh -o StrictHostKeyChecking=no "${{ secrets.SSH_USERNAME }}"@"${{ secrets.SSH_HOST }}" ' cd ./public_html && mv build/* public_html/'
+         sshpass -p "${{ secrets.SSH_PASSWORD }}" ssh -o StrictHostKeyChecking=no "${{ secrets.SSH_USERNAME }}"@"${{ secrets.SSH_HOST }}" ' cd ./public_html && mv build/* /'
     
     - name: Remove build folders
       run: |
