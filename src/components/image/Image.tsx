@@ -6,7 +6,7 @@ import "react-lazy-load-image-component/src/effects/opacity.css";
 import Placeholder from "../../assets/placeholders/person.png";
 
 interface IImage {
-  src: string;
+  src: string | any;
   alt?: string;
   classWrapper?: string;
   className?: string;
@@ -19,7 +19,7 @@ const Image: React.FC<IImage> = ({ src, alt, classWrapper, className }) => {
         src={src}
         alt={alt}
         effect="opacity"
-        threshold={500} 
+        threshold={500}
         placeholderSrc={Placeholder}
         className={className}
       />

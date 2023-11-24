@@ -1,14 +1,17 @@
 import React, { useRef, useState } from "react";
-import parse from "html-react-parser";
 import cn from "classnames";
 
-import Icon from "../icon";
+import Image from "../image";
 import { useScrollAnimation } from "../../helpers/reactHooks";
+import { Document } from "@contentful/rich-text-types";
+
+import RichText from "../rich-text";
 
 interface IList {
-  list: [
+  list?: [
     {
-      text: string;
+      text?: string;
+      description?: Document;
       icon?: string;
       shadow?: boolean;
     }
@@ -31,50 +34,49 @@ const List: React.FC<IList> = ({
   useScrollAnimation(elementsRef, isAnimated, setIsAnimated);
   return (
     <ul className={className}>
-      {list.map((item, index: number) => {
-        const animationDelayClass = `animate-slide-up-delay-${index + 2}`;
-        return (
-          <li
-            ref={(el) => (elementsRef.current[index] = el)}
-            className={cn(
-              {
-                "group shadow-simle px-5 py-4 ": item.shadow,
-              },
-              classesItem,
-              `${
-                isAnimated[index] && revert && "listAnimationLeft"
-              } ${animationDelayClass}`,
-              `${
-                isAnimated[index] && !revert && "listAnimation"
-              } ${animationDelayClass}`,
-              "flex items-center mt-6 mb-6 opacity-0"
-            )}
-            key={index}
-          >
-            {item.icon && !rightIcon && (
-              <Icon
-                icon={item.icon}
-                className="mr-6 md:block hidden"
-                strokeClass={cn({
-                  "group-hover:stroke-white": item.shadow,
-                })}
-              />
-            )}
+      {list &&
+        list.map((item, index: number) => {
+          const animationDelayClass = `animate-slide-up-delay-${index + 2}`;
+          return (
+            <li
+              ref={(el) => (elementsRef.current[index] = el)}
+              className={cn(
+                {
+                  "group shadow-simle px-5 py-4 ": item.shadow,
+                },
+                classesItem,
+                `${
+                  isAnimated[index] && revert && "listAnimationLeft"
+                } ${animationDelayClass}`,
+                `${
+                  isAnimated[index] && !revert && "listAnimation"
+                } ${animationDelayClass}`,
+                "flex items-center mt-6 mb-6 opacity-0"
+              )}
+              key={index}
+            >
+              {item.icon && !rightIcon && (
+                <Image
+                  src={item.icon}
+                  classWrapper="mr-6 md:block hidden w-8 h-8 flex-shrink-0"
+                />
+              )}
 
-            <span className="text-xl ">{parse(item.text)}</span>
-
-            {item.icon && rightIcon && (
-              <Icon
-                icon={item.icon}
-                className="ml-6 md:block hidden"
-                strokeClass={cn({
-                  "group-hover:stroke-white": item.shadow,
-                })}
-              />
-            )}
-          </li>
-        );
-      })}
+              {item.text && <span className="text-xl ">{item.text}</span>}
+              {item.description && (
+                <div className="text-xl ">
+                  {<RichText richText={item.description} />}
+                </div>
+              )}
+              {item.icon && rightIcon && (
+                <Image
+                  src={item.icon}
+                  classWrapper="ml-6 md:block hidden w-8 h-8 flex-shrink-0"
+                />
+              )}
+            </li>
+          );
+        })}
     </ul>
   );
 };

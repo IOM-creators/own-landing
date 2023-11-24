@@ -1,18 +1,24 @@
 import { useScrollEvent, useWindowWidth } from "../../helpers/reactHooks";
 import HamburgerMenu from "./Hamburger";
 import Icon from "../icon";
-import { useTranslation } from "react-i18next";
 import HeaderNavigation from "./HeaderNavigation";
 
+import { useQuery } from "@apollo/client";
+import { gql } from "@apollo/client";
+
+const GET_HEADER_ENTRY = gql`
+  query iomLandingEntryQuery {
+    header(id: "4vncV02RkQ46gGN6i2W0mw") {
+      navigation
+    }
+  }
+`;
 interface IHeader {}
 
 const Header: React.FC<IHeader> = () => {
   const { scrollingDown } = useScrollEvent();
-  const { t } = useTranslation();
-  const cardsContent = t("header.navigation", {
-    returnObjects: true,
-  }) as string[];
-  const headerNavigation = cardsContent.map((navigation: any) => navigation);
+  const { data } = useQuery(GET_HEADER_ENTRY);
+  const headerNavigation = data?.header?.navigation || [];
 
   const scrollToTop = () => {
     window.scrollTo({
@@ -20,7 +26,6 @@ const Header: React.FC<IHeader> = () => {
       behavior: "smooth",
     });
   };
-
   const windowWidth = useWindowWidth();
   return (
     <header

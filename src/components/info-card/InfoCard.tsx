@@ -6,13 +6,16 @@ import TitleSection from "../title-section";
 import Button from "../button";
 import { useScrollAnimationForOne } from "../../helpers/reactHooks";
 import Icon from "../icon";
+import { Document } from "@contentful/rich-text-types";
+import RichText from "../rich-text";
+
 interface IInfoCard {
   card?: {
     image?: string;
     icon?: string;
     title?: string;
     technologies?: string;
-    description?: string;
+    description?: Document;
     btnText?: string;
     btnLink?: string;
   };
@@ -65,7 +68,9 @@ const InfoCard: React.FC<IInfoCard> = ({
         </div>
       )}
       {card?.description && (
-        <div className="text-xl mt-2">{parse(card.description)}</div>
+        <div className="text-xl mt-2">
+          <RichText richText={card.description} />
+        </div>
       )}
       {card?.btnText && (
         <Button

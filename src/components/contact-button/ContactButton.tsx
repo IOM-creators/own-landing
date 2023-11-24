@@ -14,7 +14,7 @@ const ContactButton: React.FC = () => {
     setIconState(!iconState);
     popupState({
       isOpen: iconState,
-      children: <ContactForm />,
+      children: "",
       fullScreen: true,
       closeButton: false,
       title: `${t("contact_us.title")}`,

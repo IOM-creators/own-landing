@@ -1,13 +1,31 @@
 import React from "react";
+import Image from "../image";
 import Icon from "../icon";
-import { useTranslation } from "react-i18next";
+import { useQuery } from "@apollo/client";
+import { gql } from "@apollo/client";
+
+const GET_FOOTER_ENTRY = gql`
+  query iomLandingEntryQuery {
+    footer(id: "57NT2Joj6gGKDBMYWbVf1C") {
+      navigation
+      socialCollection {
+        items {
+          ... on SocialItem {
+            icon {
+              url
+            }
+            link
+          }
+        }
+      }
+    }
+  }
+`;
 
 const Footer = () => {
-  const { t } = useTranslation();
-  const cardsContent = t("footer.navigation", {
-    returnObjects: true,
-  }) as string[];
-  const footerNavigation = cardsContent.map((navigation: any) => navigation);
+  const { data } = useQuery(GET_FOOTER_ENTRY);
+  const footerNavigation = data?.footer?.navigation || [];
+  const socials = data?.footer?.socialCollection?.items || [];
 
   const scrollToTop = () => {
     window.scrollTo({
@@ -26,7 +44,7 @@ const Footer = () => {
 
         <div className="footer-item">
           <ul className="text-dark-blue text-xl flex flex-wrap flex-col md:flex-row">
-            {footerNavigation.map((navItem, index: number) => {
+            {footerNavigation.map((navItem: string, index: number) => {
               const navLink = navItem.split(" ").join("");
               return (
                 <li className="p-3 md:p-5" key={index}>
@@ -44,19 +62,13 @@ const Footer = () => {
       </div>
       <div className="mt-5">
         <ul className="flex justify-center items-center">
-          <li className="m-2">
-            <a
-              href="https://www.upwork.com/freelancers/~01a9efbe9a36e060f6"
-              target="blank"
-            >
-              <Icon icon="upwork" />
-            </a>
-          </li>
-          <li className="m-2">
-            <a href="https://github.com/IOM-creators" target="blank">
-              <Icon icon="github" />
-            </a>
-          </li>
+          {socials.map((item: any, index: number) => (
+            <li className="m-2" key={index}>
+              <a href={item.link} target="blank">
+                <Image src={item.icon.url} classWrapper="w-8 h-8" />
+              </a>
+            </li>
+          ))}
         </ul>
       </div>
     </footer>

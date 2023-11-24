@@ -1,23 +1,23 @@
 import React from "react";
-import parse from "html-react-parser";
-
 import Image from "../image";
 import TitleSection from "../title-section";
 import Button from "../button";
 import List from "../list";
 import Icon from "../icon";
+import RichText from "../rich-text";
+import { Document } from "@contentful/rich-text-types";
 
 interface IInfoWithList {
   card: {
-    revert: boolean;
-    list: [
+    revert?: boolean;
+    list?: [
       {
-        text: string;
-        icon: string;
+        text?: string;
+        icon?: string;
       }
     ];
     title?: string;
-    description?: string;
+    description?: Document;
     btnText?: string;
     btnLink?: string;
   };
@@ -26,15 +26,26 @@ interface IInfoWithList {
   className?: string;
 }
 
-const InfoWithList: React.FC<IInfoWithList> = ({ card, image, icon, className }) => {
+const InfoWithList: React.FC<IInfoWithList> = ({
+  card,
+  image,
+  icon,
+  className,
+}) => {
   return (
     <div className={className}>
       <div>
         {image && (
-          <Image src={image} className="rounded-3xl w-full object-contain" classWrapper="md:before:pt-[80%]" />
-        )}{
-          icon && (
-          <div className="img-wrapper md:before:pt-[80%]"><Icon icon={icon} /></div>
+          <Image
+            src={image}
+            className="rounded-3xl w-full object-contain"
+            classWrapper="md:before:pt-[80%]"
+          />
+        )}
+        {icon && (
+          <div className="img-wrapper md:before:pt-[80%]">
+            <Icon icon={icon} />
+          </div>
         )}
       </div>
       <div className={card.revert ? "lg:order-first" : ""}>
@@ -48,11 +59,11 @@ const InfoWithList: React.FC<IInfoWithList> = ({ card, image, icon, className })
           </TitleSection>
         )}
         {card.description && (
-          <div className="text-xl text-gray mt-2">
-            {parse(card.description)}
+          <div className="text-xl mt-2">
+            {card.description && <RichText richText={card.description} />}
           </div>
         )}
-        {card.list.length && <List list={card.list} revert={card.revert} />}
+        {card.list?.length && <List list={card.list} revert={card.revert} />}
         {card.btnText && (
           <Button primary className="pb-2 w-max group relative mt-12 md:mt-16">
             <a href={card.btnLink} className="text-xl">
