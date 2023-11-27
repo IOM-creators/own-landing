@@ -1,32 +1,10 @@
 import React from "react";
 import Image from "../image";
 import Icon from "../icon";
-import { useQuery } from "@apollo/client";
-import { gql } from "@apollo/client";
-
-const GET_FOOTER_ENTRY = gql`
-  query iomLandingEntryQuery {
-    footer(id: "57NT2Joj6gGKDBMYWbVf1C") {
-      navigation
-      socialCollection {
-        items {
-          ... on SocialItem {
-            icon {
-              url
-            }
-            link
-          }
-        }
-      }
-    }
-  }
-`;
+import { useGetFooter } from "../../graphql/";
 
 const Footer = () => {
-  const { data } = useQuery(GET_FOOTER_ENTRY);
-  const footerNavigation = data?.footer?.navigation || [];
-  const socials = data?.footer?.socialCollection?.items || [];
-
+  const { footer } = useGetFooter();
   const scrollToTop = () => {
     window.scrollTo({
       top: 0,
@@ -44,7 +22,7 @@ const Footer = () => {
 
         <div className="footer-item">
           <ul className="text-dark-blue text-xl flex flex-wrap flex-col md:flex-row">
-            {footerNavigation.map((navItem: string, index: number) => {
+            {footer.navigation.map((navItem: string, index: number) => {
               const navLink = navItem.split(" ").join("");
               return (
                 <li className="p-3 md:p-5" key={index}>
@@ -62,7 +40,7 @@ const Footer = () => {
       </div>
       <div className="mt-5">
         <ul className="flex justify-center items-center">
-          {socials.map((item: any, index: number) => (
+          {footer.socials.map((item: any, index: number) => (
             <li className="m-2" key={index}>
               <a href={item.link} target="blank">
                 <Image src={item.icon.url} classWrapper="w-8 h-8" />

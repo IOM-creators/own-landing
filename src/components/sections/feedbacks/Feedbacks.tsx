@@ -8,36 +8,10 @@ import Slider from "../../slider";
 
 import { ISectionCommon } from "../../../helpers/commonInterfaces";
 import ReviewItem from "../../review-item";
+import { useGetFeedbacks } from "../../../graphql";
 
-import { useQuery } from "@apollo/client";
-import { gql } from "@apollo/client";
-
-const GET_FEEDBACKS_ENTRY = gql`
-  query iomLandingEntryQuery {
-    feedbacks(id: "4g4wJhj33othVTCs289oIs") {
-      title
-      reviewsCollection {
-        items {
-          ... on ReviewItem {
-            name
-            stars
-            response
-            linkText
-            linkUrl
-          }
-        }
-      }
-    }
-  }
-`;
-const Feedback: React.FC<ISectionCommon> = ({ className }) => {
-  const { data } = useQuery(GET_FEEDBACKS_ENTRY);
-  const section = data?.feedbacks || {};
-
-  const content = {
-    title: section.title,
-    feedbacks: section.reviewsCollection?.items,
-  };
+const Feedbacks: React.FC<ISectionCommon> = ({ className }) => {
+  const { section } = useGetFeedbacks();
 
   const sliderParams = {
     grabCursor: true,
@@ -69,16 +43,15 @@ const Feedback: React.FC<ISectionCommon> = ({ className }) => {
         className="mb-10 md:mb-20 text-center"
         fontSize="md:text-5xl text-4xl"
       >
-        {content.title}
+        {section.title}
       </TitleSection>
       <div className="slider-wrapper relative">
         <Slider params={sliderParams} className="feedback-slider">
-          {content.feedbacks &&
-            content.feedbacks.map((feedback: any, index: number) => (
-              <SwiperSlide key={index}>
-                <ReviewItem feedback={feedback} />
-              </SwiperSlide>
-            ))}
+          {section.feedbacks.map((feedback: any, index: number) => (
+            <SwiperSlide key={index}>
+              <ReviewItem feedback={feedback} />
+            </SwiperSlide>
+          ))}
         </Slider>
         <div className="swiper-pagination-feedback mt-10 text-center"></div>
       </div>
@@ -86,4 +59,4 @@ const Feedback: React.FC<ISectionCommon> = ({ className }) => {
   );
 };
 
-export default Feedback;
+export default Feedbacks;

@@ -3,6 +3,7 @@ import { TypeAnimation } from "react-type-animation";
 import cn from "classnames";
 import styles from "./hero-banner.module.scss";
 import { useI18n } from "../../helpers/i18nContext";
+import { useGetHeroBanner } from "../../graphql";
 interface ILetter {
   letter: string;
   fullText: string;
@@ -14,25 +15,15 @@ interface IHeroSection {
 }
 
 const HeroSection: React.FC<IHeroSection> = ({ showAnimation = false }) => {
-  const { t, detectKey } = useI18n();
+  const { detectKey } = useI18n();
+  const { heroBanner } = useGetHeroBanner();
 
-  const letters: ILetter[] = [
-    {
-      letter: t("hero_banner.letter_1"),
-      fullText: t("hero_banner.text_1"),
-      delay: 250,
-    },
-    {
-      letter: t("hero_banner.letter_2"),
-      fullText: t("hero_banner.text_2"),
-      delay: 1500,
-    },
-    {
-      letter: t("hero_banner.letter_3"),
-      fullText: t("hero_banner.text_3"),
-      delay: 2750,
-    },
-  ];
+  const letters: ILetter[] =
+    heroBanner.abbreviation.map((text: any, index: number) => ({
+      letter: text.slice(0, 1),
+      fullText: `- ${text}`,
+      delay: index * 5 * 250,
+    })) || [];
   return (
     <section id="hero-banner" className="overflow-hidden text-white">
       <div className="relative w-full h-screen">

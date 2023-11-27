@@ -1,23 +1,30 @@
 import React, { useEffect, useState } from "react";
 import ContactForm from "../contact-from";
 import { useActions } from "../../store/hooks/useActions";
-import { useTranslation } from "react-i18next";
 import Icon from "../icon";
 import { useTypedSelector } from "../../store/hooks/useTypedSelector";
+import { useGetContactUs } from "../../graphql/";
 
 const ContactButton: React.FC = () => {
+  const { section } = useGetContactUs();
   const { isOpen }: any = useTypedSelector((state) => state.popup);
   const [iconState, setIconState] = useState(true);
   const { popupState } = useActions();
-  const { t } = useTranslation();
+
   const handleClickOpen = () => {
     setIconState(!iconState);
     popupState({
       isOpen: iconState,
-      children: "",
+      children: (
+        <ContactForm
+          fields={section.formFields}
+          successMessage={section.successMessage}
+          buttonText={section.buttonText}
+        />
+      ),
       fullScreen: true,
       closeButton: false,
-      title: `${t("contact_us.title")}`,
+      title: section.title,
     });
   };
   useEffect(() => {

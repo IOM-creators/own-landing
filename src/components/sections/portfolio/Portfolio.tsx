@@ -11,41 +11,10 @@ import { SwiperSlide } from "swiper/react";
 import { ISectionCommon } from "../../../helpers/commonInterfaces";
 import TitleSection from "../../title-section";
 
-import { useQuery } from "@apollo/client";
-import { gql } from "@apollo/client";
+import { useGetPortfolio } from "../../../graphql/";
 
-const GET_PORTFOLIO_ENTRY = gql`
-  query iomLandingEntryQuery {
-    portfolio(id: "4Fb2vLj9Zi1quZAT35xbe") {
-      title
-      slidesCollection {
-        items {
-          ... on InfoCard {
-            title
-            description {
-              json
-            }
-            image {
-              url
-            }
-          }
-        }
-      }
-    }
-  }
-`;
 const Portfolio: React.FC<ISectionCommon> = ({ className }) => {
-  const { data } = useQuery(GET_PORTFOLIO_ENTRY);
-  const section = data?.portfolio || {};
-  const content = {
-    title: section.title,
-    slides: section?.slidesCollection?.items?.map(
-      (item: any, index: number) => ({
-        title: item.title,
-        description: item?.description?.json,
-      })
-    ),
-  };
+  const { section } = useGetPortfolio();
 
   const sliderParams = {
     effect: "coverflow",
@@ -96,7 +65,7 @@ const Portfolio: React.FC<ISectionCommon> = ({ className }) => {
               fontSize="text-4xl md:text-5xl"
               className="text-white text-center md:text-left mb-5"
             >
-              {content.title}
+              {section.title}
             </TitleSection>
             <div className="slider-buttom-wrapper relative flex justify-between w-48 self-end hidden lg:flex">
               <div className="swiper-button-prev flex items-center justify-center rounded-full w-16 h-16 bg-white cursor-pointer mr-2">
@@ -108,7 +77,7 @@ const Portfolio: React.FC<ISectionCommon> = ({ className }) => {
             </div>
           </div>
           <Slider params={sliderParams} className="gallery-slider !py-10">
-            {content.slides?.map((slide: any, index: number) => (
+            {section.slides.map((slide: any, index: number) => (
               <SwiperSlide key={index}>
                 <InfoCard
                   card={slide}

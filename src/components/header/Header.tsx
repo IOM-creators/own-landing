@@ -2,23 +2,13 @@ import { useScrollEvent, useWindowWidth } from "../../helpers/reactHooks";
 import HamburgerMenu from "./Hamburger";
 import Icon from "../icon";
 import HeaderNavigation from "./HeaderNavigation";
+import { useGetHeader } from "../../graphql/";
 
-import { useQuery } from "@apollo/client";
-import { gql } from "@apollo/client";
-
-const GET_HEADER_ENTRY = gql`
-  query iomLandingEntryQuery {
-    header(id: "4vncV02RkQ46gGN6i2W0mw") {
-      navigation
-    }
-  }
-`;
 interface IHeader {}
 
 const Header: React.FC<IHeader> = () => {
   const { scrollingDown } = useScrollEvent();
-  const { data } = useQuery(GET_HEADER_ENTRY);
-  const headerNavigation = data?.header?.navigation || [];
+  const { header } = useGetHeader();
 
   const scrollToTop = () => {
     window.scrollTo({
@@ -39,12 +29,12 @@ const Header: React.FC<IHeader> = () => {
         </button>
 
         {windowWidth < 1024 ? (
-          <HamburgerMenu navigation={headerNavigation} />
+          <HamburgerMenu navigation={header.navigation} />
         ) : (
           <>
             <HeaderNavigation
               classname="ml-auto"
-              navigation={headerNavigation}
+              navigation={header.navigation}
             />
           </>
         )}
