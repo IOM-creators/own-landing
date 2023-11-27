@@ -1,8 +1,8 @@
 import { gql, useQuery } from "@apollo/client";
 
-export const GET_CORE_TECHNOLOGIES_ENTRY = gql`
+export const GET_CORE_TECHNOLOGIES_ENTRY = (id: string) => gql`
   query iomLandingEntryQuery {
-    coreTechnologies(id: "61WPlPZ2tFmI3XDetCeTjY") {
+    coreTechnologies(id: "${id}") {
       title
       listCollection {
         items {
@@ -18,8 +18,8 @@ export const GET_CORE_TECHNOLOGIES_ENTRY = gql`
   }
 `;
 
-export const useGetTechnologies = () => {
-  const { loading, error, data } = useQuery(GET_CORE_TECHNOLOGIES_ENTRY);
+export const useGetTechnologies = (id: string = "") => {
+  const { loading, error, data } = useQuery(GET_CORE_TECHNOLOGIES_ENTRY(id));
   const section = data?.coreTechnologies || {};
   const content = {
     revert: section.revert,

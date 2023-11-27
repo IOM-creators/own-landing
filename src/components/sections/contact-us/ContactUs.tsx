@@ -5,8 +5,8 @@ import { ISectionCommon } from "../../../helpers/commonInterfaces";
 import ContactForm from "../../contact-from";
 import { useGetContactUs } from "../../../graphql/";
 
-const ContactUs: React.FC<ISectionCommon> = ({ className }) => {
-  const { section } = useGetContactUs();
+const ContactUs: React.FC<ISectionCommon> = ({ className, id }) => {
+  const { section } = useGetContactUs(id);
 
   return (
     <Section id="ContactUs" className={className}>

@@ -5,8 +5,9 @@ import InfoWithList from "../../info-with-list";
 import { ISectionCommon } from "../../../helpers/commonInterfaces";
 import { useGetAboutUs } from "../../../graphql/";
 
-const AboutUs: React.FC<ISectionCommon> = ({ className }) => {
-  const { section } = useGetAboutUs();
+const AboutUs: React.FC<ISectionCommon> = ({ className, id }) => {
+  const { section } = useGetAboutUs(id);
+
   return (
     <Section id="AboutUs" sectionRef="AboutUs" className={className}>
       <InfoWithList

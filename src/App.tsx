@@ -9,7 +9,6 @@ import Seo from "./components/seo";
 import { I18nProvider } from "./helpers/i18nContext";
 import Popup from "./components/popup";
 import ContactButton from "./components/contact-button";
-import TestContentful from "./components/test-contentfull";
 
 function App() {
   return (

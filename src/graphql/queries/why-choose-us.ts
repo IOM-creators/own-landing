@@ -1,8 +1,8 @@
 import { gql, useQuery } from "@apollo/client";
 
-export const GET_WHY_CHOOSE_US_ENTRY = gql`
+export const GET_WHY_CHOOSE_US_ENTRY = (id: string) => gql`
   query iomLandingEntryQuery {
-    whyChooseUs(id: "usGv4E1tnQn78QIYvfapQ") {
+    whyChooseUs(id: "${id}") {
       title
       infoCardsCollection {
         items {
@@ -33,8 +33,8 @@ const images = [
   },
 ];
 
-export const useGetWhyChooseUs = () => {
-  const { loading, error, data } = useQuery(GET_WHY_CHOOSE_US_ENTRY);
+export const useGetWhyChooseUs = (id: string = "") => {
+  const { loading, error, data } = useQuery(GET_WHY_CHOOSE_US_ENTRY(id));
   const section = data?.whyChooseUs || {};
   const content = {
     title: section.title,

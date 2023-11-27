@@ -13,4 +13,5 @@ export interface IHamburgerMenu {
 
 export interface ISectionCommon {
   className?: string;
+  id?: string;
 }

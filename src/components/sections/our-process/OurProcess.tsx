@@ -7,8 +7,8 @@ import { ISectionCommon } from "../../../helpers/commonInterfaces";
 import Icon from "../../icon";
 import { useGetOurProcess } from "../../../graphql";
 
-const OurProcess: React.FC<ISectionCommon> = ({ className }) => {
-  const { section } = useGetOurProcess();
+const OurProcess: React.FC<ISectionCommon> = ({ className, id }) => {
+  const { section } = useGetOurProcess(id);
 
   return (
     <Section id="OurProcess" className={className}>

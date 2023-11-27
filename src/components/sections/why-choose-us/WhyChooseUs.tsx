@@ -7,8 +7,8 @@ import { ISectionCommon } from "../../../helpers/commonInterfaces";
 import { useScrollAnimation } from "../../../helpers/reactHooks";
 import { useGetWhyChooseUs } from "../../../graphql";
 
-const WhyChooseUs: React.FC<ISectionCommon> = ({ className }) => {
-  const { section } = useGetWhyChooseUs();
+const WhyChooseUs: React.FC<ISectionCommon> = ({ className, id }) => {
+  const { section } = useGetWhyChooseUs(id);
   const [isAnimated, setIsAnimated] = useState<boolean[]>([]);
   const elementsRef = useRef<Array<HTMLLIElement | null>>([]);
 
@@ -27,7 +27,6 @@ const WhyChooseUs: React.FC<ISectionCommon> = ({ className }) => {
         {section.cards.map((card: any, index: number) => (
           <InfoCard
             animated
-            icon={`why-choose-us-${index + 1}`}
             index={index}
             card={card}
             key={index}

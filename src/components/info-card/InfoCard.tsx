@@ -19,7 +19,6 @@ interface IInfoCard {
     btnText?: string;
     btnLink?: string;
   };
-  icon?: string;
   className?: string;
   index?: number;
   animated?: boolean;

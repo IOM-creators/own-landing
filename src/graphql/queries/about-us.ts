@@ -1,8 +1,8 @@
 import { gql, useQuery } from "@apollo/client";
 
-export const GET_ABOUT_US_ENTRY = gql`
+export const GET_ABOUT_US_ENTRY = (id: string) => gql`
   query iomLandingEntryQuery {
-    aboutUs(id: "1j1z5VDtcdWuGHwVD3URVb") {
+    aboutUs(id: "${id}") {
       title
       image {
         url
@@ -21,8 +21,8 @@ export const GET_ABOUT_US_ENTRY = gql`
   }
 `;
 
-export const useGetAboutUs = () => {
-  const { loading, error, data } = useQuery(GET_ABOUT_US_ENTRY);
+export const useGetAboutUs = (id: string = "") => {
+  const { loading, error, data } = useQuery(GET_ABOUT_US_ENTRY(id));
   const section = data?.aboutUs || {};
   const content = {
     revert: section.revert,

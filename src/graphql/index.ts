@@ -9,6 +9,7 @@ import { useGetOurProcess } from "./queries/our-process";
 import { useGetFeedbacks } from "./queries/feedback";
 import { useGetContactUs } from "./queries/contact-us";
 import { useGetFooter } from "./queries/footer";
+import { useGetSections } from "./queries/sections";
 
 export {
   useGetHeader,
@@ -22,4 +23,5 @@ export {
   useGetFeedbacks,
   useGetContactUs,
   useGetFooter,
+  useGetSections,
 };

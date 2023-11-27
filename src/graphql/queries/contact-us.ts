@@ -1,8 +1,8 @@
 import { gql, useQuery } from "@apollo/client";
 
-export const GET_CONTACT_US_ENTRY = gql`
+export const GET_CONTACT_US_ENTRY = (id: string) => gql`
   query iomLandingEntryQuery {
-    contactUs(id: "6POxLTGZS7MVs4Uv2yPLgk") {
+    contactUs(id: "${id}") {
       title
       form {
         ... on ContactForm {
@@ -24,8 +24,8 @@ export const GET_CONTACT_US_ENTRY = gql`
   }
 `;
 
-export const useGetContactUs = () => {
-  const { loading, error, data } = useQuery(GET_CONTACT_US_ENTRY);
+export const useGetContactUs = (id: string = "") => {
+  const { loading, error, data } = useQuery(GET_CONTACT_US_ENTRY(id));
   const section = data?.contactUs || {};
   const formFields = section.form?.fieldsCollection?.items || [];
 

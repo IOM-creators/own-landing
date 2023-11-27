@@ -5,8 +5,12 @@ import Icon from "../icon";
 import { useTypedSelector } from "../../store/hooks/useTypedSelector";
 import { useGetContactUs } from "../../graphql/";
 
-const ContactButton: React.FC = () => {
-  const { section } = useGetContactUs();
+interface IContactButton {
+  id?: string;
+}
+
+const ContactButton: React.FC<IContactButton> = ({ id }) => {
+  const { section } = useGetContactUs("6POxLTGZS7MVs4Uv2yPLgk");
   const { isOpen }: any = useTypedSelector((state) => state.popup);
   const [iconState, setIconState] = useState(true);
   const { popupState } = useActions();

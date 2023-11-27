@@ -10,8 +10,8 @@ import { ISectionCommon } from "../../../helpers/commonInterfaces";
 import ReviewItem from "../../review-item";
 import { useGetFeedbacks } from "../../../graphql";
 
-const Feedbacks: React.FC<ISectionCommon> = ({ className }) => {
-  const { section } = useGetFeedbacks();
+const Feedbacks: React.FC<ISectionCommon> = ({ className, id }) => {
+  const { section } = useGetFeedbacks(id);
 
   const sliderParams = {
     grabCursor: true,

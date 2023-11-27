@@ -13,8 +13,8 @@ import TitleSection from "../../title-section";
 
 import { useGetPortfolio } from "../../../graphql/";
 
-const Portfolio: React.FC<ISectionCommon> = ({ className }) => {
-  const { section } = useGetPortfolio();
+const Portfolio: React.FC<ISectionCommon> = ({ className, id }) => {
+  const { section } = useGetPortfolio(id);
 
   const sliderParams = {
     effect: "coverflow",

@@ -6,13 +6,10 @@ import TitleSection from "../../title-section";
 import Image from "../../image";
 import { useScrollAnimation } from "../../../helpers/reactHooks";
 import { useGetTechnologies } from "../../../graphql/";
+import { ISectionCommon } from "../../../helpers/commonInterfaces";
 
-interface ITechnologies {
-  className?: string;
-}
-
-const Technologies: React.FC<ITechnologies> = ({ className = "" }) => {
-  const { section } = useGetTechnologies();
+const Technologies: React.FC<ISectionCommon> = ({ className, id }) => {
+  const { section } = useGetTechnologies(id);
   const [isAnimated, setIsAnimated] = useState<boolean[]>([]);
   const elementsRef = useRef<Array<HTMLDivElement | null>>([]);
 

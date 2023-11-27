@@ -1,8 +1,8 @@
 import { gql, useQuery } from "@apollo/client";
 
-export const GET_FEEDBACKS_ENTRY = gql`
+export const GET_FEEDBACKS_ENTRY = (id: string) => gql`
   query iomLandingEntryQuery {
-    feedbacks(id: "4g4wJhj33othVTCs289oIs") {
+    feedbacks(id: "${id}") {
       title
       reviewsCollection {
         items {
@@ -19,8 +19,8 @@ export const GET_FEEDBACKS_ENTRY = gql`
   }
 `;
 
-export const useGetFeedbacks = () => {
-  const { loading, error, data } = useQuery(GET_FEEDBACKS_ENTRY);
+export const useGetFeedbacks = (id: string = "") => {
+  const { loading, error, data } = useQuery(GET_FEEDBACKS_ENTRY(id));
   const section = data?.feedbacks || {};
 
   return {

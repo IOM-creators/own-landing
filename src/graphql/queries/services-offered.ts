@@ -1,8 +1,8 @@
 import { gql, useQuery } from "@apollo/client";
 
-export const GET_SERVICES_OFFERED_ENTRY = gql`
+export const GET_SERVICES_OFFERED_ENTRY = (id: string) => gql`
   query iomLandingEntryQuery {
-    servicesOffered(id: "1z0EhGB8786tJ2JOaJ1JwV") {
+    servicesOffered(id: "${id}") {
       title
       image {
         url
@@ -25,8 +25,8 @@ export const GET_SERVICES_OFFERED_ENTRY = gql`
   }
 `;
 
-export const useGetServicesOffered = () => {
-  const { loading, error, data } = useQuery(GET_SERVICES_OFFERED_ENTRY);
+export const useGetServicesOffered = (id: string = "") => {
+  const { loading, error, data } = useQuery(GET_SERVICES_OFFERED_ENTRY(id));
   const section = data?.servicesOffered || {};
   const content = {
     revert: section.revert,

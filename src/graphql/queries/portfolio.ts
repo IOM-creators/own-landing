@@ -1,8 +1,8 @@
 import { gql, useQuery } from "@apollo/client";
 
-export const GET_PORTFOLIO_ENTRY = gql`
+export const GET_PORTFOLIO_ENTRY = (id: string) => gql`
   query iomLandingEntryQuery {
-    portfolio(id: "4Fb2vLj9Zi1quZAT35xbe") {
+    portfolio(id: "${id}") {
       title
       slidesCollection {
         items {
@@ -21,8 +21,8 @@ export const GET_PORTFOLIO_ENTRY = gql`
   }
 `;
 
-export const useGetPortfolio = () => {
-  const { loading, error, data } = useQuery(GET_PORTFOLIO_ENTRY);
+export const useGetPortfolio = (id: string = "") => {
+  const { loading, error, data } = useQuery(GET_PORTFOLIO_ENTRY(id));
   const section = data?.portfolio || {};
   const content = {
     title: section.title,
