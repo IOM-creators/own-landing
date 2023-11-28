@@ -42,7 +42,7 @@ const Button: React.FC<IButton> = ({
         className
       )}
       {...props}
-      aria-label="button"
+      aria-label={type}
     >
       {!rightText && children}
       {icon && (

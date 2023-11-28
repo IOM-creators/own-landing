@@ -51,7 +51,7 @@ const InfoWithList: React.FC<IInfoWithList> = ({
       <div className={card.revert ? "lg:order-first" : ""}>
         {card.title && (
           <TitleSection
-            tag="h3"
+            tag="h2"
             fontSize="text-4xl md:text-5xl"
             className="mb-10 text-center md:text-left"
           >
