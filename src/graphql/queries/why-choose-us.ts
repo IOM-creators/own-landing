@@ -41,6 +41,7 @@ export const useGetWhyChooseUs = (id: string = "") => {
     cards:
       section?.infoCardsCollection?.items?.map((item: any, index: number) => ({
         title: item.title,
+        image: item.image?.url || "",
         icon: images[index].image,
         description: item?.description?.json,
       })) || [],

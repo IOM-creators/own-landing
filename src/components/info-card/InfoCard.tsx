@@ -51,7 +51,7 @@ const InfoCard: React.FC<IInfoCard> = ({
           classWrapper="mb-10 md:before:pt-[80%]"
         />
       )}
-      {card?.icon && (
+      {card?.icon && !card?.image && (
         <div className="img-wrapper mb-10 md:before:pt-[80%]">
           <Icon icon={card.icon} />
         </div>

@@ -1,8 +1,10 @@
 import React from "react";
 import { IHeaderNavigation } from "../../helpers/commonInterfaces";
+import cn from "classnames";
 
 const HeaderNavigation: React.FC<IHeaderNavigation> = ({
   classname = "",
+  activeLink,
   navigation,
   setOpenNavChange = () => false,
 }) => {
@@ -15,13 +17,23 @@ const HeaderNavigation: React.FC<IHeaderNavigation> = ({
             return (
               <li
                 key={index}
-                className={`text-white my-3 ${
-                  index === navigation.length - 1 ? "pr-0" : "pr-0 lg:pr-5 "
-                } lg:my-2`}
+                className={cn(
+                  {
+                    active: activeLink === navLink,
+                  },
+                  `text-white my-3 ${
+                    index === navigation.length - 1 ? "pr-0" : "pr-0 lg:pr-5 "
+                  } lg:my-2`
+                )}
               >
                 <a
                   href={`#${navLink}`}
-                  className="rounded-3xl px-3 py-2 text-lg lg:text-base"
+                  className={cn(
+                    {
+                      "bg-white text-dark-blue sm:px-3": activeLink === navLink,
+                    },
+                    "rounded-3xl px-3 py-2 text-lg lg:text-base"
+                  )}
                   onClick={() => setOpenNavChange(false)}
                 >
                   {navItem}

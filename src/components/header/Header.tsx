@@ -7,7 +7,7 @@ import { useGetHeader } from "../../graphql/";
 interface IHeader {}
 
 const Header: React.FC<IHeader> = () => {
-  const { scrollingDown } = useScrollEvent();
+  const { isHeaderVisible, activeLink } = useScrollEvent();
   const { header } = useGetHeader();
 
   const scrollToTop = () => {
@@ -20,7 +20,7 @@ const Header: React.FC<IHeader> = () => {
   return (
     <header
       className={`fixed border-none  top-0 z-20 bg-dark-blue w-full py-2 lg:py-5  transition-transform transform ${
-        scrollingDown ? "translate-y-0" : "-translate-y-full"
+        isHeaderVisible ? "translate-y-0" : "-translate-y-full"
       }`}
     >
       <div className="container flex items-center font-serif text-base font-semibold ">
@@ -29,11 +29,15 @@ const Header: React.FC<IHeader> = () => {
         </button>
 
         {windowWidth < 1024 ? (
-          <HamburgerMenu navigation={header.navigation} />
+          <HamburgerMenu
+            navigation={header.navigation}
+            activeLink={activeLink}
+          />
         ) : (
           <>
             <HeaderNavigation
               classname="ml-auto"
+              activeLink={activeLink}
               navigation={header.navigation}
             />
           </>

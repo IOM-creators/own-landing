@@ -13,7 +13,7 @@ const Footer = () => {
   };
   return (
     <footer className="footer container py-12 font-serif">
-      <div className="lg:flex lg:justify-between text-center lg:text-left">
+      <div className="lg:flex lg:justify-between text-center lg:text-left items-center">
         <div className="footer-item  mb-5 lg:mb-0 lg:max-w-[300px] lg:mr-5">
           <button onClick={scrollToTop}>
             <Icon icon="light-logo" className="inline-block" />
@@ -21,7 +21,7 @@ const Footer = () => {
         </div>
 
         <div className="footer-item">
-          <ul className="text-dark-blue text-xl flex flex-wrap flex-col md:flex-row">
+          <ul className="text-dark-blue text-base flex flex-wrap flex-col md:flex-row">
             {footer.navigation.map((navItem: string, index: number) => {
               const navLink = navItem.split(" ").join("");
               return (

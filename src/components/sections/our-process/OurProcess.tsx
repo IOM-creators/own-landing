@@ -5,6 +5,7 @@ import TitleSection from "../../title-section";
 import List from "../../list";
 import { ISectionCommon } from "../../../helpers/commonInterfaces";
 import Icon from "../../icon";
+import Image from "../../image";
 import { useGetOurProcess } from "../../../graphql";
 
 const OurProcess: React.FC<ISectionCommon> = ({ className, id }) => {
@@ -20,9 +21,19 @@ const OurProcess: React.FC<ISectionCommon> = ({ className, id }) => {
       >
         {section.title}
       </TitleSection>
-      <div className="img-wrapper mb-10 md:before:pt-[40%]">
-        <Icon icon="our_process" />
-      </div>
+
+      {section.image ? (
+        <Image
+          src={section.image}
+          className="object-contain"
+          classWrapper=" md:before:pt-[40%] mb-10"
+        />
+      ) : (
+        <div className="img-wrapper mb-10 md:before:pt-[40%]">
+          <Icon icon="our_process" />
+        </div>
+      )}
+
       <div className="">
         <List list={section.list} className="md:justify-center" />
       </div>

@@ -27,7 +27,7 @@ export const useGetTechnologies = (id: string = "") => {
     list:
       section?.listCollection?.items?.map((item: any) => ({
         text: item.text,
-        icon: item.icon.url,
+        icon: item.icon.url || "",
       })) || [],
   };
   return {

@@ -31,11 +31,12 @@ export const useGetServicesOffered = (id: string = "") => {
   const content = {
     revert: section.revert,
     title: section.title,
+    image: section.image?.url || "",
     list:
       section?.listCollection?.items?.map((item: any) => ({
         description: item.description.json,
         shadow: true,
-        icon: item.icon.url,
+        icon: item.icon.url || "",
       })) || [],
   };
   return {

@@ -27,6 +27,7 @@ export const useGetAboutUs = (id: string = "") => {
   const content = {
     revert: section.revert,
     title: section.title,
+    image: section.image?.url || "",
     list: section.listCollection?.items?.map((item: any) => ({
       description: item?.description?.json,
     })),
@@ -36,7 +37,7 @@ export const useGetAboutUs = (id: string = "") => {
     loading,
     error,
     section: {
-      content,
+      ...content,
     },
   };
 };

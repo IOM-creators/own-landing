@@ -42,7 +42,7 @@ const InfoWithList: React.FC<IInfoWithList> = ({
             classWrapper="md:before:pt-[80%]"
           />
         )}
-        {icon && (
+        {icon && !image && (
           <div className="img-wrapper md:before:pt-[80%]">
             <Icon icon={icon} />
           </div>

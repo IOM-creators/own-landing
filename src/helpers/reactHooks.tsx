@@ -19,81 +19,54 @@ export const useLanguageFromURL = (
 };
 
 export const useScrollEvent = () => {
-  const [y, setY] = useState(0);
-  const [scrollingDown, updateScrollingDown] = useState(
-    window.scrollY === 0 ? true : false
-  );
+  const [isHeaderVisible, setIsHeaderVisible] = useState(true);
+  const [activeLink, setActiveLink] = useState("");
+  const [yPos, setYPos] = useState(window.screenY);
+  const allSections = document.querySelectorAll(".section");
+  const header = document.querySelector("header") as HTMLElement;
 
-  const sections = document.querySelectorAll(".section");
-  const navLinks = document.querySelectorAll("nav ul li a");
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  const sectionPositions: { top: number; bottom: number }[] = [];
-
-  sections.forEach((section) => {
-    const sectionTop = (section as HTMLElement).offsetTop;
-    const sectionBottom = sectionTop + (section as HTMLElement).clientHeight;
-    sectionPositions.push({ top: sectionTop, bottom: sectionBottom });
-  });
-
-  const handleNavigation = useCallback(
+  const handleScroll = useCallback(
     (e: any) => {
       const window = e.currentTarget;
-      const scrollPosition = window.scrollY;
-      if (scrollPosition > 82) {
-        y > scrollPosition
-          ? updateScrollingDown(true)
-          : updateScrollingDown(false);
-      }
+      const currentScrollPos = window.scrollY;
 
-      const noSectionInView = sectionPositions.every((position) => {
-        return (
-          scrollPosition + 100 < position.top ||
-          scrollPosition >= position.bottom
-        );
-      });
+      const isScrollingUp = currentScrollPos < yPos;
 
-      sectionPositions.forEach((position, index) => {
-        const sectionTop = position.top;
-        const sectionBottom = position.bottom;
-
-        let classesToAdd = ["active", "bg-white", "text-dark-blue", "sm:px-3"];
-
-        if (!navLinks[index]) {
-          return;
-        }
-
+      allSections.forEach((section, index) => {
+        const sectionTop = (section as HTMLElement).offsetTop;
+        const sectionHeight = (section as HTMLElement).clientHeight;
+        const sectionBottom = sectionTop + sectionHeight;
         if (
-          scrollPosition + 100 >= sectionTop &&
-          scrollPosition < sectionBottom
+          currentScrollPos + header.clientHeight > sectionTop &&
+          currentScrollPos < sectionBottom
         ) {
-          if (!navLinks[index].classList.contains("active")) {
-            navLinks[index].classList.add(...classesToAdd);
-            window.history.replaceState(null, "", `#${sections[index].id}`);
-          }
-        } else {
-          if (navLinks[index].classList.contains("active")) {
-            navLinks[index].classList.remove(...classesToAdd);
-          }
+          setActiveLink(section.id);
+        }
+        if (
+          index === 0 &&
+          sectionTop - header.clientHeight > currentScrollPos
+        ) {
+          setActiveLink("");
         }
       });
 
-      if (noSectionInView && window.location.hash) {
-        window.history.replaceState(null, "", window.location.pathname);
-      }
-
-      setY(scrollPosition);
+      setIsHeaderVisible(isScrollingUp || currentScrollPos === 0);
+      setYPos(currentScrollPos);
     },
-    [sectionPositions, y, navLinks, sections]
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    [yPos]
   );
 
   useEffect(() => {
-    window.addEventListener("scroll", handleNavigation);
-    return () => {
-      window.removeEventListener("scroll", handleNavigation);
-    };
-  }, [handleNavigation]);
+    window.addEventListener("scroll", handleScroll);
 
-  return { y, scrollingDown };
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [yPos]);
+
+  return { isHeaderVisible, activeLink };
 };
 
 export const useWindowWidth = () => {

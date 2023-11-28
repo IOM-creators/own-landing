@@ -1,9 +1,11 @@
 import { useEffect, useState } from "react";
 import HeaderNavigation from "./HeaderNavigation";
 import { IHamburgerMenu } from "../../helpers/commonInterfaces";
+import Icon from "../icon";
 
 const HamburgerMenu: React.FC<IHamburgerMenu> = ({
   classname = "",
+  activeLink,
   navigation,
 }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -22,29 +24,11 @@ const HamburgerMenu: React.FC<IHamburgerMenu> = ({
   return (
     <div className="overflow-hidden lg:hidden ml-auto mr-0">
       <button onClick={toggleMenu} className="text-white py-2">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          className="w-10 h-10"
-          fill="none"
-          viewBox="-10 -2 32 32"
-          stroke="currentColor"
-        >
-          {isOpen ? (
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth="2"
-              d="M6 18L18 6M6 6l12 12"
-            />
-          ) : (
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth="2"
-              d="M4 6h16M4 12h16m-7 6h7"
-            />
-          )}
-        </svg>
+        {isOpen ? (
+          <Icon icon="hamburger-close" />
+        ) : (
+          <Icon icon="hamburger-open" />
+        )}
       </button>
 
       <div
@@ -58,6 +42,7 @@ const HamburgerMenu: React.FC<IHamburgerMenu> = ({
           <HeaderNavigation
             classname="flex flex-col space-y-4 text-white"
             navigation={navigation}
+            activeLink={activeLink}
             setOpenNavChange={setIsOpen}
           />
         </div>

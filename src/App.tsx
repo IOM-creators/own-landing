@@ -17,7 +17,7 @@ function App() {
         <Seo />
         <Header />
         <HeroBanner showAnimation />
-        <main className="relative">
+        <main>
           <Sections />
           <ContactButton />
           <Popup />
