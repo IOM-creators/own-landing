@@ -9,6 +9,10 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     
+    env:
+      REACT_APP_CONTENTFUL_ID: ${{ secrets.REACT_APP_CONTENTFUL_ID }}
+      REACT_APP_CONTENTFUL_TOCKEN: ${{ secrets.REACT_APP_CONTENTFUL_TOCKEN }}  
+      
     steps:
     - name: Checkout code
       uses: actions/checkout@v2
@@ -41,8 +45,9 @@ jobs:
         target: ./public_html
       
     - name: SSH into Server and Extract ZIP Archive
+      run: |
+         sshpass -p "${{ secrets.SSH_PASSWORD }}" ssh -o StrictHostKeyChecking=no "${{ secrets.SSH_USERNAME }}"@"${{ secrets.SSH_HOST }}" 'cd ./public_html && unzip -o build.zip && rm -r static && mv build/* ./ && rm -r build.zip && rm -r build'
       env:
         REACT_APP_CONTENTFUL_ID: ${{ secrets.REACT_APP_CONTENTFUL_ID }}
         REACT_APP_CONTENTFUL_TOCKEN: ${{ secrets.REACT_APP_CONTENTFUL_TOCKEN }}  
-      run: |
-         sshpass -p "${{ secrets.SSH_PASSWORD }}" ssh -o StrictHostKeyChecking=no "${{ secrets.SSH_USERNAME }}"@"${{ secrets.SSH_HOST }}" 'cd ./public_html && unzip -o build.zip && rm -r static && mv build/* ./ && rm -r build.zip && rm -r build'
+        
