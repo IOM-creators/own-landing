@@ -21,7 +21,7 @@ import { useCallback, useEffect, useState } from "react";
 export const useScrollEvent = () => {
   const [isHeaderVisible, setIsHeaderVisible] = useState(true);
   const [activeLink, setActiveLink] = useState("");
-  const [transparent, setTransparent] = useState(false);
+  const [transparent, setTransparent] = useState(true);
   const [yPos, setYPos] = useState(window.screenY);
   const allSections = document.querySelectorAll(".section");
   const header = document.querySelector("header") as HTMLElement;
