@@ -15,14 +15,6 @@ jobs:
     runs-on: ubuntu-latest
     
     steps:
-    - name: Use variables
-      run: |
-        echo "contentful id variable : $REACT_APP_CONTENTFUL_ID"
-        echo "contentful tocken variable : $REACT_APP_CONTENTFUL_TOCKEN"
-      env:
-        REACT_APP_CONTENTFUL_ID: ${{ vars.REACT_APP_CONTENTFUL_ID }}
-        REACT_APP_CONTENTFUL_TOCKEN: ${{ vars.REACT_APP_CONTENTFUL_TOCKEN }}
-
       - name: Checkout code
         uses: actions/checkout@v2
   
@@ -37,3 +29,14 @@ jobs:
         
       - name: Test Project
         run: npm run test
+
+      - name: Use variables
+        run: |
+          echo "contentful id variable : $REACT_APP_CONTENTFUL_ID"
+          echo "contentful tocken variable : $REACT_APP_CONTENTFUL_TOCKEN"
+        env:
+          REACT_APP_CONTENTFUL_ID: ${{ vars.REACT_APP_CONTENTFUL_ID }}
+          REACT_APP_CONTENTFUL_TOCKEN: ${{ vars.REACT_APP_CONTENTFUL_TOCKEN }}
+
+      - name: Build Project
+        run: npm run build
