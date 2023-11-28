@@ -18,15 +18,7 @@ jobs:
       
       with:
         node-version: '20.9.0'
-        
-    - name: Use variables
-      run: |
-        echo "contentful id variable : $REACT_APP_CONTENTFUL_ID"
-        echo "contentful tocken variable : $REACT_APP_CONTENTFUL_TOCKEN"
-      env:
-        REACT_APP_CONTENTFUL_ID: ${{ secrets.REACT_APP_CONTENTFUL_ID }}
-        REACT_APP_CONTENTFUL_TOCKEN: ${{ secrets.REACT_APP_CONTENTFUL_TOCKEN }}  
-        
+
     - name: Install Dependencies
       run: npm install
       
@@ -49,5 +41,8 @@ jobs:
         target: ./public_html
       
     - name: SSH into Server and Extract ZIP Archive
+      env:
+        REACT_APP_CONTENTFUL_ID: ${{ secrets.REACT_APP_CONTENTFUL_ID }}
+        REACT_APP_CONTENTFUL_TOCKEN: ${{ secrets.REACT_APP_CONTENTFUL_TOCKEN }}  
       run: |
          sshpass -p "${{ secrets.SSH_PASSWORD }}" ssh -o StrictHostKeyChecking=no "${{ secrets.SSH_USERNAME }}"@"${{ secrets.SSH_HOST }}" 'cd ./public_html && unzip -o build.zip && rm -r static && mv build/* ./ && rm -r build.zip && rm -r build'
