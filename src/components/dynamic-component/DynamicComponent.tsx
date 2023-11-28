@@ -36,7 +36,13 @@ const DynamicComponent: React.FC<IDynamicComponent> = ({
     case "Feedbacks":
       return <Feedbacks {...props} className={className} id={id} />;
     case "ContactUs":
-      return <ContactUs {...props} className={className} id={id} />;
+      return (
+        <ContactUs
+          {...props}
+          className={`${className} mx-0 max-w-full sm:px-0 sm:container`}
+          id={id}
+        />
+      );
     default:
       return <></>;
   }
