@@ -35,8 +35,6 @@ jobs:
           echo "contentful id variable : $REACT_APP_CONTENTFUL_ID"
           echo "contentful tocken variable : $REACT_APP_CONTENTFUL_TOCKEN"
         env:
-          REACT_APP_CONTENTFUL_ID: ${{ vars.REACT_APP_CONTENTFUL_ID }}
-          REACT_APP_CONTENTFUL_TOCKEN: ${{ vars.REACT_APP_CONTENTFUL_TOCKEN }}
+          REACT_APP_CONTENTFUL_ID: ${{ secrets.REACT_APP_CONTENTFUL_ID }}
+          REACT_APP_CONTENTFUL_TOCKEN: ${{ secrets.REACT_APP_CONTENTFUL_TOCKEN }}
 
-      - name: Build Project
-        run: npm run build
