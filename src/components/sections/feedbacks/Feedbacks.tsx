@@ -20,6 +20,8 @@ const Feedbacks: React.FC<ISectionCommon> = ({ className, id }) => {
     loop: true,
     slidesPerView: 3,
     spaceBetween: 30,
+    direction: "horizontal",
+    mousewheel: { invert: false },
     pagination: {
       el: ".swiper-pagination-feedback",
       clickable: true,
@@ -36,6 +38,7 @@ const Feedbacks: React.FC<ISectionCommon> = ({ className, id }) => {
       },
     },
   };
+
   return (
     <Section id="Feedbacks" className={className}>
       <TitleSection
