@@ -16,7 +16,7 @@ const Footer = () => {
     <footer className="footer container py-12 font-serif">
       <div className="lg:flex lg:justify-between text-center lg:text-left items-center">
         <div className="footer-item  mb-5 lg:mb-0 lg:max-w-[300px] lg:mr-5">
-          <Button onClick={scrollToTop}>
+          <Button onClick={scrollToTop} className="mx-auto">
             <Icon icon="light-logo" className="inline-block" />
           </Button>
         </div>
