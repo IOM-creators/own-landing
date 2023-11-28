@@ -1,6 +1,6 @@
 import React from "react";
 import { Helmet } from "react-helmet";
-import siteImage from "../../assets/images/team.png";
+import siteImage from "../../assets/images/about_us.png";
 interface ISeo {
   title: string;
   description: string;
