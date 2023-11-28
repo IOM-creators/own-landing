@@ -21,6 +21,7 @@ import { useCallback, useEffect, useState } from "react";
 export const useScrollEvent = () => {
   const [isHeaderVisible, setIsHeaderVisible] = useState(true);
   const [activeLink, setActiveLink] = useState("");
+  const [transparent, setTransparent] = useState(false);
   const [yPos, setYPos] = useState(window.screenY);
   const allSections = document.querySelectorAll(".section");
   const header = document.querySelector("header") as HTMLElement;
@@ -49,7 +50,7 @@ export const useScrollEvent = () => {
           setActiveLink("");
         }
       });
-
+      setTransparent(currentScrollPos <= header?.clientHeight);
       setIsHeaderVisible(isScrollingUp || currentScrollPos === 0);
       setYPos(currentScrollPos);
     },
@@ -66,7 +67,7 @@ export const useScrollEvent = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [yPos]);
 
-  return { isHeaderVisible, activeLink };
+  return { isHeaderVisible, activeLink, transparent };
 };
 
 export const useWindowWidth = () => {

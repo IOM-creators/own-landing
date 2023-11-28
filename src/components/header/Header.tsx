@@ -1,4 +1,5 @@
 import { useScrollEvent, useWindowWidth } from "../../helpers/reactHooks";
+import cn from "classnames";
 import HamburgerMenu from "./Hamburger";
 import Icon from "../icon";
 import HeaderNavigation from "./HeaderNavigation";
@@ -8,7 +9,7 @@ import Button from "../button";
 interface IHeader {}
 
 const Header: React.FC<IHeader> = () => {
-  const { isHeaderVisible, activeLink } = useScrollEvent();
+  const { isHeaderVisible, activeLink, transparent } = useScrollEvent();
   const { header } = useGetHeader();
 
   const scrollToTop = () => {
@@ -20,9 +21,14 @@ const Header: React.FC<IHeader> = () => {
   const windowWidth = useWindowWidth();
   return (
     <header
-      className={`fixed border-none  top-0 z-20 bg-dark-blue w-full py-2 lg:py-5  transition-transform transform ${
-        isHeaderVisible ? "translate-y-0" : "-translate-y-full"
-      }`}
+      className={cn(
+        {
+          "lg:bg-opacity-0": transparent,
+          "translate-y-0": isHeaderVisible,
+          "-translate-y-full": !isHeaderVisible,
+        },
+        `fixed border-none bg-dark-blue top-0 z-20  w-full py-2 lg:py-5  transition-transform transform`
+      )}
     >
       <div className="container flex items-center font-serif text-base font-semibold ">
         <Button onClick={scrollToTop}>

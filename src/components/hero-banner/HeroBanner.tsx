@@ -1,8 +1,7 @@
 import React from "react";
 import { TypeAnimation } from "react-type-animation";
-import cn from "classnames";
-import styles from "./hero-banner.module.scss";
 import { useGetHeroBanner } from "../../graphql";
+import styles from "./hero-banner.module.scss";
 interface ILetter {
   letter: string;
   fullText: string;
@@ -24,10 +23,7 @@ const HeroSection: React.FC<IHeroSection> = ({ showAnimation = false }) => {
     })) || [];
   return (
     <section id="hero-banner" className="overflow-hidden text-white">
-      <div className="relative w-full h-screen">
-        <div id="pt" className={cn(styles.canvas)}>
-          <canvas id="canvas" width="973" height="1048"></canvas>
-        </div>
+      <div className="relative w-full h-screen bg-dark-blue lg:bg-ellipse bg-contain bg-right-top bg-no-repeat">
         <div className="absolute inset-0 flex flex-col items-left justify-center container mx-lg">
           <div className="text-left max-w-3xl lap:max-w-6xl">
             <h1>
@@ -58,6 +54,11 @@ const HeroSection: React.FC<IHeroSection> = ({ showAnimation = false }) => {
               })}
             </h1>
           </div>
+        </div>
+        <div className={styles.stars}>
+          <div className={styles.stars_1}></div>
+          <div className={styles.stars_2}></div>
+          <div className={styles.stars_3}></div>
         </div>
       </div>
     </section>

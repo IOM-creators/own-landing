@@ -10,7 +10,7 @@ const HeaderNavigation: React.FC<IHeaderNavigation> = ({
 }) => {
   return (
     <nav className={classname}>
-      <ul className="flex h-full flex-col flex-wrap items-end lg:items-center lg:flex-row  lg:justify-center">
+      <ul className="flex h-full flex-col flex-wrap items-end lg:items-center lg:flex-row  lg:justify-end mr-[-1.25rem]">
         {navigation &&
           navigation.map((navItem: string, index: number) => {
             const navLink = navItem.split(" ").join("");
@@ -21,9 +21,7 @@ const HeaderNavigation: React.FC<IHeaderNavigation> = ({
                   {
                     active: activeLink === navLink,
                   },
-                  `text-white my-3 ${
-                    index === navigation.length - 1 ? "pr-0" : "pr-0 lg:pr-5 "
-                  } lg:my-2`
+                  `text-white my-3 pr-0 lg:pr-5 lg:my-2`
                 )}
               >
                 <a
