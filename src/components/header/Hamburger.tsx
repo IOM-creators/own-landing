@@ -5,7 +5,6 @@ import Icon from "../icon";
 import Button from "../button";
 
 const HamburgerMenu: React.FC<IHamburgerMenu> = ({
-  classname = "",
   activeLink,
   navigation,
 }) => {
