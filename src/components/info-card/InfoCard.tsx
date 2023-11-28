@@ -57,7 +57,7 @@ const InfoCard: React.FC<IInfoCard> = ({
         </div>
       )}
       {card?.title && (
-        <TitleSection tag="h4" fontSize="text-2xl" className="mb-4 text-black">
+        <TitleSection tag="h3" fontSize="text-2xl" className="mb-4 text-black">
           {card.title}
         </TitleSection>
       )}

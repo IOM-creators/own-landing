@@ -1,22 +1,22 @@
 import { useCallback, useEffect, useState } from "react";
-import { NavigateFunction } from "react-router-dom";
-import { UseTranslationResponse } from "react-i18next";
+// import { NavigateFunction } from "react-router-dom";
+// import { UseTranslationResponse } from "react-i18next";
 
-export const useLanguageFromURL = (
-  navigate: NavigateFunction,
-  translation: UseTranslationResponse<any, any>
-) => {
-  useEffect(() => {
-    const languageFromURL = window.location.pathname.split("/")[1];
-    const keys =
-      (translation.i18n.options.resources &&
-        Object.keys(translation.i18n.options.resources)) ||
-      [];
-    keys.includes(languageFromURL)
-      ? translation.i18n.changeLanguage(languageFromURL)
-      : navigate("/en");
-  }, [navigate, translation.i18n]);
-};
+// export const useLanguageFromURL = (
+//   navigate: NavigateFunction,
+//   translation: UseTranslationResponse<any, any>
+// ) => {
+//   useEffect(() => {
+//     const languageFromURL = window.location.pathname.split("/")[1];
+//     const keys =
+//       (translation.i18n.options.resources &&
+//         Object.keys(translation.i18n.options.resources)) ||
+//       [];
+//     keys.includes(languageFromURL)
+//       ? translation.i18n.changeLanguage(languageFromURL)
+//       : navigate("/en");
+//   }, [navigate, translation.i18n]);
+// };
 
 export const useScrollEvent = () => {
   const [isHeaderVisible, setIsHeaderVisible] = useState(true);

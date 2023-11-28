@@ -3,6 +3,7 @@ import HamburgerMenu from "./Hamburger";
 import Icon from "../icon";
 import HeaderNavigation from "./HeaderNavigation";
 import { useGetHeader } from "../../graphql/";
+import Button from "../button";
 
 interface IHeader {}
 
@@ -24,9 +25,9 @@ const Header: React.FC<IHeader> = () => {
       }`}
     >
       <div className="container flex items-center font-serif text-base font-semibold ">
-        <button onClick={scrollToTop}>
+        <Button onClick={scrollToTop}>
           <Icon className="w-12 lg:w-auto animation-logo" icon="logo" />
-        </button>
+        </Button>
 
         {windowWidth < 1024 ? (
           <HamburgerMenu

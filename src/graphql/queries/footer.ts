@@ -10,6 +10,7 @@ export const GET_FOOTER_ENTRY = gql`
       socialCollection {
         items {
           ... on SocialItem {
+            title
             icon {
               url
             }

@@ -2,7 +2,6 @@ import React from "react";
 import { TypeAnimation } from "react-type-animation";
 import cn from "classnames";
 import styles from "./hero-banner.module.scss";
-import { useI18n } from "../../helpers/i18nContext";
 import { useGetHeroBanner } from "../../graphql";
 interface ILetter {
   letter: string;
@@ -15,7 +14,6 @@ interface IHeroSection {
 }
 
 const HeroSection: React.FC<IHeroSection> = ({ showAnimation = false }) => {
-  const { detectKey } = useI18n();
   const { heroBanner } = useGetHeroBanner();
 
   const letters: ILetter[] =
@@ -37,7 +35,7 @@ const HeroSection: React.FC<IHeroSection> = ({ showAnimation = false }) => {
                 return (
                   <template
                     className="flex my-3 md:my-6 text-xl md:text-5xl"
-                    key={detectKey + index}
+                    key={index}
                   >
                     {!showAnimation && (
                       <span className="mr-2">
@@ -49,7 +47,7 @@ const HeroSection: React.FC<IHeroSection> = ({ showAnimation = false }) => {
                     )}
                     {showAnimation && (
                       <TypeAnimation
-                        key={detectKey + index}
+                        key={index}
                         sequence={["", item.delay, `${item.fullText}`]}
                         speed={50}
                         cursor={false}

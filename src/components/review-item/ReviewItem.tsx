@@ -2,6 +2,7 @@ import React from "react";
 import cn from "classnames";
 
 import Icon from "../icon";
+import TitleSection from "../title-section";
 
 interface IReviewItem {
   feedback: {
@@ -19,7 +20,9 @@ const ReviewItem: React.FC<IReviewItem> = ({ feedback, className }) => {
       <div className="flex items-center justify-center w-10 h-10 mb-5 mx-auto rounded-full bg-gray">
         <span className="text-700 text-2xl text-white">{feedback.name[0]}</span>
       </div>
-      <h5 className="text-xl">{feedback.name}</h5>
+      <TitleSection tag="h3" className="text-center" fontSize="mtext-xl">
+        {feedback.name}
+      </TitleSection>
       <div className="flex justify-center my-5">
         {[1, 2, 3, 4, 5].map((i) => (
           <Icon

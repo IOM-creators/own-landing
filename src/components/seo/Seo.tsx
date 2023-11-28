@@ -1,24 +1,22 @@
 import React from "react";
-import { Helmet } from 'react-helmet';
+import { Helmet } from "react-helmet";
 import siteImage from "../../assets/images/team.png";
 interface ISeo {
-  title: string
-  description: string
-  imagePath: string
-  siteUrl: string
+  title: string;
+  description: string;
+  imagePath: string;
+  siteUrl: string;
 }
 
-
-
-// TODO  
+// TODO
 
 const seoData: ISeo = {
-  title: 'IOM',
-  description: 'Top-notch IT services provided by experienced professionals. Discover our managed IT solutions for businesses. Contact us for expert IT support and solutions.',
+  title: "IOM Creators",
+  description:
+    "Top-notch IT services provided by experienced professionals. Discover our managed IT solutions for businesses. Contact us for expert IT support and solutions.",
   imagePath: `${window.location.origin + siteImage}`,
   siteUrl: `${window.location.origin}`,
-}
-
+};
 
 const Seo = () => {
   return (

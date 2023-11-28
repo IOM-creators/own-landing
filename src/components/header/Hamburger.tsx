@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import HeaderNavigation from "./HeaderNavigation";
 import { IHamburgerMenu } from "../../helpers/commonInterfaces";
 import Icon from "../icon";
+import Button from "../button";
 
 const HamburgerMenu: React.FC<IHamburgerMenu> = ({
   classname = "",
@@ -23,13 +24,13 @@ const HamburgerMenu: React.FC<IHamburgerMenu> = ({
 
   return (
     <div className="overflow-hidden lg:hidden ml-auto mr-0">
-      <button onClick={toggleMenu} className="text-white py-2">
+      <Button onClick={toggleMenu} className="text-white py-2">
         {isOpen ? (
           <Icon icon="hamburger-close" />
         ) : (
           <Icon icon="hamburger-open" />
         )}
-      </button>
+      </Button>
 
       <div
         className={`w-full  bg-dark-blue absolute top-full right-0 py-8 transform transition-transform duration-300 ease-in-out ${

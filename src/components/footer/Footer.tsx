@@ -2,6 +2,7 @@ import React from "react";
 import Image from "../image";
 import Icon from "../icon";
 import { useGetFooter } from "../../graphql/";
+import Button from "../button";
 
 const Footer = () => {
   const { footer } = useGetFooter();
@@ -15,9 +16,9 @@ const Footer = () => {
     <footer className="footer container py-12 font-serif">
       <div className="lg:flex lg:justify-between text-center lg:text-left items-center">
         <div className="footer-item  mb-5 lg:mb-0 lg:max-w-[300px] lg:mr-5">
-          <button onClick={scrollToTop}>
+          <Button onClick={scrollToTop}>
             <Icon icon="light-logo" className="inline-block" />
-          </button>
+          </Button>
         </div>
 
         <div className="footer-item">
@@ -42,7 +43,7 @@ const Footer = () => {
         <ul className="flex justify-center items-center">
           {footer.socials.map((item: any, index: number) => (
             <li className="m-2" key={index}>
-              <a href={item.link} target="blank">
+              <a href={item.link} target="blank" aria-label={item.title}>
                 <Image src={item.icon.url} classWrapper="w-8 h-8" />
               </a>
             </li>
