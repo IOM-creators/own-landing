@@ -39,7 +39,7 @@ const DynamicComponent: React.FC<IDynamicComponent> = ({
       return (
         <ContactUs
           {...props}
-          className={`${className} mx-0 max-w-full sm:px-0 sm:container`}
+          className={`${className}  max-w-full sm:px-0 sm:container`}
           id={id}
         />
       );
