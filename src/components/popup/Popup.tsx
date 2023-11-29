@@ -7,6 +7,7 @@ import { PopupState } from "../../store/types/popup";
 import { useActions } from "../../store/hooks/useActions";
 import Icon from "../icon";
 import TitleSection from "../title-section";
+import Button from "../button";
 
 const Popup: React.FC = () => {
   const { isOpen, title, children, closeButton }: PopupState = useTypedSelector(
@@ -32,9 +33,9 @@ const Popup: React.FC = () => {
       <div className={styles.popup__overlay} onClick={handleClose}></div>
       <div className={styles.popup__wrapper}>
         {closeButton && (
-          <button onClick={handleClose} className={styles.popup__close}>
+          <Button onClick={handleClose} className={styles.popup__close}>
             <Icon icon="close" className="popup__buttom" />
-          </button>
+          </Button>
         )}
         {title && (
           <TitleSection

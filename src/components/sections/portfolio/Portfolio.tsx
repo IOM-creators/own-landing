@@ -1,6 +1,5 @@
 import React from "react";
 
-import { useTranslation } from "react-i18next";
 import { EffectCoverflow, Autoplay } from "swiper/modules";
 
 import Section from "../../section";
@@ -12,14 +11,11 @@ import { SwiperSlide } from "swiper/react";
 import { ISectionCommon } from "../../../helpers/commonInterfaces";
 import TitleSection from "../../title-section";
 
-const Portfolio: React.FC<ISectionCommon> = ({ className }) => {
-  const { t } = useTranslation();
-  const cardsContent = t("portfolio.cards", {
-    returnObjects: true,
-  }) as string[];
-  const slides = cardsContent.map((card: any, index: number) => {
-    return { ...card };
-  });
+import { useGetPortfolio } from "../../../graphql/";
+
+const Portfolio: React.FC<ISectionCommon> = ({ className, id }) => {
+  const { section } = useGetPortfolio(id);
+
   const sliderParams = {
     effect: "coverflow",
     grabCursor: true,
@@ -69,7 +65,7 @@ const Portfolio: React.FC<ISectionCommon> = ({ className }) => {
               fontSize="text-4xl md:text-5xl"
               className="text-white text-center md:text-left mb-5"
             >
-              {t("portfolio.title")}
+              {section.title}
             </TitleSection>
             <div className="slider-buttom-wrapper relative flex justify-between w-48 self-end hidden lg:flex">
               <div className="swiper-button-prev flex items-center justify-center rounded-full w-16 h-16 bg-white cursor-pointer mr-2">
@@ -81,7 +77,7 @@ const Portfolio: React.FC<ISectionCommon> = ({ className }) => {
             </div>
           </div>
           <Slider params={sliderParams} className="gallery-slider !py-10">
-            {slides.map((slide: any, index: number) => (
+            {section.slides.map((slide: any, index: number) => (
               <SwiperSlide key={index}>
                 <InfoCard
                   card={slide}

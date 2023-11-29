@@ -1,8 +1,7 @@
 import React from "react";
 import { TypeAnimation } from "react-type-animation";
-import cn from "classnames";
+import { useGetHeroBanner } from "../../graphql";
 import styles from "./hero-banner.module.scss";
-import { useI18n } from "../../helpers/i18nContext";
 interface ILetter {
   letter: string;
   fullText: string;
@@ -14,31 +13,17 @@ interface IHeroSection {
 }
 
 const HeroSection: React.FC<IHeroSection> = ({ showAnimation = false }) => {
-  const { t, detectKey } = useI18n();
+  const { heroBanner } = useGetHeroBanner();
 
-  const letters: ILetter[] = [
-    {
-      letter: t("hero_banner.letter_1"),
-      fullText: t("hero_banner.text_1"),
-      delay: 250,
-    },
-    {
-      letter: t("hero_banner.letter_2"),
-      fullText: t("hero_banner.text_2"),
-      delay: 1500,
-    },
-    {
-      letter: t("hero_banner.letter_3"),
-      fullText: t("hero_banner.text_3"),
-      delay: 2750,
-    },
-  ];
+  const letters: ILetter[] =
+    heroBanner.abbreviation.map((text: any, index: number) => ({
+      letter: text.slice(0, 1),
+      fullText: `- ${text}`,
+      delay: index * 5 * 250,
+    })) || [];
   return (
     <section id="hero-banner" className="overflow-hidden text-white">
-      <div className="relative w-full h-screen">
-        <div id="pt" className={cn(styles.canvas)}>
-          <canvas id="canvas" width="973" height="1048"></canvas>
-        </div>
+      <div className="relative w-full h-screen bg-dark-blue lg:bg-ellipse bg-contain bg-right-top bg-no-repeat">
         <div className="absolute inset-0 flex flex-col items-left justify-center container mx-lg">
           <div className="text-left max-w-3xl lap:max-w-6xl">
             <h1>
@@ -46,7 +31,7 @@ const HeroSection: React.FC<IHeroSection> = ({ showAnimation = false }) => {
                 return (
                   <template
                     className="flex my-3 md:my-6 text-xl md:text-5xl"
-                    key={detectKey + index}
+                    key={index}
                   >
                     {!showAnimation && (
                       <span className="mr-2">
@@ -58,7 +43,7 @@ const HeroSection: React.FC<IHeroSection> = ({ showAnimation = false }) => {
                     )}
                     {showAnimation && (
                       <TypeAnimation
-                        key={detectKey + index}
+                        key={index}
                         sequence={["", item.delay, `${item.fullText}`]}
                         speed={50}
                         cursor={false}
@@ -69,6 +54,11 @@ const HeroSection: React.FC<IHeroSection> = ({ showAnimation = false }) => {
               })}
             </h1>
           </div>
+        </div>
+        <div className={styles.stars}>
+          <div className={styles.stars_1}></div>
+          <div className={styles.stars_2}></div>
+          <div className={styles.stars_3}></div>
         </div>
       </div>
     </section>
