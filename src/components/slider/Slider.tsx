@@ -7,7 +7,6 @@ import { Mousewheel, Navigation, Pagination } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/effect-coverflow";
 import "swiper/css/pagination";
-import "swiper/swiper-bundle.css";
 
 interface ISlider {
   params?: any;
