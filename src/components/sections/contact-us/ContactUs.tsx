@@ -2,11 +2,11 @@ import React from "react";
 import Section from "../../section";
 import TitleSection from "../../title-section";
 import { ISectionCommon } from "../../../helpers/commonInterfaces";
-import { useTranslation } from "react-i18next";
 import ContactForm from "../../contact-from";
+import { useGetContactUs } from "../../../graphql/";
 
-const ContactUs: React.FC<ISectionCommon> = ({ className }) => {
-  const { t } = useTranslation();
+const ContactUs: React.FC<ISectionCommon> = ({ className, id }) => {
+  const { section } = useGetContactUs(id);
 
   return (
     <Section id="ContactUs" className={className}>
@@ -16,9 +16,13 @@ const ContactUs: React.FC<ISectionCommon> = ({ className }) => {
           fontSize="text-4xl md:text-5xl"
           className="text-center mb-10 max-w-lap mx-auto text-white"
         >
-          {t("contact_us.title")}
+          {section.title}
         </TitleSection>
-        <ContactForm />
+        <ContactForm
+          fields={section.formFields}
+          successMessage={section.successMessage}
+          buttonText={section.buttonText}
+        />
       </div>
     </Section>
   );

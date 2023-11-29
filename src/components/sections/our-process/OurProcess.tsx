@@ -2,19 +2,15 @@ import React from "react";
 import Section from "../../section";
 import TitleSection from "../../title-section";
 
-import { useTranslation } from "react-i18next";
 import List from "../../list";
 import { ISectionCommon } from "../../../helpers/commonInterfaces";
 import Icon from "../../icon";
+import Image from "../../image";
+import { useGetOurProcess } from "../../../graphql";
 
-const OurProcess: React.FC<ISectionCommon> = ({ className }) => {
-  const { t } = useTranslation();
-  const cardsContent = t("our_process.list", {
-    returnObjects: true,
-  }) as string[];
-  const list: any = cardsContent.map((item: any) => {
-    return { ...item };
-  });
+const OurProcess: React.FC<ISectionCommon> = ({ className, id }) => {
+  const { section } = useGetOurProcess(id);
+
   return (
     <Section id="OurProcess" className={className}>
       <TitleSection
@@ -23,13 +19,23 @@ const OurProcess: React.FC<ISectionCommon> = ({ className }) => {
         className="mb-10 md:mb-20 text-center"
         fontSize="md:text-5xl text-4xl"
       >
-        {t("our_process.title")}
+        {section.title}
       </TitleSection>
-      <div className="img-wrapper mb-10 md:before:pt-[40%]">
-        <Icon icon="our_process" />
-      </div>
+
+      {section.image ? (
+        <Image
+          src={section.image}
+          className="object-contain"
+          classWrapper=" md:before:pt-[40%] mb-10"
+        />
+      ) : (
+        <div className="img-wrapper mb-10 md:before:pt-[40%]">
+          <Icon icon="our_process" />
+        </div>
+      )}
+
       <div className="">
-        <List list={list} className="md:justify-center" />
+        <List list={section.list} className="md:justify-center" />
       </div>
     </Section>
   );

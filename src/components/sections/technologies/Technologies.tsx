@@ -1,26 +1,19 @@
 import React, { useRef, useState } from "react";
 import cn from "classnames";
 
-import Section from "../section";
-import TitleSection from "../title-section";
-import { useTranslation } from "react-i18next";
-import Icon from "../icon";
-import { useScrollAnimation } from "../../helpers/reactHooks";
+import Section from "../../section";
+import TitleSection from "../../title-section";
+import Image from "../../image";
+import { useScrollAnimation } from "../../../helpers/reactHooks";
+import { useGetTechnologies } from "../../../graphql/";
+import { ISectionCommon } from "../../../helpers/commonInterfaces";
 
-interface ITechnologies {
-  className?: string;
-}
-
-const Technologies: React.FC<ITechnologies> = ({ className = "" }) => {
-  const { t } = useTranslation();
+const Technologies: React.FC<ISectionCommon> = ({ className, id }) => {
+  const { section } = useGetTechnologies(id);
   const [isAnimated, setIsAnimated] = useState<boolean[]>([]);
   const elementsRef = useRef<Array<HTMLDivElement | null>>([]);
-  useScrollAnimation(elementsRef, isAnimated, setIsAnimated);
 
-  const content = t("technologies.list", {
-    returnObjects: true,
-  }) as string[];
-  const list = content.map((list: any) => ({ ...list }));
+  useScrollAnimation(elementsRef, isAnimated, setIsAnimated);
 
   return (
     <Section id="CoreTechnologies" className={className}>
@@ -29,10 +22,10 @@ const Technologies: React.FC<ITechnologies> = ({ className = "" }) => {
         fontSize="text-4xl md:text-5xl"
         className="text-center mb-10 md:mb-20"
       >
-        {t("technologies.title")}
+        {section.title}
       </TitleSection>
       <div className="flex flex-wrap justify-center">
-        {list.map((item, index: number) => {
+        {section.list.map((item: any, index: number) => {
           const animationDelayClass = `animate-slide-up-delay-${index + 2}`;
 
           return (
@@ -45,10 +38,12 @@ const Technologies: React.FC<ITechnologies> = ({ className = "" }) => {
               )}
               key={index}
             >
-              <div className="shadow-primary p-5 mb-3 rounded-md">
-                <Icon icon={item.icon} />
-              </div>
-              <span>{item.name}</span>
+              {item.icon && (
+                <div className="shadow-primary p-5 mb-3 rounded-md">
+                  <Image src={item.icon} classWrapper="w-10 h-10" />
+                </div>
+              )}
+              <span>{item.text}</span>
             </div>
           );
         })}

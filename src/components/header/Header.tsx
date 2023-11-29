@@ -1,18 +1,16 @@
 import { useScrollEvent, useWindowWidth } from "../../helpers/reactHooks";
+import cn from "classnames";
 import HamburgerMenu from "./Hamburger";
 import Icon from "../icon";
-import { useTranslation } from "react-i18next";
 import HeaderNavigation from "./HeaderNavigation";
+import { useGetHeader } from "../../graphql/";
+import Button from "../button";
 
 interface IHeader {}
 
 const Header: React.FC<IHeader> = () => {
-  const { scrollingDown } = useScrollEvent();
-  const { t } = useTranslation();
-  const cardsContent = t("header.navigation", {
-    returnObjects: true,
-  }) as string[];
-  const headerNavigation = cardsContent.map((navigation: any) => navigation);
+  const { isHeaderVisible, activeLink, transparent } = useScrollEvent();
+  const { header } = useGetHeader();
 
   const scrollToTop = () => {
     window.scrollTo({
@@ -20,26 +18,34 @@ const Header: React.FC<IHeader> = () => {
       behavior: "smooth",
     });
   };
-
   const windowWidth = useWindowWidth();
   return (
     <header
-      className={`fixed border-none  top-0 z-20 bg-dark-blue w-full py-2 lg:py-5  transition-transform transform ${
-        scrollingDown ? "translate-y-0" : "-translate-y-full"
-      }`}
+      className={cn(
+        {
+          "lg:bg-opacity-0": transparent,
+          "translate-y-0": isHeaderVisible,
+          "-translate-y-full": !isHeaderVisible,
+        },
+        `fixed border-none bg-dark-blue top-0 z-20  w-full py-2 lg:py-5  transition-transform transform`
+      )}
     >
       <div className="container flex items-center font-serif text-base font-semibold ">
-        <button onClick={scrollToTop}>
+        <Button onClick={scrollToTop}>
           <Icon className="w-12 lg:w-auto animation-logo" icon="logo" />
-        </button>
+        </Button>
 
         {windowWidth < 1024 ? (
-          <HamburgerMenu navigation={headerNavigation} />
+          <HamburgerMenu
+            navigation={header.navigation}
+            activeLink={activeLink}
+          />
         ) : (
           <>
             <HeaderNavigation
               classname="ml-auto"
-              navigation={headerNavigation}
+              activeLink={activeLink}
+              navigation={header.navigation}
             />
           </>
         )}
