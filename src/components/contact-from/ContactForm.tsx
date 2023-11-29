@@ -57,10 +57,7 @@ const ContactForm: React.FC<IContactUs> = ({
       },
     });
     axiosInstance
-      .post(
-        "https://book-store-zt-f600bde9fca9.herokuapp.com/email/send-email",
-        data
-      )
+      .post("https://iom-creators.com/mail", data)
       .then(() => {
         updateMessage(true);
         seSisSending(false);
