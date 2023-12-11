@@ -29,6 +29,7 @@ export const useGetPortfolio = (id: string = "") => {
     slides:
       section.slidesCollection?.items?.map((item: any) => ({
         title: item.title,
+        image: item.image?.url || "",
         description: item?.description?.json,
       })) || [],
   };
