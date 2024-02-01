@@ -5,31 +5,18 @@ import Icon from "../icon";
 import HeaderNavigation from "./HeaderNavigation";
 import { useGetHeader } from "../../graphql/";
 import Button from "../button";
-import { useEffect } from "react";
 
 interface IHeader {}
 
 const Header: React.FC<IHeader> = () => {
   const { isHeaderVisible, activeLink, transparent } = useScrollEvent();
   const { header } = useGetHeader();
-  const hash = window.location.hash;
-  const sectionElem = document.querySelector(`${hash}`);
-
   const scrollToTop = () => {
     window.scrollTo({
       top: 0,
       behavior: "smooth",
     });
   };
-
-  useEffect(() => {
-    if (hash && sectionElem) {
-      sectionElem.scrollIntoView({
-        behavior: "smooth",
-      });
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
 
   const windowWidth = useWindowWidth();
   return (
