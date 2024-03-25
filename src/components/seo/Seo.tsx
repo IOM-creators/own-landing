@@ -55,10 +55,6 @@ const seoData: ISeo = {
 const Seo = () => {
   return (
     <Helmet>
-      <title>{seoData.title}</title>
-      <meta name="description" content={seoData.description} />
-      <meta name="keywords" content={seoData.pageKeywords} />
-      <link rel="canonical" href={seoData.siteUrl} />
 
       <meta name="robots" content="index, follow" />
 
