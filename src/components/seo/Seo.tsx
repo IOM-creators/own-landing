@@ -14,10 +14,12 @@ interface ISeo {
 const seoData: ISeo = {
   title: "IOM Creators",
   description:
-    "Explore stunning frontend designs and seamless e-commerce experiences. Discover our collection of beautifully crafted websites, optimized for performance and user engagement. From responsive design to innovative user interfaces, we bring your online store to life. Browse our portfolio of custom e-commerce solutions and elevate your online presence with IOM Creators",
+    "Explore stunning designs & seamless e-commerce. Discover our crafted websites, optimized for performance & engagement. Elevate your online presence with IOM Creators' custom e-commerce solutions.",
   pageKeywords: `
       iom,
+      iom creators,
       iom-creators,
+      iom shopify,
       rontend development,
       responsive web design,
       user interface (UI) design,
