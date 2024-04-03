@@ -17,16 +17,12 @@ const Header: React.FC<IHeader> = () => {
       behavior: "smooth",
     });
   };
+  
 
   const windowWidth = useWindowWidth();
   return (
     <header
       className={cn(
-        {
-          "lg:bg-opacity-0": transparent,
-          "translate-y-0": isHeaderVisible,
-          "-translate-y-full": !isHeaderVisible,
-        },
         `fixed border-none bg-dark-blue top-0 z-20  w-full py-2 lg:py-5  transition-transform transform`
       )}
     >
@@ -35,7 +31,7 @@ const Header: React.FC<IHeader> = () => {
           <Icon className="w-12 lg:w-auto animation-logo" icon="logo" />
         </Button>
 
-        {windowWidth < 1024 ? (
+        {windowWidth && windowWidth < 1024 ? (
           <HamburgerMenu
             navigation={header.navigation}
             activeLink={activeLink}

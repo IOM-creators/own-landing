@@ -15,6 +15,7 @@ interface IButton {
   onClick?: MouseEventHandler<HTMLButtonElement>;
 }
 
+
 const Button: React.FC<IButton> = ({
   icon,
   type = "button",
@@ -47,7 +48,7 @@ const Button: React.FC<IButton> = ({
       {!rightText && children}
       {icon && (
         <Icon
-          className=" group-hover:translate-x-1 duration-300 transition-transform "
+          className="group-hover:translate-x-1 duration-300 transition-transform "
           icon={icon}
         />
       )}

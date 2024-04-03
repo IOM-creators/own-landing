@@ -19,6 +19,9 @@ import { useCallback, useEffect, useState } from "react";
 // };
 
 export const useScrollEvent = () => {
+  if(typeof document == 'undefined'){
+    return {isHeaderVisible: null,activeLink: null,transparent:null}
+  }
   const [isHeaderVisible, setIsHeaderVisible] = useState(true);
   const [activeLink, setActiveLink] = useState("");
   const [transparent, setTransparent] = useState(true);
@@ -71,6 +74,10 @@ export const useScrollEvent = () => {
 };
 
 export const useWindowWidth = () => {
+  if(typeof window == 'undefined'){
+    return null
+  }
+  
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
   useEffect(() => {
