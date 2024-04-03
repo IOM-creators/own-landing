@@ -15,13 +15,6 @@ const Header: React.FC<IHeader> = () => {
   const { pathname } = router;
   const { activeLink } = useScrollEvent();
   const { header } = useGetHeader();
-  const scrollToTop = () => {
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth",
-    });
-  };
-
   const windowWidth = useWindowWidth();
   return (
     <header

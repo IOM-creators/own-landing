@@ -2,23 +2,17 @@ import React from "react";
 import Image from "../image";
 import Icon from "../icon";
 import { useGetFooter } from "../../graphql/";
-import Button from "../button";
+import Link from "next/link";
 
 const Footer = () => {
   const { footer } = useGetFooter();
-  const scrollToTop = () => {
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth",
-    });
-  };
   return (
     <footer className="footer container py-12 font-serif">
       <div className="lg:flex lg:justify-between text-center lg:text-left items-center">
         <div className="footer-item  mb-5 lg:mb-0 lg:max-w-[300px] lg:mr-5">
-          <Button onClick={scrollToTop} className="mx-auto">
+          <Link href="/">
             <Icon icon="light-logo" className="inline-block" />
-          </Button>
+          </Link>
         </div>
 
         <div className="footer-item">
