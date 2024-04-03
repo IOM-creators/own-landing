@@ -9,6 +9,9 @@ const ArtilcleSlugPage: NextPage = () => {
       <nav>
         <ul>
           <li>
+            <Link href="/">Home</Link>
+          </li>
+          <li>
             <Link href="/blog/test">Article test</Link>
           </li>
           <li>

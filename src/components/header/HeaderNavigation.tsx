@@ -1,6 +1,7 @@
 import React from "react";
 import { IHeaderNavigation } from "../../helpers/commonInterfaces";
 import cn from "classnames";
+import Link from "next/link";
 
 const HeaderNavigation: React.FC<IHeaderNavigation> = ({
   classname = "",
@@ -39,6 +40,19 @@ const HeaderNavigation: React.FC<IHeaderNavigation> = ({
               </li>
             );
           })}
+        <li className="text-white my-3 pr-0 lg:pr-5 lg:my-2">
+          <Link
+            href="/blogs"
+            className={cn(
+              {
+                "bg-white text-dark-blue sm:px-3": activeLink === "/blogs",
+              },
+              "rounded-3xl px-3 py-2 text-lg lg:text-base"
+            )}
+          >
+            Blogs
+          </Link>
+        </li>
       </ul>
     </nav>
   );
