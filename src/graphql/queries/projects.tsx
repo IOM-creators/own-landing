@@ -44,6 +44,19 @@ export const useProjects = (skip: number) => {
     content,
   };
 };
+export const useProjectsTotal = () => {
+  const { loading, error, data } = useQuery(GET_PROJECTS(), {
+    variables: { limit: 1, skip: 1 },
+  });
+  const section = data?.projectCollection || {};
+  const total = section.total || 0;
+
+  return {
+    loading,
+    error,
+    total,
+  };
+};
 
 export const useProject = (slug: string = "") => {
   const { loading, error, data } = useQuery(GET_PROJECTS_BY_SLUG(slug));
