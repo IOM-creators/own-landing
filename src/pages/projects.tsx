@@ -29,11 +29,13 @@ const ArtilcleSlugPage: NextPage = () => {
             })}
         </ul>
       </nav>
-      <Pagination
-        setCurrentPage={setCurrentPage}
-        pagesTotal={total}
-        perPage={PAGE_SIZE}
-      />
+      {total > PAGE_SIZE && (
+        <Pagination
+          setCurrentPage={setCurrentPage}
+          pagesTotal={total}
+          perPage={PAGE_SIZE}
+        />
+      )}
     </Section>
   );
 };
