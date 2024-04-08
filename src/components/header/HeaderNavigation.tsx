@@ -42,15 +42,15 @@ const HeaderNavigation: React.FC<IHeaderNavigation> = ({
           })}
         <li className="text-white my-3 pr-0 lg:pr-5 lg:my-2">
           <Link
-            href="/blogs"
+            href="/projects"
             className={cn(
               {
-                "bg-white text-dark-blue sm:px-3": activeLink === "/blogs",
+                "bg-white text-dark-blue sm:px-3": activeLink === "/projects",
               },
               "rounded-3xl px-3 py-2 text-lg lg:text-base"
             )}
           >
-            Blogs
+            Projects
           </Link>
         </li>
       </ul>
