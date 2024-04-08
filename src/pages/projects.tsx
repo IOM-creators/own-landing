@@ -12,8 +12,8 @@ const ArtilcleSlugPage: NextPage = () => {
   const { content } = useProjects((currentPage - 1) * PAGE_SIZE);
 
   return (
-    <Section className="section py-10 my-10 md:py-16 md:my-16 container mx-lg">
-      <h1 className="text-2xl">Projects</h1>
+    <Section className="section  my-10  container mx-lg">
+      <h1 className="text-2xl mb-10">Projects</h1>
       <nav>
         <ul>
           {content &&
@@ -22,8 +22,11 @@ const ArtilcleSlugPage: NextPage = () => {
               return (
                 <li key={item.slug}>
                   <Link href={`/projects/${item.slug}`}>
-                    {index + 1}: {item.title}
+                    {item.image && (
+                      <img src={item.image.url} alt="" className="w-60 h-40" />
+                    )}
                   </Link>
+                  <h3 className="text-xl mt-2">{item.title}</h3>
                 </li>
               );
             })}

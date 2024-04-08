@@ -8,6 +8,9 @@ export const GET_PROJECTS = () => gql`
         ... on Project {
           title
           slug
+          image {
+            url
+          }
         }
       }
     }
