@@ -3,11 +3,21 @@ import cn from "classnames";
 import Icon from "../icon";
 import { useRouter } from "next/router";
 
-const Pagination = ({ setCurrentPage, pagesTotal, perPage }: any) => {
+interface IPagination {
+  currentPage: number;
+  setCurrentPage: (value: number) => void;
+  pagesTotal: number;
+  perPage: number;
+}
+const Pagination: React.FC<IPagination> = ({
+  currentPage,
+  setCurrentPage,
+  pagesTotal,
+  perPage,
+}) => {
   const router = useRouter();
   const { pages } = router.query;
   const initPage = Number(pages) ? Number(pages) : 1;
-  const [currentPage, setCurrentPages] = useState<number>(initPage);
   const totalPages = Math.ceil(pagesTotal / perPage);
   const pagesPagination = Array.from(
     { length: totalPages },
@@ -15,13 +25,11 @@ const Pagination = ({ setCurrentPage, pagesTotal, perPage }: any) => {
   );
 
   useEffect(() => {
-    setCurrentPages(initPage);
     setCurrentPage(initPage);
   }, [pages]);
 
   const handlePage = (e: MouseEvent, page: number) => {
     e.preventDefault();
-    setCurrentPages(page);
     setCurrentPage(page);
     router.push({
       query: { pages: page },

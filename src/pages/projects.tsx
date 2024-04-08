@@ -32,6 +32,7 @@ const ArtilcleSlugPage: NextPage = () => {
       {total > PAGE_SIZE && (
         <Pagination
           setCurrentPage={setCurrentPage}
+          currentPage={currentPage}
           pagesTotal={total}
           perPage={PAGE_SIZE}
         />
