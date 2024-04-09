@@ -10,16 +10,10 @@ const Layout = ({ children }: any) => {
 
   useEffect(() => {
     const getPageName = () => {
-      // Get the pathname from the router object
       const pathname = router.pathname;
-
-      // Split the pathname by '/' to get individual segments
       const segments = pathname.split("/");
-
-      // Filter out empty segments and get the last one, which corresponds to the page name
       const name =
         segments.filter((segment) => segment !== "").pop() || "index";
-
       setPageName(name);
     };
 

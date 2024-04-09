@@ -1,12 +1,11 @@
 import Section from "@/components/section";
-import Link from "next/link";
 import { NextPage } from "next/types";
 import { useProjects, useProjectsTotal } from "@/graphql/queries/projects";
 import { useState } from "react";
 import Pagination from "@/components/pagination";
 import InfoCard from "@/components/info-card";
 
-const ArtilcleSlugPage: NextPage = () => {
+const Projects: NextPage = () => {
   const PAGE_SIZE = 3;
   const [currentPage, setCurrentPage] = useState<number>(1);
   const { total } = useProjectsTotal();
@@ -40,4 +39,4 @@ const ArtilcleSlugPage: NextPage = () => {
   );
 };
 
-export default ArtilcleSlugPage;
+export default Projects;

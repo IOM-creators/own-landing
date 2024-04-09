@@ -10,6 +10,7 @@ import { useGetFeedbacks } from "./queries/feedback";
 import { useGetContactUs } from "./queries/contact-us";
 import { useGetFooter } from "./queries/footer";
 import { useGetSections } from "./queries/sections";
+import { useProjects } from "./queries/projects";
 
 export {
   useGetHeader,
@@ -24,4 +25,5 @@ export {
   useGetContactUs,
   useGetFooter,
   useGetSections,
+  useProjects,
 };
