@@ -8,6 +8,7 @@ import { useScrollAnimationForOne } from "../../helpers/reactHooks";
 import Icon from "../icon";
 import { Document } from "@contentful/rich-text-types";
 import RichText from "../rich-text";
+import Link from "next/link";
 
 interface IInfoCard {
   card?: {
@@ -71,14 +72,17 @@ const InfoCard: React.FC<IInfoCard> = ({
           <RichText richText={card.description} />
         </div>
       )}
-      {card?.btnText && (
+      {card?.btnText && card.btnLink && (
         <Button
           icon="left-arrow"
           className="mt-5 pb-2 w-max group relative before:block  before:absolute before:content-'' before:w-full before:top-full before:h-0.5 before:bg-dark-blue"
         >
-          <a href={card.btnLink} className="text-xl mr-2">
+          <Link
+            href={card.btnLink}
+            className="text-xl mr-2 before:absolute before:content-'' before:w-full before:h-full"
+          >
             {card.btnText}
-          </a>
+          </Link>
         </Button>
       )}
     </div>

@@ -37,7 +37,7 @@ const Pagination: React.FC<IPagination> = ({
   };
 
   return (
-    <nav aria-label="Page navigation">
+    <nav className="my-10" aria-label="Page navigation">
       <ul className="flex items-center justify-center -space-x-px h-10 text-base">
         <li className="p-2">
           <a
@@ -75,7 +75,7 @@ const Pagination: React.FC<IPagination> = ({
             onClick={(e: any) =>
               handlePage(
                 e,
-                currentPage < pagesTotal ? currentPage + 1 : pagesTotal
+                currentPage < totalPages ? currentPage + 1 : totalPages
               )
             }
           >

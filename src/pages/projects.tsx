@@ -4,9 +4,10 @@ import { NextPage } from "next/types";
 import { useProjects, useProjectsTotal } from "@/graphql/queries/projects";
 import { useState } from "react";
 import Pagination from "@/components/pagination";
+import InfoCard from "@/components/info-card";
 
 const ArtilcleSlugPage: NextPage = () => {
-  const PAGE_SIZE = 1;
+  const PAGE_SIZE = 3;
   const [currentPage, setCurrentPage] = useState<number>(1);
   const { total } = useProjectsTotal();
   const { content } = useProjects((currentPage - 1) * PAGE_SIZE);
@@ -15,18 +16,13 @@ const ArtilcleSlugPage: NextPage = () => {
     <Section className="section  my-10  container mx-lg">
       <h1 className="text-2xl mb-10">Projects</h1>
       <nav>
-        <ul>
+        <ul className="grid ms:grid-cols-1 items-start  lg:grid-cols-3 gap-6 md:gap-8 ">
           {content &&
             content.items &&
             content.items.map((item: any, index: number) => {
               return (
                 <li key={item.slug}>
-                  <Link href={`/projects/${item.slug}`}>
-                    {item.image && (
-                      <img src={item.image.url} alt="" className="w-60 h-40" />
-                    )}
-                  </Link>
-                  <h3 className="text-xl mt-2">{item.title}</h3>
+                  <InfoCard card={item.card} />
                 </li>
               );
             })}
