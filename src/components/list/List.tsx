@@ -39,7 +39,7 @@ const List: React.FC<IList> = ({
           const animationDelayClass = `animate-slide-up-delay-${index + 2}`;
           return (
             <li
-              ref={(el) => (elementsRef.current[index] = el)}
+              ref={(el: any) => (elementsRef.current[index] = el)}
               className={cn(
                 {
                   "group shadow-simle px-5 py-4 ": item.shadow,

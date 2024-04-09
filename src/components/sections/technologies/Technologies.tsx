@@ -30,7 +30,7 @@ const Technologies: React.FC<ISectionCommon> = ({ className, id }) => {
 
           return (
             <div
-              ref={(el) => (elementsRef.current[index] = el)}
+              ref={(el: any) => (elementsRef.current[index] = el)}
               className={cn(
                 isAnimated[index] && "popIn",
                 animationDelayClass,
