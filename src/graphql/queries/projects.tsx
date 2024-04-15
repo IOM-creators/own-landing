@@ -34,6 +34,18 @@ export const GET_PROJECTS_BY_SLUG = (slug: string) => gql`
           title
           slug
         }
+        card {
+            ... on InfoCard {
+              title
+              description {
+                json
+              }
+              image {
+                url
+              }
+              revert
+            }
+          }
       }
     }
   }
@@ -45,13 +57,13 @@ export const useProjects = (skip: number) => {
   });
   const section = data?.projectCollection || {};
   const content = {
-    total: section.total,
+    total: section?.total || 0,
     items:
       section.items?.map((item: any) => ({
         ...item,
         card: {
-          title: item.card.title,
-          image: item.card.image?.url || "",
+          title: item.card?.title,
+          image: item.card?.image?.url || "",
           description: item.card?.description?.json,
           btnText: "More info",
           btnLink: `/projects/${item.slug}`,
@@ -83,8 +95,18 @@ export const useProject = (slug: string = "") => {
   const { loading, error, data } = useQuery(GET_PROJECTS_BY_SLUG(slug));
   const section = data?.projectCollection || {};
   const content = {
-    total: section.total,
-    item: section.items ? section.items[0] : [],
+    total: section?.total || 0,
+    item:
+      section.items?.map((item: any) => ({
+        ...item,
+        card: {
+          title: item.card?.title,
+          image: item.card?.image?.url || "",
+          content: item.card?.content?.json,
+          revert: item.card?.revert,
+          description: item.card?.description?.json,
+        },
+      }))[0] || {},
   };
 
   return {

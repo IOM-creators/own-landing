@@ -3,6 +3,8 @@ import { useEffect, useState } from "react";
 import Footer from "../footer";
 import Header from "../header";
 import cn from "classnames";
+import ContactButton from "../contact-button";
+import Popup from "../popup";
 
 const Layout = ({ children }: any) => {
   const router = useRouter();
@@ -24,6 +26,8 @@ const Layout = ({ children }: any) => {
     <div className={cn({}, `page-template page-template-${pageName}`)}>
       <Header />
       <main>{children}</main>
+      <ContactButton />
+      <Popup />
       <Footer />
     </div>
   );

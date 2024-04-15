@@ -17,6 +17,7 @@ interface IInfoCard {
     title?: string;
     technologies?: string;
     description?: Document;
+    revert?: boolean;
     btnText?: string;
     btnLink?: string;
   };
@@ -27,7 +28,7 @@ interface IInfoCard {
 
 const InfoCard: React.FC<IInfoCard> = ({
   card,
-  className,
+  className = "",
   index,
   animated = false,
 }) => {
@@ -43,13 +44,13 @@ const InfoCard: React.FC<IInfoCard> = ({
       ref={elementsRef}
       className={`${className} ${
         !animated ? "" : isAnimated && animated ? " divAnimation" : "opacity-0"
-      } ${animationDelayClass}`}
+      } ${animationDelayClass} relative`}
     >
       {card?.image && (
         <Image
           src={card.image}
-          className="rounded-3xl object-contain"
-          classWrapper="mb-10 md:before:pt-[80%]"
+          className="object-contain"
+          classWrapper="mb-10 md:before:pt-[50%]"
         />
       )}
       {card?.icon && !card?.image && (
@@ -75,11 +76,11 @@ const InfoCard: React.FC<IInfoCard> = ({
       {card?.btnText && card.btnLink && (
         <Button
           icon="left-arrow"
-          className="mt-5 pb-2 w-max group relative before:block  before:absolute before:content-'' before:w-full before:top-full before:h-0.5 before:bg-dark-blue"
+          className="mt-5 pb-2 w-max group before:block  before:absolute before:content-'' before:w-full before:top-full before:h-0.5 before:bg-dark-blue"
         >
           <Link
             href={card.btnLink}
-            className="text-xl mr-2 before:absolute before:content-'' before:w-full before:h-full"
+            className="text-xl mr-2 before:top-0 before:left-0 before:absolute before:content-'' before:w-full before:h-full"
           >
             {card.btnText}
           </Link>
