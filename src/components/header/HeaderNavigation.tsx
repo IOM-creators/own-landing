@@ -13,6 +13,7 @@ const HeaderNavigation: React.FC<IHeaderNavigation> = ({
     <nav className={classname}>
       <ul className="flex h-full flex-col flex-wrap items-end lg:items-center lg:flex-row  lg:justify-end mr-[-1.25rem]">
         {navigation &&
+          false &&
           navigation.map((navItem: string, index: number) => {
             const navLink = navItem.split(" ").join("");
             return (
@@ -40,15 +41,10 @@ const HeaderNavigation: React.FC<IHeaderNavigation> = ({
               </li>
             );
           })}
-        <li className="text-white my-3 pr-0 lg:pr-5 lg:my-2">
+        <li className="my-3 pr-0 lg:pr-5 lg:my-2">
           <Link
             href="/projects"
-            className={cn(
-              {
-                "bg-white text-dark-blue sm:px-3": activeLink === "/projects",
-              },
-              "rounded-3xl px-3 py-2 text-lg lg:text-base"
-            )}
+            className={cn({}, "rounded-3xl px-3 py-2 text-lg lg:text-base")}
           >
             Projects
           </Link>
