@@ -9,7 +9,6 @@ export interface IHeaderNavigation {
 
 export interface IHamburgerMenu {
   setBgHeader?: any;
-  classname?: string;
   activeLink?: string | null;
   navigation: string[];
 }

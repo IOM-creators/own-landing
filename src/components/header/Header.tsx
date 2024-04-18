@@ -7,11 +7,13 @@ import Icon from "../icon";
 import HeaderNavigation from "./HeaderNavigation";
 import { useGetHeader } from "../../graphql/";
 import Link from "next/link";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
-interface IHeader {}
+interface IHeader {
+  headerRef: React.ForwardedRef<HTMLDivElement>;
+}
 
-const Header: React.FC<IHeader> = () => {
+const Header: React.FC<IHeader> = ({ headerRef }) => {
   const router = useRouter();
   const { pathname } = router;
   const { activeLink, transparent, isHeaderVisible } = useScrollEvent();
@@ -21,19 +23,15 @@ const Header: React.FC<IHeader> = () => {
 
   return (
     <header
+      ref={headerRef}
       className={cn(
         {
-          "bg-dark-blue text-white sticky top-0":
-            pathname !== "/" || (isHeaderVisible && !transparent),
-          "fixed top-0": pathname === "/",
-          "bg-white text-dark-blue":
-            pathname === "/" && bgHeader && transparent,
-          "bg-transparent text-dark-blue":
-            pathname === "/" && !isHeaderVisible && !bgHeader,
           "translate-y-[-100%]": !isHeaderVisible && !transparent,
           "translate-y-0": isHeaderVisible,
+          "bg-dark-blue text-white":
+            (!transparent && isHeaderVisible) || pathname !== "/" || bgHeader,
         },
-        "border-none z-20 w-full py-2 lg:py-5"
+        "border-none z-20 w-full py-2 lg:py-5 fixed top-0 transition-colors"
       )}
     >
       <div className="container flex items-center font-serif text-base font-semibold">
@@ -46,15 +44,6 @@ const Header: React.FC<IHeader> = () => {
             navigation={header.navigation}
             activeLink={activeLink}
             setBgHeader={setBgHeader}
-            classname={`${
-              isHeaderVisible && !transparent
-                ? pathname === "/"
-                  ? "bg-dark-blue text-white"
-                  : ""
-                : pathname === "/"
-                ? "bg-white text-dark-blue"
-                : ""
-            } ${pathname !== "/" && "bg-dark-blue text-white"}`}
           />
         ) : (
           <HeaderNavigation

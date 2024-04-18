@@ -4,11 +4,11 @@ import { IHamburgerMenu } from "../../helpers/commonInterfaces";
 import Icon from "../icon";
 import Button from "../button";
 import { useRouter } from "next/router";
+import cn from "classnames";
 
 const HamburgerMenu: React.FC<IHamburgerMenu> = ({
   activeLink,
   navigation,
-  classname,
   setBgHeader,
 }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -41,17 +41,24 @@ const HamburgerMenu: React.FC<IHamburgerMenu> = ({
       </Button>
 
       <div
-        className={`w-full absolute top-full right-0 py-8 transform transition-transform duration-300 ease-in-out ${
-          isOpen ? "translate-x-0" : "translate-x-full"
-        } ${classname}`}
+        className={cn(
+          { invisible: !isOpen },
+          "overflow-hidden absolute left-0 top-full w-full"
+        )}
       >
-        <div className="w-full h-full container flex items-end  align-center flex-col">
-          <HeaderNavigation
-            classname="flex flex-col space-y-4"
-            navigation={navigation}
-            activeLink={activeLink}
-            setOpenNavChange={setIsOpen}
-          />
+        <div
+          className={`bg-dark-blue text-white right-0 py-8 transform transition-transform ease-in-out ${
+            isOpen ? "translate-y-0" : "-translate-y-[200%]"
+          }`}
+        >
+          <div className="w-full h-full container flex items-end  align-center flex-col">
+            <HeaderNavigation
+              classname="flex flex-col space-y-4"
+              navigation={navigation}
+              activeLink={activeLink}
+              setOpenNavChange={setIsOpen}
+            />
+          </div>
         </div>
       </div>
     </div>
