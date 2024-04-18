@@ -22,8 +22,6 @@ const HeroSection: React.FC<IHeroSection> = () => {
   const elementsRef = useRef<Array<HTMLElement | null>>([]);
   useScrollAnimation(elementsRef, isAnimated, setIsAnimated);
 
-  console.log("elementsRef", elementsRef);
-
   return (
     <section
       id="hero-banner"
@@ -42,7 +40,7 @@ const HeroSection: React.FC<IHeroSection> = () => {
                     key={index}
                     ref={(el: any) => (elementsRef.current[index] = el)}
                     style={{ animationDelay: `${animationDelay}s` }}
-                    className={`${isAnimated[index] ? "scaleUp" : "scale-y-0"}`}
+                    className="scaleUp"
                   >
                     <span className="text-blue  sm:text-4xl text-3xl md:text-5xl">
                       {words[0]}&nbsp;

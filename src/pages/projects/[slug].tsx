@@ -8,7 +8,6 @@ const Project = () => {
   const router = useRouter();
   const { slug } = router.query;
   const { content } = useProject(slug as string);
-  console.log("content", content);
 
   return (
     <Section className="section py-6 container mx-lg">
