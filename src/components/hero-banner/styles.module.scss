@@ -20,3 +20,9 @@
   left: 0%;
   opacity: 0.1;
 }
+@media (max-width: 1024px) {
+  .heroSection:before {
+    width: 100%;
+    transform: translateX(0);
+  }
+}

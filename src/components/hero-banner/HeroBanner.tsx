@@ -1,9 +1,9 @@
-import React from "react";
-import { TypeAnimation } from "react-type-animation";
+import React, { useRef, useState } from "react";
 import { useGetHeroBanner } from "../../graphql";
 import styles from "./styles.module.scss";
 import cn from "classnames";
 import Icon from "../icon";
+import { useScrollAnimation } from "@/helpers/reactHooks";
 
 interface ILetter {
   letter: string;
@@ -11,15 +11,18 @@ interface ILetter {
   delay: number;
 }
 
-interface IHeroSection {
-  showAnimation?: boolean;
-}
+interface IHeroSection {}
 
-const HeroSection: React.FC<IHeroSection> = ({ showAnimation = false }) => {
+const HeroSection: React.FC<IHeroSection> = () => {
+  const [isAnimated, setIsAnimated] = useState<boolean[]>([]);
   const { heroBanner } = useGetHeroBanner();
   const bullets = Array.from({ length: 4 }, () =>
     Array.from({ length: 8 }, (_, index) => index + 1)
   );
+  const elementsRef = useRef<Array<HTMLElement | null>>([]);
+  useScrollAnimation(elementsRef, isAnimated, setIsAnimated);
+
+  console.log("elementsRef", elementsRef);
 
   return (
     <section
@@ -30,27 +33,32 @@ const HeroSection: React.FC<IHeroSection> = ({ showAnimation = false }) => {
         <div className="relative inset-0  justify-center mx-lg">
           <div className="text-left max-w-3xl lap:max-w-6xl">
             <h1 className="text-2xl sm:text-3xl  md:text-4xl md:leading-[4rem] font-bold">
-              <span className="text-blue  sm:text-4xl text-3xl md:text-5xl">
-                Innovative
-              </span>{" "}
-              Development Solutions
-              <br />
-              <span className="text-blue  sm:text-4xl text-3xl md:text-5xl">
-                Optimized
-              </span>{" "}
-              Code Efficiency
-              <br />
-              <span className="text-blue  sm:text-4xl text-3xl md:text-5xl">
-                Mastery
-              </span>{" "}
-              in Modern Frameworks
+              {heroBanner.abbreviation.map((text: string, index: number) => {
+                const words = text.split(" ");
+                const nextText = words.slice(1).join(" ");
+                const animationDelay = index ? index / 4 : 0;
+                return (
+                  <span
+                    key={index}
+                    ref={(el: any) => (elementsRef.current[index] = el)}
+                    style={{ animationDelay: `${animationDelay}s` }}
+                    className={`${isAnimated[index] ? "scaleUp" : "scale-y-0"}`}
+                  >
+                    <span className="text-blue  sm:text-4xl text-3xl md:text-5xl">
+                      {words[0]}&nbsp;
+                    </span>
+                    {nextText}
+                    <br />
+                  </span>
+                );
+              })}
             </h1>
           </div>
         </div>
         <div
           className={cn(
             styles.heroBanner,
-            "relative right-0 w-full h-full  md:w-[50%] md:h-[50%] md:ml-4 hidden lg:block"
+            "relative right-0 w-full h-full  md:w-[50%] md:h-[50%] md:ml-6 hidden lg:block"
           )}
         >
           <div className="absolute top-1/2  left-0 translate-x-[50%]  grid grid-cols-4 gap-4 z-10 opacity-90">

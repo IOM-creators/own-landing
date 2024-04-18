@@ -46,10 +46,10 @@ const List: React.FC<IList> = ({
                 },
                 classesItem,
                 `${
-                  isAnimated[index] && revert && "listAnimationLeft"
+                  isAnimated[index] && revert && "slideUp"
                 } ${animationDelayClass}`,
                 `${
-                  isAnimated[index] && !revert && "listAnimation"
+                  isAnimated[index] && !revert && "slideUp"
                 } ${animationDelayClass}`,
                 "flex items-center mt-6 mb-6 opacity-0"
               )}

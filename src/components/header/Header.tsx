@@ -7,7 +7,7 @@ import Icon from "../icon";
 import HeaderNavigation from "./HeaderNavigation";
 import { useGetHeader } from "../../graphql/";
 import Link from "next/link";
-import { useEffect, useRef, useState } from "react";
+import { useState } from "react";
 
 interface IHeader {
   headerRef: React.ForwardedRef<HTMLDivElement>;
@@ -26,8 +26,8 @@ const Header: React.FC<IHeader> = ({ headerRef }) => {
       ref={headerRef}
       className={cn(
         {
-          "translate-y-[-100%]": !isHeaderVisible && !transparent,
           "translate-y-0": isHeaderVisible,
+          "translate-y-[-100%]": !isHeaderVisible && !transparent,
           "bg-dark-blue text-white":
             (!transparent && isHeaderVisible) || pathname !== "/" || bgHeader,
         },

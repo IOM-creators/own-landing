@@ -29,6 +29,7 @@ const HamburgerMenu: React.FC<IHamburgerMenu> = ({
 
   useEffect(() => {
     setIsOpen(false);
+    setBgHeader(false);
   }, [pathname]);
   return (
     <div className={`overflow-hidden lg:hidden ml-auto mr-0 `}>
@@ -47,7 +48,7 @@ const HamburgerMenu: React.FC<IHamburgerMenu> = ({
         )}
       >
         <div
-          className={`bg-dark-blue text-white right-0 py-8 transform transition-transform ease-in-out ${
+          className={`bg-dark-blue text-white left-0 py-8 transform transition-transform ease-in-out ${
             isOpen ? "translate-y-0" : "-translate-y-[200%]"
           }`}
         >
