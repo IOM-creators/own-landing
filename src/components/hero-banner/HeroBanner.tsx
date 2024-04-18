@@ -26,32 +26,41 @@ const HeroSection: React.FC<IHeroSection> = ({ showAnimation = false }) => {
       id="hero-banner"
       className={cn(styles.heroSection, "overflow-hidden text-dark-blue")}
     >
-      <div className="relative w-full h-screen relative flex justify-between container">
-        <div className="relative inset-0 flex flex-col items-left justify-center mx-lg">
+      <div className="relative w-full h-screen relative flex justify-center flex-col	md:flex-row md:justify-between items-center container ">
+        <div className="relative inset-0  justify-center mx-lg">
           <div className="text-left max-w-3xl lap:max-w-6xl">
-            <h1 className="text-3xl leading-[4rem] font-bold">
-              <span className="text-blue text-5xl">Innovative</span> Development
-              Solutions
+            <h1 className="text-2xl sm:text-3xl  md:text-4xl md:leading-[4rem] font-bold">
+              <span className="text-blue  sm:text-4xl text-3xl md:text-5xl">
+                Innovative
+              </span>{" "}
+              Development Solutions
               <br />
-              <span className="text-blue text-5xl">Optimized</span> Code
-              Efficiency
+              <span className="text-blue  sm:text-4xl text-3xl md:text-5xl">
+                Optimized
+              </span>{" "}
+              Code Efficiency
               <br />
-              <span className="text-blue text-5xl">Mastery</span> in Modern
-              Frameworks
+              <span className="text-blue  sm:text-4xl text-3xl md:text-5xl">
+                Mastery
+              </span>{" "}
+              in Modern Frameworks
             </h1>
           </div>
         </div>
         <div
           className={cn(
             styles.heroBanner,
-            "relative right-0 top-1/2 translate-y-[-50%]  w-[50%] h-[50%] ml-20"
+            "relative right-0 w-full h-full  md:w-[50%] md:h-[50%] md:ml-4 hidden lg:block"
           )}
         >
           <div className="absolute top-1/2  left-0 translate-x-[50%]  grid grid-cols-4 gap-4 z-10 opacity-90">
-            {bullets.map((tr) => (
-              <div className="grid gap-4">
+            {bullets.map((tr, index) => (
+              <div className="grid gap-4" key={"tr-" + index}>
                 {tr.map((td) => (
-                  <div className="bg-gray-light w-2 h-2 rounded-full"></div>
+                  <div
+                    className="bg-gray-light w-2 h-2 rounded-full"
+                    key={"td-" + td}
+                  ></div>
                 ))}
               </div>
             ))}
@@ -59,10 +68,13 @@ const HeroSection: React.FC<IHeroSection> = ({ showAnimation = false }) => {
           <div className="absolute top-0 bg-contain  bg-no-repeat bg-hero-img-1 bg-center  w-full h-full"></div>
           <div className="absolute top-0 bg-contain  bg-no-repeat bg-hero-img-2 w-full h-full bg-center z-[-1]"></div>
           <div className="absolute top-0 translate-y-[-50%] rotate-90 right-1/2 translate-x-[50%]  grid grid-cols-4 gap-4 z-10 opacity-90">
-            {bullets.map((tr) => (
-              <div className="grid gap-4">
+            {bullets.map((tr, index) => (
+              <div className="grid gap-4" key={"second-tr-" + index}>
                 {tr.map((td) => (
-                  <div className="bg-gray-light w-2 h-2 rounded-full"></div>
+                  <div
+                    className="bg-gray-light w-2 h-2 rounded-full"
+                    key={"second-td-" + td}
+                  ></div>
                 ))}
               </div>
             ))}

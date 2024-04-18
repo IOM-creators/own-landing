@@ -458,9 +458,9 @@ const SVGGenerate: React.FC<ISVGGenerate> = ({
             <g>
               <path
                 style={{ opacity: 1, animationDelay: "1.2s" }}
-                fill="currentColor"
+                fill="transparent"
                 strokeWidth="20px"
-                stroke="#fff"
+                stroke="currentColor"
                 d="M 890.5,641.5 C 926.788,638.537 957.954,649.537 984,674.5C 1009.2,704.147 1017.54,738.147 1009,776.5C 995.61,823.215 964.777,850.048 916.5,857C 879.67,860.505 848.504,849.005 823,822.5C 800.2,794.016 792.2,761.683 799,725.5C 811.201,677.462 841.701,649.462 890.5,641.5 Z"
               />
             </g>
