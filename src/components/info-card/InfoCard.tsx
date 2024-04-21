@@ -21,6 +21,7 @@ interface IInfoCard {
     btnText?: string;
     btnLink?: string;
   };
+  imgClasses?: string;
   className?: string;
   index?: number;
   animated?: boolean;
@@ -31,6 +32,7 @@ const InfoCard: React.FC<IInfoCard> = ({
   className = "",
   index,
   animated = false,
+  imgClasses = "",
 }) => {
   const [isAnimated, setIsAnimated] = useState<boolean>(false);
   const elementsRef = useRef<HTMLDivElement | null>(null);
@@ -38,12 +40,12 @@ const InfoCard: React.FC<IInfoCard> = ({
   const animationDelay = index ? index / 3 : 0;
 
   return (
-    <div className={`${className} relative`}>
+    <div className={`${className} relative my-4`}>
       {card?.image && (
         <Image
           src={card.image}
           className="object-contain"
-          classWrapper="mb-10 md:before:pt-[50%]"
+          classWrapper={`${imgClasses} mb-10 md:before:pt-[50%]`}
         />
       )}
       {card?.icon && !card?.image && (

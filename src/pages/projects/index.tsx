@@ -21,7 +21,7 @@ const Projects: NextPage = () => {
             content.items.map((item: any, index: number) => {
               return (
                 <li key={item.slug}>
-                  <InfoCard card={item.card} />
+                  <InfoCard card={item.card} imgClasses="before:pt-[50%]" />
                 </li>
               );
             })}

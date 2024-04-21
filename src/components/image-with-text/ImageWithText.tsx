@@ -15,12 +15,14 @@ interface IImageWithText {
 
 const ImageWithText: React.FC<IImageWithText> = ({ className = "", card }) => {
   return (
-    <div className={cn({ className }, "grid grid-cols-2 gap-10")}>
+    <div
+      className={cn({ className }, "grid grid-cols-1 md:grid-cols-2 md:gap-10")}
+    >
       {card?.image && (
         <Image
           src={card.image}
           className="object-contain"
-          classWrapper="mb-10 md:before:pt-[50%]"
+          classWrapper="mb-10 before:pt-[50%]"
         />
       )}
       {card?.description && (

@@ -12,6 +12,7 @@
   border-radius: 50%;
   overflow: hidden;
   opacity: 0.2;
+  transform: translate3d(0, 0, 0);
 }
 .heroSection:before {
   top: -50%;

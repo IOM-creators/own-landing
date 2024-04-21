@@ -103,7 +103,7 @@ const HeroSection: React.FC<IHeroSection> = () => {
           <div className="absolute bottom-0 bg-white shadow-primary rounded-lg left-1/2 translate-x-[-50%] info-block p-4 flex items-center">
             <Icon icon="account" />
             <div className="ml-4">
-              <h3 className="text-2xl">Product Designer</h3>
+              <h3 className="text-2xl">Development</h3>
               <span className="text-gray">5 Years</span>
             </div>
           </div>

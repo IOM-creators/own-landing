@@ -7,7 +7,7 @@ import Icon from "../icon";
 import HeaderNavigation from "./HeaderNavigation";
 import { useGetHeader } from "../../graphql/";
 import Link from "next/link";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 interface IHeader {
   headerRef: React.ForwardedRef<HTMLDivElement>;
@@ -18,16 +18,17 @@ const Header: React.FC<IHeader> = ({ headerRef }) => {
   const { pathname } = router;
   const { activeLink, transparent, isHeaderVisible } = useScrollEvent();
   const [bgHeader, setBgHeader] = useState(false);
+  const [firstLoad, setFirstLoad] = useState(false);
   const { header } = useGetHeader();
   const windowWidth = useWindowWidth();
-
+  useEffect(() => setFirstLoad(true));
   return (
     <header
       ref={headerRef}
       className={cn(
         {
+          "translate-y-[-100%]": !isHeaderVisible && !transparent && firstLoad,
           "translate-y-0": isHeaderVisible,
-          "translate-y-[-100%]": !isHeaderVisible && !transparent,
           "bg-dark-blue text-white":
             (!transparent && isHeaderVisible) || pathname !== "/" || bgHeader,
         },
