@@ -1,0 +1,29 @@
+.heroSection:before,
+.heroBanner:before {
+  content: "";
+  position: absolute;
+  top: 30%;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #0dbbfc;
+  z-index: -1;
+  filter: blur(29px);
+  border-radius: 50%;
+  overflow: hidden;
+  opacity: 0.2;
+  transform: translate3d(0, 0, 0);
+}
+.heroSection:before {
+  top: -50%;
+  width: 50%;
+  transform: translateX(-50%);
+  left: 0%;
+  opacity: 0.1;
+}
+@media (max-width: 1024px) {
+  .heroSection:before {
+    width: 100%;
+    transform: translateX(0);
+  }
+}

@@ -14,9 +14,24 @@ html {
 .popIn {
   animation: popIn 1s ease-in-out forwards;
 }
-
+.slideUp {
+  opacity: 0;
+  animation: slideUp 1s ease-in-out forwards;
+}
+.popDown {
+  animation: popDown 1s ease-in-out forwards;
+}
 .divAnimation {
   animation: flipInX 2s ease-in-out;
+}
+.rubberBand {
+  animation: rubberBand 2s ease-in-out;
+}
+.scaleUp {
+  display: block;
+  transform: scaleY(0);
+  animation: scaleUp 0.5s ease-in-out forwards;
+  transform-origin: bottom;
 }
 
 .position-path {
@@ -351,5 +366,13 @@ html {
 
   100% {
     transform: scaleX(1);
+  }
+}
+@keyframes scaleUp {
+  0% {
+    transform: scaleY(0);
+  }
+  100% {
+    transform: scaleY(1);
   }
 }

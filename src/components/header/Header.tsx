@@ -7,40 +7,51 @@ import Icon from "../icon";
 import HeaderNavigation from "./HeaderNavigation";
 import { useGetHeader } from "../../graphql/";
 import Link from "next/link";
+import { useEffect, useState } from "react";
 
-interface IHeader {}
+interface IHeader {
+  headerRef: React.ForwardedRef<HTMLDivElement>;
+}
 
-const Header: React.FC<IHeader> = () => {
+const Header: React.FC<IHeader> = ({ headerRef }) => {
   const router = useRouter();
   const { pathname } = router;
-  const { activeLink } = useScrollEvent();
+  const { activeLink, transparent, isHeaderVisible } = useScrollEvent();
+  const [bgHeader, setBgHeader] = useState(false);
+  const [firstLoad, setFirstLoad] = useState(false);
   const { header } = useGetHeader();
   const windowWidth = useWindowWidth();
+  useEffect(() => setFirstLoad(true));
   return (
     <header
+      ref={headerRef}
       className={cn(
-        { "fixed top-0": pathname === "/" },
-        `border-none bg-dark-blue z-20  w-full py-2 lg:py-5  transition-transform transform`
+        {
+          "translate-y-[-100%]": !isHeaderVisible && !transparent && firstLoad,
+          "translate-y-0": isHeaderVisible,
+          "bg-dark-blue text-white":
+            (!transparent && isHeaderVisible) || pathname !== "/" || bgHeader,
+        },
+        "border-none z-20 w-full py-2 lg:py-5 fixed top-0 transition-colors"
       )}
     >
-      <div className="container flex items-center font-serif text-base font-semibold ">
+      <div className="container flex items-center font-serif text-base font-semibold">
         <Link href="/">
-          <Icon className="w-12 lg:w-auto animation-logo" icon="logo" />
+          <Icon className="w-12 lg:w-auto" icon="light-logo" />
         </Link>
 
         {windowWidth && windowWidth < 1024 ? (
           <HamburgerMenu
             navigation={header.navigation}
             activeLink={activeLink}
+            setBgHeader={setBgHeader}
           />
         ) : (
-          <>
-            <HeaderNavigation
-              classname="ml-auto"
-              activeLink={activeLink}
-              navigation={header.navigation}
-            />
-          </>
+          <HeaderNavigation
+            classname="ml-auto"
+            activeLink={activeLink}
+            navigation={header.navigation}
+          />
         )}
       </div>
     </header>

@@ -1,4 +1,10 @@
-import App from "@/components/App";
+import HeroBanner from "@/components/hero-banner";
+import Sections from "@/components/sections";
 export default function Home() {
-  return <App />;
+  return (
+    <>
+      <HeroBanner />
+      <Sections />
+    </>
+  );
 }
