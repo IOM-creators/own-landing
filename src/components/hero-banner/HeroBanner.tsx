@@ -20,7 +20,7 @@ const HeroSection: React.FC<IHeroSection> = () => {
   const { heroBanner } = useGetHeroBanner();
   const { height }: HeaderState = useTypedSelector((state) => state.header);
   const windowDimensions = useWindowDimensions();
-  const heightSection = windowDimensions.height - height;
+  const heightSection = windowDimensions.height - (height || 0);
   const bullets = Array.from({ length: 4 }, () =>
     Array.from({ length: 8 }, (_, index) => index + 1)
   );
