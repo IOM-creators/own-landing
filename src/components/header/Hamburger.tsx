@@ -56,7 +56,7 @@ const HamburgerMenu: React.FC<IHamburgerMenu> = ({
         >
           <div className="w-full h-full container">
             <HeaderNavigation
-              classname="flex flex-col space-y-4 items-end"
+              classname="flex flex-col items-end"
               navigationAnchor={navigationAnchor}
               links={links}
               activeLink={activeLink}

@@ -32,6 +32,11 @@ html {
   animation: scaleUp 0.5s ease-in-out forwards;
   transform-origin: bottom;
 }
+.slideInLeft {
+  opacity: 0;
+  transform: translateX(-300px);
+  animation: slideInLeft 0.5s ease-in-out forwards;
+}
 
 .position-path {
   transform-origin: center;

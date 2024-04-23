@@ -30,7 +30,7 @@ const HeroSection: React.FC<IHeroSection> = () => {
   return (
     <section
       id="hero-banner"
-      className={cn(styles.heroSection, "overflow-hidden text-dark-blue")}
+      className={cn(styles.heroSection, "text-dark-blue")}
     >
       <div
         style={{ height: `${heightSection}px` }}
@@ -120,7 +120,10 @@ const HeroSection: React.FC<IHeroSection> = () => {
         <div className="w-full lg:w-[60%] hidden md:block">
           <h2 className="text-4xl font-bold mb-10">Our service</h2>
           <div className="flex">
-            <div className="flex flex-col items-start gap-2">
+            <div
+              className="flex flex-col items-start gap-2 slideInLeft"
+              style={{ animationDelay: "0.6s" }}
+            >
               <Icon icon="brand" />
               <div className="">
                 <h3 className="text-2xl">Branding</h3>
@@ -129,7 +132,10 @@ const HeroSection: React.FC<IHeroSection> = () => {
                 </span>
               </div>
             </div>
-            <div className="flex flex-col items-start gap-2">
+            <div
+              className="flex flex-col items-start gap-2 slideInLeft"
+              style={{ animationDelay: "0.3s" }}
+            >
               <Icon icon="phone" />
               <div className="">
                 <h3 className="text-2xl">UI/UX</h3>
@@ -138,7 +144,7 @@ const HeroSection: React.FC<IHeroSection> = () => {
                 </span>
               </div>
             </div>
-            <div className="flex flex-col items-start gap-2">
+            <div className="flex flex-col items-start gap-2 slideInLeft">
               <Icon icon="note" />
               <div className="">
                 <h3 className="text-2xl">Product Design</h3>
