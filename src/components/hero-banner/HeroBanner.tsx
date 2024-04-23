@@ -94,21 +94,21 @@ const HeroSection: React.FC<IHeroSection> = () => {
             ))}
           </div>
 
-          <div className="hidden lg:block absolute top-[20%] bg-white shadow-primary rounded-lg left-0 info-block p-4 flex items-center">
+          <div className="hidden lg:flex absolute top-[20%] bg-white shadow-primary rounded-lg left-0 info-block p-4 flex items-center">
             <Icon icon="projects" />
             <div className="ml-4">
               <h3 className="text-2xl">26+</h3>
               <span className="text-gray">Projects</span>
             </div>
           </div>
-          <div className="hidden lg:block absolute top-1/2 translate-y-[-50%] bg-white shadow-primary rounded-lg right-0 info-block p-4 flex items-center">
+          <div className="hidden lg:flex absolute top-1/2 translate-y-[-50%] bg-white shadow-primary rounded-lg right-0 info-block p-4 flex items-center">
             <Icon icon="star" className="fill-green" />
             <div className="ml-4">
               <h3 className="text-2xl">5</h3>
               <span className="text-gray">Satisfaction</span>
             </div>
           </div>
-          <div className="hidden lg:block absolute bottom-0 bg-white shadow-primary rounded-lg left-1/2 translate-x-[-50%] info-block p-4 flex items-center">
+          <div className="hidden lg:flex absolute bottom-0 bg-white shadow-primary rounded-lg left-1/2 translate-x-[-50%] info-block p-4 flex items-center">
             <Icon icon="account" />
             <div className="ml-4">
               <h3 className="text-2xl">Development</h3>
