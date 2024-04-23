@@ -33,7 +33,7 @@ const HeaderNavigation: React.FC<IHeaderNavigation> = ({
                   {
                     active: activeLink === navLink,
                   },
-                  `text-white my-3 lg:my-2`
+                  `text-white my-3`
                 )}
               >
                 <a
@@ -59,7 +59,7 @@ const HeaderNavigation: React.FC<IHeaderNavigation> = ({
                   active: pathname === navItem.url,
                   "lg:pr-0": index === links.length - 1,
                 },
-                `my-3 md:px-5 lg:my-2`
+                `my-3 lg:px-5  lg:my-2`
               )}
               key={index}
             >
@@ -68,9 +68,9 @@ const HeaderNavigation: React.FC<IHeaderNavigation> = ({
                 className={cn(
                   {
                     "bg-white text-dark-blue px-3": pathname === navItem.url,
-                    "md:pr-0": index === links.length - 1,
+                    "lg:pr-0": index === links.length - 1,
                   },
-                  "rounded-3xl md:px-3 py-2 text-lg lg:text-base"
+                  "rounded-3xl lg:px-3 py-2 text-lg lg:text-base"
                 )}
               >
                 {navItem.title}
