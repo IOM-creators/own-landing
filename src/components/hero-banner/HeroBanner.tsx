@@ -118,7 +118,6 @@ const HeroSection: React.FC<IHeroSection> = () => {
         </div>
 
         <div className="w-full lg:w-[60%] hidden md:block">
-          <h2 className="text-4xl font-bold mb-10">Our service</h2>
           <div className="flex">
             <div
               className="flex flex-col items-start gap-2 slideInLeft"
