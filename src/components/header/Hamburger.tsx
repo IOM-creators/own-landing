@@ -5,22 +5,24 @@ import Icon from "../icon";
 import Button from "../button";
 import { useRouter } from "next/router";
 import cn from "classnames";
+import { useActions } from "@/store/hooks/useActions";
 
 const HamburgerMenu: React.FC<IHamburgerMenu> = ({
   activeLink,
-  navigation,
-  setBgHeader,
+  navigationAnchor,
+  links,
 }) => {
   const [isOpen, setIsOpen] = useState(false);
   const router = useRouter();
   const { pathname } = router;
+  const { headerState } = useActions();
 
   const toggleMenu = () => {
     !isOpen
       ? document.body.classList.add("overflow-hidden")
       : document.body.classList.remove("overflow-hidden");
     setIsOpen(!isOpen);
-    setBgHeader(!isOpen);
+    headerState({ filled: !isOpen });
   };
 
   useEffect(() => {
@@ -29,10 +31,10 @@ const HamburgerMenu: React.FC<IHamburgerMenu> = ({
 
   useEffect(() => {
     setIsOpen(false);
-    setBgHeader(false);
+    headerState({ filled: false });
   }, [pathname]);
   return (
-    <div className={`overflow-hidden lg:hidden ml-auto mr-0 `}>
+    <div className={`overflow-hidden  ml-auto mr-0 `}>
       <Button onClick={toggleMenu} className="py-2">
         {isOpen ? (
           <Icon icon="hamburger-close" />
@@ -52,10 +54,11 @@ const HamburgerMenu: React.FC<IHamburgerMenu> = ({
             isOpen ? "translate-y-0" : "-translate-y-[200%]"
           }`}
         >
-          <div className="w-full h-full container flex items-end  align-center flex-col">
+          <div className="w-full h-full container">
             <HeaderNavigation
-              classname="flex flex-col space-y-4"
-              navigation={navigation}
+              classname="flex flex-col space-y-4 items-end"
+              navigationAnchor={navigationAnchor}
+              links={links}
               activeLink={activeLink}
               setOpenNavChange={setIsOpen}
             />

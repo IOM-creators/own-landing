@@ -28,7 +28,6 @@ html {
   animation: rubberBand 2s ease-in-out;
 }
 .scaleUp {
-  display: block;
   transform: scaleY(0);
   animation: scaleUp 0.5s ease-in-out forwards;
   transform-origin: bottom;

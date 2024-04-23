@@ -5,10 +5,12 @@ import Header from "../header";
 import cn from "classnames";
 import ContactButton from "../contact-button";
 import Popup from "../popup";
+import { useActions } from "@/store/hooks/useActions";
 
 const Layout = ({ children }: any) => {
   const router = useRouter();
   const [pageName, setPageName] = useState("");
+  const { headerState } = useActions();
   const headerRef = useRef<HTMLDivElement | null>(null);
   const { pathname } = router;
 
@@ -19,7 +21,7 @@ const Layout = ({ children }: any) => {
         segments.filter((segment) => segment !== "").pop() || "index";
       setPageName(name);
     };
-
+    headerState({ height: headerRef.current?.clientHeight || 0 });
     getPageName();
   }, [router.pathname]);
 
@@ -28,9 +30,7 @@ const Layout = ({ children }: any) => {
       <Header headerRef={headerRef} />
       <main
         style={{
-          paddingTop: `${
-            pathname !== "/" ? headerRef.current?.clientHeight || 0 : 0
-          }px`,
+          paddingTop: `${headerRef.current?.clientHeight || 0}px`,
         }}
       >
         {children}

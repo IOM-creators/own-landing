@@ -8,7 +8,8 @@ import HeaderNavigation from "./HeaderNavigation";
 import { useGetHeader } from "../../graphql/";
 import Link from "next/link";
 import { useEffect, useState } from "react";
-
+import { HeaderState } from "../../store/types/header";
+import { useTypedSelector } from "@/store/hooks/useTypedSelector";
 interface IHeader {
   headerRef: React.ForwardedRef<HTMLDivElement>;
 }
@@ -17,11 +18,13 @@ const Header: React.FC<IHeader> = ({ headerRef }) => {
   const router = useRouter();
   const { pathname } = router;
   const { activeLink, transparent, isHeaderVisible } = useScrollEvent();
-  const [bgHeader, setBgHeader] = useState(false);
   const [firstLoad, setFirstLoad] = useState(false);
   const { header } = useGetHeader();
+  const { filled }: HeaderState = useTypedSelector((state) => state.header);
   const windowWidth = useWindowWidth();
+
   useEffect(() => setFirstLoad(true));
+
   return (
     <header
       ref={headerRef}
@@ -30,28 +33,37 @@ const Header: React.FC<IHeader> = ({ headerRef }) => {
           "translate-y-[-100%]": !isHeaderVisible && !transparent && firstLoad,
           "translate-y-0": isHeaderVisible,
           "bg-dark-blue text-white":
-            (!transparent && isHeaderVisible) || pathname !== "/" || bgHeader,
+            (!transparent && isHeaderVisible) || pathname !== "/" || filled,
         },
         "border-none z-20 w-full py-2 lg:py-5 fixed top-0 transition-colors"
       )}
     >
       <div className="container flex items-center font-serif text-base font-semibold">
         <Link href="/">
-          <Icon className="w-12 lg:w-auto" icon="light-logo" />
+          <Icon className="w-12 lg:w-20" icon="light-logo" />
         </Link>
-
-        {windowWidth && windowWidth < 1024 ? (
-          <HamburgerMenu
-            navigation={header.navigation}
-            activeLink={activeLink}
-            setBgHeader={setBgHeader}
-          />
-        ) : (
+        {windowWidth && windowWidth >= 1024 && pathname === "/" && (
           <HeaderNavigation
-            classname="ml-auto"
+            classname="flex h-full flex-wrap items-center justify-center"
             activeLink={activeLink}
-            navigation={header.navigation}
+            links={header.links}
           />
+        )}
+        {pathname !== "/" && windowWidth && windowWidth >= 1024 && (
+          <HeaderNavigation
+            classname="flex h-full flex-wrap items-center justify-center"
+            activeLink={activeLink}
+            links={header.links}
+          />
+        )}
+        {pathname === "/" && windowWidth && windowWidth >= 1024 && (
+          <HamburgerMenu
+            navigationAnchor={header.navigation}
+            activeLink={activeLink}
+          />
+        )}
+        {windowWidth && windowWidth < 1024 && (
+          <HamburgerMenu links={header.links} activeLink={activeLink} />
         )}
       </div>
     </header>

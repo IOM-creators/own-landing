@@ -3,7 +3,14 @@ import { gql, useQuery } from "@apollo/client";
 export const GET_FOOTER_ENTRY = gql`
   query iomLandingEntryQuery {
     footer(id: "57NT2Joj6gGKDBMYWbVf1C") {
-      navigation
+      linksCollection {
+        items {
+          ... on Links {
+            title
+            url
+          }
+        }
+      }
       logo {
         url
       }
@@ -25,7 +32,8 @@ export const GET_FOOTER_ENTRY = gql`
 export const useGetFooter = () => {
   const { loading, error, data } = useQuery(GET_FOOTER_ENTRY);
   const footer = data?.footer || {};
-  const navigation = data?.footer?.navigation || [];
+  const links = footer?.linksCollection?.items || [];
+
   const socials = data?.footer?.socialCollection?.items || [];
 
   return {
@@ -33,7 +41,7 @@ export const useGetFooter = () => {
     error,
     footer: {
       logo: footer.logo?.url || "",
-      navigation,
+      links,
       socials,
     },
   };

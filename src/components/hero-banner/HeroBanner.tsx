@@ -1,9 +1,11 @@
 import React, { useRef, useState } from "react";
-import { useGetHeroBanner } from "../../graphql";
+import { useGetHeader, useGetHeroBanner } from "../../graphql";
 import styles from "./styles.module.scss";
 import cn from "classnames";
 import Icon from "../icon";
-import { useScrollAnimation } from "@/helpers/reactHooks";
+import { useWindowDimensions, useScrollAnimation } from "@/helpers/reactHooks";
+import { HeaderState } from "@/store/types/header";
+import { useTypedSelector } from "@/store/hooks/useTypedSelector";
 
 interface ILetter {
   letter: string;
@@ -16,6 +18,9 @@ interface IHeroSection {}
 const HeroSection: React.FC<IHeroSection> = () => {
   const [isAnimated, setIsAnimated] = useState<boolean[]>([]);
   const { heroBanner } = useGetHeroBanner();
+  const { height }: HeaderState = useTypedSelector((state) => state.header);
+  const windowDimensions = useWindowDimensions();
+  const heightSection = windowDimensions.height - height;
   const bullets = Array.from({ length: 4 }, () =>
     Array.from({ length: 8 }, (_, index) => index + 1)
   );
@@ -27,10 +32,13 @@ const HeroSection: React.FC<IHeroSection> = () => {
       id="hero-banner"
       className={cn(styles.heroSection, "overflow-hidden text-dark-blue")}
     >
-      <div className="relative w-full h-screen relative flex justify-center flex-col	md:flex-row md:justify-between items-center container ">
-        <div className="relative inset-0  justify-center mx-lg">
+      <div
+        style={{ height: `${heightSection}px` }}
+        className="relative w-full relative flex justify-center flex-col flex-wrap	md:flex-row md:justify-between items-center container"
+      >
+        <div className="relative inset-0 justify-center w-full lg:w-[50%] ">
           <div className="text-left max-w-3xl lap:max-w-6xl">
-            <h1 className="text-2xl sm:text-3xl  md:text-4xl md:leading-[4rem] font-bold">
+            <h1 className="text-2xl sm:text-3xl  md:text-4xl md:leading-[4rem]  leading-[3rem] font-bold">
               {heroBanner.abbreviation.map((text: string, index: number) => {
                 const words = text.split(" ");
                 const nextText = words.slice(1).join(" ");
@@ -40,9 +48,9 @@ const HeroSection: React.FC<IHeroSection> = () => {
                     key={index}
                     ref={(el: any) => (elementsRef.current[index] = el)}
                     style={{ animationDelay: `${animationDelay}s` }}
-                    className="scaleUp"
+                    className="scaleUp flex flex-col items-center mb-4 md:mb-0 md:block"
                   >
-                    <span className="text-blue  sm:text-4xl text-3xl md:text-5xl">
+                    <span className="text-blue sm:text-4xl text-3xl md:text-5xl">
                       {words[0]}&nbsp;
                     </span>
                     {nextText}
@@ -56,7 +64,7 @@ const HeroSection: React.FC<IHeroSection> = () => {
         <div
           className={cn(
             styles.heroBanner,
-            "relative right-0 w-full h-full  md:w-[50%] md:h-[50%] md:ml-6 hidden lg:block"
+            "right-0 w-full h-full  lg:w-[50%] lg:h-[50%] absolute z-[-1] lg:z-[1] opacity-10 lg:opacity-100 lg:relative"
           )}
         >
           <div className="absolute top-1/2  left-0 translate-x-[50%]  grid grid-cols-4 gap-4 z-10 opacity-90">
@@ -86,25 +94,58 @@ const HeroSection: React.FC<IHeroSection> = () => {
             ))}
           </div>
 
-          <div className="absolute top-[20%] bg-white shadow-primary rounded-lg left-0 info-block p-4 flex items-center">
+          <div className="hidden lg:block absolute top-[20%] bg-white shadow-primary rounded-lg left-0 info-block p-4 flex items-center">
             <Icon icon="projects" />
             <div className="ml-4">
               <h3 className="text-2xl">26+</h3>
               <span className="text-gray">Projects</span>
             </div>
           </div>
-          <div className="absolute top-1/2 translate-y-[-50%] bg-white shadow-primary rounded-lg right-0 info-block p-4 flex items-center">
+          <div className="hidden lg:block absolute top-1/2 translate-y-[-50%] bg-white shadow-primary rounded-lg right-0 info-block p-4 flex items-center">
             <Icon icon="star" className="fill-green" />
             <div className="ml-4">
               <h3 className="text-2xl">5</h3>
               <span className="text-gray">Satisfaction</span>
             </div>
           </div>
-          <div className="absolute bottom-0 bg-white shadow-primary rounded-lg left-1/2 translate-x-[-50%] info-block p-4 flex items-center">
+          <div className="hidden lg:block absolute bottom-0 bg-white shadow-primary rounded-lg left-1/2 translate-x-[-50%] info-block p-4 flex items-center">
             <Icon icon="account" />
             <div className="ml-4">
               <h3 className="text-2xl">Development</h3>
               <span className="text-gray">5 Years</span>
+            </div>
+          </div>
+        </div>
+
+        <div className="w-full lg:w-[60%] hidden md:block">
+          <h2 className="text-4xl font-bold mb-10">Our service</h2>
+          <div className="flex">
+            <div className="flex flex-col items-start gap-2">
+              <Icon icon="brand" />
+              <div className="">
+                <h3 className="text-2xl">Branding</h3>
+                <span className="text-gray">
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                </span>
+              </div>
+            </div>
+            <div className="flex flex-col items-start gap-2">
+              <Icon icon="phone" />
+              <div className="">
+                <h3 className="text-2xl">UI/UX</h3>
+                <span className="text-gray">
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                </span>
+              </div>
+            </div>
+            <div className="flex flex-col items-start gap-2">
+              <Icon icon="note" />
+              <div className="">
+                <h3 className="text-2xl">Product Design</h3>
+                <span className="text-gray">
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                </span>
+              </div>
             </div>
           </div>
         </div>
