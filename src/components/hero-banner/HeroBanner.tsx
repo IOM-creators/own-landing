@@ -64,7 +64,7 @@ const HeroSection: React.FC<IHeroSection> = () => {
         <div
           className={cn(
             styles.heroBanner,
-            "right-0 w-full h-full  lg:w-[50%] lg:h-[50%] absolute z-[-1] lg:z-[1] opacity-10 lg:opacity-100 lg:relative"
+            "right-0 w-full h-full  lg:w-[50%] lg:h-[50%] hidden lg:block relative"
           )}
         >
           <div className="absolute top-1/2  left-0 translate-x-[50%]  grid grid-cols-4 gap-4 z-10 opacity-90">
