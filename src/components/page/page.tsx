@@ -1,17 +1,13 @@
-import { useRouter } from "next/router";
-import Link from "next/link";
-import Section from "@/components/section";
-import { useProject } from "@/graphql/queries/projects";
-import { componentMap } from "@/helpers/componentsMap";
+import GqlComponent from "./gql-component";
+
 
 const Page = (props:any) => {
-  const router = useRouter();
-  const { slug } = router.query;
-  const { content } = useProject(slug as string);  
+  const {page} = props
+
   return (
     <div>
-        {props.page.pageContent.items.map((item:any)=>{
-            return <>div</>
+        {page && page.pageContent.items.map((section:any)=>{
+            return <GqlComponent section={section}/>
         })}
     </div>
   );
