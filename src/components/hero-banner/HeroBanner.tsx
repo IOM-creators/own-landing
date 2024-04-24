@@ -20,7 +20,7 @@ const HeroSection: React.FC<IHeroSection> = () => {
   const { heroBanner } = useGetHeroBanner();
   const { height }: HeaderState = useTypedSelector((state) => state.header);
   const windowDimensions = useWindowDimensions();
-  const heightSection = windowDimensions.height - (height || 0);
+  const heightSection = windowDimensions.height - (height || 0) * 2;
   const bullets = Array.from({ length: 4 }, () =>
     Array.from({ length: 8 }, (_, index) => index + 1)
   );
@@ -30,7 +30,7 @@ const HeroSection: React.FC<IHeroSection> = () => {
   return (
     <section
       id="hero-banner"
-      className={cn(styles.heroSection, "text-dark-blue")}
+      className={cn(styles.heroSection, "text-dark-blue py-4")}
     >
       <div
         style={{ height: `${heightSection}px` }}
