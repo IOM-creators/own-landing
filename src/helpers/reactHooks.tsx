@@ -19,8 +19,8 @@ import { useCallback, useEffect, useState } from "react";
 // };
 
 export const useScrollEvent = () => {
-  if(typeof document == 'undefined'){
-    return {isHeaderVisible: null,activeLink: null,transparent:null}
+  if (typeof document == "undefined") {
+    return { isHeaderVisible: null, activeLink: null, transparent: null };
   }
   const [isHeaderVisible, setIsHeaderVisible] = useState(true);
   const [activeLink, setActiveLink] = useState("");
@@ -74,10 +74,10 @@ export const useScrollEvent = () => {
 };
 
 export const useWindowWidth = () => {
-  if(typeof window == 'undefined'){
-    return null
+  if (typeof window == "undefined") {
+    return null;
   }
-  
+
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
   useEffect(() => {
@@ -151,4 +151,33 @@ export const useScrollAnimationForOne = (
   }, [elementsRef, isAnimated, setIsAnimated]);
 
   return isAnimated;
+};
+
+function getWindowDimensions() {
+  const { innerWidth: width, innerHeight: height } = window;
+  return {
+    width,
+    height,
+  };
+}
+
+export const useWindowDimensions = () => {
+  const [windowDimensions, setWindowDimensions] = useState(
+    typeof window !== "undefined"
+      ? getWindowDimensions()
+      : { width: 0, height: 0 }
+  );
+
+  useEffect(() => {
+    if (typeof window === "undefined") return; // Skip if window is not defined (e.g., during server-side rendering)
+
+    function handleResize() {
+      setWindowDimensions(getWindowDimensions());
+    }
+
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  return windowDimensions;
 };

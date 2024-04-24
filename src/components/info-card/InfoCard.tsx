@@ -17,9 +17,11 @@ interface IInfoCard {
     title?: string;
     technologies?: string;
     description?: Document;
+    revert?: boolean;
     btnText?: string;
     btnLink?: string;
   };
+  imgClasses?: string;
   className?: string;
   index?: number;
   animated?: boolean;
@@ -27,29 +29,23 @@ interface IInfoCard {
 
 const InfoCard: React.FC<IInfoCard> = ({
   card,
-  className,
+  className = "",
   index,
   animated = false,
+  imgClasses = "",
 }) => {
   const [isAnimated, setIsAnimated] = useState<boolean>(false);
   const elementsRef = useRef<HTMLDivElement | null>(null);
   useScrollAnimationForOne(elementsRef, isAnimated, setIsAnimated);
-  const animationDelayClass = index
-    ? `animate-slide-up-delay-${index + 3}`
-    : "";
+  const animationDelay = index ? index / 3 : 0;
 
   return (
-    <div
-      ref={elementsRef}
-      className={`${className} ${
-        !animated ? "" : isAnimated && animated ? " divAnimation" : "opacity-0"
-      } ${animationDelayClass}`}
-    >
+    <div className={`${className} relative my-4`}>
       {card?.image && (
         <Image
           src={card.image}
-          className="rounded-3xl object-contain"
-          classWrapper="mb-10 md:before:pt-[80%]"
+          className="object-contain"
+          classWrapper={`${imgClasses} mb-10 md:before:pt-[50%]`}
         />
       )}
       {card?.icon && !card?.image && (
@@ -57,34 +53,46 @@ const InfoCard: React.FC<IInfoCard> = ({
           <Icon icon={card.icon} />
         </div>
       )}
-      {card?.title && (
-        <TitleSection tag="h3" fontSize="text-2xl" className="mb-4 text-black">
-          {card.title}
-        </TitleSection>
-      )}
-      {card?.technologies && (
-        <div className="text-xl mt-2">
-          <strong>Tech Stack:</strong> {parse(card.technologies)}
-        </div>
-      )}
-      {card?.description && (
-        <div className="text-xl mt-2">
-          <RichText richText={card.description} />
-        </div>
-      )}
-      {card?.btnText && card.btnLink && (
-        <Button
-          icon="left-arrow"
-          className="mt-5 pb-2 w-max group relative before:block  before:absolute before:content-'' before:w-full before:top-full before:h-0.5 before:bg-dark-blue"
-        >
-          <Link
-            href={card.btnLink}
-            className="text-xl mr-2 before:absolute before:content-'' before:w-full before:h-full"
+      <div
+        ref={elementsRef}
+        style={{ animationDelay: `${animationDelay}s` }}
+        className={`${
+          !animated ? "" : isAnimated && animated ? " slideUp" : "opacity-0"
+        }`}
+      >
+        {card?.title && (
+          <TitleSection
+            tag="h3"
+            fontSize="text-2xl"
+            className="mb-4 text-black"
           >
-            {card.btnText}
-          </Link>
-        </Button>
-      )}
+            {card.title}
+          </TitleSection>
+        )}
+        {card?.technologies && (
+          <div className="text-xl mt-2">
+            <strong>Tech Stack:</strong> {parse(card.technologies)}
+          </div>
+        )}
+        {card?.description && (
+          <div className="text-xl mt-2">
+            <RichText richText={card.description} />
+          </div>
+        )}
+        {card?.btnText && card.btnLink && (
+          <Button
+            icon="left-arrow"
+            className="mt-5 pb-2 w-max group before:block  before:absolute before:content-'' before:w-full before:top-full before:h-0.5 before:bg-dark-blue"
+          >
+            <Link
+              href={card.btnLink}
+              className="text-xl mr-2 before:top-0 before:left-0 before:absolute before:content-'' before:w-full before:h-full"
+            >
+              {card.btnText}
+            </Link>
+          </Button>
+        )}
+      </div>
     </div>
   );
 };

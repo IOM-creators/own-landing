@@ -7,6 +7,14 @@ export const GET_HEADER_ENTRY = gql`
         url
       }
       navigation
+      linksCollection {
+        items {
+          ... on Links {
+            title
+            url
+          }
+        }
+      }
     }
   }
 `;
@@ -15,6 +23,7 @@ export const useGetHeader = () => {
   const { loading, error, data } = useQuery(GET_HEADER_ENTRY);
   const header = data?.header || {};
   const navigation = header?.navigation || [];
+  const links = header?.linksCollection?.items || [];
 
   return {
     loading,
@@ -22,6 +31,7 @@ export const useGetHeader = () => {
     header: {
       logo: header.logo?.url || "",
       navigation,
+      links,
     },
   };
 };

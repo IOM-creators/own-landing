@@ -52,9 +52,12 @@ module.exports = {
         "dark-blue": "#0A2640",
         "light-blue": "#1c3d5b",
         blue: "#0DBBFC",
+        transparent: "transparent",
       },
       backgroundImage: {
         ellipse: "url('../assets/images/ellipse.png')",
+        "hero-img-1": "url('../assets/icons/hero-banner-img-1.svg')",
+        "hero-img-2": "url('../assets/icons/hero-banner-img-2.svg')",
       },
       boxShadow: {
         simle: "0px 4px 32px 0px rgba(0, 0, 0, 0.08);",

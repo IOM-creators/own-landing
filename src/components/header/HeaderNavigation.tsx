@@ -2,18 +2,29 @@ import React from "react";
 import { IHeaderNavigation } from "../../helpers/commonInterfaces";
 import cn from "classnames";
 import Link from "next/link";
+import { useRouter } from "next/router";
+import { useActions } from "@/store/hooks/useActions";
 
 const HeaderNavigation: React.FC<IHeaderNavigation> = ({
   classname = "",
   activeLink,
-  navigation,
+  navigationAnchor,
+  links,
   setOpenNavChange = () => false,
 }) => {
+  const router = useRouter();
+  const { pathname } = router;
+  const { headerState } = useActions();
+
+  const handleHidemenu = () => {
+    setOpenNavChange(false);
+    headerState({ filled: false });
+  };
   return (
-    <nav className={classname}>
-      <ul className="flex h-full flex-col flex-wrap items-end lg:items-center lg:flex-row  lg:justify-end mr-[-1.25rem]">
-        {navigation &&
-          navigation.map((navItem: string, index: number) => {
+    <nav className="ml-auto">
+      <ul className={classname}>
+        {navigationAnchor &&
+          navigationAnchor.map((navItem: string, index: number) => {
             const navLink = navItem.split(" ").join("");
             return (
               <li
@@ -22,37 +33,50 @@ const HeaderNavigation: React.FC<IHeaderNavigation> = ({
                   {
                     active: activeLink === navLink,
                   },
-                  `text-white my-3 pr-0 lg:pr-5 lg:my-2`
+                  `text-white my-3`
                 )}
               >
                 <a
                   href={`#${navLink}`}
                   className={cn(
                     {
-                      "bg-white text-dark-blue sm:px-3": activeLink === navLink,
+                      "bg-white text-dark-blue px-3": activeLink === navLink,
                     },
-                    "rounded-3xl px-3 py-2 text-lg lg:text-base"
+                    "rounded-3xl py-2 text-lg lg:text-base"
                   )}
-                  onClick={() => setOpenNavChange(false)}
+                  onClick={handleHidemenu}
                 >
                   {navItem}
                 </a>
               </li>
             );
           })}
-        <li className="text-white my-3 pr-0 lg:pr-5 lg:my-2">
-          <Link
-            href="/projects"
-            className={cn(
-              {
-                "bg-white text-dark-blue sm:px-3": activeLink === "/projects",
-              },
-              "rounded-3xl px-3 py-2 text-lg lg:text-base"
-            )}
-          >
-            Projects
-          </Link>
-        </li>
+        {links &&
+          links.map((navItem: any, index: number) => (
+            <li
+              className={cn(
+                {
+                  active: pathname === navItem.url,
+                  "lg:pr-0": index === links.length - 1,
+                },
+                `my-3 lg:px-5  lg:my-2`
+              )}
+              key={index}
+            >
+              <Link
+                href={navItem.url}
+                className={cn(
+                  {
+                    "bg-white text-dark-blue px-3": pathname === navItem.url,
+                    "lg:pr-0": index === links.length - 1,
+                  },
+                  "rounded-3xl lg:px-3 py-2 text-lg lg:text-base"
+                )}
+              >
+                {navItem.title}
+              </Link>
+            </li>
+          ))}
       </ul>
     </nav>
   );
