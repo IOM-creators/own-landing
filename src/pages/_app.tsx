@@ -6,7 +6,7 @@ import { Provider } from "react-redux";
 import { ApolloClient, InMemoryCache, ApolloProvider } from "@apollo/client";
 import store from "../store";
 
-const client = new ApolloClient({
+export const client = new ApolloClient({
   uri: `https://graphql.contentful.com/content/v1/spaces/${process.env.REACT_APP_CONTENTFUL_ID}`,
   headers: {
     Authorization: `Bearer ${process.env.REACT_APP_CONTENTFUL_TOCKEN}`,

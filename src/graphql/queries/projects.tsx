@@ -51,6 +51,28 @@ export const GET_PROJECTS_BY_SLUG = (slug: string) => gql`
   }
 `;
 
+
+export const GET_PROJECTS_BY_ID = (id: string) => gql`
+  query ProjectCollection {
+    project(id:"${id}" ) {
+      title
+			slug
+     	card {
+        ... on InfoCard {
+          title
+          description {
+            json
+          }
+          image {
+            url
+          }
+          revert
+        }
+      } 
+    }
+  }
+`;
+
 export const useProjects = (skip: number) => {
   const { loading, error, data } = useQuery(GET_PROJECTS(), {
     variables: { limit: 3, skip: skip },
@@ -115,3 +137,18 @@ export const useProject = (slug: string = "") => {
     content,
   };
 };
+
+export const useProjectById = (id: string = "") => {
+  if(!id){
+    return null
+  }
+  const { loading, error, data } = useQuery(GET_PROJECTS_BY_ID(id));
+  const project = data?.project || {};
+
+  return {
+    loading,
+    error,
+    project,
+  };
+};
+
