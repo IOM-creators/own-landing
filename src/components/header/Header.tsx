@@ -40,7 +40,7 @@ const Header: React.FC<IHeader> = ({ headerRef }) => {
           <Icon className="w-12 lg:w-auto" icon="light-logo" />
         </Link>
 
-        {windowWidth && windowWidth < 1024 ? (
+        {typeof window !== 'undefined' && windowWidth && windowWidth < 1024 ? (
           <HamburgerMenu
             navigation={header.navigation}
             activeLink={activeLink}

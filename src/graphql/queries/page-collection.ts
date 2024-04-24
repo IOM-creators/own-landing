@@ -6,13 +6,13 @@ query PageCollection($slug: String!) {
         items{
             ...on Page{
                 title
+                sys {
+                    id
+                }
                 pageContent:pageContentCollection {
                     items {
-                        ... on Entry {
-                            __typename
-                            sys {
-                                id
-                            }
+                        sys{
+                            id
                         }
                     }
                 }
