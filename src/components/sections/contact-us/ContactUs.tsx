@@ -16,9 +16,9 @@ const ContactUs: React.FC<ISectionCommon> = ({ className, id }) => {
           fontSize="text-4xl md:text-5xl"
           className="text-center mb-10 max-w-lap mx-auto text-white"
         >
-          test
+          {section.title}
         </TitleSection>
-        <ContactForm id={id || ""} />
+        <ContactForm id={section.formId || ""} />
       </div>
     </Section>
   );
