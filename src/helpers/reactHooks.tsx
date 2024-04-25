@@ -1,22 +1,4 @@
 import { useCallback, useEffect, useState } from "react";
-// import { NavigateFunction } from "react-router-dom";
-// import { UseTranslationResponse } from "react-i18next";
-
-// export const useLanguageFromURL = (
-//   navigate: NavigateFunction,
-//   translation: UseTranslationResponse<any, any>
-// ) => {
-//   useEffect(() => {
-//     const languageFromURL = window.location.pathname.split("/")[1];
-//     const keys =
-//       (translation.i18n.options.resources &&
-//         Object.keys(translation.i18n.options.resources)) ||
-//       [];
-//     keys.includes(languageFromURL)
-//       ? translation.i18n.changeLanguage(languageFromURL)
-//       : navigate("/en");
-//   }, [navigate, translation.i18n]);
-// };
 
 export const useScrollEvent = () => {
   if (typeof document == "undefined") {
@@ -72,19 +54,22 @@ export const useScrollEvent = () => {
 
   return { isHeaderVisible, activeLink, transparent };
 };
-
 export const useWindowWidth = () => {
-  if (typeof window == "undefined") {
-    return null;
-  }
-
-  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+  const [windowWidth, setWindowWidth] = useState<number | null>(null);
 
   useEffect(() => {
-    const handleResize = () => {
-      setWindowWidth(window.innerWidth);
+    const getWindowWidth = () => {
+      return typeof window !== "undefined" ? window.innerWidth : null;
     };
+
+    setWindowWidth(getWindowWidth());
+
+    const handleResize = () => {
+      setWindowWidth(getWindowWidth());
+    };
+
     window.addEventListener("resize", handleResize);
+
     return () => {
       window.removeEventListener("resize", handleResize);
     };
