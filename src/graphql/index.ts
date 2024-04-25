@@ -7,7 +7,7 @@ import { useGetWhyChooseUs } from "./queries/why-choose-us";
 import { useGetPortfolio } from "./queries/portfolio";
 import { useGetOurProcess } from "./queries/our-process";
 import { useGetFeedbacks } from "./queries/feedback";
-import { useGetContactUs } from "./queries/contact-us";
+import { useGetContactUs, useGetContactForm } from "./queries/contact-us";
 import { useGetFooter } from "./queries/footer";
 import { useGetSections } from "./queries/sections";
 import { useProjects } from "./queries/projects";
@@ -23,6 +23,7 @@ export {
   useGetOurProcess,
   useGetFeedbacks,
   useGetContactUs,
+  useGetContactForm,
   useGetFooter,
   useGetSections,
   useProjects,

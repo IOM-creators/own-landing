@@ -5,39 +5,31 @@ const GqlComponent = (props: any) => {
   const { section, alterType } = props;
   let ComponentGql = componentMap[section.__typename];
 
-
-
   const shouldForceGql = useMemo(() => {
     if (props.forceGql === true) {
-      return true
+      return true;
     }
 
     if (!ComponentGql) {
-      return false
+      return false;
     }
 
     if (Object.keys(section).length > 3) {
-      return false
+      return false;
     }
 
     if (section.__typename === undefined || section.sys === undefined) {
-      return false
+      return false;
     }
 
-    return true
-  }, [ComponentGql, props.forceGql])
-
+    return true;
+  }, [ComponentGql, props.forceGql]);
 
   if (!ComponentGql) {
-    return <></>
+    return <></>;
   }
 
-
-
-  return (
-
-      <ComponentGql id={section.sys.id}/>
-  );
+  return <ComponentGql id={section.sys.id} />;
 };
 
 export default GqlComponent;

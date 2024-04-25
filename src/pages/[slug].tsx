@@ -6,7 +6,6 @@ import Page from "@/components/page/page";
 
 export const createApolloClient = () => client;
 
-
 const SlugPage: NextPage = (props: any) => {
   return (
     <section className="container">
@@ -22,22 +21,24 @@ export interface CustomNextPageContext extends NextPageContext {
   id: string;
 }
 
-
-
-export const getServerSideProps = async ({ locale, params, query }: CustomNextPageContext) => {
+export const getServerSideProps = async ({
+  locale,
+  params,
+  query,
+}: CustomNextPageContext) => {
   const slug = params.slug as string;
   const client = createApolloClient();
-  try {    
+  try {
     const res = await client.query({
       query: GET_PAGE_COLLECTIONS(),
       variables: {
-        slug: slug
-      }
+        slug: slug,
+      },
     });
     return {
       props: {
         slug: slug,
-        items: res.data.pageCollection.items
+        items: res.data.pageCollection.items,
       },
     };
   } catch (e) {
@@ -48,5 +49,3 @@ export const getServerSideProps = async ({ locale, params, query }: CustomNextPa
 };
 
 export default SlugPage;
-
-

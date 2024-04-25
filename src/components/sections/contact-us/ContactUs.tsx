@@ -2,7 +2,7 @@ import React from "react";
 import Section from "../../section";
 import TitleSection from "../../title-section";
 import { ISectionCommon } from "../../../helpers/commonInterfaces";
-import ContactForm from "../../contact-from";
+import ContactForm from "../../contact-form";
 import { useGetContactUs } from "../../../graphql/";
 
 const ContactUs: React.FC<ISectionCommon> = ({ className, id }) => {
@@ -16,13 +16,9 @@ const ContactUs: React.FC<ISectionCommon> = ({ className, id }) => {
           fontSize="text-4xl md:text-5xl"
           className="text-center mb-10 max-w-lap mx-auto text-white"
         >
-          {section.title}
+          test
         </TitleSection>
-        <ContactForm
-          fields={section.formFields}
-          successMessage={section.successMessage}
-          buttonText={section.buttonText}
-        />
+        <ContactForm id={id || ""} />
       </div>
     </Section>
   );

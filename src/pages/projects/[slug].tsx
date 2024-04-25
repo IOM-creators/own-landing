@@ -7,37 +7,36 @@ import { CustomNextPageContext, createApolloClient } from "../[slug]";
 import { GET_PAGE_COLLECTIONS } from "@/graphql/queries/page-collection";
 import { NextPage } from "next";
 
-const Projects: NextPage = (props:any) => {
+const Projects: NextPage = (props: any) => {
   const router = useRouter();
   const { slug } = router.query;
   const { content } = useProject(slug as string);
-  return (
-    <Section className="section py-6 container mx-lg">
-      Projects
-    </Section>
-  );
+  return <Section className="section py-6 container mx-lg">Projects</Section>;
 };
 
 export default Projects;
 
-
-export const getServerSideProps = async ({ locale, params, query }: CustomNextPageContext) => {  
+export const getServerSideProps = async ({
+  locale,
+  params,
+  query,
+}: CustomNextPageContext) => {
   const slug = params.slug as string;
-  const client = createApolloClient();  
+  const client = createApolloClient();
   try {
-      const res = await client.query({
-          query: GET_PAGE_COLLECTIONS(),
-          variables:{
-              slug: slug
-          }
-      });
+    const res = await client.query({
+      query: GET_PAGE_COLLECTIONS(),
+      variables: {
+        slug: slug,
+      },
+    });
     return {
       props: {
-          slug:slug,
-          items:res.data.pageCollection.items
+        slug: slug,
+        items: res.data.pageCollection.items,
       },
     };
-  } catch(e) {
+  } catch (e) {
     return {
       notFound: true,
     };

@@ -5,28 +5,33 @@ import axios from "axios";
 
 import Button from "../button";
 import Icon from "../icon";
+import { useGetContactForm } from "../../graphql/";
 
+interface IContactUsData {
+  section: {
+    buttonText: string;
+    successMessage: string;
+    formFields: [
+      {
+        typeField: string;
+        placeholder: string;
+        required: boolean;
+        errorMessage: string;
+      }
+    ];
+  };
+}
 interface IContactUs {
   className?: string;
-  buttonText: string;
-  successMessage: string;
-  fields: [
-    {
-      typeField: string;
-      placeholder: string;
-      required: boolean;
-      errorMessage: string;
-    }
-  ];
+  id: string;
 }
 
-const ContactForm: React.FC<IContactUs> = ({
-  className,
-  fields,
-  buttonText,
-  successMessage,
-}) => {
-  const combinedObject = fields.reduce((result, field) => {
+const ContactForm: React.FC<IContactUs> = ({ id = "", className }) => {
+  const { section }: IContactUsData = useGetContactForm(id);
+
+  if (!section.formFields) return null;
+
+  const combinedObject = section.formFields?.reduce((result, field) => {
     const key = field.placeholder.toLocaleLowerCase().replace(" ", "_");
     return {
       ...result,
@@ -76,7 +81,7 @@ const ContactForm: React.FC<IContactUs> = ({
         })}
       >
         <div className="grid grid-cols-1 sm:gap-x-4 sm:grid-cols-6">
-          {fields.map((formField, index) => {
+          {section.formFields.map((formField, index) => {
             const fieldName = formField.placeholder
               .toLocaleLowerCase()
               .replace(" ", "_");
@@ -137,14 +142,14 @@ const ContactForm: React.FC<IContactUs> = ({
         </div>
         <div className="mt-5 flex justify-center">
           <Button type="submit" secondary loading={isSending}>
-            {buttonText}
+            {section.buttonText}
           </Button>
         </div>
       </form>
       {isSuccessMessage && (
         <div className="success-message text-center absolute h-full w-full top-0 left-0 flex flex-col items-center justify-center">
           <Icon icon="success" className="mb-5" />
-          <p className="text-green">{successMessage}</p>
+          <p className="text-green">{section.successMessage}</p>
         </div>
       )}
     </div>

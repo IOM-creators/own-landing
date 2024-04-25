@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import ContactForm from "../contact-from";
+import ContactForm from "../contact-form";
 import { useActions } from "../../store/hooks/useActions";
 import Icon from "../icon";
 import { useTypedSelector } from "../../store/hooks/useTypedSelector";
