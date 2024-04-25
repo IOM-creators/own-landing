@@ -14,6 +14,8 @@ const HeaderNavigation: React.FC<IHeaderNavigation> = ({
 }) => {
   const router = useRouter();
   const { pathname } = router;
+  const { slug } = router.query;
+  const pathSlug = `/${slug}`;
   const { headerState } = useActions();
 
   const handleHidemenu = () => {
@@ -27,22 +29,14 @@ const HeaderNavigation: React.FC<IHeaderNavigation> = ({
           navigationAnchor.map((navItem: string, index: number) => {
             const navLink = navItem.split(" ").join("");
             return (
-              <li
-                key={index}
-                className={cn(
-                  {
-                    active: activeLink === navLink,
-                  },
-                  `text-white my-3`
-                )}
-              >
+              <li key={index} className="text-white my-3">
                 <a
                   href={`#${navLink}`}
                   className={cn(
                     {
-                      "bg-white text-dark-blue px-3": activeLink === navLink,
+                      "border-b": activeLink === navLink,
                     },
-                    "rounded-3xl py-2 text-lg lg:text-base"
+                    "text-lg "
                   )}
                   onClick={handleHidemenu}
                 >
@@ -56,22 +50,18 @@ const HeaderNavigation: React.FC<IHeaderNavigation> = ({
             <li
               className={cn(
                 {
-                  active: pathname === navItem.url,
                   "lg:pr-0": index === links.length - 1,
                 },
-                `my-3 lg:px-5  lg:my-2`
+                `my-3 lg:px-5  lg:my-2  text-lg`
               )}
               key={index}
             >
               <Link
                 href={navItem.url}
-                className={cn(
-                  {
-                    "bg-white text-dark-blue px-3": pathname === navItem.url,
-                    "lg:pr-0": index === links.length - 1,
-                  },
-                  "rounded-3xl lg:px-3 py-2 text-lg lg:text-base"
-                )}
+                className={cn({
+                  "border-b":
+                    pathname === navItem.url || pathSlug === navItem.url,
+                })}
               >
                 {navItem.title}
               </Link>

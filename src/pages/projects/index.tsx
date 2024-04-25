@@ -12,8 +12,10 @@ const Projects: NextPage = () => {
   const { content } = useProjects((currentPage - 1) * PAGE_SIZE);
 
   return (
-    <Section className="section  my-10  container mx-lg">
-      <h1 className="text-2xl mb-10">Projects</h1>
+    <Section className="section container mx-lg">
+      <h1 className="text-4xl md:text-5xl lg:text-6xl  text-center py-8">
+        Projects
+      </h1>
       <nav>
         <ul className="grid ms:grid-cols-1 items-start  lg:grid-cols-3 gap-6 md:gap-8 ">
           {content &&
