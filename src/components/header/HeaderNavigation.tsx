@@ -58,6 +58,7 @@ const HeaderNavigation: React.FC<IHeaderNavigation> = ({
             >
               <Link
                 href={navItem.url}
+                onClick={handleHidemenu}
                 className={cn({
                   "border-b":
                     pathname === navItem.url || pathSlug === navItem.url,
