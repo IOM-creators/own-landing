@@ -1,5 +1,3 @@
-import Section from "@/components/section";
-
 export default function Custom404() {
   return (
     <section className="section container h-full flex items-center justify-center">
