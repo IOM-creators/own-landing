@@ -7,7 +7,7 @@ const Page = (props:any) => {
     <>
         {showTitle && <p className="text-sm text-dark-blue mb-3 text-center mt-[27px]">{page.title}</p>}
         {page && page.pageContent.items.map((section:any)=>{
-            return <GqlComponent section={section}/>
+            return <GqlComponent  key={section.sys.id} section={section}/>
         })}
     </>
   );

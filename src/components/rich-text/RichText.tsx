@@ -9,7 +9,7 @@ const RichText: React.FC<IRichText> = ({ richText }) => {
   if (!richText) {
     return null;
   }
-
+  
   return <>{documentToReactComponents(richText)}</>;
 };
 
