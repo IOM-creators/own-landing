@@ -12,7 +12,7 @@ const OurProcess: React.FC<ISectionCommon> = ({ className, id }) => {
   const { section } = useGetOurProcess(id);
 
   return (
-    <Section id="OurProcess" className={className}>
+    <div id="OurProcess" className={className}>
       <TitleSection
         tag="h2"
         position="text-left"
@@ -37,7 +37,7 @@ const OurProcess: React.FC<ISectionCommon> = ({ className, id }) => {
       <div className="">
         <List list={section.list} className="md:justify-center" />
       </div>
-    </Section>
+    </div>
   );
 };
 

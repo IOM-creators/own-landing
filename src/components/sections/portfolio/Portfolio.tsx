@@ -57,7 +57,7 @@ const Portfolio: React.FC<ISectionCommon> = ({ className, id }) => {
   };
   return (
     <div className="bg-dark-blue bg-ellipse bg-contain bg-right-top bg-no-repeat">
-      <Section id="Portfolio" className={className}>
+      <div id="Portfolio" className={className}>
         <div className="slider-wrapper relative">
           <div className="slider-header flex justify-between mb-5 lg:mb-14 lg:mx-10">
             <TitleSection
@@ -88,7 +88,7 @@ const Portfolio: React.FC<ISectionCommon> = ({ className, id }) => {
           </Slider>
           <div className="swiper-pagination-gallery text-center !top-100-20 "></div>
         </div>
-      </Section>
+      </div>
     </div>
   );
 };

@@ -73,7 +73,7 @@ const ContactForm: React.FC<IContactUs> = ({ id = "", className }) => {
   };
   const onError = (errors: any, e: any) => console.log(errors, e);
   return (
-    <div className="max-w-lg mx-auto relative">
+    <div className="max-w-lg w-full mx-auto relative">
       <form
         onSubmit={handleSubmit(onSubmit, onError)}
         className={cn({

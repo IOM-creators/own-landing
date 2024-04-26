@@ -16,7 +16,7 @@ const Technologies: React.FC<ISectionCommon> = ({ className, id }) => {
   useScrollAnimation(elementsRef, isAnimated, setIsAnimated);
 
   return (
-    <Section id="CoreTechnologies" className={className}>
+    <div id="CoreTechnologies" className={className}>
       <TitleSection
         tag="h2"
         fontSize="text-4xl md:text-5xl"
@@ -48,7 +48,7 @@ const Technologies: React.FC<ISectionCommon> = ({ className, id }) => {
           );
         })}
       </div>
-    </Section>
+    </div>
   );
 };
 

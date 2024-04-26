@@ -5,19 +5,36 @@ export const componentMap: any = {
     import("../components/hero-banner").then((module) => module.default)
   ),
   Banner: dynamic(() =>
-    import("../components/banner/Banner").then((module) => module.default)
+    import("../components/banner").then((module) => module.default)
   ),
   ContactUs: dynamic(() =>
-    import("../components/sections/contact-us/ContactUs").then(
-      (module) => module.default
-    )
+    import("../components/sections/contact-us").then((module) => module.default)
   ),
   ContactForm: dynamic(() =>
-    import("../components/contact-form/ContactForm").then(
-      (module) => module.default
-    )
+    import("../components/contact-form").then((module) => module.default)
   ),
   AboutUs: dynamic(() =>
     import("../components/sections/about-us").then((module) => module.default)
+  ),
+  ServicesOffered: dynamic(() =>
+    import("../components/sections/services-offered").then(
+      (module) => module.default
+    )
+  ),
+  WhyChooseUs: dynamic(() =>
+    import("../components/sections/why-choose-us").then(
+      (module) => module.default
+    )
+  ),
+  CoreTechnologies: dynamic(() =>
+    import("../components/sections/technologies").then(
+      (module) => module.default
+    )
+  ),
+  Feedbacks: dynamic(() =>
+    import("../components/sections/feedbacks").then((module) => module.default)
+  ),
+  Section: dynamic(() =>
+    import("../components/section").then((module) => module.default)
   ),
 };

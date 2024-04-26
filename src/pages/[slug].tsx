@@ -7,11 +7,7 @@ import Page from "@/components/page/page";
 export const createApolloClient = () => client;
 
 const SlugPage: NextPage = (props: any) => {
-  return (
-    <section className="container">
-      <Page showTitle page={props.items[0]}></Page>
-    </section>
-  );
+  return <Page showTitle page={props.items[0]}></Page>;
 };
 
 export interface CustomNextPageContext extends NextPageContext {

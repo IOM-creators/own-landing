@@ -12,7 +12,7 @@ const Projects: NextPage = () => {
   const { content } = useProjects((currentPage - 1) * PAGE_SIZE);
 
   return (
-    <Section className="section container mx-lg">
+    <section className="section container mx-lg">
       <h1 className="text-4xl md:text-5xl lg:text-6xl  text-center py-8">
         Projects
       </h1>
@@ -37,7 +37,7 @@ const Projects: NextPage = () => {
           perPage={PAGE_SIZE}
         />
       )}
-    </Section>
+    </section>
   );
 };
 

@@ -9,7 +9,7 @@ const ContactUs: React.FC<ISectionCommon> = ({ className, id }) => {
   const { section } = useGetContactUs(id);
 
   return (
-    <Section id="ContactUs" className={className}>
+    <div id="ContactUs" className={className}>
       <div className="bg-dark-blue py-20 px-10 md:px-40 sm:rounded-2xl bg-contain bg-ellipse bg-right-top bg-no-repeat">
         <TitleSection
           tag="h2"
@@ -20,7 +20,7 @@ const ContactUs: React.FC<ISectionCommon> = ({ className, id }) => {
         </TitleSection>
         <ContactForm id={section.formId || ""} />
       </div>
-    </Section>
+    </div>
   );
 };
 

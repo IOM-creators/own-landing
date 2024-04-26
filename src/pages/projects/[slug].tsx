@@ -11,7 +11,7 @@ const Projects: NextPage = (props: any) => {
   const router = useRouter();
   const { slug } = router.query;
   const { content } = useProject(slug as string);
-  return <Section className="section py-6 container mx-lg">Projects</Section>;
+  return <section className="section py-6 container mx-lg">Projects</section>;
 };
 
 export default Projects;

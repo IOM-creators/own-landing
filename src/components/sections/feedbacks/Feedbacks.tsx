@@ -40,7 +40,7 @@ const Feedbacks: React.FC<ISectionCommon> = ({ className, id }) => {
   };
 
   return (
-    <Section id="Feedbacks" className={className}>
+    <div id="Feedbacks" className={className}>
       <TitleSection
         tag="h2"
         className="mb-10 md:mb-20 text-center"
@@ -58,7 +58,7 @@ const Feedbacks: React.FC<ISectionCommon> = ({ className, id }) => {
         </Slider>
         <div className="swiper-pagination-feedback mt-10 text-center"></div>
       </div>
-    </Section>
+    </div>
   );
 };
 

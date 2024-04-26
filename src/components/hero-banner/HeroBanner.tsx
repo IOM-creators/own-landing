@@ -28,13 +28,13 @@ const HeroSection: React.FC<IHeroSection> = () => {
   useScrollAnimation(elementsRef, isAnimated, setIsAnimated);
 
   return (
-    <section
+    <div
       id="hero-banner"
       className={cn(styles.heroSection, "text-dark-blue py-4")}
     >
       <div
         style={{ height: `${heightSection}px` }}
-        className="relative w-full relative flex justify-center flex-col flex-wrap	md:flex-row md:justify-between items-center container"
+        className="relative w-full relative flex justify-center flex-col flex-wrap	md:flex-row md:justify-between items-center"
       >
         <div className="relative inset-0 justify-center w-full lg:w-[50%] ">
           <div className="text-left max-w-3xl lap:max-w-6xl">
@@ -155,7 +155,7 @@ const HeroSection: React.FC<IHeroSection> = () => {
           </div>
         </div>
       </div>
-    </section>
+    </div>
   );
 };
 

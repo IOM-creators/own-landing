@@ -14,7 +14,7 @@ const WhyChooseUs: React.FC<ISectionCommon> = ({ className, id }) => {
 
   useScrollAnimation(elementsRef, isAnimated, setIsAnimated);
   return (
-    <Section id="WhyChooseUs" className={className}>
+    <div id="WhyChooseUs" className={className}>
       <TitleSection
         tag="h2"
         position="text-center"
@@ -34,7 +34,7 @@ const WhyChooseUs: React.FC<ISectionCommon> = ({ className, id }) => {
           />
         ))}
       </div>
-    </Section>
+    </div>
   );
 };
 
