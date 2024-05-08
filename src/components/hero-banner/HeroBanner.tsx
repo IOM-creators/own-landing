@@ -28,7 +28,7 @@ const HeroSection: React.FC<IHeroSection> = () => {
   );
   const elementsRef = useRef<Array<HTMLElement | null>>([]);
   const positionClasses = [
-    "top-[20%] left-10",
+    "top-[10%] left-[10%]",
     "top-1/2 right-[5%] translate-y-[-30%]",
     "bottom-[-10%] left-1/2 translate-x-[-50%]",
   ];
