@@ -38,7 +38,6 @@ html {
   animation: slideInLeft 0.5s ease-in-out forwards;
 }
 .showInRight {
-  transform-origin: top;
   transform: scaleX(0);
   animation: showInRight 0.3s ease-in-out forwards;
 }
@@ -294,11 +293,11 @@ html {
 }
 @keyframes showInRight {
   0% {
-    transform: scaleY(0);
+    transform: scale(0);
   }
 
   100% {
-    transform: scaleY(1);
+    transform: scale(1);
   }
 }
 
