@@ -104,7 +104,8 @@ const HeroSection: React.FC<IHeroSection> = () => {
 
           {heroBanner.rightCards.map((item: any, index: number) => (
             <div
-              className={`hidden lg:flex absolute ${positionClasses[index]} bg-white shadow-primary rounded-lg  info-block p-4 flex items-center`}
+              style={{ animationDelay: animationDelay[index] }}
+              className={`hidden lg:flex absolute ${positionClasses[index]} showInRight bg-white shadow-primary rounded-lg  info-block p-4 flex items-center`}
             >
               <Image src={item.icon.url} classWrapper="w-12" />
               <div className="ml-4">

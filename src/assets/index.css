@@ -37,6 +37,11 @@ html {
   transform: translateX(-300px);
   animation: slideInLeft 0.5s ease-in-out forwards;
 }
+.showInRight {
+  transform-origin: top;
+  transform: scaleX(0);
+  animation: showInRight 0.3s ease-in-out forwards;
+}
 
 .position-path {
   transform-origin: center;
@@ -285,6 +290,15 @@ html {
   100% {
     opacity: 1;
     transform: translateX(0);
+  }
+}
+@keyframes showInRight {
+  0% {
+    transform: scaleY(0);
+  }
+
+  100% {
+    transform: scaleY(1);
   }
 }
 
