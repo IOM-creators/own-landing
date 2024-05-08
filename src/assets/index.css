@@ -244,7 +244,7 @@ html {
 
 @keyframes slideUp {
   0% {
-    transform: translateY(300px);
+    transform: translateY(100px);
   }
 
   100% {

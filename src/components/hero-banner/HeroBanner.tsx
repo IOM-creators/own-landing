@@ -2,10 +2,12 @@ import React, { useRef, useState } from "react";
 import { useGetHeader, useGetHeroBanner } from "../../graphql";
 import styles from "./styles.module.scss";
 import cn from "classnames";
+import Image from "../image";
 import Icon from "../icon";
 import { useWindowDimensions, useScrollAnimation } from "@/helpers/reactHooks";
 import { HeaderState } from "@/store/types/header";
 import { useTypedSelector } from "@/store/hooks/useTypedSelector";
+import RichText from "../rich-text";
 
 interface ILetter {
   letter: string;
@@ -25,6 +27,12 @@ const HeroSection: React.FC<IHeroSection> = () => {
     Array.from({ length: 8 }, (_, index) => index + 1)
   );
   const elementsRef = useRef<Array<HTMLElement | null>>([]);
+  const positionClasses = [
+    "top-[20%] left-10",
+    "top-1/2 right-[5%] translate-y-[-30%]",
+    "bottom-[-10%] left-1/2 translate-x-[-50%]",
+  ];
+  const animationDelay = ["0.6s", "0.3s", "0s"];
   useScrollAnimation(elementsRef, isAnimated, setIsAnimated);
 
   return (
@@ -94,64 +102,37 @@ const HeroSection: React.FC<IHeroSection> = () => {
             ))}
           </div>
 
-          <div className="hidden lg:flex absolute top-[20%] bg-white shadow-primary rounded-lg left-0 info-block p-4 flex items-center">
-            <Icon icon="projects" />
-            <div className="ml-4">
-              <h3 className="text-2xl">26+</h3>
-              <span className="text-gray">Projects</span>
+          {heroBanner.rightCards.map((item: any, index: number) => (
+            <div
+              className={`hidden lg:flex absolute ${positionClasses[index]} bg-white shadow-primary rounded-lg  info-block p-4 flex items-center`}
+            >
+              <Image src={item.icon.url} classWrapper="w-12" />
+              <div className="ml-4">
+                <h3 className="text-2xl">{item.text}</h3>
+                <span className="text-gray">
+                  <RichText richText={item.description.json} onlyText />
+                </span>
+              </div>
             </div>
-          </div>
-          <div className="hidden lg:flex absolute top-1/2 translate-y-[-50%] bg-white shadow-primary rounded-lg right-0 info-block p-4 flex items-center">
-            <Icon icon="star" className="fill-green" />
-            <div className="ml-4">
-              <h3 className="text-2xl">5</h3>
-              <span className="text-gray">Satisfaction</span>
-            </div>
-          </div>
-          <div className="hidden lg:flex absolute bottom-0 bg-white shadow-primary rounded-lg left-1/2 translate-x-[-50%] info-block p-4 flex items-center">
-            <Icon icon="account" />
-            <div className="ml-4">
-              <h3 className="text-2xl">Development</h3>
-              <span className="text-gray">5 Years</span>
-            </div>
-          </div>
+          ))}
         </div>
 
         <div className="w-full lg:w-[60%] hidden md:block">
           <div className="flex">
-            <div
-              className="flex flex-col items-start gap-2 slideInLeft"
-              style={{ animationDelay: "0.6s" }}
-            >
-              <Icon icon="brand" />
-              <div className="">
-                <h3 className="text-2xl">Branding</h3>
-                <span className="text-gray">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                </span>
+            {heroBanner.bottomCards.map((item: any, index: number) => (
+              <div
+                className="flex flex-col items-start gap-2 slideInLeft"
+                style={{ animationDelay: animationDelay[index] }}
+              >
+                <Image src={item.icon.url} classWrapper="w-12" />
+                <div className="">
+                  <h3 className="text-2xl">{item.text}</h3>
+                  <span className="text-gray">
+                    <RichText richText={item.description.json} onlyText />
+                  </span>
+                </div>
               </div>
-            </div>
-            <div
-              className="flex flex-col items-start gap-2 slideInLeft"
-              style={{ animationDelay: "0.3s" }}
-            >
-              <Icon icon="phone" />
-              <div className="">
-                <h3 className="text-2xl">UI/UX</h3>
-                <span className="text-gray">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                </span>
-              </div>
-            </div>
-            <div className="flex flex-col items-start gap-2 slideInLeft">
-              <Icon icon="note" />
-              <div className="">
-                <h3 className="text-2xl">Product Design</h3>
-                <span className="text-gray">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                </span>
-              </div>
-            </div>
+            ))}
           </div>
         </div>
       </div>

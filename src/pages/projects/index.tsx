@@ -13,7 +13,7 @@ const Projects: NextPage = () => {
 
   return (
     <section className="section container mx-lg">
-      <h1 className="text-4xl md:text-5xl lg:text-6xl  text-center py-8">
+      <h1 className="text-4xl md:text-5xl lg:text-6xl  text-center py-8 mt-8">
         Projects
       </h1>
       <nav>

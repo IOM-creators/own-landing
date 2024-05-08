@@ -6,7 +6,7 @@ const Page = (props: any) => {
   return (
     <>
       {showTitle && (
-        <h1 className="text-4xl md:text-5xl lg:text-6xl  text-center py-8">
+        <h1 className="text-4xl md:text-5xl lg:text-6xl  text-center py-8 mt-8">
           {page?.title}
         </h1>
       )}

@@ -35,7 +35,7 @@ const Header: React.FC<IHeader> = ({ headerRef }) => {
           "bg-dark-blue text-white":
             (!transparent && isHeaderVisible) || pathname !== "/" || filled,
         },
-        "border-none z-20 w-full py-2 lg:py-5 fixed top-0 transition-colors"
+        "border-none z-20 w-full py-2 lg:py-5 fixed top-0 "
       )}
     >
       <div className="container flex items-center font-serif text-base font-semibold">

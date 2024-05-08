@@ -4,6 +4,7 @@ import GqlComponent from "../page/gql-component";
 import cn from "classnames";
 import Image from "../image";
 import RichText from "../rich-text";
+import { useWindowWidth } from "@/helpers/reactHooks";
 
 interface ISection {
   id: string;
@@ -13,23 +14,35 @@ interface ISection {
 const Section: React.FC<ISection> = ({ id, className }) => {
   const refSection = useRef<HTMLElement | null>(null);
   const { section } = useGetSection(id);
+  const windowWidth = useWindowWidth();
 
   if (!section?.title) return null;
+
+  const styles = {
+    paddingBottom: `${section.paddingBottom}px`,
+    paddingTop: `${section.paddingTop}px`,
+    gridTemplateColumns:
+      windowWidth && windowWidth > 1024
+        ? `repeat(${section.grid}, 1fr)`
+        : "1fr",
+  };
 
   return (
     <section
       id={id}
       ref={refSection}
+      style={styles}
       className={cn("container", {
-        [`pb-[${section.paddingBottom}px]`]: section.paddingBottom,
-        [`pt-[${section.paddingTop}px]`]: section.paddingTop,
-        [`grid grid-gap-4 md:grid-cols-2 md:grid-cols-${section.grid} items-center`]:
-          section.grid > 1,
+        [`grid gap-16 lg:gap-24 grid-cols-1 items-center`]: section.grid > 1,
       })}
     >
       {section.image && <Image src={section.image.url} />}
       {section.component && <GqlComponent section={section.component} />}
-      {section.content && <RichText richText={section.content.json} />}
+      {section.content && (
+        <div>
+          <RichText richText={section.content.json} />
+        </div>
+      )}
     </section>
   );
 };

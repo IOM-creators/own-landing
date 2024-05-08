@@ -55,6 +55,7 @@ module.exports = {
         transparent: "transparent",
       },
       backgroundImage: {
+        "primary-gradient": "linear-gradient(180deg, #444B8C, #26264F)",
         ellipse: "url('../assets/images/ellipse.png')",
         "hero-img-1": "url('../assets/icons/hero-banner-img-1.svg')",
         "hero-img-2": "url('../assets/icons/hero-banner-img-2.svg')",

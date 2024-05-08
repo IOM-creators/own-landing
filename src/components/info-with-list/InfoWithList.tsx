@@ -36,11 +36,7 @@ const InfoWithList: React.FC<IInfoWithList> = ({
     <div className={className}>
       <div>
         {image && (
-          <Image
-            src={image}
-            className="rounded-3xl w-full object-contain"
-            classWrapper="md:before:pt-[80%]"
-          />
+          <Image src={image} className="rounded-3xl w-full object-contain" />
         )}
         {icon && !image && (
           <div className="img-wrapper md:before:pt-[80%]">
