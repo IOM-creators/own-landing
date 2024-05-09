@@ -5,7 +5,7 @@ import InfoCard from "@/components/info-card";
 import { NextPage, NextPageContext } from "next/types";
 import { GET_PAGE_COLLECTIONS } from "@/graphql/queries/page-collection";
 import { client } from "../_app";
-import Page from "@/components/page/page";
+import Page from "@/components/page";
 
 export const createApolloClient = () => client;
 
@@ -14,12 +14,9 @@ const SlugPage: NextPage = (props: any) => {
   const [currentPage, setCurrentPage] = useState<number>(1);
   const { total } = useProjectsTotal();
   const { content } = useProjects((currentPage - 1) * PAGE_SIZE);
-  console.log("content", content, total);
-
   return (
     <Page page={props.items[0]}>
       <section className="container">
-        <h2 className="text-3xl my-6">Our Projects</h2>
         <nav>
           <ul className="grid ms:grid-cols-1 items-start  lg:grid-cols-3 gap-6 md:gap-8 ">
             {content &&
@@ -71,6 +68,8 @@ export const getServerSideProps = async ({
         slug: slug,
       },
     });
+    console.log("res", res);
+
     return {
       props: {
         slug: slug,

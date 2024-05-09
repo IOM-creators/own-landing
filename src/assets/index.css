@@ -1,14 +1,15 @@
-.dots-3-line {
-  display: -webkit-box;
-  -webkit-line-clamp: 3;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-}
 h1 {
   font-size: 60px;
 }
 html {
   scroll-behavior: smooth;
+}
+
+.dots-3-line {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 
 .listAnimation {

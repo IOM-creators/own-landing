@@ -104,6 +104,7 @@ const HeroSection: React.FC<IHeroSection> = () => {
 
           {heroBanner.rightCards.map((item: any, index: number) => (
             <div
+              key={index}
               style={{ animationDelay: animationDelay[index] }}
               className={`hidden lg:flex absolute ${positionClasses[index]}  bg-white shadow-primary rounded-lg  info-block p-4 flex items-center`}
             >
@@ -122,6 +123,7 @@ const HeroSection: React.FC<IHeroSection> = () => {
           <div className="flex">
             {heroBanner.bottomCards.map((item: any, index: number) => (
               <div
+                key={index}
                 className="flex flex-col items-start gap-2 slideInLeft"
                 style={{ animationDelay: animationDelay[index] }}
               >

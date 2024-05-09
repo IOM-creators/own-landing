@@ -30,7 +30,7 @@ const Layout = ({ children }: any) => {
       <Header headerRef={headerRef} />
       <main
         style={{
-          paddingTop: `${headerRef.current?.clientHeight || 0}px`,
+          marginTop: `${headerRef.current?.clientHeight || 0}px`,
         }}
       >
         {children}

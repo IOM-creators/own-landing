@@ -51,7 +51,6 @@ export const GET_PROJECTS_BY_SLUG = (slug: string) => gql`
   }
 `;
 
-
 export const GET_PROJECTS_BY_ID = (id: string) => gql`
   query ProjectCollection {
     project(id:"${id}" ) {
@@ -139,8 +138,8 @@ export const useProject = (slug: string = "") => {
 };
 
 export const useProjectById = (id: string = "") => {
-  if(!id){
-    return null
+  if (!id) {
+    return null;
   }
   const { loading, error, data } = useQuery(GET_PROJECTS_BY_ID(id));
   const project = data?.project || {};
@@ -151,4 +150,3 @@ export const useProjectById = (id: string = "") => {
     project,
   };
 };
-
