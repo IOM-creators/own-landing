@@ -46,12 +46,12 @@ const HamburgerMenu: React.FC<IHamburgerMenu> = ({
       <div
         className={cn(
           { invisible: !isOpen },
-          "overflow-hidden absolute left-0 top-full w-full"
+          "overflow-hidden absolute left-0 top-full w-full pb-12"
         )}
       >
         <div
-          className={`bg-dark-blue text-white left-0 py-8 transform transition-transform ease-in-out ${
-            isOpen ? "translate-y-0" : "-translate-y-[200%]"
+          className={` bg-white text-dark-blue left-0 py-8 transform transition-transform ease-in-out ${
+            isOpen ? "translate-y-0  shadow-xl" : "-translate-y-[100%]"
           }`}
         >
           <div className="w-full h-full container">

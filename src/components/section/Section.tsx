@@ -33,13 +33,14 @@ const Section: React.FC<ISection> = ({ id, className }) => {
       ref={refSection}
       style={styles}
       className={cn("container", {
-        [`grid gap-16 lg:gap-24 grid-cols-1 items-center`]: section.grid > 1,
+        [`grid gap-x-16 lg:gap-x-24 grid-cols-1 items-center`]:
+          section.grid > 1,
       })}
     >
       {section.image && <Image src={section.image.url} />}
       {section.component && <GqlComponent section={section.component} />}
       {section.content && (
-        <div className="slideUp">
+        <div className="slideUp text-xl">
           <RichText richText={section.content.json} />
         </div>
       )}

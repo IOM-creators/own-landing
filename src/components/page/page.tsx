@@ -1,8 +1,7 @@
 import GqlComponent from "./gql-component";
 
 const Page = (props: any) => {
-  const { page, showTitle } = props;
-
+  const { page, showTitle, children } = props;
   return (
     <>
       {showTitle && (
@@ -14,6 +13,7 @@ const Page = (props: any) => {
         page.pageContent.items.map((section: any, index: number) => {
           return <GqlComponent section={section} key={index} />;
         })}
+      {children}
     </>
   );
 };

@@ -1,8 +1,5 @@
 import { useRouter } from "next/router";
-import Link from "next/link";
-import Section from "@/components/section";
 import { useProject } from "@/graphql/queries/projects";
-import ImageWithText from "@/components/image-with-text";
 import { CustomNextPageContext, createApolloClient } from "../[slug]";
 import { GET_PAGE_COLLECTIONS } from "@/graphql/queries/page-collection";
 import { NextPage } from "next";

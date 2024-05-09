@@ -30,6 +30,7 @@ const WhyChooseUs: React.FC<ISectionCommon> = ({ className, id }) => {
             index={index}
             card={card}
             key={index}
+            imgClasses="before:pt-[80%]"
             className="flex flex-col justify-center text-gray"
           />
         ))}

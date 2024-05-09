@@ -29,7 +29,7 @@ const HeaderNavigation: React.FC<IHeaderNavigation> = ({
           navigationAnchor.map((navItem: string, index: number) => {
             const navLink = navItem.split(" ").join("");
             return (
-              <li key={index} className="text-white my-3">
+              <li key={index} className="my-3">
                 <a
                   href={`#${navLink}`}
                   className={cn(

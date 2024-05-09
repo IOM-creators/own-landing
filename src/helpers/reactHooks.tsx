@@ -35,7 +35,7 @@ export const useScrollEvent = () => {
           setActiveLink("");
         }
       });
-      setTransparent(currentScrollPos <= header?.clientHeight);
+      setTransparent(currentScrollPos <= 10);
       setIsHeaderVisible(isScrollingUp || currentScrollPos === 0);
       setYPos(currentScrollPos);
     },
