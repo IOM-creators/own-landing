@@ -2,7 +2,7 @@ import NavigationLoader from "../navigation-loader/NavigationLoader";
 import GqlComponent from "./gql-component";
 
 const Page = (props: any) => {
-  const { page, showTitle, children } = props;
+  const { page, showTitle, children, belowContent, aboveContent } = props;
 
   return (
     <>
@@ -12,11 +12,12 @@ const Page = (props: any) => {
           {page?.title}
         </h1>
       )}
+      {aboveContent && children}
       {page &&
         page.pageContent.items.map((section: any, index: number) => {
           return <GqlComponent section={section} key={index} />;
         })}
-      {children}
+      {belowContent && children}
     </>
   );
 };

@@ -1,11 +1,14 @@
 import { useProjects, useProjectsTotal } from "@/graphql/queries/projects";
 import { useState } from "react";
 import Pagination from "@/components/pagination";
-import InfoCard from "@/components/info-card";
+import Image from "@/components/image";
 import { NextPage, NextPageContext } from "next/types";
 import { GET_PAGE_COLLECTIONS } from "@/graphql/queries/page-collection";
 import { client } from "../_app";
 import Page from "@/components/page";
+import TitleSection from "@/components/title-section";
+import RichText from "@/components/rich-text";
+import Link from "next/link";
 
 export const createApolloClient = () => client;
 
@@ -15,7 +18,7 @@ const SlugPage: NextPage = (props: any) => {
   const { total } = useProjectsTotal();
   const { content } = useProjects((currentPage - 1) * PAGE_SIZE);
   return (
-    <Page page={props.items[0]}>
+    <Page page={props.items[0]} belowContent>
       <section className="container">
         <nav>
           <ul className="grid ms:grid-cols-1 items-start  lg:grid-cols-3 gap-6 md:gap-8 ">
@@ -23,12 +26,32 @@ const SlugPage: NextPage = (props: any) => {
               content.items &&
               content.items.map((item: any) => {
                 return (
-                  <li key={item.slug}>
-                    <InfoCard
-                      card={item.card}
-                      imgClasses="before:pt-[50%]"
-                      descriptionClasses="dots-3-line"
-                    />
+                  <li key={item.slug} className="relative">
+                    {item?.image && (
+                      <Image
+                        src={item.image.url}
+                        className="object-contain"
+                        classWrapper="mb-10 before:pt-[50%]"
+                      />
+                    )}
+                    {item?.title && (
+                      <TitleSection
+                        tag="h3"
+                        fontSize="text-2xl"
+                        className="mb-4 text-black"
+                      >
+                        {item.title}
+                      </TitleSection>
+                    )}
+                    {item?.description && (
+                      <div className="text-xl mt-2 dots-3-line">
+                        <RichText richText={item.description} />
+                      </div>
+                    )}
+                    <Link
+                      href={`/projects/${item.slug}`}
+                      className="text-xl mr-2 top-0 left-0 absolute w-full h-full"
+                    ></Link>
                   </li>
                 );
               })}
@@ -68,8 +91,6 @@ export const getServerSideProps = async ({
         slug: slug,
       },
     });
-    console.log("res", res);
-
     return {
       props: {
         slug: slug,

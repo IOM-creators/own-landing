@@ -6,18 +6,13 @@ export const GET_PROJECTS = () => gql`
       total
       items {
         ... on Project {
-          title
           slug
-          card {
-            ... on InfoCard {
-              title
-              description {
-                json
-              }
-              image {
-                url
-              }
-            }
+          title
+          description {
+            json
+          }
+          image {
+            url
           }
         }
       }
@@ -31,21 +26,22 @@ export const GET_PROJECTS_BY_SLUG = (slug: string) => gql`
       total
       items{
         ...on Project{
-          title
           slug
-        }
-        card {
-            ... on InfoCard {
-              title
-              description {
-                json
+          title
+          description {
+            json
+          }
+          image{
+            url
+          }
+          pageContent: pageContentCollection {
+            items {
+              sys {
+                id
               }
-              image {
-                url
-              }
-              revert
             }
           }
+        }
       }
     }
   }
@@ -82,13 +78,7 @@ export const useProjects = (skip: number) => {
     items:
       section.items?.map((item: any) => ({
         ...item,
-        card: {
-          title: item.card?.title,
-          image: item.card?.image?.url || "",
-          description: item.card?.description?.json,
-          btnText: "More info",
-          btnLink: `/projects/${item.slug}`,
-        },
+        description: item?.description?.json,
       })) || [],
   };
 
@@ -120,13 +110,7 @@ export const useProject = (slug: string = "") => {
     item:
       section.items?.map((item: any) => ({
         ...item,
-        card: {
-          title: item.card?.title,
-          image: item.card?.image?.url || "",
-          content: item.card?.content?.json,
-          revert: item.card?.revert,
-          description: item.card?.description?.json,
-        },
+        description: item?.description?.json,
       }))[0] || {},
   };
 
