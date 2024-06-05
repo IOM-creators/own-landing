@@ -6,7 +6,7 @@ module.exports = {
       sm: "480px",
       md: "768px",
       lg: "1024px",
-      lap: "1280px",
+      lap: "1200px",
       xl: "1440px",
     },
     colors: {
@@ -15,18 +15,14 @@ module.exports = {
       "dark-blue": "#0A2640",
       "light-blue": "#1c3d5b",
       pink: "#ff49db",
-      orange: "#ff7849",
-      green: "#65e4a3",
+      orange: "#F38173",
+      green: "#436F65",
       "gray-dark": "#273444",
       gray: "#777",
       "gray-light": "#d3dce6",
       white: "#ffffff",
       highlight: "#e31b6d",
       error: "#ff4c4c",
-    },
-    fontFamily: {
-      sans: ["Manrope", "sans-serif"],
-      serif: ["Open Sans", "serif"],
     },
     extend: {
       padding: {
@@ -46,12 +42,15 @@ module.exports = {
       backgroundColor: {
         black: "#000",
         silver: "#C4C4C4",
+        orange: "#F38173",
+        "orange-dark": "#FF5D49",
         white: "#fff",
-        green: "#65e4a3",
+        green: "#436F65",
         "gray-light": "#d3dce6",
         "dark-blue": "#0A2640",
         "light-blue": "#1c3d5b",
         blue: "#0DBBFC",
+        "light-beige": "#FAF7F4",
         transparent: "transparent",
       },
       backgroundImage: {
@@ -64,6 +63,10 @@ module.exports = {
         simle: "0px 4px 32px 0px rgba(0, 0, 0, 0.08);",
         primary: "0px 4px 15px 0px rgba(10, 38, 64, 0.4)",
       },
+    },
+    fontFamily: {
+      Figtree: ["Figtree", "sans-serif"],
+      Fraunces: ["Fraunces", "serif"],
     },
     container: {
       center: true,

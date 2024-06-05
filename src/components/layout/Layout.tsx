@@ -23,14 +23,15 @@ const Layout = ({ children }: any) => {
     };
     headerState({ height: headerRef.current?.clientHeight || 0 });
     getPageName();
-  }, [router.pathname]);
+  }, [pathname]);
 
   return (
     <div className={cn({}, `page-template page-template-${pageName}`)}>
       <Header headerRef={headerRef} />
       <main
         style={{
-          marginTop: `${headerRef.current?.clientHeight || 0}px`,
+          marginTop:
+            pathname !== "/" ? `${headerRef.current?.clientHeight || 0}px` : 0,
         }}
       >
         {children}

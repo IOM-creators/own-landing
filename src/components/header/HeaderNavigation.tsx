@@ -23,7 +23,7 @@ const HeaderNavigation: React.FC<IHeaderNavigation> = ({
     headerState({ filled: false });
   };
   return (
-    <nav className="ml-auto">
+    <nav className="mr-auto">
       <ul className={classname}>
         {navigationAnchor &&
           navigationAnchor.map((navItem: string, index: number) => {

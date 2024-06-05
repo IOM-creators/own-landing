@@ -40,7 +40,7 @@ const Header: React.FC<IHeader> = ({ headerRef }) => {
     >
       <div className="container flex items-center font-serif text-base font-semibold">
         <Link href="/">
-          <Icon className="w-12 lg:w-20" icon="light-logo" />
+          <Icon className="w-12 lg:w-20 mr-10" icon="light-logo" />
         </Link>
         {windowWidth && windowWidth >= 1024 && pathname === "/" && (
           <HeaderNavigation
@@ -54,12 +54,6 @@ const Header: React.FC<IHeader> = ({ headerRef }) => {
             classname="flex h-full flex-wrap items-center justify-center"
             activeLink={activeLink}
             links={header.links}
-          />
-        )}
-        {pathname === "/" && windowWidth && windowWidth >= 1024 && (
-          <HamburgerMenu
-            navigationAnchor={header.navigation}
-            activeLink={activeLink}
           />
         )}
         {windowWidth && windowWidth < 1024 && (

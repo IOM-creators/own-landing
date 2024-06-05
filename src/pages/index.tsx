@@ -1,5 +1,4 @@
 import { NextPage, NextPageContext } from "next/types";
-import { useRouter } from "next/router";
 import { GET_PAGE_COLLECTIONS } from "@/graphql/queries/page-collection";
 import { client } from "./_app";
 import Page from "@/components/page";

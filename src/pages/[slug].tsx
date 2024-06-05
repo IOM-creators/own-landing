@@ -1,13 +1,17 @@
 import { NextPage, NextPageContext } from "next/types";
-import { useRouter } from "next/router";
 import { GET_PAGE_COLLECTIONS } from "@/graphql/queries/page-collection";
 import { client } from "./_app";
 import Page from "@/components/page";
+import Custom404 from "./404";
 
 export const createApolloClient = () => client;
 
 const SlugPage: NextPage = (props: any) => {
-  return <Page page={props.items[0]}></Page>;
+  if (!props?.items?.length) {
+    return <Custom404 />;
+  } else {
+    return <Page page={props.items[0]}></Page>;
+  }
 };
 
 export interface CustomNextPageContext extends NextPageContext {
