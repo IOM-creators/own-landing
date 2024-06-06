@@ -79,7 +79,6 @@ const SVGGenerate: React.FC<ISVGGenerate> = ({
             viewBox="-10 -2 32 32"
             stroke="currentColor"
           >
-            {" "}
             <path
               strokeLinecap="round"
               strokeLinejoin="round"

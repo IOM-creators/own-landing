@@ -7,19 +7,38 @@ interface IImage {
   alt?: string;
   classWrapper?: string;
   className?: string;
+  onlyImg?: boolean;
 }
 
-const Image: React.FC<IImage> = ({ src, alt, classWrapper, className }) => {
+const Image: React.FC<IImage> = ({
+  src,
+  alt,
+  classWrapper,
+  className,
+  onlyImg,
+}) => {
   return (
-    <div className={cn(classWrapper, "img-wrapper")}>
-      <LazyLoadImage
-        src={src}
-        alt={alt}
-        effect="opacity"
-        threshold={500}
-        className={className}
-      />
-    </div>
+    <>
+      {onlyImg ? (
+        <LazyLoadImage
+          src={src}
+          alt={alt}
+          effect="opacity"
+          threshold={500}
+          className={className}
+        />
+      ) : (
+        <div className={cn(classWrapper, "img-wrapper")}>
+          <LazyLoadImage
+            src={src}
+            alt={alt}
+            effect="opacity"
+            threshold={500}
+            className={className}
+          />
+        </div>
+      )}
+    </>
   );
 };
 
