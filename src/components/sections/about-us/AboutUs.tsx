@@ -26,17 +26,17 @@ const AboutUs: React.FC<ISectionCommon> = ({ className, id }) => {
                 <Image
                   src={founder1.src}
                   className="object-contain object-left"
-                  classWrapper="w-20 h-20 ml-[-4px]"
+                  classWrapper="w-20 h-20 ml-[-4px] rounded-full overflow-hidden after:block after:absolute after:top-0 after:left-0 after:border-4 after:border-grey after:w-full after:h-full after:rounded-full"
                 />
                 <Image
                   src={founder2.src}
                   className="object-contain object-left"
-                  classWrapper="w-20 h-20 ml-[-10px]"
+                  classWrapper="w-20 h-20 ml-[-10px] rounded-full overflow-hidden after:block after:absolute after:top-0 after:left-0 after:border-4 after:border-grey after:w-full after:h-full after:rounded-full"
                 />
                 <Image
                   src={founder3.src}
                   className="object-contain object-left"
-                  classWrapper="w-20 h-20 ml-[-10px]"
+                  classWrapper="w-20 h-20 ml-[-10px] rounded-full overflow-hidden after:block after:absolute after:top-0 after:left-0 after:border-4 after:border-grey after:w-full after:h-full after:rounded-full"
                 />
               </div>
               <h3 className="text-lg font-bold	text-orange my-5">

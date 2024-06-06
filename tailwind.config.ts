@@ -19,6 +19,7 @@ module.exports = {
       green: "#436F65",
       "gray-dark": "#273444",
       gray: "#777",
+      grey: "#f2f2f2",
       "gray-light": "#d3dce6",
       white: "#ffffff",
       highlight: "#e31b6d",
@@ -42,6 +43,7 @@ module.exports = {
       backgroundColor: {
         black: "#000",
         silver: "#C4C4C4",
+        grey: "#f2f2f2",
         orange: "#F38173",
         "orange-dark": "#FF5D49",
         white: "#fff",
