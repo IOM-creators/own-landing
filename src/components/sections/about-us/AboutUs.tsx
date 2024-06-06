@@ -26,17 +26,17 @@ const AboutUs: React.FC<ISectionCommon> = ({ className, id }) => {
                 <Image
                   src={founder1.src}
                   className="object-contain object-left"
-                  classWrapper="w-20 h-20 ml-[-4px] rounded-full overflow-hidden after:block after:absolute after:top-0 after:left-0 after:border-4 after:border-grey after:w-full after:h-full after:rounded-full"
+                  classWrapper="w-20 h-20 ml-[-4px] border-founder-icon"
                 />
                 <Image
                   src={founder2.src}
                   className="object-contain object-left"
-                  classWrapper="w-20 h-20 ml-[-10px] rounded-full overflow-hidden after:block after:absolute after:top-0 after:left-0 after:border-4 after:border-grey after:w-full after:h-full after:rounded-full"
+                  classWrapper="w-20 h-20 ml-[-10px] border-founder-icon"
                 />
                 <Image
                   src={founder3.src}
                   className="object-contain object-left"
-                  classWrapper="w-20 h-20 ml-[-10px] rounded-full overflow-hidden after:block after:absolute after:top-0 after:left-0 after:border-4 after:border-grey after:w-full after:h-full after:rounded-full"
+                  classWrapper="w-20 h-20 ml-[-10px] border-founder-icon"
                 />
               </div>
               <h3 className="text-lg font-bold	text-orange my-5">
@@ -59,18 +59,19 @@ const AboutUs: React.FC<ISectionCommon> = ({ className, id }) => {
             <div className="flex gap-4 lg:gap-12 mt-8 lg:mt-12">
               <span className="text-3xl lg:text-6xl font-bold">
                 500+
-                <br />
-                <span className="text-xs lg:text-xl">successful projects</span>
+                <span className="text-xs lg:text-xl block">
+                  successful projects
+                </span>
               </span>
               <span className="text-3xl lg:text-6xl font-bold">
                 8+
-                <br />
-                <span className="text-xs lg:text-xl">years of exp.</span>
+                <span className="text-xs lg:text-xl block">years of exp.</span>
               </span>
               <span className="text-3xl lg:text-6xl font-bold">
                 200+
-                <br />
-                <span className="text-xs lg:text-xl">positive reviews</span>
+                <span className="text-xs lg:text-xl block">
+                  positive reviews
+                </span>
               </span>
             </div>
           </div>

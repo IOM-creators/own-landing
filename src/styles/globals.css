@@ -89,10 +89,14 @@ svg {
   grid-template-columns: 100%;
   min-height: 100vh;
 }
-
-.btn {
-  @apply flex items-center py-4 px-6 md:py-7 md:px-9;
-}
-.btn--primary {
-  @apply bg-orange hover:bg-orange-dark transition-colors;
+@layer components {
+  .btn {
+    @apply flex items-center py-4 px-6 md:py-7 md:px-9;
+  }
+  .btn--primary {
+    @apply bg-orange hover:bg-orange-dark transition-colors;
+  }
+  .border-founder-icon {
+    @apply rounded-full after:block after:absolute after:top-0 after:left-0 after:border-4 after:border-grey after:w-full after:h-full after:rounded-full;
+  }
 }

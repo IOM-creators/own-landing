@@ -17,28 +17,24 @@ const Image: React.FC<IImage> = ({
   className,
   onlyImg,
 }) => {
-  return (
-    <>
-      {onlyImg ? (
-        <LazyLoadImage
-          src={src}
-          alt={alt}
-          effect="opacity"
-          threshold={500}
-          className={className}
-        />
-      ) : (
-        <div className={cn(classWrapper, "img-wrapper")}>
-          <LazyLoadImage
-            src={src}
-            alt={alt}
-            effect="opacity"
-            threshold={500}
-            className={className}
-          />
-        </div>
-      )}
-    </>
+  return onlyImg ? (
+    <LazyLoadImage
+      src={src}
+      alt={alt}
+      effect="opacity"
+      threshold={500}
+      className={className}
+    />
+  ) : (
+    <div className={cn(classWrapper, "img-wrapper")}>
+      <LazyLoadImage
+        src={src}
+        alt={alt}
+        effect="opacity"
+        threshold={500}
+        className={className}
+      />
+    </div>
   );
 };
 
