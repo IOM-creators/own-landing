@@ -3,7 +3,6 @@ import GqlComponent from "./gql-component";
 
 const Page = (props: any) => {
   const { page, showTitle, children, belowContent, aboveContent } = props;
-
   return (
     <>
       <NavigationLoader />

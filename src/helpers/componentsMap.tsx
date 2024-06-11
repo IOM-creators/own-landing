@@ -16,6 +16,9 @@ export const componentMap: any = {
   AboutUs: dynamic(() =>
     import("../components/sections/about-us").then((module) => module.default)
   ),
+  Portfolio: dynamic(() =>
+    import("../components/sections/portfolio").then((module) => module.default)
+  ),
   ServicesOffered: dynamic(() =>
     import("../components/sections/services-offered").then(
       (module) => module.default

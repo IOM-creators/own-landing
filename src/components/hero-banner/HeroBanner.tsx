@@ -7,6 +7,7 @@ import RichText from "../rich-text";
 import Link from "next/link";
 import Poster from "../../assets/images/poster.png";
 import Round from "../../assets/images/round.png";
+import Video from "../video";
 
 interface ILetter {
   letter: string;
@@ -46,16 +47,15 @@ const HeroSection: React.FC<IHeroSection> = () => {
           </Link>
         </div>
         <div className="relative right-0 w-full h-full  hidden lap:block">
-          <video
+          <Video
             src="hero-video.mp4"
             poster={Poster.src}
             autoPlay
             muted
             loop
             playsInline
-            style={{ filter: `url(${Poster.src})` }}
             className="absolute w-[calc(100%-110px)] h-full top-0 left-0 object-cover"
-          ></video>
+          />
           <div className="flex flex-col	justify-end absolute right-0  top-0 max-w-[30%] w-full h-[40%] bg-green text-white p-8">
             <h6 className="font-bold text-lg">
               Start grow your business with IOM

@@ -1,94 +1,120 @@
 import React from "react";
 
-import { EffectCoverflow, Autoplay } from "swiper/modules";
-
-import Section from "../../section";
-import Slider from "../../slider";
+import project1 from "../../../assets/images/project1.png";
+import project2 from "../../../assets/images/project2.png";
+import project3 from "../../../assets/images/project3.png";
+import project4 from "../../../assets/images/project4.png";
+import Image from "../../image";
 import Icon from "../../icon";
 
-import InfoCard from "../../info-card";
-import { SwiperSlide } from "swiper/react";
 import { ISectionCommon } from "../../../helpers/commonInterfaces";
-import TitleSection from "../../title-section";
 
 import { useGetPortfolio } from "../../../graphql/";
+import Link from "next/link";
 
 const Portfolio: React.FC<ISectionCommon> = ({ className, id }) => {
   const { section } = useGetPortfolio(id);
 
-  const sliderParams = {
-    effect: "coverflow",
-    grabCursor: true,
-    centeredSlides: true,
-    centeredSlidesBounds: true,
-    loop: true,
-    slidesPerView: 3,
-    coverflowEffect: {
-      rotate: 50,
-      stretch: 0,
-      depth: 100,
-      modifier: 1,
-      slideShadows: true,
-    },
-    autoplay: {
-      delay: 10000,
-      disableOnInteraction: false,
-    },
-    pagination: {
-      el: ".swiper-pagination-gallery",
-      clickable: true,
-    },
-    navigation: {
-      nextEl: ".swiper-button-next",
-      prevEl: ".swiper-button-prev",
-    },
-    modules: [EffectCoverflow, Autoplay],
-    breakpoints: {
-      320: {
-        slidesPerView: 1,
-      },
-      768: {
-        slidesPerView: 2,
-      },
-      1024: {
-        slidesPerView: 3,
-      },
-    },
-  };
   return (
-    <div className="bg-dark-blue bg-ellipse bg-contain bg-right-top bg-no-repeat">
-      <div id="Portfolio" className={className}>
-        <div className="slider-wrapper relative">
-          <div className="slider-header flex justify-between mb-5 lg:mb-14 lg:mx-10">
-            <TitleSection
-              tag="h2"
-              fontSize="text-4xl md:text-5xl"
-              className="text-white text-center md:text-left mb-5"
-            >
-              {section.title}
-            </TitleSection>
-            <div className="slider-buttom-wrapper relative flex justify-between w-48 self-end hidden lg:flex">
-              <div className="swiper-button-prev flex items-center justify-center rounded-full w-16 h-16 bg-white cursor-pointer mr-2">
-                <Icon icon="arrow" />
+    <div id="Portfolio" className={className}>
+      <h2 className="text-4xl lg:text-6xl font-bold uppercase mb-10">
+        Projects
+      </h2>
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+        <div className="relative">
+          <Link href="/" className="absolute w-full h-full top-0 left-0" />
+          <Image src={project1.src} />
+          <div className="my-4">
+            <div className="flex justify-between">
+              <div>
+                <h3 className="text-3xl">Agency Website</h3>
+                <div className="mt-2 text-lg">
+                  <span className="mr-4">ui/ux design</span>
+                  <span className="mr-4">front-end</span>
+                  <span className="mr-4">back-end</span>
+                </div>
               </div>
-              <div className="swiper-button-next flex items-center justify-center rounded-full w-16 h-16 bg-white rotate-180 cursor-pointer  ml-2">
-                <Icon icon="arrow" />
-              </div>
+              <Icon
+                icon="left-arrow"
+                className="my-auto text-white"
+                strokeClass="stroke-white fill-white"
+              />
             </div>
           </div>
-          <Slider params={sliderParams} className="gallery-slider !py-10">
-            {section.slides.map((slide: any, index: number) => (
-              <SwiperSlide key={index}>
-                <InfoCard
-                  card={slide}
-                  className="bg-white px-5 py-5 rounded-lg h-full"
-                />
-              </SwiperSlide>
-            ))}
-          </Slider>
-          <div className="swiper-pagination-gallery text-center !top-100-20 "></div>
+        </div>
+
+        <div className="relative">
+          <Link href="/" className="absolute w-full h-full top-0 left-0" />
+          <Image src={project2.src} />
+          <div className="my-4">
+            <div className="flex justify-between">
+              <div>
+                <h3 className="text-3xl">Agency Website</h3>
+                <div className="mt-2 text-lg">
+                  <span className="mr-4">ui/ux design</span>
+                  <span className="mr-4">front-end</span>
+                  <span className="mr-4">back-end</span>
+                </div>
+              </div>
+              <Icon
+                icon="left-arrow"
+                className="my-auto text-white"
+                strokeClass="stroke-white fill-white"
+              />
+            </div>
+          </div>
+        </div>
+
+        <div className="relative">
+          <Link href="/" className="absolute w-full h-full top-0 left-0" />
+          <Image src={project3.src} />
+          <div className="my-4">
+            <div className="flex justify-between">
+              <div>
+                <h3 className="text-3xl">Agency Website</h3>
+                <div className="mt-2 text-lg">
+                  <span className="mr-4">ui/ux design</span>
+                  <span className="mr-4">front-end</span>
+                  <span className="mr-4">back-end</span>
+                </div>
+              </div>
+              <Icon
+                icon="left-arrow"
+                className="my-auto text-white"
+                strokeClass="stroke-white fill-white"
+              />
+            </div>
+          </div>
+        </div>
+
+        <div className="relative">
+          <Link href="/" className="absolute w-full h-full top-0 left-0" />
+          <Image src={project4.src} />
+          <div className="my-4">
+            <div className="flex justify-between">
+              <div>
+                <h3 className="text-3xl">Agency Website</h3>
+                <div className="mt-2 text-lg">
+                  <span className="mr-4">ui/ux design</span>
+                  <span className="mr-4">front-end</span>
+                  <span className="mr-4">back-end</span>
+                </div>
+              </div>
+              <Icon
+                icon="left-arrow"
+                className="my-auto text-white"
+                strokeClass="stroke-white fill-white"
+              />
+            </div>
+          </div>
         </div>
       </div>
+      <Link
+        href="/"
+        className="w-full flex items-center justify-center font-bold text-lg p-4 md:p-8 bg-grey mt-5"
+      >
+        View all
+      </Link>
     </div>
   );
 };
