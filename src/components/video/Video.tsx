@@ -5,7 +5,6 @@ interface IVideo {
   poster?: string;
   classWrapper?: string;
   className?: string;
-  onlyImg?: boolean;
 }
 const Video: React.FC<IVideo> = ({
   src,
@@ -19,6 +18,10 @@ const Video: React.FC<IVideo> = ({
       <video
         src={src}
         poster={poster}
+        autoPlay
+        muted
+        loop
+        playsInline
         {...props}
         className={cn({}, className)}
       ></video>
