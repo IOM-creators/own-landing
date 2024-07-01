@@ -2,8 +2,7 @@ module.exports = {
   content: ["./src/**/*.{js,jsx,ts,tsx}"],
   theme: {
     screens: {
-      xsm: "320px",
-      sm: "480px",
+      sm: "700px",
       md: "768px",
       lg: "1024px",
       lap: "1200px",
@@ -74,7 +73,7 @@ module.exports = {
       center: true,
       padding: {
         DEFAULT: "1rem",
-        xsm: "0",
+        xsm: "3rem",
         sm: "2rem",
       },
     },

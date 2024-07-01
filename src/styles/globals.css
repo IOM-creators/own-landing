@@ -96,6 +96,11 @@ svg {
   .btn--primary {
     @apply bg-orange hover:bg-orange-dark transition-colors;
   }
+
+  .btn--secondary {
+    @apply bg-green transition-colors;
+  }
+
   .border-founder-icon {
     @apply rounded-full after:block after:absolute after:top-0 after:left-0 after:border-4 after:border-grey after:w-full after:h-full after:rounded-full;
   }
