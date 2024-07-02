@@ -34,7 +34,7 @@ const InfoWithList: React.FC<IInfoWithList> = ({
 }) => {
   return (
     <div className={className}>
-      <div>
+      {/* <div>
         {image && (
           <Image src={image} className="rounded-3xl w-full object-contain" />
         )}
@@ -43,7 +43,7 @@ const InfoWithList: React.FC<IInfoWithList> = ({
             <Icon icon={icon} />
           </div>
         )}
-      </div>
+      </div> */}
       <div className={card.revert ? "lg:order-first" : ""}>
         {card.title && (
           <TitleSection
@@ -59,7 +59,7 @@ const InfoWithList: React.FC<IInfoWithList> = ({
             {card.description && <RichText richText={card.description} />}
           </div>
         )}
-        {card.list?.length && <List list={card.list} revert={card.revert} />}
+        {card.list?.length && <List className="flex  gap-[20px]" list={card.list} revert={card.revert} />}
         {card.btnText && (
           <Button primary className="pb-2 w-max group relative mt-12 md:mt-16">
             <a href={card.btnLink} className="text-xl">

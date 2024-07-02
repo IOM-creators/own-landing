@@ -7,6 +7,7 @@ import Custom404 from "./404";
 export const createApolloClient = () => client;
 
 const SlugPage: NextPage = (props: any) => {
+
   if (!props?.items?.length) {
     return <Custom404 />;
   } else {

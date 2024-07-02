@@ -40,19 +40,7 @@ const List: React.FC<IList> = ({
           return (
             <li
               ref={(el: any) => (elementsRef.current[index] = el)}
-              className={cn(
-                {
-                  "group shadow-simle px-5 py-4 ": item.shadow,
-                },
-                classesItem,
-                `${
-                  isAnimated[index] && revert && "slideUp"
-                } ${animationDelayClass}`,
-                `${
-                  isAnimated[index] && !revert && "slideUp"
-                } ${animationDelayClass}`,
-                "flex items-center mt-6 mb-6 opacity-0"
-              )}
+              className={`${classesItem ? classesItem : ''} ${animationDelayClass} ${isAnimated[index] && !revert && "slideUp"} ${isAnimated[index] && revert && "slideUp"} ${item.shadow ? "group shadow-simle px-5 py-4 " : ''} flex items-center mt-6 mb-6 opacity-0`}
               key={index}
             >
               {item.icon && !rightIcon && (
