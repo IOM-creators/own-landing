@@ -4,15 +4,15 @@ export const GET_SECTION_ENTRY = (id: string) => gql`
   query {
     section(id: "${id}") {
       title
-      image {
-        url
-      }
+      # image {
+      #   url
+      # }
       paddingTop
       paddingBottom
-      grid
-      content {
-        json
-      }
+      # grid
+      # content {
+      #   json
+      # }
       component {
         sys {
           id

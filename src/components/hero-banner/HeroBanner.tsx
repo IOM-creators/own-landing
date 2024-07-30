@@ -3,17 +3,10 @@ import styles from "./styles.module.scss";
 import cn from "classnames";
 import Image from "../image";
 import Icon from "../icon";
-import RichText from "../rich-text";
 import Link from "next/link";
 import Poster from "../../assets/images/poster.png";
 import Round from "../../assets/images/round.png";
 import Video from "../video";
-
-interface ILetter {
-  letter: string;
-  fullText: string;
-  delay: number;
-}
 
 interface IHeroSection {}
 
