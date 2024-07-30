@@ -12,7 +12,7 @@ const Page = (props: any) => {
         </h1>
       )}
       {aboveContent && children}
-      {page &&
+      {page?.pageContent &&
         page.pageContent.items.map((section: any, index: number) => {
           return <GqlComponent section={section} key={index} />;
         })}

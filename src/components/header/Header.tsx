@@ -35,7 +35,7 @@ const Header: React.FC<IHeader> = ({ headerRef }) => {
           "shadow-md bg-white":
             (!transparent && isHeaderVisible) || pathname !== "/" || filled,
         },
-        "border-none z-20 w-full py-2 lg:py-5 fixed top-0 "
+        "border-none z-20 w-full py-2 lg:py-5 fixed top-0"
       )}
     >
       <div className="container flex items-center font-serif text-base font-semibold">
@@ -46,18 +46,18 @@ const Header: React.FC<IHeader> = ({ headerRef }) => {
           <HeaderNavigation
             classname="flex h-full flex-wrap items-center justify-center"
             activeLink={activeLink}
-            links={header.links}
+            links={header.menu}
           />
         )}
         {pathname !== "/" && windowWidth && windowWidth >= 1024 && (
           <HeaderNavigation
             classname="flex h-full flex-wrap items-center justify-center"
             activeLink={activeLink}
-            links={header.links}
+            links={header.menu}
           />
         )}
         {windowWidth && windowWidth < 1024 && (
-          <HamburgerMenu links={header.links} activeLink={activeLink} />
+          <HamburgerMenu links={header.menu} activeLink={activeLink} />
         )}
       </div>
     </header>

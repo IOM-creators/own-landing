@@ -36,8 +36,8 @@ const Layout = ({ children }: any) => {
       >
         {children}
       </main>
-      <ContactButton />
-      <Popup />
+      {/* <ContactButton />
+      <Popup /> */}
       <Footer />
     </div>
   );

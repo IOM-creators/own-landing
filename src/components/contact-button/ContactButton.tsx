@@ -3,7 +3,7 @@ import ContactForm from "../contact-form";
 import { useActions } from "../../store/hooks/useActions";
 import Icon from "../icon";
 import { useTypedSelector } from "../../store/hooks/useTypedSelector";
-import { useGetContactUs } from "../../graphql/";
+import { useGetContactForm } from "../../graphql/";
 import Button from "../button";
 
 interface IContactButton {
@@ -11,7 +11,7 @@ interface IContactButton {
 }
 
 const ContactButton: React.FC<IContactButton> = ({ id }) => {
-  const { section } = useGetContactUs("6POxLTGZS7MVs4Uv2yPLgk");
+  const { section } = useGetContactForm("6POxLTGZS7MVs4Uv2yPLgk");
   const { isOpen }: any = useTypedSelector((state) => state.popup);
   const [iconState, setIconState] = useState(true);
   const { popupState } = useActions();
