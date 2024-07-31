@@ -22,12 +22,14 @@ const ContactInfo: React.FC<IContactUs> = ({ id = "", className }) => {
       {companyInfo && (
         <div className="contact-info__comany mt-12 mb-6 lg:mt-20 lg:mb-12">
           <ul className="flex flex-col">
-            {companyInfo.map((item, index) => (
+            {companyInfo.map((item: any, index: number) => (
               <li
                 key={index}
                 className="my-2 lg:my-4 text-base lg:text-xl font-bold"
               >
                 <Button
+                  typeButton="link"
+                  link={item.url}
                   rightText
                   icon={item?.icon?.url}
                   className="flex items-center"
@@ -42,12 +44,14 @@ const ContactInfo: React.FC<IContactUs> = ({ id = "", className }) => {
       {socialInfo && (
         <div className="contact-info__social my-6 lg:my-12">
           <ul className="flex flex-row gap-2 flex-wrap md:flex-nowrap">
-            {socialInfo.map((item, index) => (
+            {socialInfo.map((item: any, index: number) => (
               <li
                 key={index}
                 className="p-4 md:py-5 md:px-10 text-base lg:text-xl font-bold bg-light-gray"
               >
                 <Button
+                  typeButton="link"
+                  link={item.url}
                   rightText
                   icon={item?.icon?.url}
                   className="flex items-center"
