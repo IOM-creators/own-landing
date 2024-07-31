@@ -2,32 +2,15 @@ import { gql, useQuery } from "@apollo/client";
 
 export const GET_HERO_BANNER_ENTRY = gql`
   query iomLandingEntryQuery {
-    heroBanner(id: "iYltR9Bi0XFx49npRy6SB") {
-      abbreviation
-      rightCardsCollection {
-        items {
-          ... on ListItem {
-            text
-            description {
-              json
-            }
-            icon {
-              url
-            }
-          }
-        }
+    heroBanner(id: "48B850UcPJZp9VLHaUv2oJ") {
+      title
+      titleRichText{
+        json
       }
-      bottomCardsCollection {
-        items {
-          ... on ListItem {
-            text
-            description {
-              json
-            }
-            icon {
-              url
-            }
-          }
+      button{
+        ... on Link {
+          title
+          url
         }
       }
     }
@@ -46,6 +29,7 @@ export const useGetHeroBanner = () => {
     heroBanner: {
       abbreviation: heroBanner.abbreviation || [],
       rightCards,
+      titleRichText:heroBanner?.titleRichText?.json,
       bottomCards,
     },
   };

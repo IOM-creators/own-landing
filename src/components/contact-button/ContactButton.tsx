@@ -18,13 +18,14 @@ const ContactButton: React.FC<IContactButton> = ({ id }) => {
 
   const handleClickOpen = () => {
     setIconState(!iconState);
-    popupState({
-      isOpen: iconState,
-      children: <ContactForm id={section.formId} />,
-      fullScreen: true,
-      closeButton: false,
-      title: section.title,
-    });
+    // doesnt work because of formId
+    // popupState({
+    //   isOpen: iconState,
+    //   children: <ContactForm id={section.formId} />,
+    //   fullScreen: true,
+    //   closeButton: false,
+    //   title: section.title,
+    // });
   };
   useEffect(() => {
     setIconState(!isOpen);
