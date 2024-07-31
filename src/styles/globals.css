@@ -89,14 +89,27 @@ svg {
   grid-template-columns: 100%;
   min-height: 100vh;
 }
+.text-error {
+  display: inline-block;
+  color: #ed1c24;
+  padding: 10px 0;
+}
 @layer components {
   .btn {
-    @apply flex items-center py-4 px-6 md:py-7 md:px-9;
+    @apply flex items-center py-4 px-6;
   }
   .btn--primary {
-    @apply bg-orange hover:bg-orange-dark transition-colors;
+    @apply bg-primary-orange hover:bg-orange-dark transition-colors text-white text-lg font-bold;
   }
   .border-founder-icon {
     @apply rounded-full after:block after:absolute after:top-0 after:left-0 after:border-4 after:border-grey after:w-full after:h-full after:rounded-full;
+  }
+  .border-contact-form {
+    @apply border border-border-color;
+  }
+
+  h2,
+  .h2 {
+    @apply text-[40px] font-bold;
   }
 }

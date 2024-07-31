@@ -73,7 +73,8 @@ const ContactForm: React.FC<IContactUs> = ({ id = "", className }) => {
   };
   const onError = (errors: any, e: any) => console.log(errors, e);
   return (
-    <div className="max-w-lg w-full mx-auto relative slideUp">
+    <div className="max-w-[710px] p-[80px] border-contact-form  w-full mx-auto relative slideUp">
+      <h2 className="mb-[40px]">{section?.title}</h2>
       <form
         onSubmit={handleSubmit(onSubmit, onError)}
         className={cn({
@@ -86,16 +87,7 @@ const ContactForm: React.FC<IContactUs> = ({ id = "", className }) => {
               .toLocaleLowerCase()
               .replace(" ", "_");
             return (
-              <div
-                className={cn(
-                  {
-                    "sm:col-span-3": index <= 1,
-                    "sm:col-span-6": index > 1,
-                  },
-                  "my-2"
-                )}
-                key={index}
-              >
+              <div className={cn("my-2 sm:col-span-6")} key={index}>
                 <label htmlFor={fieldName}></label>
                 <Controller
                   name={fieldName}
@@ -110,7 +102,7 @@ const ContactForm: React.FC<IContactUs> = ({ id = "", className }) => {
                         id={fieldName}
                         placeholder={formField.placeholder}
                         rows={3}
-                        className="block w-full rounded-md p-2 px-4 border border-dark-blue resize-none focus:outline-none hover:outline-none"
+                        className="block w-full py-5 px-6 border-contact-form resize-none focus:outline-none hover:outline-none"
                         aria-describedby="my-helper-text"
                         {...register(fieldName)}
                       ></textarea>
@@ -121,7 +113,7 @@ const ContactForm: React.FC<IContactUs> = ({ id = "", className }) => {
                         id={fieldName}
                         placeholder={formField.placeholder}
                         autoComplete="given-name"
-                        className="block w-full rounded-md  p-2 px-4 border border-dark-blue focus:outline-none hover:outline-none"
+                        className="block w-full py-5 px-6 border-contact-form focus:outline-none hover:outline-none"
                         aria-describedby="my-helper-text"
                         {...register(fieldName)}
                       />
@@ -141,7 +133,11 @@ const ContactForm: React.FC<IContactUs> = ({ id = "", className }) => {
           )}
         </div>
         <div className="mt-5 flex justify-center">
-          <Button type="submit" secondary loading={isSending}>
+          <Button
+            type="submit"
+            className="btn btn--primary"
+            loading={isSending}
+          >
             {section.buttonText}
           </Button>
         </div>
@@ -149,7 +145,7 @@ const ContactForm: React.FC<IContactUs> = ({ id = "", className }) => {
       {isSuccessMessage && (
         <div className="success-message text-center absolute h-full w-full top-0 left-0 flex flex-col items-center justify-center">
           <Icon icon="success" className="mb-5" />
-          <p className="text-green">{section.successMessage}</p>
+          <p className="text-primary-green">{section.successMessage}</p>
         </div>
       )}
     </div>

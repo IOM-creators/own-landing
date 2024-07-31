@@ -37,13 +37,13 @@ const Section: React.FC<ISection> = ({ id, className }) => {
           section?.grid > 1,
       })}
     >
-      {section?.image && <Image src={section.image.url} />}
-      {section.component && <GqlComponent section={section.component} />}
       {section?.content && (
         <div className="slideUp text-xl">
           <RichText richText={section.content.json} />
         </div>
       )}
+      {section?.image && <Image src={section.image.url} />}
+      {section?.component && <GqlComponent section={section.component} />}
     </section>
   );
 };

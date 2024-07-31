@@ -18,9 +18,12 @@ const HeroSection: React.FC<IHeroSection> = () => {
           <div className="text-left max-w-3xl lap:max-w-6xl">
             <h1 className="text-5xl md:text-7xl md:leading-[4rem] font-bold">
               Transforming
-              <i className="font-normal fraunces italic text-green"> Ideas </i>
+              <i className="font-normal fraunces italic text-primary-green">
+                {" "}
+                Ideas{" "}
+              </i>
               into
-              <i className="font-normal fraunces italic text-green">
+              <i className="font-normal fraunces italic text-primary-green">
                 {" "}
                 Digital{" "}
               </i>
@@ -29,7 +32,7 @@ const HeroSection: React.FC<IHeroSection> = () => {
           </div>
           <Link
             href="/"
-            className="btn btn--primary justify-between group max-w-[270px] w-full text-lg font-bold text-white mt-14"
+            className="btn btn--primary justify-between group max-w-[270px] w-full mt-14"
           >
             Get Started
             <Icon
@@ -45,7 +48,7 @@ const HeroSection: React.FC<IHeroSection> = () => {
             poster={Poster.src}
             className="absolute w-[calc(100%-110px)] h-full top-0 left-0 object-cover"
           />
-          <div className="flex flex-col	justify-end absolute right-0  top-0 max-w-[30%] w-full h-[40%] bg-green text-white p-8">
+          <div className="flex flex-col	justify-end absolute right-0  top-0 max-w-[30%] w-full h-[40%] bg-primary-green text-white p-8">
             <h6 className="font-bold text-lg">
               Start grow your business with IOM
             </h6>

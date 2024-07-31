@@ -15,7 +15,6 @@ interface IButton {
   onClick?: MouseEventHandler<HTMLButtonElement>;
 }
 
-
 const Button: React.FC<IButton> = ({
   icon,
   type = "button",
@@ -29,22 +28,7 @@ const Button: React.FC<IButton> = ({
   ...props
 }) => {
   return (
-    <button
-      type={type}
-      className={cn(
-        styles.button,
-        {
-          [styles.primary]: primary,
-          [styles.secondary]: secondary,
-          [styles.active]: active,
-          [styles.loading]: loading,
-          [styles["right-text"]]: rightText,
-        },
-        className
-      )}
-      {...props}
-      aria-label={type}
-    >
+    <button type={type} className={cn(className)} {...props} aria-label={type}>
       {!rightText && children}
       {icon && (
         <Icon
