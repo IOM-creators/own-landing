@@ -19,9 +19,18 @@ const Section: React.FC<ISection> = ({ id, className }) => {
   if (!section?.title) return null;
 
   const styles = {
-    paddingBottom: `${section.paddingBottom}px`,
-    paddingTop: `${section.paddingTop}px`,
-    gridTemplateColumns:
+    "--pd-bottom": `${section.paddingBottom}px`,
+    "--pd-top": `${section.paddingTop}px`,
+    ...(section.heightBackground && {
+      "--bg-height": `${section.heightBackground}%`,
+    }),
+    ...(section.background && {
+      "--bg-section": `${section.background}`,
+    }),
+    ...(section.colorText && {
+      "--color-section": `${section.colorText}`,
+    }),
+    "--grid-column-section":
       windowWidth && windowWidth > 1024
         ? `repeat(${section.grid}, 1fr)`
         : "1fr",
@@ -32,18 +41,32 @@ const Section: React.FC<ISection> = ({ id, className }) => {
       id={id}
       ref={refSection}
       style={styles}
-      className={cn("container", {
-        [`grid gap-x-16 lg:gap-x-24 grid-cols-1 items-center`]:
-          section?.grid > 1,
+      className={cn("container section", {
+        [`grid gap-x-16 lg:gap-x-24 grid-cols-1`]: section?.grid > 1,
       })}
     >
-      {section?.content && (
-        <div className="slideUp text-xl">
-          <RichText richText={section.content.json} />
+      {!section?.showOnlyComponents && (
+        <div className="section__content slideUp">
+          <div className="section__header">
+            {section.title && <h1>{section.title}</h1>}
+            {section.subtitle && (
+              <span className="block text-xl font-bold mt-4">
+                {section.subtitle}
+              </span>
+            )}
+          </div>
+          {section?.content && (
+            <div className="section__dexcription text-xl">
+              <RichText richText={section.content.json} />
+            </div>
+          )}
+          {section?.image && <Image src={section.image.url} />}
         </div>
       )}
-      {section?.image && <Image src={section.image.url} />}
-      {section?.component && <GqlComponent section={section.component} />}
+      {section?.componentsCollection &&
+        section.componentsCollection.items.map((component: any) => (
+          <GqlComponent section={component} />
+        ))}
     </section>
   );
 };

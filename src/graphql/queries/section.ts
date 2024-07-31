@@ -5,22 +5,26 @@ export const GET_SECTION_ENTRY = (id: string) => gql`
     section(id: "${id}") {
       title
       subtitle
-      # image {
-      #   url
-      # }
+      image {
+        url
+      }
       paddingTop
       paddingBottom
       grid
       background
+      heightBackground
       colorText
       content {
         json
       }
-      component {
-        sys {
-          id
+      componentsCollection{
+        items{
+          sys{
+            id
+          }
         }
       }
+      showOnlyComponents
     }
   }
 `;

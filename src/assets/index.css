@@ -7,10 +7,6 @@ body {
   font-optical-sizing: auto;
   line-height: 1;
 }
-
-h1 {
-  font-size: 60px;
-}
 html {
   scroll-behavior: smooth;
 }

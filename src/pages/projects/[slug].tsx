@@ -3,7 +3,6 @@ import { CustomNextPageContext, createApolloClient } from "../[slug]";
 import { NextPage } from "next";
 import Page from "@/components/page";
 import Image from "@/components/image";
-import TitleSection from "@/components/title-section";
 import RichText from "@/components/rich-text";
 import Link from "next/link";
 
@@ -20,15 +19,7 @@ const Projects: NextPage = (props: any) => {
           />
         )}
         <div className="slideUp">
-          {item?.title && (
-            <TitleSection
-              tag="h3"
-              fontSize="text-2xl"
-              className="mb-4 text-black"
-            >
-              {item.title}
-            </TitleSection>
-          )}
+          {item?.title && <h2 className="mb-4 text-black">{item.title}</h2>}
           {item?.description && (
             <div className="text-xl mt-2">
               <RichText richText={item.description.json} />

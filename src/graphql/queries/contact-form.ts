@@ -6,6 +6,12 @@ export const GET_CONTACT_FORM_ENTRY = (id: string) => gql`
       title
   		buttonText
       successMessage
+      topImage{
+        url
+      }
+      leftImage{
+        url
+      }
       fieldsCollection{
         items{
           ... on FormItem {
@@ -30,6 +36,8 @@ export const useGetContactForm = (id: string = "") => {
     error,
     section: {
       title: section.title,
+      topImage: section.topImage,
+      leftImage: section.leftImage,
       formFields,
       successMessage: section?.successMessage,
       buttonText: section?.buttonText,

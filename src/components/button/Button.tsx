@@ -1,7 +1,6 @@
 import React, { MouseEventHandler } from "react";
 import cn from "classnames";
-import styles from "./button.module.scss";
-import Icon from "../icon";
+import Image from "../image";
 interface IButton {
   icon?: string;
   type?: any;
@@ -18,8 +17,6 @@ interface IButton {
 const Button: React.FC<IButton> = ({
   icon,
   type = "button",
-  primary,
-  secondary,
   className,
   children,
   rightText,
@@ -30,12 +27,7 @@ const Button: React.FC<IButton> = ({
   return (
     <button type={type} className={cn(className)} {...props} aria-label={type}>
       {!rightText && children}
-      {icon && (
-        <Icon
-          className="group-hover:translate-x-1 duration-300 transition-transform "
-          icon={icon}
-        />
-      )}
+      {icon && <Image onlyImg src={icon} className="mr-3" />}
       {rightText && children}
     </button>
   );

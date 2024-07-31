@@ -6,7 +6,6 @@ import { useTypedSelector } from "../../store/hooks/useTypedSelector";
 import { PopupState } from "../../store/types/popup";
 import { useActions } from "../../store/hooks/useActions";
 import Icon from "../icon";
-import TitleSection from "../title-section";
 import Button from "../button";
 
 const Popup: React.FC = () => {
@@ -37,15 +36,7 @@ const Popup: React.FC = () => {
             <Icon icon="close" className="popup__buttom" />
           </Button>
         )}
-        {title && (
-          <TitleSection
-            tag="h2"
-            fontSize="text-2xl"
-            className="text-center my-4"
-          >
-            {title}
-          </TitleSection>
-        )}
+        {title && <h2 className="text-center my-4">{title}</h2>}
         <div className={styles.popup__content}>{children}</div>
       </div>
     </div>

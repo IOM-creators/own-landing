@@ -12,7 +12,7 @@ interface IHeroSection {}
 
 const HeroSection: React.FC<IHeroSection> = () => {
   return (
-    <div id="hero-banner" className={cn(styles.heroSection, "text-dark-blue")}>
+    <div id="hero-banner" className={cn("text-dark-blue")}>
       <div className="relative w-full h-screen relative grid grid-cols-1 lap:grid-cols-[_45%_55%] justify-center items-center">
         <div className="relative inset-0 justify-center w-full lap:pr-12">
           <div className="text-left max-w-3xl lap:max-w-6xl">

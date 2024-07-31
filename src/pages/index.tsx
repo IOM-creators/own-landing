@@ -30,8 +30,6 @@ export const getServerSideProps = async ({
         slug: slug,
       },
     });
-    console.log("res", res, slug);
-
     return {
       props: {
         slug: slug,

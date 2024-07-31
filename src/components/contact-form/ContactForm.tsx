@@ -9,8 +9,15 @@ import { useGetContactForm } from "../../graphql/";
 
 interface IContactUsData {
   section: {
+    title: string;
     buttonText: string;
     successMessage: string;
+    topImage: {
+      url: string;
+    };
+    leftImage: {
+      url: string;
+    };
     formFields: [
       {
         typeField: string;
@@ -72,8 +79,19 @@ const ContactForm: React.FC<IContactUs> = ({ id = "", className }) => {
       });
   };
   const onError = (errors: any, e: any) => console.log(errors, e);
+
   return (
-    <div className="max-w-[710px] p-[80px] border-contact-form  w-full mx-auto relative slideUp">
+    <div
+      className="contact-form max-w-[710px] px-4 py-8 lg:p-[80px] border-contact-form bg-white  w-full mx-auto relative"
+      style={{
+        ...(section?.topImage && {
+          "--form-top-img": `url(${section.topImage.url})`,
+        }),
+        ...(section?.leftImage && {
+          "--form-left-img": `url(${section.leftImage.url})`,
+        }),
+      }}
+    >
       <h2 className="mb-[40px]">{section?.title}</h2>
       <form
         onSubmit={handleSubmit(onSubmit, onError)}
