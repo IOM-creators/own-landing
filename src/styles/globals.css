@@ -169,13 +169,15 @@ svg {
   .h2 {
     @apply text-3xl font-bold md:text-[40px];
   }
+
+  .custom-title h1 {
+    @apply text-5xl lg:text-7xl lg:leading-[4rem] font-bold;
+  }
+  .custom-title h1 i{
+    @apply font-normal italic text-primary-green;
+    font-family: "Fraunces", serif;
+  }
 }
 
 
-.custom-title h1 {
-  @apply text-5xl lg:text-7xl lg:leading-[4rem] font-bold;
-}
-.custom-title h1 i{
-  @apply font-normal italic text-green;
-  font-family: "Fraunces", serif;
-}
+
