@@ -13,6 +13,15 @@ export const GET_HERO_BANNER_ENTRY = gql`
           url
         }
       }
+      video{
+        url
+      }
+      callToActionLink{
+        ... on Link {
+          title
+          url
+        }
+      }
     }
   }
 `;
@@ -27,10 +36,10 @@ export const useGetHeroBanner = () => {
     loading,
     error,
     heroBanner: {
-      abbreviation: heroBanner.abbreviation || [],
-      rightCards,
       titleRichText:heroBanner?.titleRichText?.json,
-      bottomCards,
+      callToActionLink:heroBanner.callToActionLink,
+      button:heroBanner.button,
+      video:heroBanner.video,
     },
   };
 };

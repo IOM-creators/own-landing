@@ -14,7 +14,7 @@ interface IHeroSection { }
 
 const HeroSection: React.FC<IHeroSection> = () => {
   const { heroBanner } = useGetHeroBanner();
-  const { titleRichText } = heroBanner
+  const { titleRichText, video, callToActionLink, button } = heroBanner
 
   return (
     <div id="hero-banner" className={cn(styles.heroSection, "text-dark-blue")}>
@@ -36,23 +36,24 @@ const HeroSection: React.FC<IHeroSection> = () => {
           </Link>
         </div>
         <div className="relative right-0 w-full h-full  hidden lap:block">
-          <Video
-            src="hero-video.mp4"
+          {video?.url && <Video
+            src={video.url}
             poster={Poster.src}
             className="absolute w-[calc(100%-110px)] h-full top-0 left-0 object-cover"
-          />
+          />}
           <div className="flex flex-col	justify-end absolute right-0  top-0 max-w-[30%] w-full h-[40%] bg-green text-white p-8">
-            <h6 className="font-bold text-lg">
-              Start grow your business with IOM
-            </h6>
-            <Link href="/" className="group text-sm mt-8 flex items-center">
-              Book Meeting
+
+            {callToActionLink && <Link href={callToActionLink?.url} className="group text-sm mt-8 flex items-center">
+              {callToActionLink?.title && <h6 className="font-bold text-lg">
+                {callToActionLink?.title}
+              </h6>}
               <Icon
                 icon="left-arrow"
                 className="ml-4 group-hover:translate-x-2 transition-transform duration-300"
                 strokeClass="stroke-white"
               />
-            </Link>
+            </Link>}
+
             <div className="absolute right-0 top-0 w-2/3">
               <Image src={Round.src} />
             </div>
