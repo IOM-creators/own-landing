@@ -25,8 +25,9 @@
   }
   &__wrapper {
     position: relative;
-    max-width: 80%;
+    max-width: 690px;
     max-height: 70%;
+    width: 100%;
     background: var(--white);
     @media (max-width: 768px) {
       max-width: 90%;
@@ -34,15 +35,16 @@
       width: 100%;
     }
   }
-  &__content {
-    padding: 30px 50px;
-    @media (max-width: 768px) {
-      padding: 20px;
-    }
-  }
+  // &__content {
+  //   padding: 30px 50px;
+  //   @media (max-width: 768px) {
+  //     padding: 20px;
+  //   }
+  // }
   &__close {
     position: absolute;
     top: 20px;
     right: 20px;
+    z-index: 1;
   }
 }

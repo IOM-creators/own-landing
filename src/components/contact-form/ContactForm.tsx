@@ -10,6 +10,7 @@ import { useGetContactForm } from "../../graphql/";
 interface IContactUsData {
   section: {
     title: string;
+    subtitle: string;
     buttonText: string;
     successMessage: string;
     topImage: {
@@ -89,12 +90,28 @@ const ContactForm: React.FC<IContactUs> = ({ id = "", className }) => {
     }),
   } as React.CSSProperties;
 
+  console.log("section", section);
+
   return (
     <div
       className="contact-form max-w-[710px] px-4 py-8 lg:p-[80px] border-contact-form bg-white  w-full mx-auto relative"
       style={customStyles}
     >
-      <h2 className="mb-[40px]">{section?.title}</h2>
+      {section?.title && (
+        <h2
+          className={cn({
+            "mb-[40px]": !section.subtitle,
+            "mb-2": section.subtitle,
+          })}
+        >
+          {section?.title}
+        </h2>
+      )}
+      {section?.subtitle && (
+        <span className={cn({}, "mb-[40px] block text-lg font-bold")}>
+          {section.subtitle}
+        </span>
+      )}
       <form
         onSubmit={handleSubmit(onSubmit, onError)}
         className={cn({

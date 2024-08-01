@@ -3,6 +3,7 @@ import cn from "classnames";
 import Image from "../image";
 interface IButton {
   icon?: string;
+  classNameIcon?: string;
   type?: any;
   typeButton?: string;
   link?: string;
@@ -18,8 +19,11 @@ interface IButton {
 
 const Button: React.FC<IButton> = ({
   icon,
+  classNameIcon,
   typeButton = "button",
   link,
+  primary,
+  secondary,
   type = "button",
   className,
   children,
@@ -33,18 +37,39 @@ const Button: React.FC<IButton> = ({
       {typeButton === "link" ? (
         <a href={link} className={cn(className)}>
           {!rightText && children}
-          {icon && <Image onlyImg src={icon} className="mr-3" />}
+          {icon && (
+            <Image
+              onlyImg
+              src={icon}
+              className={cn(classNameIcon, {
+                "mr-3": rightText,
+                "ml-3": !rightText,
+              })}
+            />
+          )}
           {rightText && children}
         </a>
       ) : (
         <button
           type={type}
-          className={cn(className)}
+          className={cn(className, {
+            "btn btn--primary": primary,
+            "btn btn--secondary": secondary,
+          })}
           {...props}
           aria-label={type}
         >
           {!rightText && children}
-          {icon && <Image onlyImg src={icon} className="mr-3" />}
+          {icon && (
+            <Image
+              onlyImg
+              src={icon}
+              className={cn(classNameIcon, {
+                "mr-3": rightText,
+                "ml-3": !rightText,
+              })}
+            />
+          )}
           {rightText && children}
         </button>
       )}

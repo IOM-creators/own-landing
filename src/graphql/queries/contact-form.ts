@@ -4,6 +4,7 @@ export const GET_CONTACT_FORM_ENTRY = (id: string) => gql`
   query iomLandingEntryQuery {
     contactForm(id: "${id}") {
       title
+      subtitle
   		buttonText
       successMessage
       topImage{
@@ -36,6 +37,7 @@ export const useGetContactForm = (id: string = "") => {
     error,
     section: {
       title: section.title,
+      subtitle: section.subtitle,
       topImage: section.topImage,
       leftImage: section.leftImage,
       formFields,

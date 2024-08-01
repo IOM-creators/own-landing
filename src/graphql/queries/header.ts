@@ -6,6 +6,15 @@ export const GET_HEADER_ENTRY = gql`
       logo {
         url
       }
+      contactButton {
+        ... on Link {
+          title
+          url
+          icon {
+            url
+          }
+        }
+      }
       menuCollection {
         items {
           ... on Link {
@@ -22,6 +31,7 @@ export const useGetHeader = () => {
   const { loading, error, data } = useQuery(GET_HEADER_ENTRY);
   const header = data?.header || {};
   const menu = header?.menuCollection?.items || [];
+  const contactButton = header?.contactButton;
 
   return {
     loading,
@@ -29,6 +39,7 @@ export const useGetHeader = () => {
     header: {
       logo: header.logo?.url || "",
       menu,
+      contactButton,
     },
   };
 };

@@ -109,6 +109,8 @@ svg {
 @media screen and (min-width: 1024px) {
   .section:first-of-type {
     margin-top: var(--mg-top);
+  }
+  .section {
     padding-top: var(--pd-top);
     padding-bottom: var(--pd-bottom);
     grid-template-columns: var(--grid-column-section);
@@ -154,6 +156,9 @@ svg {
   .btn--primary {
     @apply bg-primary-orange hover:bg-orange-dark transition-colors text-white text-lg font-bold;
   }
+  .btn--secondary {
+    @apply bg-primary-green hover:bg-green-dark transition-colors text-white text-lg font-bold;
+  }
   .border-founder-icon {
     @apply rounded-full after:block after:absolute after:top-0 after:left-0 after:border-4 after:border-grey after:w-full after:h-full after:rounded-full;
   }
@@ -173,11 +178,8 @@ svg {
   .custom-title h1 {
     @apply text-5xl lg:text-7xl lg:leading-[4rem] font-bold;
   }
-  .custom-title h1 i{
+  .custom-title h1 i {
     @apply font-normal italic text-primary-green;
     font-family: "Fraunces", serif;
   }
 }
-
-
-

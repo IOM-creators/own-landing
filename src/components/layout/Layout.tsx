@@ -34,8 +34,7 @@ const Layout = ({ children }: any) => {
     <div className={cn({}, `page-template page-template-${pageName}`)}>
       <Header headerRef={headerRef} />
       <main style={customStyles}>{children}</main>
-      {/* <ContactButton />
-      <Popup /> */}
+      <Popup />
       <Footer />
     </div>
   );

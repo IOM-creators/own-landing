@@ -10,6 +10,8 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import { HeaderState } from "../../store/types/header";
 import { useTypedSelector } from "@/store/hooks/useTypedSelector";
+import Button from "../button/Button";
+import ContactButton from "../contact-button";
 interface IHeader {
   headerRef: React.ForwardedRef<HTMLDivElement>;
 }
@@ -43,18 +45,37 @@ const Header: React.FC<IHeader> = ({ headerRef }) => {
         </Link>
         {windowWidth && windowWidth >= 1024 && pathname === "/" && (
           <HeaderNavigation
+            classNameWrapper="mr-auto"
             classname="flex h-full flex-wrap items-center justify-center"
             activeLink={activeLink}
             links={header.menu}
           />
         )}
         {pathname !== "/" && windowWidth && windowWidth >= 1024 && (
-          <HeaderNavigation
-            classname="flex h-full flex-wrap items-center justify-center"
-            activeLink={activeLink}
-            links={header.menu}
-          />
+          <>
+            <HeaderNavigation
+              classNameWrapper="mx-auto"
+              classname="flex h-full flex-wrap items-center justify-center"
+              activeLink={activeLink}
+              links={header.menu}
+            />
+            {header.contactButton && (
+              <ContactButton>
+                <Button
+                  secondary
+                  link={header.contactButton.url}
+                  typeButton="button"
+                  className="max-w-[180px] group"
+                  classNameIcon="transform transition-transform group-hover:-translate-x-[-5px]"
+                  icon={header.contactButton.icon.url}
+                >
+                  {header.contactButton.title}
+                </Button>
+              </ContactButton>
+            )}
+          </>
         )}
+
         {windowWidth && windowWidth < 1024 && (
           <HamburgerMenu links={header.menu} activeLink={activeLink} />
         )}

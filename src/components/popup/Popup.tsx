@@ -32,8 +32,14 @@ const Popup: React.FC = () => {
       <div className={styles.popup__overlay} onClick={handleClose}></div>
       <div className={styles.popup__wrapper}>
         {closeButton && (
-          <Button onClick={handleClose} className={styles.popup__close}>
-            <Icon icon="close" className="popup__buttom" />
+          <Button
+            onClick={handleClose}
+            className={`${styles.popup__close} bg-light-gray hover:bg-primary-orange group`}
+          >
+            <Icon
+              icon="close"
+              className="popup__buttom group-hover:text-white"
+            />
           </Button>
         )}
         {title && <h2 className="text-center my-4">{title}</h2>}
