@@ -1,10 +1,11 @@
 import React, { MouseEventHandler } from "react";
 import cn from "classnames";
-import styles from "./button.module.scss";
-import Icon from "../icon";
+import Image from "../image";
 interface IButton {
   icon?: string;
   type?: any;
+  typeButton?: string;
+  link?: string;
   primary?: boolean;
   secondary?: boolean;
   rightText?: boolean;
@@ -15,12 +16,11 @@ interface IButton {
   onClick?: MouseEventHandler<HTMLButtonElement>;
 }
 
-
 const Button: React.FC<IButton> = ({
   icon,
+  typeButton = "button",
+  link,
   type = "button",
-  primary,
-  secondary,
   className,
   children,
   rightText,
@@ -29,31 +29,26 @@ const Button: React.FC<IButton> = ({
   ...props
 }) => {
   return (
-    <button
-      type={type}
-      className={cn(
-        styles.button,
-        {
-          [styles.primary]: primary,
-          [styles.secondary]: secondary,
-          [styles.active]: active,
-          [styles.loading]: loading,
-          [styles["right-text"]]: rightText,
-        },
-        className
+    <>
+      {typeButton === "link" ? (
+        <a href={link} className={cn(className)}>
+          {!rightText && children}
+          {icon && <Image onlyImg src={icon} className="mr-3" />}
+          {rightText && children}
+        </a>
+      ) : (
+        <button
+          type={type}
+          className={cn(className)}
+          {...props}
+          aria-label={type}
+        >
+          {!rightText && children}
+          {icon && <Image onlyImg src={icon} className="mr-3" />}
+          {rightText && children}
+        </button>
       )}
-      {...props}
-      aria-label={type}
-    >
-      {!rightText && children}
-      {icon && (
-        <Icon
-          className="group-hover:translate-x-1 duration-300 transition-transform "
-          icon={icon}
-        />
-      )}
-      {rightText && children}
-    </button>
+    </>
   );
 };
 

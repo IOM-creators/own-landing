@@ -17,15 +17,15 @@ const HeroSection: React.FC<IHeroSection> = () => {
   const { titleRichText, video, callToActionLink, button } = heroBanner
 
   return (
-    <div id="hero-banner" className={cn(styles.heroSection, "text-dark-blue")}>
-      <div className="relative w-full h-screen relative grid grid-cols-1 lap:grid-cols-[_45%_55%] justify-center items-center">
+    <div id="hero-banner" className={cn("text-dark-blue")}>
+      <div className=" w-full h-screen relative grid grid-cols-1 lap:grid-cols-[_45%_55%] justify-center items-center">
         <div className="relative inset-0 justify-center w-full lap:pr-12">
-          <div className="[&.h1] custom-title text-left max-w-3xl lap:max-w-6xl">
+          <div className=" custom-title text-left max-w-3xl lap:max-w-6xl">
             <RichText richText={titleRichText} />
           </div>
           <Link
             href="/"
-            className="btn btn--primary justify-between group max-w-[270px] w-full text-lg font-bold text-white mt-14"
+            className="btn btn--primary justify-between group max-w-[270px] w-full mt-14"
           >
             Get Started
             <Icon
@@ -41,7 +41,7 @@ const HeroSection: React.FC<IHeroSection> = () => {
             poster={Poster.src}
             className="absolute w-[calc(100%-110px)] h-full top-0 left-0 object-cover"
           />}
-          <div className="flex flex-col	justify-end absolute right-0  top-0 max-w-[30%] w-full h-[40%] bg-green text-white p-8">
+          <div className="flex flex-col	justify-end absolute right-0  top-0 max-w-[30%] w-full h-[40%] bg-primary-green text-white p-8">
 
             {callToActionLink && <Link href={callToActionLink?.url} className="group text-sm mt-8 flex items-center">
               {callToActionLink?.title && <h6 className="font-bold text-lg">

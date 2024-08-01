@@ -11,21 +11,21 @@ interface IContactButton {
 }
 
 const ContactButton: React.FC<IContactButton> = ({ id }) => {
-  const { section } = useGetContactForm("6POxLTGZS7MVs4Uv2yPLgk");
+  const { section } = useGetContactForm("2H0sXgIDG2MI86FKZHejF2");
   const { isOpen }: any = useTypedSelector((state) => state.popup);
   const [iconState, setIconState] = useState(true);
   const { popupState } = useActions();
 
   const handleClickOpen = () => {
     setIconState(!iconState);
-    // doesnt work because of formId
-    // popupState({
-    //   isOpen: iconState,
-    //   children: <ContactForm id={section.formId} />,
-    //   fullScreen: true,
-    //   closeButton: false,
-    //   title: section.title,
-    // });
+    popupState({
+      isOpen: iconState,
+      // children: <ContactForm id={section.formId} />,
+      children: <></>,
+      fullScreen: true,
+      closeButton: false,
+      title: section.title,
+    });
   };
   useEffect(() => {
     setIconState(!isOpen);

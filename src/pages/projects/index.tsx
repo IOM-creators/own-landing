@@ -6,7 +6,6 @@ import { NextPage, NextPageContext } from "next/types";
 import { GET_PAGE_COLLECTIONS } from "@/graphql/queries/page-collection";
 import { client } from "../_app";
 import Page from "@/components/page";
-import TitleSection from "@/components/title-section";
 import RichText from "@/components/rich-text";
 import Link from "next/link";
 
@@ -35,13 +34,7 @@ const SlugPage: NextPage = (props: any) => {
                       />
                     )}
                     {item?.title && (
-                      <TitleSection
-                        tag="h3"
-                        fontSize="text-2xl"
-                        className="mb-4 text-black"
-                      >
-                        {item.title}
-                      </TitleSection>
+                      <h2 className="mb-4 text-black">{item.title}</h2>
                     )}
                     {item?.description && (
                       <div className="text-xl mt-2 dots-3-line">

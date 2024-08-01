@@ -32,8 +32,7 @@ const Header: React.FC<IHeader> = ({ headerRef }) => {
         {
           "translate-y-[-100%]": !isHeaderVisible && !transparent && firstLoad,
           "translate-y-0": isHeaderVisible,
-          "shadow-md bg-white":
-            (!transparent && isHeaderVisible) || pathname !== "/" || filled,
+          "shadow-md bg-white": !transparent && isHeaderVisible,
         },
         "border-none z-20 w-full py-2 lg:py-5 fixed top-0"
       )}
