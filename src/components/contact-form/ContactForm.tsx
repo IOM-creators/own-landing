@@ -90,22 +90,20 @@ const ContactForm: React.FC<IContactUs> = ({ id = "", className }) => {
     }),
   } as React.CSSProperties;
 
-  console.log("section", section);
-
   return (
     <div
       className="contact-form max-w-[710px] px-4 py-8 lg:p-[80px] border-contact-form bg-white  w-full mx-auto relative"
       style={customStyles}
     >
       {section?.title && (
-        <h2
+        <h3
           className={cn({
             "mb-[40px]": !section.subtitle,
             "mb-2": section.subtitle,
           })}
         >
           {section?.title}
-        </h2>
+        </h3>
       )}
       {section?.subtitle && (
         <span className={cn({}, "mb-[40px] block text-lg font-bold")}>

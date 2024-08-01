@@ -3,7 +3,6 @@ import { useEffect, useRef, useState } from "react";
 import Footer from "../footer";
 import Header from "../header";
 import cn from "classnames";
-import ContactButton from "../contact-button";
 import Popup from "../popup";
 import { useActions } from "@/store/hooks/useActions";
 
@@ -13,6 +12,7 @@ const Layout = ({ children }: any) => {
   const { headerState } = useActions();
   const headerRef = useRef<HTMLDivElement | null>(null);
   const { pathname } = router;
+  const { slug } = router.query;
 
   useEffect(() => {
     const getPageName = () => {
@@ -31,7 +31,7 @@ const Layout = ({ children }: any) => {
   } as React.CSSProperties;
 
   return (
-    <div className={cn({}, `page-template page-template-${pageName}`)}>
+    <div className={cn({}, `page-template page-template-${slug}`)}>
       <Header headerRef={headerRef} />
       <main style={customStyles}>{children}</main>
       <Popup />

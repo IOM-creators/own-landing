@@ -22,7 +22,7 @@ const Section: React.FC<ISection> = ({ id, className }) => {
     "--pd-bottom": `${section.paddingBottom}px`,
     "--pd-top": `${section.paddingTop}px`,
     ...(section.heightBackground && {
-      "--bg-height": `${section.heightBackground}%`,
+      "--bg-height": `${section.heightBackground}vh`,
     }),
     ...(section.background && {
       "--bg-section": `${section.background}`,
@@ -48,7 +48,7 @@ const Section: React.FC<ISection> = ({ id, className }) => {
       {!section?.showOnlyComponents && (
         <div className="section__content slideUp">
           <div className="section__header">
-            {section.title && <h1>{section.title}</h1>}
+            {section.title && <h2>{section.title}</h2>}
             {section.subtitle && (
               <span className="block text-xl font-bold mt-4">
                 {section.subtitle}
@@ -60,7 +60,13 @@ const Section: React.FC<ISection> = ({ id, className }) => {
               <RichText richText={section.content.json} />
             </div>
           )}
-          {section?.image && <Image src={section.image.url} />}
+          {section?.image && (
+            <Image
+              src={section.image.url}
+              classWrapper="mt-20 before:pt-[50%]"
+              className="object-contain"
+            />
+          )}
         </div>
       )}
       {section?.componentsCollection &&

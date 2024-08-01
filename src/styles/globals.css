@@ -93,9 +93,23 @@ svg {
   background: var(--bg-section);
   z-index: -1;
 }
-.section:not(:first-of-type) {
+.page-template {
+  position: relative;
+}
+.page-template:not(.page-template-contact-us):after {
+  content: "";
+  position: absolute;
+  top: auto;
+  bottom: 0;
+  left: 0;
   width: 100%;
-  height: var(--bg-height);
+  height: 60vh;
+  background: #faf7f4;
+  z-index: -1;
+}
+
+.section:not(:last-of-type):not(:first-of-type) {
+  width: 100%;
   background: var(--bg-section);
 }
 
@@ -172,6 +186,10 @@ svg {
   }
   h2,
   .h2 {
+    @apply text-4xl font-bold md:text-[60px];
+  }
+  h3,
+  .h3 {
     @apply text-3xl font-bold md:text-[40px];
   }
 
