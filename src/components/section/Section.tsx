@@ -18,7 +18,7 @@ const Section: React.FC<ISection> = ({ id, className }) => {
 
   if (!section?.title) return null;
 
-  const styles = {
+  const customStyles: React.CSSProperties = {
     "--pd-bottom": `${section.paddingBottom}px`,
     "--pd-top": `${section.paddingTop}px`,
     ...(section.heightBackground && {
@@ -34,13 +34,13 @@ const Section: React.FC<ISection> = ({ id, className }) => {
       windowWidth && windowWidth > 1024
         ? `repeat(${section.grid}, 1fr)`
         : "1fr",
-  };
+  } as React.CSSProperties;
 
   return (
     <section
       id={id}
       ref={refSection}
-      style={styles}
+      style={customStyles}
       className={cn("container section", {
         [`grid gap-x-16 lg:gap-x-24 grid-cols-1`]: section?.grid > 1,
       })}

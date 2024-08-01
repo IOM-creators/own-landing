@@ -25,19 +25,17 @@ const Layout = ({ children }: any) => {
     getPageName();
   }, [pathname]);
 
+  const customStyles: React.CSSProperties = {
+    "--mg-top":
+      pathname !== "/" ? `${headerRef.current?.clientHeight || 0}px` : 0,
+  } as React.CSSProperties;
+
   return (
     <div className={cn({}, `page-template page-template-${pageName}`)}>
       <Header headerRef={headerRef} />
-      <main
-        style={{
-          "--mg-top":
-            pathname !== "/" ? `${headerRef.current?.clientHeight || 0}px` : 0,
-        }}
-      >
-        {children}
-      </main>
-      <ContactButton />
-      <Popup />
+      <main style={customStyles}>{children}</main>
+      {/* <ContactButton />
+      <Popup /> */}
       <Footer />
     </div>
   );

@@ -3,17 +3,6 @@
 @tailwind utilities;
 
 :root {
-  --black: #000000;
-  --dark: #121212;
-  --white: #ffffff;
-  --white-second: #f4f6f8;
-  --light-grey: #929292;
-  --dark-grey: #273444;
-  --error: #ed1c24;
-  --blue: #334fb4;
-  --dark-blue: #0a2640;
-  --light-blue: #fff;
-  --green: #65e4a3;
 }
 
 .App {

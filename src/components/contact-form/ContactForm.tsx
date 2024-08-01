@@ -80,17 +80,19 @@ const ContactForm: React.FC<IContactUs> = ({ id = "", className }) => {
   };
   const onError = (errors: any, e: any) => console.log(errors, e);
 
+  const customStyles: React.CSSProperties = {
+    ...(section?.topImage && {
+      "--form-top-img": `url(${section.topImage.url})`,
+    }),
+    ...(section?.leftImage && {
+      "--form-left-img": `url(${section.leftImage.url})`,
+    }),
+  } as React.CSSProperties;
+
   return (
     <div
       className="contact-form max-w-[710px] px-4 py-8 lg:p-[80px] border-contact-form bg-white  w-full mx-auto relative"
-      style={{
-        ...(section?.topImage && {
-          "--form-top-img": `url(${section.topImage.url})`,
-        }),
-        ...(section?.leftImage && {
-          "--form-left-img": `url(${section.leftImage.url})`,
-        }),
-      }}
+      style={customStyles}
     >
       <h2 className="mb-[40px]">{section?.title}</h2>
       <form

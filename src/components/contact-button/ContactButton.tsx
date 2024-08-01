@@ -20,7 +20,8 @@ const ContactButton: React.FC<IContactButton> = ({ id }) => {
     setIconState(!iconState);
     popupState({
       isOpen: iconState,
-      children: <ContactForm id={section.formId} />,
+      // children: <ContactForm id={section.formId} />,
+      children: <></>,
       fullScreen: true,
       closeButton: false,
       title: section.title,

@@ -31,7 +31,7 @@ const Button: React.FC<IButton> = ({
   return (
     <>
       {typeButton === "link" ? (
-        <a href={link} className={cn(className)} {...props}>
+        <a href={link} className={cn(className)}>
           {!rightText && children}
           {icon && <Image onlyImg src={icon} className="mr-3" />}
           {rightText && children}
