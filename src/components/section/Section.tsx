@@ -22,7 +22,7 @@ const Section: React.FC<ISection> = ({ id, className }) => {
     "--pd-bottom": `${section.paddingBottom}px`,
     "--pd-top": `${section.paddingTop}px`,
     ...(section.heightBackground && {
-      "--bg-height": `${section.heightBackground}vh`,
+      "--bg-height": `${section.heightBackground}%`,
     }),
     ...(section.background && {
       "--bg-section": `${section.background}`,
@@ -41,38 +41,42 @@ const Section: React.FC<ISection> = ({ id, className }) => {
       id={id}
       ref={refSection}
       style={customStyles}
-      className={cn("container section", {
-        [`grid gap-x-16 lg:gap-x-24 grid-cols-1`]: section?.grid > 1,
-      })}
+      className={cn("section", {})}
     >
-      {!section?.showOnlyComponents && (
-        <div className="section__content slideUp">
-          <div className="section__header">
-            {section.title && <h2>{section.title}</h2>}
-            {section.subtitle && (
-              <span className="block text-xl font-bold mt-4">
-                {section.subtitle}
-              </span>
+      <div
+        className={cn("section__wrapper container", {
+          [`grid gap-x-16 lg:gap-x-24 grid-cols-1`]: section?.grid > 1,
+        })}
+      >
+        {!section?.showOnlyComponents && (
+          <div className="section__content slideUp">
+            <div className="section__header">
+              {section.title && <h2>{section.title}</h2>}
+              {section.subtitle && (
+                <span className="block text-xl font-bold mt-4">
+                  {section.subtitle}
+                </span>
+              )}
+            </div>
+            {section?.content && (
+              <div className="section__dexcription text-xl">
+                <RichText richText={section.content.json} />
+              </div>
+            )}
+            {section?.image && (
+              <Image
+                src={section.image.url}
+                classWrapper="mt-20 before:pt-[50%]"
+                className="object-contain"
+              />
             )}
           </div>
-          {section?.content && (
-            <div className="section__dexcription text-xl">
-              <RichText richText={section.content.json} />
-            </div>
-          )}
-          {section?.image && (
-            <Image
-              src={section.image.url}
-              classWrapper="mt-20 before:pt-[50%]"
-              className="object-contain"
-            />
-          )}
-        </div>
-      )}
-      {section?.componentsCollection &&
-        section.componentsCollection.items.map((component: any) => (
-          <GqlComponent section={component} />
-        ))}
+        )}
+        {section?.componentsCollection &&
+          section.componentsCollection.items.map((component: any) => (
+            <GqlComponent section={component} />
+          ))}
+      </div>
     </section>
   );
 };

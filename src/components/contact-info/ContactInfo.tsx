@@ -43,11 +43,11 @@ const ContactInfo: React.FC<IContactUs> = ({ id = "", className }) => {
       )}
       {socialInfo && (
         <div className="contact-info__social my-6 lg:my-12">
-          <ul className="flex flex-row gap-2 flex-wrap md:flex-nowrap">
+          <ul className="flex flex-row gap-2 flex-wrap lap:flex-nowrap">
             {socialInfo.map((item: any, index: number) => (
               <li
                 key={index}
-                className="p-4 md:py-5 md:px-10 text-base lg:text-xl font-bold bg-light-gray"
+                className="p-4 md:py-5 md:px-10 text-base lg:text-xl font-bold bg-light-gray shrink-0"
               >
                 <Button
                   typeButton="link"

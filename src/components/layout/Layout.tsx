@@ -31,7 +31,7 @@ const Layout = ({ children }: any) => {
   } as React.CSSProperties;
 
   return (
-    <div className={cn({}, `page-template page-template-${slug}`)}>
+    <div className={cn({}, `page-template page-template-${slug || pageName}`)}>
       <Header headerRef={headerRef} />
       <main style={customStyles}>{children}</main>
       <Popup />

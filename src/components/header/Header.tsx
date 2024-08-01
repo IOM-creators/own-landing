@@ -27,16 +27,22 @@ const Header: React.FC<IHeader> = ({ headerRef }) => {
 
   useEffect(() => setFirstLoad(true));
 
+  const customStyles: React.CSSProperties = {
+    ...(header.background && { "--bg-header": `${header.background}` }),
+  } as React.CSSProperties;
+
   return (
     <header
       ref={headerRef}
+      style={customStyles}
       className={cn(
         {
           "translate-y-[-100%]": !isHeaderVisible && !transparent && firstLoad,
           "translate-y-0": isHeaderVisible,
+          "bg-white": filled,
           "shadow-md bg-white": !transparent && isHeaderVisible,
         },
-        "border-none z-20 w-full py-2 lg:py-5 fixed top-0"
+        "header border-none z-20 w-full py-2 lg:py-5 fixed top-0"
       )}
     >
       <div className="container flex items-center font-serif text-base font-semibold">

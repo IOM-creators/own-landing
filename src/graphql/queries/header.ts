@@ -23,6 +23,7 @@ export const GET_HEADER_ENTRY = gql`
           }
         }
       }
+      background
     }
   }
 `;
@@ -39,6 +40,7 @@ export const useGetHeader = () => {
     header: {
       logo: header.logo?.url || "",
       menu,
+      background: header.background,
       contactButton,
     },
   };
