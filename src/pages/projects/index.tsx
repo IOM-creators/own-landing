@@ -26,7 +26,7 @@ const SlugPage: NextPage = (props: any) => {
       <section className="section" style={customStyles}>
         <div className="section__wrapper container">
           <nav>
-            <ul className="grid ms:grid-cols-1 items-start  lg:grid-cols-2 gap-4">
+            <ul className="grid ms:grid-cols-1 items-start  lg:grid-cols-2 gap-6">
               {content &&
                 content.items &&
                 content.items.map((item: any) => {
@@ -40,7 +40,7 @@ const SlugPage: NextPage = (props: any) => {
                         />
                       )}
                       {item?.title && (
-                        <h2 className="absolute lef-0 bottom-0 p-6 mix-blend-exclusion text-white">
+                        <h2 className="absolute lef-0 bottom-0 p-4 md:p-6 mix-blend-exclusion text-white">
                           {item.title}
                         </h2>
                       )}

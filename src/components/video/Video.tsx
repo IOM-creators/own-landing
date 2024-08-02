@@ -19,7 +19,7 @@ const Video: React.FC<IVideo> = ({
   const { video } = useGetVideo(id);
 
   return (
-    <div className={classWrapper}>
+    <div className={cn(classWrapper, {})}>
       {video ? (
         <video
           src={video.video.url}
