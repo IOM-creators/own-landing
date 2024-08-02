@@ -6,7 +6,12 @@ export const GET_CONTACT_FORM_ENTRY = (id: string) => gql`
       title
       subtitle
   		buttonText
-      successMessage
+      successMessage{
+        json
+      }
+      successImage{
+        url
+      }
       topImage{
         url
       }
@@ -41,7 +46,8 @@ export const useGetContactForm = (id: string = "") => {
       topImage: section.topImage,
       leftImage: section.leftImage,
       formFields,
-      successMessage: section?.successMessage,
+      successMessage: section?.successMessage?.json,
+      successImage: section?.successImage?.url,
       buttonText: section?.buttonText,
     },
   };
