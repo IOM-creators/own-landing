@@ -79,9 +79,11 @@ const Section: React.FC<ISection> = ({ id, className }) => {
           </div>
         )}
         {section?.componentsCollection &&
-          section.componentsCollection.items.map((component: any) => (
-            <GqlComponent section={component} />
-          ))}
+          section.componentsCollection.items.map(
+            (component: any, index: number) => (
+              <GqlComponent section={component} key={index} />
+            )
+          )}
       </div>
     </section>
   );

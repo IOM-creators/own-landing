@@ -119,6 +119,10 @@ svg {
   z-index: -1;
 }
 
+.review-item {
+  padding-top: var(--pd-top);
+  padding-bottom: var(--pd-bottom);
+}
 .section {
   position: relative;
   padding-top: calc(var(--pd-top) / 2);
@@ -182,6 +186,10 @@ svg {
   .h3 {
     @apply text-3xl font-bold md:text-[40px] leading-none;
   }
+  h4,
+  .h4 {
+    @apply text-3xl font-bold md:text-[30px] leading-none;
+  }
 
   .custom-title h2 i,
   .custom-title h1 i {
@@ -196,6 +204,10 @@ svg {
   }
   .section:first-of-type {
     padding-top: calc(var(--mg-top) + var(--pd-top));
+  }
+  .review-item {
+    padding-top: var(--pd-top);
+    padding-bottom: var(--pd-bottom);
   }
   .section {
     padding-top: var(--pd-top);

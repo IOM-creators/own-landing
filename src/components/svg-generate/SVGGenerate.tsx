@@ -37,6 +37,7 @@ const SVGGenerate: React.FC<ISVGGenerate> = ({
       case "arrow-next":
         return (
           <svg
+            className={className}
             width="15"
             height="12"
             viewBox="0 0 15 12"
@@ -46,18 +47,19 @@ const SVGGenerate: React.FC<ISVGGenerate> = ({
             <path
               d="M8.57349 1.41821L13.1553 6L8.57349 10.5818"
               stroke="currentColor"
-              stroke-width="2"
+              strokeWidth="2"
             />
             <path
               d="M12.8445 6L0.844482 6"
               stroke="currentColor"
-              stroke-width="2"
+              strokeWidth="2"
             />
           </svg>
         );
       case "arrow-prev":
         return (
           <svg
+            className={className}
             width="15"
             height="12"
             viewBox="0 0 15 12"
@@ -67,12 +69,12 @@ const SVGGenerate: React.FC<ISVGGenerate> = ({
             <path
               d="M6.42651 1.41821L1.84472 6L6.42651 10.5818"
               stroke="currentColor"
-              stroke-width="2"
+              strokeWidth="2"
             />
             <path
               d="M2.15552 6L14.1555 6"
               stroke="currentColor"
-              stroke-width="2"
+              strokeWidth="2"
             />
           </svg>
         );

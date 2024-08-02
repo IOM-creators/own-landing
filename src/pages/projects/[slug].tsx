@@ -3,6 +3,8 @@ import { CustomNextPageContext, createApolloClient } from "../[slug]";
 import { NextPage } from "next";
 import Page from "@/components/page";
 import Image from "@/components/image";
+import Icon from "@/components/icon";
+import Button from "@/components/button";
 
 const Projects: NextPage = (props: any) => {
   const item = props.items[0];
@@ -10,22 +12,49 @@ const Projects: NextPage = (props: any) => {
 
   const customStyles: React.CSSProperties = {
     "--pd-top": `100px`,
-    "--pd-bottom": `100px`,
+    "--pd-bottom": `50px`,
+    "--bg-height": `50%`,
+    "--bg-section": `#FAF7F4`,
   } as React.CSSProperties;
   return (
     <Page page={props.items[0]} sectionIndex={0}>
       <section className="section" style={customStyles}>
         <div className="section__wrapper container">
-          {item?.image && (
+          <div className="project__header slideUp flex justify-between items-center">
+            <div>
+              {item?.title && <h2 className="mb-4 text-black">{item.title}</h2>}
+              {item.technologies && (
+                <ul className="technologies flex items-center gap-4 mt-2">
+                  {item.technologies.map(
+                    (technology: string, index: number) => (
+                      <li key={index} className="bg-white p-2">
+                        <span>{technology}</span>
+                      </li>
+                    )
+                  )}
+                </ul>
+              )}
+            </div>
+            <Button
+              typeButton="link"
+              link={item.siteLink}
+              primary
+              className="w-auto text-white group"
+            >
+              Open Live Site
+              <Icon
+                icon="arrow-next"
+                className="ml-2 transform transition-transform group-hover:-translate-x-[-5px]"
+              />
+            </Button>
+          </div>
+          {item?.heroImage && (
             <Image
-              src={item.image.url}
+              src={item.heroImage.url}
               className="object-contain"
-              classWrapper="mb-10 before:pt-[50%]"
+              classWrapper="my-10 before:pt-[34%]"
             />
           )}
-          <div className="slideUp">
-            {item?.title && <h2 className="mb-4 text-black">{item.title}</h2>}
-          </div>
         </div>
       </section>
     </Page>

@@ -35,7 +35,14 @@ const Button: React.FC<IButton> = ({
   return (
     <>
       {typeButton === "link" ? (
-        <a href={link} className={cn(className)}>
+        <a
+          href={link}
+          target="blank"
+          className={cn(className, {
+            "btn btn--primary": primary,
+            "btn btn--secondary": secondary,
+          })}
+        >
           {!rightText && children}
           {icon && (
             <Image
