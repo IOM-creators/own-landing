@@ -119,6 +119,7 @@ svg {
   z-index: -1;
 }
 
+.review-item,
 .section {
   position: relative;
   padding-top: calc(var(--pd-top) / 2);
@@ -130,6 +131,9 @@ svg {
 }
 .section__wrapper {
   grid-template-columns: 1fr;
+  gap: var(--grid-gap-section);
+  justify-content: var(--aligment-section);
+  max-width: var(--max-w-section);
 }
 
 .contact-form::after,
@@ -155,13 +159,13 @@ svg {
 }
 @layer components {
   .btn {
-    @apply flex items-center py-4 px-6 w-full justify-center;
+    @apply flex items-center py-4 px-6  justify-center;
   }
   .btn--primary {
-    @apply bg-primary-orange hover:bg-orange-dark transition-colors text-white text-lg font-bold;
+    @apply justify-between h-max min-w-[180px] bg-primary-orange hover:bg-orange-dark transition-colors text-white text-lg font-bold;
   }
   .btn--secondary {
-    @apply bg-primary-green hover:bg-green-dark transition-colors text-white text-lg font-bold;
+    @apply justify-between h-max min-w-[180px] bg-primary-green hover:bg-green-dark transition-colors text-white text-lg font-bold;
   }
   .border-founder-icon {
     @apply rounded-full after:block after:absolute after:top-0 after:left-0 after:border-4 after:border-grey after:w-full after:h-full after:rounded-full;
@@ -182,6 +186,10 @@ svg {
   .h3 {
     @apply text-3xl font-bold md:text-[40px] leading-none;
   }
+  h4,
+  .h4 {
+    @apply text-3xl font-bold md:text-[30px] leading-none;
+  }
 
   .custom-title h2 i,
   .custom-title h1 i {
@@ -197,6 +205,10 @@ svg {
   .section:first-of-type {
     padding-top: calc(var(--mg-top) + var(--pd-top));
   }
+  .review-item {
+    padding-top: var(--pd-top);
+    padding-bottom: var(--pd-bottom);
+  }
   .section {
     padding-top: var(--pd-top);
     padding-bottom: var(--pd-bottom);
@@ -204,6 +216,7 @@ svg {
   }
   .section__wrapper {
     grid-template-columns: var(--grid-column-section);
+    gap: var(--grid-gap-section);
   }
   .contact-form::before {
     max-width: 230px;

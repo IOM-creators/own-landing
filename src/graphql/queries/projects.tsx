@@ -11,6 +11,18 @@ export const GET_PROJECTS = () => gql`
           image {
             url
           }
+          heroImage {
+            url
+          }
+          siteLink
+          technologies
+        }
+        pageContent: pageContentCollection {
+          items {
+            sys {
+              id
+            }
+          }
         }
       }
     }
@@ -28,13 +40,18 @@ export const GET_PROJECTS_BY_SLUG = (slug: string) => gql`
           image{
             url
           }
-          # pageContent: pageContentCollection {
-          #   items {
-          #     sys {
-          #       id
-          #     }
-          #   }
-          # }
+          heroImage{
+            url
+          }
+          siteLink
+          technologies
+          pageContent: pageContentCollection {
+            items {
+              sys {
+                id
+              }
+            }
+          }
         }
       }
     }
@@ -49,6 +66,11 @@ export const GET_PROJECTS_BY_ID = (id: string) => gql`
       image{
         url
       }
+      heroImage{
+            url
+      }
+      siteLink
+      technologies
     }
   }
 `;
