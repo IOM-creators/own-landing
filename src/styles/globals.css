@@ -78,7 +78,7 @@ svg {
   grid-template-columns: 100%;
   min-height: 100vh;
 }
-.page-template:not(.page-template-index) .header {
+.page-template:not(.page-template-index) .header:not(.bg-white) {
   background: var(--bg-header);
 }
 .page-template:not(.page-template-contact-us) .footer {
@@ -106,7 +106,7 @@ svg {
 .page-template {
   position: relative;
 }
-.section:last-of-type:not(:first-of-type)::after {
+.section:not(:first-of-type):last-of-type::after {
   content: "";
   position: absolute;
   top: auto;
@@ -171,20 +171,18 @@ svg {
 
   h1,
   .h1 {
-    @apply text-5xl font-bold md:text-[80px];
+    @apply text-5xl font-bold md:text-[80px] leading-none;
   }
   h2,
   .h2 {
-    @apply text-4xl font-bold md:text-[60px];
+    @apply text-4xl font-bold md:text-[60px] leading-none;
   }
   h3,
   .h3 {
-    @apply text-3xl font-bold md:text-[40px];
+    @apply text-3xl font-bold md:text-[40px] leading-none;
   }
 
-  .custom-title h1 {
-    @apply text-5xl lg:text-7xl lg:leading-[4rem] font-bold;
-  }
+  .custom-title h2 i,
   .custom-title h1 i {
     @apply font-normal italic text-primary-green;
     font-family: "Fraunces", serif;

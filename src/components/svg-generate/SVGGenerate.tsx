@@ -37,36 +37,42 @@ const SVGGenerate: React.FC<ISVGGenerate> = ({
       case "arrow-next":
         return (
           <svg
-            className="w-3 h-3 rtl:rotate-180"
-            aria-hidden="true"
-            xmlns="http://www.w3.org/2000/svg"
+            width="15"
+            height="12"
+            viewBox="0 0 15 12"
             fill="none"
-            viewBox="0 0 6 10"
+            xmlns="http://www.w3.org/2000/svg"
           >
             <path
+              d="M8.57349 1.41821L13.1553 6L8.57349 10.5818"
               stroke="currentColor"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth="2"
-              d="m1 9 4-4-4-4"
+              stroke-width="2"
+            />
+            <path
+              d="M12.8445 6L0.844482 6"
+              stroke="currentColor"
+              stroke-width="2"
             />
           </svg>
         );
       case "arrow-prev":
         return (
           <svg
-            className="w-3 h-3 rtl:rotate-180"
-            aria-hidden="true"
-            xmlns="http://www.w3.org/2000/svg"
+            width="15"
+            height="12"
+            viewBox="0 0 15 12"
             fill="none"
-            viewBox="0 0 6 10"
+            xmlns="http://www.w3.org/2000/svg"
           >
             <path
+              d="M6.42651 1.41821L1.84472 6L6.42651 10.5818"
               stroke="currentColor"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth="2"
-              d="M5 1 1 5l4 4"
+              stroke-width="2"
+            />
+            <path
+              d="M2.15552 6L14.1555 6"
+              stroke="currentColor"
+              stroke-width="2"
             />
           </svg>
         );

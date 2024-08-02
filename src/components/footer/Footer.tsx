@@ -46,8 +46,8 @@ const Footer = () => {
           {footer.social && (
             <div className="footer-item footer__social">
               <ul className="flex items-center gap-4 justify-center mt-8 lg:mt-0 lg:justify-normal">
-                {footer.social.map((item: any) => (
-                  <li>
+                {footer.social.map((item: any, index: number) => (
+                  <li key={index}>
                     <Button
                       typeButton="link"
                       link={item.url}
