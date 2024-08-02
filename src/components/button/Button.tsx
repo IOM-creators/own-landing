@@ -1,4 +1,6 @@
 import React, { MouseEventHandler } from "react";
+import Link from "next/link";
+
 import cn from "classnames";
 import Image from "../image";
 interface IButton {
@@ -21,7 +23,7 @@ const Button: React.FC<IButton> = ({
   icon,
   classNameIcon,
   typeButton = "button",
-  link,
+  link = "",
   primary,
   secondary,
   type = "button",
@@ -35,7 +37,7 @@ const Button: React.FC<IButton> = ({
   return (
     <>
       {typeButton === "link" ? (
-        <a
+        <Link
           href={link}
           className={cn(className, {
             "btn btn--primary": primary,
@@ -54,7 +56,7 @@ const Button: React.FC<IButton> = ({
             />
           )}
           {rightText && children}
-        </a>
+        </Link>
       ) : (
         <button
           type={type}
