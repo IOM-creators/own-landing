@@ -4,6 +4,9 @@ export const componentMap: any = {
   HeroBanner: dynamic(() =>
     import("../components/hero-banner").then((module) => module.default)
   ),
+  AboutSection: dynamic(() =>
+    import("../components/about-section").then((module) => module.default)
+  ),
   ContactForm: dynamic(() =>
     import("../components/contact-form").then((module) => module.default)
   ),

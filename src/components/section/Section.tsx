@@ -35,6 +35,7 @@ const Section: React.FC<ISection> = ({ id, className }) => {
         ? `repeat(${section.grid}, 1fr)`
         : "1fr",
   } as React.CSSProperties;
+  console.log(section?.componentsCollection);
 
   return (
     <section
