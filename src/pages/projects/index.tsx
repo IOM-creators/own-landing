@@ -17,7 +17,7 @@ const SlugPage: NextPage = (props: any) => {
   const { total } = useProjectsTotal();
   const { content } = useProjects((currentPage - 1) * PAGE_SIZE);
   const customStyles: React.CSSProperties = {
-    "--pd-top": `50px`,
+    "--pd-top": `0px`,
     "--pd-bottom": `50px`,
   } as React.CSSProperties;
 
