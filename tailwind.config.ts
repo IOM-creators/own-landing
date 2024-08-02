@@ -18,6 +18,7 @@ module.exports = {
       balack: "#000",
       "border-color": "#E8E2DC",
       "light-gray": "#FAF7F4",
+      gray: "#E8E2DC",
     },
     extend: {
       padding: {
@@ -37,6 +38,7 @@ module.exports = {
         "bg-white": "#fff",
         "bg-balack": "#000",
         "bg-light-gray": "#FAF7F4",
+        "bg-gray": "#E8E2DC",
       },
       backgroundImage: {},
       boxShadow: {},

@@ -3,28 +3,29 @@ import { CustomNextPageContext, createApolloClient } from "../[slug]";
 import { NextPage } from "next";
 import Page from "@/components/page";
 import Image from "@/components/image";
-import RichText from "@/components/rich-text";
-import Link from "next/link";
 
 const Projects: NextPage = (props: any) => {
   const item = props.items[0];
+  console.log("section", item);
+
+  const customStyles: React.CSSProperties = {
+    "--pd-top": `100px`,
+    "--pd-bottom": `100px`,
+  } as React.CSSProperties;
   return (
-    <Page page={props.items[0]} aboveContent>
-      <section className="container grid md:grid-cols-2 gap-10 py-20">
-        {item?.image && (
-          <Image
-            src={item.image.url}
-            className="object-contain"
-            classWrapper="mb-10 before:pt-[50%]"
-          />
-        )}
-        <div className="slideUp">
-          {item?.title && <h2 className="mb-4 text-black">{item.title}</h2>}
-          {item?.description && (
-            <div className="text-xl mt-2">
-              <RichText richText={item.description.json} />
-            </div>
+    <Page page={props.items[0]} sectionIndex={0}>
+      <section className="section" style={customStyles}>
+        <div className="section__wrapper container">
+          {item?.image && (
+            <Image
+              src={item.image.url}
+              className="object-contain"
+              classWrapper="mb-10 before:pt-[50%]"
+            />
           )}
+          <div className="slideUp">
+            {item?.title && <h2 className="mb-4 text-black">{item.title}</h2>}
+          </div>
         </div>
       </section>
     </Page>

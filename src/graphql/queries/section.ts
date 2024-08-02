@@ -4,6 +4,9 @@ export const GET_SECTION_ENTRY = (id: string) => gql`
   query {
     section(id: "${id}") {
       title
+      titleRichtext{
+        json
+      }
       subtitle
       image {
         url

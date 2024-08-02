@@ -13,4 +13,7 @@ export const componentMap: any = {
   Section: dynamic(() =>
     import("../components/section").then((module) => module.default)
   ),
+  Video: dynamic(() =>
+    import("../components/video").then((module) => module.default)
+  ),
 };

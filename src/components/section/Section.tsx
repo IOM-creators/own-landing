@@ -51,7 +51,13 @@ const Section: React.FC<ISection> = ({ id, className }) => {
         {!section?.showOnlyComponents && (
           <div className="section__content slideUp">
             <div className="section__header">
-              {section.title && <h2>{section.title}</h2>}
+              {section.title && !section.titleRichtext ? (
+                <h2>{section.title}</h2>
+              ) : (
+                <div className="custom-title text-center mb-12 md:mb-24 mx-auto max-w-[1050px]">
+                  <RichText richText={section.titleRichtext.json} />
+                </div>
+              )}
               {section.subtitle && (
                 <span className="block text-xl font-bold mt-4">
                   {section.subtitle}

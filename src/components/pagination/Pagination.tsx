@@ -41,8 +41,14 @@ const Pagination: React.FC<IPagination> = ({
       <ul className="flex items-center justify-center -space-x-px h-10 text-base">
         <li className="p-2">
           <a
-            href="#"
-            className=" border  rounded-s-lg flex items-center justify-center px-4 h-10 leading-tight text-blue bg-white border border-blue  hover:bg-dark-blue hover:text-white"
+            href=""
+            className={cn(
+              "flex items-center justify-center px-4 h-10 text-black bg-light-gray hover:bg-primary-green hover:text-white",
+              {
+                "bg-light-gray text-gray pointer-events-none":
+                  currentPage === 1,
+              }
+            )}
             onClick={(e: any) =>
               handlePage(e, currentPage <= 1 ? 1 : currentPage - 1)
             }
@@ -57,10 +63,10 @@ const Pagination: React.FC<IPagination> = ({
               href="#"
               className={cn(
                 {
-                  "bg-dark-blue text-white": p === currentPage,
-                  "text-blue bg-white": p !== currentPage,
+                  "bg-primary-green text-white": p === currentPage,
+                  "text-black bg-light-gray": p !== currentPage,
                 },
-                "flex items-center justify-center px-4 h-10 leading-tight  border border-blue hover:bg-dark-blue hover:text-white"
+                "flex items-center justify-center px-4 h-10  bg-light-gray hover:bg-primary-green hover:text-white"
               )}
               onClick={(e: any) => handlePage(e, p)}
             >
@@ -71,7 +77,13 @@ const Pagination: React.FC<IPagination> = ({
         <li className="p-2">
           <a
             href="#"
-            className="flex items-center justify-center px-4 h-10 leading-tight text-blue bg-white border border-blue rounded-e-lg hover:bg-dark-blue hover:text-white"
+            className={cn(
+              "flex items-center justify-center px-4 h-10 text-balck bg-light-gray hover:bg-primary-green hover:text-white",
+              {
+                "bg-light-gray text-gray pointer-events-none":
+                  currentPage === totalPages,
+              }
+            )}
             onClick={(e: any) =>
               handlePage(
                 e,
