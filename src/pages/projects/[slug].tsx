@@ -8,7 +8,6 @@ import Button from "@/components/button";
 
 const Projects: NextPage = (props: any) => {
   const item = props.items[0];
-  console.log("section", item);
 
   const customStyles: React.CSSProperties = {
     "--pd-top": `100px`,
@@ -20,8 +19,8 @@ const Projects: NextPage = (props: any) => {
     <Page page={props.items[0]} sectionIndex={0}>
       <section className="section" style={customStyles}>
         <div className="section__wrapper container">
-          <div className="project__header slideUp flex justify-between items-center">
-            <div>
+          <div className="project__header slideUp flex flex-wrap justify-between items-start">
+            <div className="mb-4">
               {item?.title && <h2 className="mb-4 text-black">{item.title}</h2>}
               {item.technologies && (
                 <ul className="technologies flex items-center gap-4 mt-2">
@@ -39,7 +38,7 @@ const Projects: NextPage = (props: any) => {
               typeButton="link"
               link={item.siteLink}
               primary
-              className="w-auto text-white group"
+              className="w-auto text-white group w-full md:w-auto"
             >
               Open Live Site
               <Icon
@@ -51,8 +50,8 @@ const Projects: NextPage = (props: any) => {
           {item?.heroImage && (
             <Image
               src={item.heroImage.url}
-              className="object-contain"
-              classWrapper="my-10 before:pt-[34%]"
+              className="object-cover lg:object-contain"
+              classWrapper="my-10 before:pt-[100%] lg:before:pt-[34%]"
             />
           )}
         </div>

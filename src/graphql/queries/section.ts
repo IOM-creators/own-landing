@@ -7,13 +7,25 @@ export const GET_SECTION_ENTRY = (id: string) => gql`
       titleRichtext{
         json
       }
+      button{
+        ...on Link{
+          title
+          url
+          icon{
+            url
+          }
+        }
+      }
       subtitle
       image {
         url
       }
       paddingTop
       paddingBottom
+      maxWidth
+      aligment
       grid
+      gridGap
       background
       heightBackground
       colorText

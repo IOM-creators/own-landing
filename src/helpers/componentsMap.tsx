@@ -19,4 +19,7 @@ export const componentMap: any = {
   ReviewItem: dynamic(() =>
     import("../components/review-item").then((module) => module.default)
   ),
+  ProjectCard: dynamic(() =>
+    import("../components/project-card").then((module) => module.default)
+  ),
 };

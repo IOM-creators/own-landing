@@ -37,7 +37,6 @@ const Button: React.FC<IButton> = ({
       {typeButton === "link" ? (
         <a
           href={link}
-          target="blank"
           className={cn(className, {
             "btn btn--primary": primary,
             "btn btn--secondary": secondary,
