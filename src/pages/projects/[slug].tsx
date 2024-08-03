@@ -5,9 +5,11 @@ import Page from "@/components/page";
 import Image from "@/components/image";
 import Icon from "@/components/icon";
 import Button from "@/components/button";
+import { useWindowWidth } from "@/helpers/reactHooks";
 
 const Projects: NextPage = (props: any) => {
   const item = props.items[0];
+  const windowWidth: number = useWindowWidth() || 0;
 
   const customStyles: React.CSSProperties = {
     "--pd-top": `100px`,
@@ -15,6 +17,7 @@ const Projects: NextPage = (props: any) => {
     "--bg-height": `50%`,
     "--bg-section": `#FAF7F4`,
   } as React.CSSProperties;
+
   return (
     <Page page={props.items[0]} sectionIndex={0}>
       <section className="section" style={customStyles}>
@@ -47,13 +50,21 @@ const Projects: NextPage = (props: any) => {
               />
             </Button>
           </div>
-          {item?.heroImage && (
-            <Image
-              src={item.heroImage.url}
-              className="object-cover lg:object-contain"
-              classWrapper="my-10 before:pt-[100%] lg:before:pt-[34%]"
-            />
-          )}
+          {windowWidth && windowWidth >= 1024
+            ? item.heroImage && (
+                <Image
+                  src={item.heroImage.url}
+                  className="object-cover lg:object-contain"
+                  classWrapper="my-10 before:pt-[100%] lg:before:pt-[34%]"
+                />
+              )
+            : item.mobileHeroImage && (
+                <Image
+                  src={item.mobileHeroImage.url}
+                  className="object-cover lg:object-contain"
+                  classWrapper="my-10 before:pt-[100%] lg:before:pt-[34%]"
+                />
+              )}
         </div>
       </section>
     </Page>

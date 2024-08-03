@@ -19,6 +19,7 @@ const HeroSection: React.FC<IHeroSection> = () => {
   const {
     titleRichText,
     video,
+    rIghtBlockText,
     callToActionLink,
     button,
     topRatedImage,
@@ -57,9 +58,7 @@ const HeroSection: React.FC<IHeroSection> = () => {
             />
           )}
           <div className="flex flex-col	justify-end absolute right-0  top-0 max-w-[30%] w-full h-[40%] bg-primary-green text-white p-8">
-            <span className="text-xl font-bold">
-              Start grow your business with IOM
-            </span>
+            <span className="text-xl font-bold">{rIghtBlockText}</span>
             {callToActionLink?.url && (
               <ContactButton>
                 <Button

@@ -24,13 +24,13 @@ const ProjectCard: React.FC<IProjectCard> = ({ id = "", className }) => {
           />
         )}
         {project?.title && (
-          <div className="absolute lef-0 bottom-0 p-4 md:p-6 mix-blend-exclusion text-white">
-            {project.title && <h2 className="">{project.title}</h2>}
+          <div className="py-4 md:py-6">
+            {project.title && <h3 className="">{project.title}</h3>}
             {project.technologies && (
-              <ul className="technologies flex projects-center gap-4 mt-2">
+              <ul className="technologies flex projects-center gap-4 mt-4">
                 {project.technologies.map(
                   (technology: string, index: number) => (
-                    <li key={index}>
+                    <li key={index} className="border rounded-md p-2">
                       <span>{technology}</span>
                     </li>
                   )
