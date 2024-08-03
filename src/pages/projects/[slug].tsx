@@ -22,7 +22,7 @@ const Projects: NextPage = (props: any) => {
     <Page page={props.items[0]} sectionIndex={0}>
       <section className="section" style={customStyles}>
         <div className="section__wrapper container">
-          <div className="project__header slideUp flex flex-wrap justify-between items-start">
+          <div className="project__header flex flex-wrap justify-between items-start">
             <div className="mb-4">
               {item?.title && <h2 className="mb-4 text-black">{item.title}</h2>}
               {item.technologies && (
