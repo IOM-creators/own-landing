@@ -4,18 +4,21 @@ import cn from "classnames";
 import axios from "axios";
 
 import Button from "../button";
-import Icon from "../icon";
+import Image from "../image";
+import RichText from "../rich-text";
 import { useGetContactForm } from "../../graphql/";
+import { Document } from "@contentful/rich-text-types";
 
 interface IContactUsData {
   section: {
     title: string;
     subtitle: string;
     buttonText: string;
-    successMessage: string;
+    successMessage: Document;
     topImage: {
       url: string;
     };
+    successImage: string;
     leftImage: {
       url: string;
     };
@@ -178,9 +181,9 @@ const ContactForm: React.FC<IContactUs> = ({ id = "", className }) => {
         </div>
       </form>
       {isSuccessMessage && (
-        <div className="success-message text-center absolute h-full w-full top-0 left-0 flex flex-col items-center justify-center">
-          <Icon icon="success" className="mb-5" />
-          <p className="text-primary-green">{section.successMessage}</p>
+        <div className="success-message text-center absolute bg-white h-full w-full top-0 left-0 flex flex-col items-center justify-center">
+          <Image src={section.successImage} classWrapper="w-60" />
+          <RichText richText={section.successMessage} />
         </div>
       )}
     </div>

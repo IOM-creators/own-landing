@@ -40,13 +40,16 @@ const SlugPage: NextPage = (props: any) => {
                         />
                       )}
                       {item?.title && (
-                        <div className="absolute lef-0 bottom-0 p-4 md:p-6 mix-blend-exclusion text-white">
+                        <div className="py-4 md:py-6">
                           {item.title && <h2 className="">{item.title}</h2>}
                           {item.technologies && (
-                            <ul className="technologies flex items-center gap-4 mt-2">
+                            <ul className="technologies flex items-center gap-4 mt-4">
                               {item.technologies.map(
                                 (technology: string, index: number) => (
-                                  <li key={index}>
+                                  <li
+                                    key={index}
+                                    className="border rounded-md p-2"
+                                  >
                                     <span>{technology}</span>
                                   </li>
                                 )

@@ -44,7 +44,7 @@ const ReviewItem: React.FC<IReviewItem> = ({ id = "", className }) => {
             typeButton="link"
             icon={review.link.icon.url}
             link={review.link.url}
-            className="flex text-primary-green group"
+            className="flex items-center text-primary-green group"
             classNameIcon="transform transition-transform group-hover:-translate-x-[-5px]"
           >
             {review.link.title}

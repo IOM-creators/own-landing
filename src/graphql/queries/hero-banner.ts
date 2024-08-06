@@ -3,45 +3,45 @@ import { gql, useQuery } from "@apollo/client";
 export const GET_HERO_BANNER_ENTRY = gql`
   query iomLandingEntryQuery {
     heroBanner(id: "48B850UcPJZp9VLHaUv2oJ") {
-      titleRichText{
+      titleRichText {
         json
       }
-      button{
+      button {
         ... on Link {
           title
           url
-          icon{
+          icon {
             url
           }
         }
       }
-      video{
+      video {
         url
       }
-      callToActionLink{
+      rIghtBlockText
+      callToActionLink {
         ... on Link {
           title
           url
-          icon{
+          icon {
             url
           }
         }
       }
-      upworkLink{
+      upworkLink {
         ... on Link {
           title
           url
-          icon{
+          icon {
             url
           }
         }
-
       }
-      topRatedImage{
+      topRatedImage {
         url
         title
       }
-      jobSuccessImage{
+      jobSuccessImage {
         url
         title
       }
@@ -57,13 +57,14 @@ export const useGetHeroBanner = () => {
     loading,
     error,
     heroBanner: {
-      titleRichText:heroBanner?.titleRichText?.json,
-      callToActionLink:heroBanner.callToActionLink,
-      button:heroBanner.button,
-      video:heroBanner.video,
-      upworkLink:heroBanner.upworkLink,
-      topRatedImage:heroBanner.topRatedImage,
-      jobSuccessImage:heroBanner.jobSuccessImage,
+      titleRichText: heroBanner?.titleRichText?.json,
+      rIghtBlockText: heroBanner.rIghtBlockText,
+      callToActionLink: heroBanner.callToActionLink,
+      button: heroBanner.button,
+      video: heroBanner.video,
+      upworkLink: heroBanner.upworkLink,
+      topRatedImage: heroBanner.topRatedImage,
+      jobSuccessImage: heroBanner.jobSuccessImage,
     },
   };
 };

@@ -14,6 +14,9 @@ export const GET_PROJECTS = () => gql`
           heroImage {
             url
           }
+          mobileHeroImage {
+            url
+          }
           siteLink
           technologies
         }
@@ -43,6 +46,9 @@ export const GET_PROJECTS_BY_SLUG = (slug: string) => gql`
           heroImage{
             url
           }
+          mobileHeroImage{
+            url
+          }
           siteLink
           technologies
           pageContent: pageContentCollection {
@@ -67,6 +73,9 @@ export const GET_PROJECTS_BY_ID = (id: string) => gql`
         url
       }
       heroImage{
+            url
+      }
+      mobileHeroImage{
             url
       }
       siteLink

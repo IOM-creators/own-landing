@@ -133,7 +133,7 @@ svg {
   grid-template-columns: 1fr;
   gap: var(--grid-gap-section);
   justify-content: var(--aligment-section);
-  max-width: var(--max-w-section);
+  max-width: var(--max-w-section, 1440px);
 }
 
 .contact-form::after,
