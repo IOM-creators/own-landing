@@ -25,4 +25,7 @@ export const componentMap: any = {
   ProjectCard: dynamic(() =>
     import("../components/project-card").then((module) => module.default)
   ),
+  Service: dynamic(() =>
+    import("../components/service").then((module) => module.default)
+  ),
 };
