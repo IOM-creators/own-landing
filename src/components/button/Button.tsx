@@ -8,7 +8,7 @@ interface IButton {
   classNameIcon?: string;
   type?: any;
   typeButton?: string;
-  link?: string;
+  link?: any;
   primary?: boolean;
   secondary?: boolean;
   rightText?: boolean;
@@ -34,9 +34,11 @@ const Button: React.FC<IButton> = ({
   loading,
   ...props
 }) => {
+  console.log(link);
+
   return (
     <>
-      {typeButton === "link" ? (
+      {typeButton === "link" && link ? (
         <Link
           href={link}
           className={cn(className, {
