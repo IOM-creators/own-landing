@@ -33,7 +33,8 @@ const Popup: React.FC = () => {
       <div className={styles.popup__wrapper}>
         {closeButton && (
           <Button
-            onClick={handleClose}
+            styleButton="Only Icon"
+            eventClick={handleClose}
             className={`${styles.popup__close} bg-light-gray hover:bg-primary-orange group`}
           >
             <Icon

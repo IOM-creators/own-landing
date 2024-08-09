@@ -58,7 +58,7 @@ const HeaderNavigation: React.FC<IHeaderNavigation> = ({
               key={index}
             >
               <Link
-                href={navItem.url}
+                href={navItem.url || ""}
                 onClick={handleHidemenu}
                 className={cn({
                   "border-b":

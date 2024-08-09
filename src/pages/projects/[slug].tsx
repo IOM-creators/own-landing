@@ -38,10 +38,10 @@ const Projects: NextPage = (props: any) => {
               )}
             </div>
             <Button
-              typeButton="link"
               link={item.siteLink}
-              primary
-              className=" text-white group max-w-[270px] w-full"
+              typeButton={item.buttonType}
+              styleButton={item.styleButton}
+              className="max-w-[270px] w-full"
             >
               Open Live Site
               <Icon

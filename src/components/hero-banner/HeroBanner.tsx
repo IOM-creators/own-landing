@@ -1,16 +1,12 @@
 import React from "react";
-import styles from "./styles.module.scss";
 import cn from "classnames";
 import Image from "../image";
-import Icon from "../icon";
-import Link from "next/link";
 import Poster from "../../assets/images/poster.png";
 import Round from "../../assets/images/round.png";
 import Video from "../video";
 import RichText from "../rich-text";
 import { useGetHeroBanner } from "@/graphql";
 import Button from "../button";
-import ContactButton from "../contact-button";
 
 interface IHeroSection {}
 
@@ -35,18 +31,14 @@ const HeroSection: React.FC<IHeroSection> = () => {
             <RichText richText={titleRichText} />
           </div>
           {button?.url && (
-            <ContactButton>
-              <Button
-                primary
-                link={button.url}
-                className="btn btn--primary justify-between group max-w-[270px] w-full mt-14"
-                classNameIcon="group-hover:translate-x-2 transition-transform duration-300"
-                typeButton="button"
-                icon={button.icon.url}
-              >
-                {button.title}
-              </Button>
-            </ContactButton>
+            <Button
+              styleButton={button.styleButton}
+              typeButton={button.buttonType}
+              className="justify-between max-w-[270px] w-full mt-14"
+              icon={button.icon.url}
+            >
+              {button.title}
+            </Button>
           )}
         </div>
         <div className="relative right-0 w-full h-full  hidden lap:block">
@@ -60,17 +52,15 @@ const HeroSection: React.FC<IHeroSection> = () => {
           <div className="flex flex-col	justify-end absolute right-0  top-0 max-w-[30%] w-full h-[40%] bg-primary-green text-white p-8">
             <span className="text-xl font-bold">{rIghtBlockText}</span>
             {callToActionLink?.url && (
-              <ContactButton>
-                <Button
-                  secondary
-                  link={callToActionLink.url}
-                  className="text-xl group px-0 pb-0 min-w-0 justify-start hover:bg-primary-green"
-                  classNameIcon="ml-4 group-hover:translate-x-2 transition-transform duration-300"
-                  icon={callToActionLink.icon.url}
-                >
-                  {callToActionLink?.title}
-                </Button>
-              </ContactButton>
+              <Button
+                styleButton={callToActionLink.styleButton}
+                typeButton={callToActionLink.buttonType}
+                className="text-xl pt-2 min-w-0 justify-start"
+                classNameIcon="ml-4"
+                icon={callToActionLink.icon.url}
+              >
+                {callToActionLink?.title}
+              </Button>
             )}
             <div className="absolute right-0 top-0 w-2/3">
               <Image src={Round.src} />
@@ -82,8 +72,9 @@ const HeroSection: React.FC<IHeroSection> = () => {
         {upworkLink?.url && (
           <Button
             link={upworkLink.url}
-            className="flex items-center   text-xl font-bold"
-            typeButton="link"
+            className="flex items-center text-xl font-bold"
+            styleButton={callToActionLink.styleButton}
+            typeButton={callToActionLink.buttonType}
             icon={upworkLink.icon.url}
           >
             {upworkLink.title}

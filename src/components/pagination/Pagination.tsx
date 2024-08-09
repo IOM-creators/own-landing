@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import cn from "classnames";
 import Icon from "../icon";
 import { useRouter } from "next/router";
+import Link from "next/link";
 
 interface IPagination {
   currentPage: number;
@@ -40,7 +41,7 @@ const Pagination: React.FC<IPagination> = ({
     <nav className="my-10" aria-label="Page navigation">
       <ul className="flex items-center justify-center -space-x-px h-10 text-base">
         <li className="p-2">
-          <a
+          <Link
             href=""
             className={cn(
               "flex items-center justify-center px-4 h-10 text-black bg-light-gray hover:bg-primary-green hover:text-white",
@@ -55,7 +56,7 @@ const Pagination: React.FC<IPagination> = ({
           >
             <span className="sr-only">Previous</span>
             <Icon icon="arrow-prev" />
-          </a>
+          </Link>
         </li>
         {pagesPagination.map((p) => (
           <li key={p} className="p-2">

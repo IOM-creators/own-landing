@@ -12,6 +12,8 @@ export const GET_REVIEW_ITEM_ENTRY = (id: string) => gql`
             icon{
               url
             }
+            styleButton
+            buttonType
         }
       }
       platform{

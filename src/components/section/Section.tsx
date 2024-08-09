@@ -48,7 +48,7 @@ const Section: React.FC<ISection> = ({ id, className }) => {
       "--grid-column-section": `repeat(${section.grid}, 1fr)`,
     }),
   } as React.CSSProperties;
-
+  console.log("here", section);
   return (
     <section
       id={id}
@@ -64,7 +64,7 @@ const Section: React.FC<ISection> = ({ id, className }) => {
         {!section?.showOnlyComponents && (
           <div
             className={cn(
-              { "col-span-1 lg:col-span-2": section.button },
+              { "col-span-1 lg:col-span-full": section.button },
               "section__content slideUp"
             )}
           >
@@ -87,12 +87,11 @@ const Section: React.FC<ISection> = ({ id, className }) => {
                 )}
                 {section?.button && (
                   <Button
-                    typeButton="link"
+                    styleButton={section.button.styleButton}
+                    typeButton={section.button.buttonType}
                     icon={section.button.icon.url}
-                    secondary
                     link={section.button.url}
-                    className="group w-full md:w-auto"
-                    classNameIcon="transform transition-transform group-hover:-translate-x-[-5px]"
+                    className="w-full md:w-auto"
                   >
                     {section.button.title}
                   </Button>

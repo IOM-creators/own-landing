@@ -41,17 +41,22 @@ const ReviewItem: React.FC<IReviewItem> = ({ id = "", className }) => {
       <div className="review__footer flex justify-between items-center">
         {review.link && (
           <Button
-            typeButton="link"
+            typeButton={review.link.buttonType}
+            styleButton={review.link.styleButton}
             icon={review.link.icon.url}
             link={review.link.url}
-            className="flex items-center text-primary-green group"
-            classNameIcon="transform transition-transform group-hover:-translate-x-[-5px]"
+            className="text-primary-green"
           >
             {review.link.title}
           </Button>
         )}
         {review.platform && (
-          <Button typeButton="button" icon={review.platform.url} className="" />
+          <Button
+            typeButton={review.link.buttonType}
+            styleButton={review.link.styleButton}
+            link={review.link.url}
+            icon={review.platform.url}
+          />
         )}
       </div>
     </div>

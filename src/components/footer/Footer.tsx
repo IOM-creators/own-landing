@@ -32,7 +32,7 @@ const Footer = () => {
                       key={index}
                     >
                       <Link
-                        href={navItem.url}
+                        href={navItem.url || ""}
                         className=" hover:underline font-semibold text-lg "
                       >
                         {navItem.title}
@@ -49,7 +49,8 @@ const Footer = () => {
                 {footer.social.map((item: any, index: number) => (
                   <li key={index}>
                     <Button
-                      typeButton="link"
+                      styleButton={item.styleButton}
+                      typeButton={item.buttonType}
                       link={item.url}
                       icon={item.icon.url}
                     ></Button>

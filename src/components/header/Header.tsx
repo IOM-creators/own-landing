@@ -68,9 +68,8 @@ const Header: React.FC<IHeader> = ({ headerRef }) => {
             {header.contactButton && (
               <ContactButton>
                 <Button
-                  secondary
-                  link={header.contactButton.url}
-                  typeButton="button"
+                  styleButton={header.contactButton.styleButton}
+                  typeButton={header.contactButton.buttonType}
                   className="group"
                   classNameIcon="transform transition-transform group-hover:-translate-x-[-5px]"
                   icon={header.contactButton.icon.url}
