@@ -64,7 +64,7 @@ const Section: React.FC<ISection> = ({ id, className }) => {
         {!section?.showOnlyComponents && (
           <div
             className={cn(
-              { "col-span-1 lg:col-span-2": section.button },
+              { "col-span-1 lg:col-span-full": section.button },
               "section__content slideUp"
             )}
           >
