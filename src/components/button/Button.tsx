@@ -22,7 +22,7 @@ interface IButton {
 const buttonStyles = {
   Primary: "btn btn--primary group",
   Secondary: "btn btn--secondary group",
-  Arrow: "btn btn--arrow",
+  Arrow: "btn btn--arrow group",
   "Only Icon": "cursor-pointer",
 };
 const buttonTypes = {
