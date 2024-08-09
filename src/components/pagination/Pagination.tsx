@@ -67,7 +67,7 @@ const Pagination: React.FC<IPagination> = ({
                   "bg-primary-green text-white": p === currentPage,
                   "text-black bg-light-gray": p !== currentPage,
                 },
-                "flex items-center justify-center px-4 h-10  bg-light-gray hover:bg-primary-green hover:text-white"
+                "flex items-center justify-center px-4 h-10  bg-light-gray hover:bg-primary-orange hover:text-white"
               )}
               onClick={(e: any) => handlePage(e, p)}
             >
