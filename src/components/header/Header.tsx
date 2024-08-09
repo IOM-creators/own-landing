@@ -11,7 +11,6 @@ import { useEffect, useState } from "react";
 import { HeaderState } from "../../store/types/header";
 import { useTypedSelector } from "@/store/hooks/useTypedSelector";
 import Button from "../button/Button";
-import ContactButton from "../contact-button";
 interface IHeader {
   headerRef: React.ForwardedRef<HTMLDivElement>;
 }
@@ -66,17 +65,15 @@ const Header: React.FC<IHeader> = ({ headerRef }) => {
               links={header.menu}
             />
             {header.contactButton && (
-              <ContactButton>
-                <Button
-                  styleButton={header.contactButton.styleButton}
-                  typeButton={header.contactButton.buttonType}
-                  className="group"
-                  classNameIcon="transform transition-transform group-hover:-translate-x-[-5px]"
-                  icon={header.contactButton.icon.url}
-                >
-                  {header.contactButton.title}
-                </Button>
-              </ContactButton>
+              <Button
+                styleButton={header.contactButton.styleButton}
+                typeButton={header.contactButton.buttonType}
+                className="group"
+                classNameIcon="transform transition-transform group-hover:-translate-x-[-5px]"
+                icon={header.contactButton.icon.url}
+              >
+                {header.contactButton.title}
+              </Button>
             )}
           </>
         )}
