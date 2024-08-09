@@ -14,6 +14,8 @@ export const GET_SECTION_ENTRY = (id: string) => gql`
           icon{
             url
           }
+          buttonType
+          styleButton
         }
       }
       subtitle

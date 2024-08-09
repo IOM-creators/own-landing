@@ -28,8 +28,9 @@ const ContactInfo: React.FC<IContactUs> = ({ id = "", className }) => {
                 className="my-2 lg:my-4 text-base lg:text-xl font-bold"
               >
                 <Button
-                  typeButton="link"
                   link={item.url}
+                  styleButton={item.styleButton}
+                  typeButton={item.buttonType}
                   rightText
                   icon={item?.icon?.url}
                   className="flex items-center"
@@ -50,7 +51,8 @@ const ContactInfo: React.FC<IContactUs> = ({ id = "", className }) => {
                 className="p-4 md:py-5 md:px-10 text-base lg:text-xl font-bold bg-light-gray shrink-0"
               >
                 <Button
-                  typeButton="link"
+                  styleButton={item.styleButton}
+                  typeButton={item.buttonType}
                   link={item.url}
                   rightText
                   icon={item?.icon?.url}

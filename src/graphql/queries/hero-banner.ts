@@ -13,6 +13,8 @@ export const GET_HERO_BANNER_ENTRY = gql`
           icon {
             url
           }
+          styleButton
+          buttonType
         }
       }
       video {
@@ -26,6 +28,8 @@ export const GET_HERO_BANNER_ENTRY = gql`
           icon {
             url
           }
+          styleButton
+          buttonType
         }
       }
       upworkLink {
@@ -35,6 +39,8 @@ export const GET_HERO_BANNER_ENTRY = gql`
           icon {
             url
           }
+          styleButton
+          buttonType
         }
       }
       topRatedImage {

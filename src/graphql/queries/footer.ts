@@ -11,6 +11,11 @@ export const GET_FOOTER_ENTRY = gql`
           ... on Link {
             title
             url
+            icon {
+              url
+            }
+            styleButton
+            buttonType
           }
         }
       }
@@ -22,6 +27,8 @@ export const GET_FOOTER_ENTRY = gql`
             icon {
               url
             }
+            styleButton
+            buttonType
           }
         }
       }

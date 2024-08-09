@@ -13,6 +13,8 @@ export const GET_CONTACT_INFO_ENTRY = (id: string) => gql`
             icon{
               url
             }
+            styleButton
+            buttonType
           }
         }
       }
@@ -24,6 +26,8 @@ export const GET_CONTACT_INFO_ENTRY = (id: string) => gql`
             icon{
               url
             }
+            styleButton
+            buttonType
           }
         }
       }
