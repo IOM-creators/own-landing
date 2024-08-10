@@ -31,4 +31,7 @@ export const componentMap: any = {
   Technologies: dynamic(() =>
     import("../components/technologies").then((module) => module.default)
   ),
+  Testimonials: dynamic(() =>
+    import("../components/testimonials").then((module) => module.default)
+  ),
 };

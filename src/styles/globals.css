@@ -54,24 +54,18 @@ svg {
   height: auto;
 }
 
-.swiper-pagination-gallery .swiper-pagination-bullet {
-  background: var(--dark-blue);
-  border: 1px solid var(--white);
+.swiper-pagination-testimonials .swiper-pagination-bullet {
+  width: 30px;
+  height: 3px;
+  border-radius: 0;
+  margin: 0 5px;
+  background: #e8e2dc;
+  border: 1px solid #e8e2dc;
   opacity: 1;
 }
 
-.swiper-pagination-gallery .swiper-pagination-bullet-active {
-  background: var(--white);
-}
-
-.swiper-pagination-feedback .swiper-pagination-bullet {
-  background: var(--white);
-  border: 1px solid var(--dark-blue);
-  opacity: 1;
-}
-
-.swiper-pagination-feedback .swiper-pagination-bullet-active {
-  background: var(--dark-blue);
+.swiper-pagination-testimonials .swiper-pagination-bullet-active {
+  background: #f38173;
 }
 .page-template {
   display: grid;

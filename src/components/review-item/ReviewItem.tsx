@@ -6,18 +6,23 @@ import Button from "../button";
 import { useGetReviewItem } from "@/graphql/queries/review-item";
 
 interface IReviewItem {
-  id: string;
+  id?: string;
+  data?: any;
   className?: string;
 }
-const ReviewItem: React.FC<IReviewItem> = ({ id = "", className }) => {
-  const { review } = useGetReviewItem(id);
+const ReviewItem: React.FC<IReviewItem> = ({
+  id = "",
+  data = { review: {} },
+  className,
+}) => {
+  const { review } = id ? useGetReviewItem(id) : data;
   const customStyles: React.CSSProperties = {
     ...(review.paddingTop && { "--pd-top": `${review.paddingTop}px` }),
     ...(review.paddingBottom && { "--pd-top": `${review.paddingBottom}px` }),
   } as React.CSSProperties;
 
   return (
-    <div className="review-item" style={customStyles}>
+    <div className={cn({}, className, "review-item")} style={customStyles}>
       <div className="review-item__title flex justify-between">
         <h4 className="">{review.name}</h4>
         <svg

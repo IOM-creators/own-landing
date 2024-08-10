@@ -49,7 +49,6 @@ const Section: React.FC<ISection> = ({ id, className }) => {
       "--grid-column-section": `repeat(${section.grid}, 1fr)`,
     }),
   } as React.CSSProperties;
-  console.log("here", section);
   return (
     <section
       id={id}
@@ -76,6 +75,7 @@ const Section: React.FC<ISection> = ({ id, className }) => {
                   {
                     "flex justify-between flex-wrap mb-6 lg:mb-10":
                       section.button,
+                    "px-4": section.withoutContainer,
                   },
                   "section__header-title"
                 )}
