@@ -28,4 +28,7 @@ export const componentMap: any = {
   Service: dynamic(() =>
     import("../components/service").then((module) => module.default)
   ),
+  Technologies: dynamic(() =>
+    import("../components/technologies").then((module) => module.default)
+  ),
 };

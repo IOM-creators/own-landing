@@ -130,6 +130,7 @@ svg {
   padding-top: calc(var(--mg-top) + (var(--pd-top) / 2));
 }
 .section__wrapper {
+  margin: 0 auto;
   grid-template-columns: 1fr;
   gap: var(--grid-gap-section);
   justify-content: var(--aligment-section);

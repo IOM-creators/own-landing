@@ -4,7 +4,6 @@ import GqlComponent from "../page/gql-component";
 import cn from "classnames";
 import Image from "../image";
 import RichText from "../rich-text";
-import { useWindowWidth } from "@/helpers/reactHooks";
 import Button from "../button";
 
 interface ISection {
@@ -15,7 +14,6 @@ interface ISection {
 const Section: React.FC<ISection> = ({ id, className }) => {
   const refSection = useRef<HTMLElement | null>(null);
   const { section } = useGetSection(id);
-  const windowWidth = useWindowWidth();
 
   if (!section?.title) return null;
 
@@ -28,6 +26,9 @@ const Section: React.FC<ISection> = ({ id, className }) => {
     }),
     ...(section.maxWidth && {
       "--max-w-section": `${section.maxWidth}px`,
+    }),
+    ...(section.withoutContainer && {
+      "--max-w-section": `100%`,
     }),
     ...(section.aligment && {
       "--aligment-section": `${section.aligment.toLowerCase()}`,
@@ -57,8 +58,9 @@ const Section: React.FC<ISection> = ({ id, className }) => {
       className={cn("section", {})}
     >
       <div
-        className={cn("section__wrapper container", {
+        className={cn("section__wrapper", {
           [`grid`]: section?.grid > 1,
+          container: !section.withoutContainer,
         })}
       >
         {!section?.showOnlyComponents && (

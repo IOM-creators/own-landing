@@ -42,6 +42,7 @@ export const GET_SECTION_ENTRY = (id: string) => gql`
         }
       }
       showOnlyComponents
+      withoutContainer
     }
   }
 `;
