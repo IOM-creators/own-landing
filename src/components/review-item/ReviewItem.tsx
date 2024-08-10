@@ -25,18 +25,7 @@ const ReviewItem: React.FC<IReviewItem> = ({
     <div className={cn({}, className, "review-item")} style={customStyles}>
       <div className="review-item__title flex justify-between">
         <h4 className="">{review.name}</h4>
-        <svg
-          width="41"
-          height="26"
-          viewBox="0 0 41 26"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            d="M20.5 26L27.4101 0H41L30.6348 26H20.5ZM0 26L6.91011 0H20.5L10.1348 26H0Z"
-            fill="#E8E2DC"
-          />
-        </svg>
+        <Icon icon="review-comma" />
       </div>
       {review.description && (
         <div className="review__description truncate-2 mt-4 mb-10">

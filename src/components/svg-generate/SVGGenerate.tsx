@@ -78,6 +78,38 @@ const SVGGenerate: React.FC<ISVGGenerate> = ({
             />
           </svg>
         );
+      case "arrow-bottom":
+        return (
+          <svg
+            className={className}
+            width="14"
+            height="8"
+            viewBox="0 0 14 8"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M6.99965 5.1714L11.9495 0.22168L13.3637 1.63589L6.99965 7.9999L0.635742 1.63589L2.04995 0.22168L6.99965 5.1714Z"
+              fill="#F38173"
+            />
+          </svg>
+        );
+      case "review-comma":
+        return (
+          <svg
+            className={className}
+            width="41"
+            height="26"
+            viewBox="0 0 41 26"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M20.5 26L27.4101 0H41L30.6348 26H20.5ZM0 26L6.91011 0H20.5L10.1348 26H0Z"
+              fill="#E8E2DC"
+            />
+          </svg>
+        );
       case "hamburger-close":
         return (
           <svg
