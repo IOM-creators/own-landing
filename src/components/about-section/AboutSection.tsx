@@ -47,15 +47,18 @@ const AboutSection: React.FC<IAboutSection> = () => {
             <div className="">
               <div className="flex mt-12">
                 {foundersCollection &&
-                  foundersCollection?.items?.map((founder: any) => {
-                    return (
-                      <Image
-                        src={founder.url}
-                        className="object-contain object-left"
-                        classWrapper="w-20 h-20 ml-[-4px]"
-                      />
-                    );
-                  })}
+                  foundersCollection?.items?.map(
+                    (founder: any, index: number) => {
+                      return (
+                        <Image
+                          key={index}
+                          src={founder.url}
+                          className="object-contain object-left"
+                          classWrapper="w-20 h-20 ml-[-4px]"
+                        />
+                      );
+                    }
+                  )}
               </div>
               {foundersText && (
                 <h3 className="text-lg font-bold	text-primary-orange my-5">
@@ -69,17 +72,22 @@ const AboutSection: React.FC<IAboutSection> = () => {
             {content && <RichText richText={content.json} />}
             <div className="flex gap-4 lg:gap-12 mt-8 lg:mt-12">
               {parsedInfo &&
-                parsedInfo.map(({ headlineInfo, descriptionInfo }) => {
-                  return (
-                    <span className="text-3xl lg:text-5xl font-bold">
-                      {headlineInfo}
-                      <br />
-                      <span className="text-xs lg:text-xl">
-                        {descriptionInfo}
+                parsedInfo.map(
+                  ({ headlineInfo, descriptionInfo }, index: number) => {
+                    return (
+                      <span
+                        key={index}
+                        className="text-3xl lg:text-5xl font-bold"
+                      >
+                        {headlineInfo}
+                        <br />
+                        <span className="text-xs lg:text-xl">
+                          {descriptionInfo}
+                        </span>
                       </span>
-                    </span>
-                  );
-                })}
+                    );
+                  }
+                )}
             </div>
           </div>
         </div>

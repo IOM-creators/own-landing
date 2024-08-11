@@ -171,11 +171,7 @@ const ContactForm: React.FC<IContactUs> = ({ id = "", className }) => {
           )}
         </div>
         <div className="mt-5 flex justify-center">
-          <Button
-            type="submit"
-            className="btn btn--primary justify-center"
-            loading={isSending}
-          >
+          <Button type="submit" className="btn btn--primary justify-center">
             {section.buttonText}
           </Button>
         </div>

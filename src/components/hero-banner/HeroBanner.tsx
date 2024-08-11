@@ -23,6 +23,8 @@ const HeroSection: React.FC<IHeroSection> = () => {
     upworkLink,
   } = heroBanner;
 
+  console.log("heroBanner", heroBanner, upworkLink);
+
   return (
     <div id="hero-banner" className={cn("text-dark-blue relative")}>
       <div className=" w-full h-screen relative grid grid-cols-1 lap:grid-cols-[_45%_55%] justify-center items-center">
@@ -73,8 +75,8 @@ const HeroSection: React.FC<IHeroSection> = () => {
           <Button
             link={upworkLink.url}
             className="flex items-center text-xl font-bold"
-            styleButton={callToActionLink.styleButton}
-            typeButton={callToActionLink.buttonType}
+            styleButton={upworkLink.styleButton}
+            typeButton={upworkLink.buttonType}
             icon={upworkLink.icon.url}
           >
             {upworkLink.title}

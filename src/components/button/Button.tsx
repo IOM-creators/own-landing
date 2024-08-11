@@ -15,7 +15,6 @@ interface IButton {
   styleButton?: keyof typeof buttonStyles;
   rightText?: boolean;
   active?: boolean;
-  loading?: boolean;
   children?: React.ReactNode;
   className?: string;
   eventClick?: MouseEventHandler<HTMLButtonElement>;

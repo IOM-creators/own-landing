@@ -29,7 +29,6 @@ const Accordion: React.FC<AccordionProps> = ({ id = "", className }) => {
   const handleToggle = (index: number) => {
     setActiveIndex(activeIndex === index ? null : index);
   };
-  console.log("section", section);
   return (
     <div
       className={cn(

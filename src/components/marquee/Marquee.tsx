@@ -6,16 +6,18 @@ interface MarqueeProps {
 
 const Marquee: React.FC<MarqueeProps> = ({ children }) => {
   const marqueeRef = useRef<HTMLDivElement | null>(null);
+  const marqueeInnerRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
     const marquee = marqueeRef.current;
+    const marqueeInner = marqueeInnerRef.current;
     let animationFrameId: number;
-    const speed = 0.5;
+    const speed = 1;
 
     const moveMarquee = () => {
-      if (marquee) {
+      if (marquee && marqueeInner) {
         marquee.scrollLeft += speed;
-        if (marquee.scrollLeft >= marquee.scrollWidth / 2) {
+        if (marquee.scrollLeft >= marqueeInner.scrollWidth / 2) {
           marquee.scrollLeft = 0;
         }
       }
@@ -32,7 +34,7 @@ const Marquee: React.FC<MarqueeProps> = ({ children }) => {
       ref={marqueeRef}
       className="flex flex-nowrap overflow-hidden w-full whitespace-nowrap"
     >
-      <div className="inline-block">
+      <div ref={marqueeInnerRef} className="inline-block">
         {children}
         {children}
       </div>
