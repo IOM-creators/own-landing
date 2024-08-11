@@ -10,6 +10,8 @@ export const GET_VIDEO_ENTRY = (id: string) => gql`
       videoPoster{
         url
       }
+      height
+      objectFit
       autoPlay
       loop
     }

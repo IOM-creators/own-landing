@@ -113,7 +113,7 @@ const Section: React.FC<ISection> = ({ id, className }) => {
             {section?.image && (
               <Image
                 src={section.image.url}
-                classWrapper="mt-20 before:pt-[50%]"
+                classWrapper="mt-10 lg:mt-20 before:pt-[50%]"
                 className="object-contain"
               />
             )}

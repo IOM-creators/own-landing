@@ -5,21 +5,26 @@ interface IVideo {
   id?: string;
   src: string | any;
   poster?: string;
+  height?: string;
   classWrapper?: string;
   className?: string;
 }
 const Video: React.FC<IVideo> = ({
   id = "",
   src,
+  height,
   poster,
-  classWrapper,
+  classWrapper = "video-wrapper",
   className,
   ...props
 }) => {
   const { video } = useGetVideo(id);
-
+  const customStyles = {
+    ...(video?.height && { "--video-height": `${video.height}%` }),
+    ...(video?.objectFit && { "--video-fit": `${video.objectFit}` }),
+  };
   return (
-    <div className={cn(classWrapper, {})}>
+    <div className={cn(classWrapper, {})} style={customStyles}>
       {video ? (
         <video
           src={video.video.url}

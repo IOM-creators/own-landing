@@ -48,7 +48,7 @@ const HeroSection: React.FC<IHeroSection> = () => {
             <Video
               src={video.url}
               poster={Poster.src}
-              className="absolute w-[calc(100%-110px)] h-full top-0 left-0 object-cover"
+              className="absolute w-[calc(100%-110px)] h-full top-0 left-0 !object-cover"
             />
           )}
           <div className="flex flex-col	justify-end absolute right-0  top-0 max-w-[30%] w-full h-[40%] bg-primary-green text-white p-8">

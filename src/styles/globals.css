@@ -22,11 +22,11 @@ p {
 svg {
   flex-shrink: 0;
 }
-
+.video-wrapper,
 .img-wrapper {
   position: relative;
 }
-
+.video-wrapper:before,
 .img-wrapper:before {
   content: "";
   display: block;
@@ -35,14 +35,19 @@ svg {
 
 .img-wrapper svg,
 .img-wrapper img,
-.img-wrapper video {
+.video-wrapper video {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
 }
-
+.video-wrapper video {
+  object-fit: var(--video-fit, none);
+}
+.video-wrapper:before {
+  padding-top: var(--video-height, 100%);
+}
 .truncate-2 {
   display: -webkit-box;
   -webkit-line-clamp: 2;
@@ -126,7 +131,7 @@ svg {
 .section__wrapper {
   margin: 0 auto;
   grid-template-columns: 1fr;
-  gap: var(--grid-gap-section);
+  gap: calc(var(--grid-gap-section) / 2);
   justify-content: var(--aligment-section);
   max-width: var(--max-w-section, 1440px);
 }
