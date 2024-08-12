@@ -46,7 +46,7 @@ svg {
   object-fit: var(--video-fit, none);
 }
 .video-wrapper:before {
-  padding-top: var(--video-height, 100%);
+  padding-top: var(--video-height, 100vh);
 }
 .truncate-2 {
   display: -webkit-box;
@@ -71,6 +71,7 @@ svg {
 
 .swiper-pagination-testimonials .swiper-pagination-bullet-active {
   background: #f38173;
+  border: 1px solid #f38173;
 }
 .page-template {
   display: grid;

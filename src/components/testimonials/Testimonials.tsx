@@ -41,10 +41,10 @@ const Testimonials: React.FC<ITestimonials> = ({ id = "" }) => {
       <div className="testimonials__header flex items-center justify-between mb-10">
         <h2>{section.title}</h2>
         <div className="slider-buttom-wrapper relative flex justify-between self-end hidden md:flex">
-          <div className="swiper-button-prev p-4 cursor-pointer">
+          <div className="swiper-button-prev p-4 cursor-pointer hover:text-primary-orange">
             <Icon icon="arrow-prev" />
           </div>
-          <div className="swiper-button-next p-4 cursor-pointer">
+          <div className="swiper-button-next p-4 cursor-pointer hover:text-primary-orange">
             <Icon icon="arrow-next" />
           </div>
         </div>
