@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useMemo } from "react";
 import cn from "classnames";
 import Image from "../image";
 import Poster from "../../assets/images/poster.png";
@@ -8,10 +8,30 @@ import RichText from "../rich-text";
 import { useGetHeroBanner } from "@/graphql";
 import Button from "../button";
 
-interface IHeroSection {}
+interface IHeroSection { }
 
 const HeroSection: React.FC<IHeroSection> = () => {
-  const { heroBanner } = useGetHeroBanner();
+  const { heroBanner, loading, error } = useGetHeroBanner();
+
+  // Memoize the processed heroBanner data
+  const memoizedHeroBanner = useMemo(() => {
+    if (!heroBanner) return {};
+
+    return {
+      titleRichText: heroBanner.titleRichText,
+      video: heroBanner.video,
+      rIghtBlockText: heroBanner.rIghtBlockText,
+      callToActionLink: heroBanner.callToActionLink,
+      button: heroBanner.button,
+      topRatedImage: heroBanner.topRatedImage,
+      jobSuccessImage: heroBanner.jobSuccessImage,
+      upworkLink: heroBanner.upworkLink,
+    };
+  }, [heroBanner]);
+
+  if (loading) return <div>Loading...</div>;
+  if (error) return <div>Error loading hero banner</div>;
+
   const {
     titleRichText,
     video,
@@ -20,11 +40,8 @@ const HeroSection: React.FC<IHeroSection> = () => {
     button,
     topRatedImage,
     jobSuccessImage,
-    upworkLink,
-  } = heroBanner;
-
-  console.log("heroBanner", heroBanner, upworkLink);
-
+    upworkLink
+  } = memoizedHeroBanner;
   return (
     <div id="hero-banner" className={cn("text-dark-blue relative")}>
       <div className=" w-full h-screen relative grid grid-cols-1 lap:grid-cols-[_45%_55%] justify-center items-center">
