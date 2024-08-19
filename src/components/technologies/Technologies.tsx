@@ -1,28 +1,29 @@
 import React from "react";
-import { useGetTechnologies } from "@/graphql/queries/technologies";
 import Image from "../image";
 import Marquee from "../marquee";
 
 interface ITechnologies {
   id?: string;
+  section: any;
 }
 
-const Technologies: React.FC<ITechnologies> = ({ id = "" }) => {
-  const { section }: any = useGetTechnologies(id);
-  if (!section) return null;
+const Technologies: React.FC<ITechnologies> = ({ id = "", section }) => {
+  const { technologies }: any = section;
+  const technologiesItems = technologies?.technologyCollection?.items || [];
+
+  if (!technologies) return null;
   return (
     <div className="technologies">
       <Marquee>
-        {section?.technologies &&
-          section.technologies.map((item: any, index: number) => (
-            <div
-              key={index}
-              className="inline-block p-6 md:p-10 text-center max-w-32 md:max-w-40 w-full mr-6 md:mr-10"
-            >
-              {item.icon && <Image src={item.icon.url} />}
-              {item.title && <span>{item.title}</span>}
-            </div>
-          ))}
+        {technologiesItems.map((item: any, index: number) => (
+          <div
+            key={index}
+            className="inline-block p-6 md:p-10 text-center max-w-32 md:max-w-40 w-full mr-6 md:mr-10"
+          >
+            {item.icon && <Image src={item.icon.url} />}
+            {item.title && <span>{item.title}</span>}
+          </div>
+        ))}
       </Marquee>
     </div>
   );

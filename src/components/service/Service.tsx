@@ -1,14 +1,14 @@
 import React from "react";
 
-import { useGetServiceById } from "@/graphql/queries/service";
 import Image from "../image";
 interface IService {
   id: string;
   className?: string;
+  section: any;
 }
 
-const Service: React.FC<IService> = ({ id = "", className }) => {
-  const content = useGetServiceById(id);
+const Service: React.FC<IService> = ({ id = "", className, section }) => {
+  const content = section;
   return (
     <div className="border-gray border p-[30px] inline-block ">
       <Image

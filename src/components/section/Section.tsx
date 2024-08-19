@@ -1,6 +1,4 @@
-import { useGetSection } from "@/graphql/queries/section";
 import React, { useRef } from "react";
-import GqlComponent from "../page/gql-component";
 import cn from "classnames";
 import Image from "../image";
 import RichText from "../rich-text";
@@ -11,15 +9,13 @@ interface ISection {
   id: string;
   className?: string;
   children?: React.ReactNode;
-  section: any
+  section: any;
 }
 const Section: React.FC<ISection> = ({ id, className, section }) => {
   const refSection = useRef<HTMLElement | null>(null);
 
-
-
-  if (!section?.title) return null;
-
+  if (!section) return null;
+  const imgUrl = section?.image?.url || "";
   const customStyles: React.CSSProperties = {
     ...(section.paddingTop && {
       "--pd-top": `${section.paddingTop}px`,
@@ -113,9 +109,9 @@ const Section: React.FC<ISection> = ({ id, className, section }) => {
                 <RichText richText={section.content.json} />
               </div>
             )}
-            {section?.image && (
+            {imgUrl && (
               <Image
-                src={section.image.url}
+                src={imgUrl}
                 classWrapper="mt-10 lg:mt-20 before:pt-[50%]"
                 className="object-contain"
               />
@@ -123,15 +119,13 @@ const Section: React.FC<ISection> = ({ id, className, section }) => {
           </div>
         )}
         {section?.components &&
-          section.components.map(
-            (component: any, index: number) => {
-              for (const key of Object.keys(component)) {
-                const updatedKey = key.charAt(0).toUpperCase() + key.slice(1);
-                let ComponentGql = componentMap[updatedKey];
-                return <ComponentGql section={...component} key={index} />
-              }
+          section.components.map((component: any, index: number) => {
+            for (const key of Object.keys(component)) {
+              const updatedKey = key.charAt(0).toUpperCase() + key.slice(1);
+              let ComponentGql = componentMap[updatedKey];
+              return <ComponentGql section={...component} key={index} />;
             }
-          )}
+          })}
       </div>
     </section>
   );

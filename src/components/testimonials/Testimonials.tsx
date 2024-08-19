@@ -1,5 +1,4 @@
 import React from "react";
-import { useGetTestimonials } from "@/graphql/queries/testimonials";
 import Slider from "../slider";
 import { SwiperSlide } from "swiper/react";
 import ReviewItem from "../review-item";
@@ -7,11 +6,12 @@ import Icon from "../icon";
 
 interface ITestimonials {
   id?: string;
+  section: any;
 }
 
-const Testimonials: React.FC<ITestimonials> = ({ id = "" }) => {
-  const { section }: any = useGetTestimonials(id);
-
+const Testimonials: React.FC<ITestimonials> = ({ id = "", section }) => {
+  const { testimonials }: any = section;
+  const testimonialsItems = testimonials?.testimonialCollection?.items || [];
   const sliderParams = {
     slidesPerView: 3,
     spaceBetween: 20,
@@ -35,11 +35,12 @@ const Testimonials: React.FC<ITestimonials> = ({ id = "" }) => {
       },
     },
   };
-  if (!section) return null;
+  if (!testimonials) return null;
+
   return (
     <div className="testimonials">
       <div className="testimonials__header flex items-center justify-between mb-10">
-        <h2>{section.title}</h2>
+        <h2>{testimonials.title}</h2>
         <div className="slider-buttom-wrapper relative flex justify-between self-end hidden md:flex">
           <div className="swiper-button-prev p-4 cursor-pointer hover:text-primary-orange">
             <Icon icon="arrow-prev" />
@@ -50,7 +51,7 @@ const Testimonials: React.FC<ITestimonials> = ({ id = "" }) => {
         </div>
       </div>
       <Slider params={sliderParams}>
-        {section.testimonials.map((testimonial: any, index: number) => (
+        {testimonialsItems.map((testimonial: any, index: number) => (
           <SwiperSlide key={index}>
             <ReviewItem
               data={{ review: { ...testimonial } }}

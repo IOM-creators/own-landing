@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { useGetAccordion } from "@/graphql/queries/accordion";
 import RichText from "../rich-text";
 import { Document } from "@contentful/rich-text-types";
 import Icon from "../icon";
@@ -17,13 +16,19 @@ interface AccordionItemProps {
 interface AccordionProps {
   id: string;
   className?: string;
+  section: any;
 }
 
-const Accordion: React.FC<AccordionProps> = ({ id = "", className }) => {
-  const { section } = useGetAccordion(id);
+const Accordion: React.FC<AccordionProps> = ({
+  id = "",
+  className,
+  section,
+}) => {
+  const { accordion } = section;
+  const accordionItems = accordion?.accordionItemsCollection?.items || [];
 
   const [activeIndex, setActiveIndex] = useState<number | null>(
-    section.items.findIndex((item: AccordionItemProps) => item.opened)
+    accordionItems.findIndex((item: AccordionItemProps) => item.opened)
   );
 
   const handleToggle = (index: number) => {
@@ -34,21 +39,22 @@ const Accordion: React.FC<AccordionProps> = ({ id = "", className }) => {
       className={cn(
         className,
         {
-          "flex flex-wrap lg:flex-nowrap justify-between gap-8": section.image,
+          "flex flex-wrap lg:flex-nowrap justify-between gap-8":
+            accordion.image,
         },
         "accordion"
       )}
     >
       <div className="accordion__content lg:max-w-[800px] w-full">
-        <h2 className="mb-10">{section.title}</h2>
+        <h2 className="mb-10">{accordion.title}</h2>
         <div className="accordion__items">
-          {section.items.map((item: AccordionItemProps, index: number) => (
+          {accordionItems.map((item: AccordionItemProps, index: number) => (
             <div key={index} className="accordion__item">
               <div
                 className={cn(
                   {
                     "border-b-[1px] border-border-color":
-                      index === section.items.length - 1,
+                      index === accordionItems.length - 1,
                   },
                   "accordion-title w-full flex justify-between gap-6 text-2xl lg:text-3xl py-9 border-t-[1px] border-border-color cursor-pointer"
                 )}
@@ -76,10 +82,10 @@ const Accordion: React.FC<AccordionProps> = ({ id = "", className }) => {
           ))}
         </div>
       </div>
-      {section.image && (
+      {accordion.image && (
         <div className="accordion__image mx-auto lg:mx-0 max-w-[480px] w-full order-[-1] lg:order-none">
           <Image
-            src={section.image}
+            src={accordion.image.url}
             className="object-contain"
             classWrapper="before:pt-[50%] lg:before:pt-[100%]"
           />

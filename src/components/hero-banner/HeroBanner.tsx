@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo } from "react";
+import React, { useMemo } from "react";
 import cn from "classnames";
 import Image from "../image";
 import Poster from "../../assets/images/poster.png";
@@ -8,7 +8,7 @@ import RichText from "../rich-text";
 import { useGetHeroBanner } from "@/graphql";
 import Button from "../button";
 
-interface IHeroSection { }
+interface IHeroSection {}
 
 const HeroSection: React.FC<IHeroSection> = () => {
   const { heroBanner, loading, error } = useGetHeroBanner();
@@ -40,7 +40,7 @@ const HeroSection: React.FC<IHeroSection> = () => {
     button,
     topRatedImage,
     jobSuccessImage,
-    upworkLink
+    upworkLink,
   } = memoizedHeroBanner;
   return (
     <div id="hero-banner" className={cn("text-dark-blue relative")}>
@@ -61,13 +61,14 @@ const HeroSection: React.FC<IHeroSection> = () => {
           )}
         </div>
         <div className="relative right-0 w-full h-full  hidden lap:block">
-          {/* {video?.url && (
+          {video?.url && (
             <Video
               src={video.url}
               poster={Poster.src}
               className="absolute w-[calc(100%-110px)] h-full top-0 left-0 !object-cover"
+              section={video}
             />
-          )} */}
+          )}
           <div className="flex flex-col	justify-end absolute right-0  top-0 max-w-[30%] w-full h-[40%] bg-primary-green text-white p-8">
             <span className="text-xl font-bold">{rIghtBlockText}</span>
             {callToActionLink?.url && (

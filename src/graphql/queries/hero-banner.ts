@@ -57,7 +57,7 @@ export const GET_HERO_BANNER_ENTRY = gql`
 
 export const useGetHeroBanner = () => {
   const { loading, error, data } = useQuery(GET_HERO_BANNER_ENTRY, {
-    fetchPolicy: 'cache-first' // Use cache-first policy
+    fetchPolicy: "cache-first", // Use cache-first policy
   });
 
   const heroBanner = data?.heroBanner || {};
