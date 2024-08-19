@@ -22,8 +22,8 @@ interface IContactUsData {
       url: string;
     };
     fieldsCollection: {
-      items: FormField[]
-    }
+      items: FormField[];
+    };
   };
 }
 
@@ -32,25 +32,28 @@ type FormField = {
   placeholder: string;
   required: boolean;
   errorMessage: string;
-}
+};
 
 interface IContactUs {
   className?: string;
   id: string;
-  section: IContactUsData
+  section: IContactUsData;
 }
 
 const ContactForm: React.FC<IContactUs> = ({ id = "", className, section }) => {
-  const { contactForm } = section
+  const { contactForm } = section;
   if (!contactForm.fieldsCollection?.items) return null;
 
-  const combinedObject = contactForm.fieldsCollection?.items?.reduce((result: any, field: { placeholder: string; }) => {
-    const key = field.placeholder.toLocaleLowerCase().replace(" ", "_");
-    return {
-      ...result,
-      [key]: "",
-    };
-  }, {});
+  const combinedObject = contactForm.fieldsCollection?.items?.reduce(
+    (result: any, field: { placeholder: string }) => {
+      const key = field.placeholder.toLocaleLowerCase().replace(" ", "_");
+      return {
+        ...result,
+        [key]: "",
+      };
+    },
+    {}
+  );
 
   const {
     register,
@@ -122,50 +125,52 @@ const ContactForm: React.FC<IContactUs> = ({ id = "", className, section }) => {
         })}
       >
         <div className="grid grid-cols-1 sm:gap-x-4 sm:grid-cols-6">
-          {contactForm?.fieldsCollection?.items.map((formField: any, index: number) => {
-            const fieldName = formField.placeholder
-              .toLocaleLowerCase()
-              .replace(" ", "_");
-            return (
-              <div className={cn("my-2 sm:col-span-6")} key={index}>
-                <label htmlFor={fieldName}></label>
-                <Controller
-                  name={fieldName}
-                  control={control}
-                  rules={{
-                    required: formField.errorMessage,
-                  }}
-                  render={({ field }) => {
-                    return formField.typeField === "textarea" ? (
-                      <textarea
-                        {...field}
-                        id={fieldName}
-                        placeholder={formField.placeholder}
-                        rows={3}
-                        className="block w-full py-5 px-6 border-contact-form resize-none focus:outline-none hover:outline-none"
-                        aria-describedby="my-helper-text"
-                        {...register(fieldName)}
-                      ></textarea>
-                    ) : (
-                      <input
-                        {...field}
-                        type={formField.typeField}
-                        id={fieldName}
-                        placeholder={formField.placeholder}
-                        autoComplete="given-name"
-                        className="block w-full py-5 px-6 border-contact-form focus:outline-none hover:outline-none"
-                        aria-describedby="my-helper-text"
-                        {...register(fieldName)}
-                      />
-                    );
-                  }}
-                />
-                {errors[fieldName] && (
-                  <span className="text-error">{formField.errorMessage}</span>
-                )}
-              </div>
-            );
-          })}
+          {contactForm?.fieldsCollection?.items.map(
+            (formField: any, index: number) => {
+              const fieldName = formField.placeholder
+                .toLocaleLowerCase()
+                .replace(" ", "_");
+              return (
+                <div className={cn("my-2 sm:col-span-6")} key={index}>
+                  <label htmlFor={fieldName}></label>
+                  <Controller
+                    name={fieldName}
+                    control={control}
+                    rules={{
+                      required: formField.errorMessage,
+                    }}
+                    render={({ field }) => {
+                      return formField.typeField === "textarea" ? (
+                        <textarea
+                          {...field}
+                          id={fieldName}
+                          placeholder={formField.placeholder}
+                          rows={3}
+                          className="block w-full py-5 px-6 border-contact-form resize-none focus:outline-none hover:outline-none"
+                          aria-describedby="my-helper-text"
+                          {...register(fieldName)}
+                        ></textarea>
+                      ) : (
+                        <input
+                          {...field}
+                          type={formField.typeField}
+                          id={fieldName}
+                          placeholder={formField.placeholder}
+                          autoComplete="given-name"
+                          className="block w-full py-5 px-6 border-contact-form focus:outline-none hover:outline-none"
+                          aria-describedby="my-helper-text"
+                          {...register(fieldName)}
+                        />
+                      );
+                    }}
+                  />
+                  {errors[fieldName] && (
+                    <span className="text-error">{formField.errorMessage}</span>
+                  )}
+                </div>
+              );
+            }
+          )}
           {errorMessage && (
             <div className="error-message">
               <p className="text-error">{errorMessage}</p>

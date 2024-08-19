@@ -1,21 +1,23 @@
-import { useGetContactInfo } from "@/graphql/queries/contact-info";
 import React from "react";
 import Button from "../button";
 
 interface IContactUs {
   className?: string;
   id: string;
+  section: any;
 }
 
-const ContactInfo: React.FC<IContactUs> = ({ id = "", className }) => {
-  const { section, companyInfo, socialInfo } = useGetContactInfo(id);
+const ContactInfo: React.FC<IContactUs> = ({ id = "", className, section }) => {
+  const { contactInfo } = section;
+  const companyInfo = contactInfo?.companyInfoCollection?.items || [];
+  const socialInfo = contactInfo?.socialInfoCollection?.items || [];
 
   return (
     <div className="contact-info">
-      {section?.title && <h1>{section.title}</h1>}
-      {section?.subtitle && (
+      {contactInfo?.title && <h1>{contactInfo.title}</h1>}
+      {contactInfo?.subtitle && (
         <span className="block text-base lg:text-xl font-bold mt-4">
-          {section.subtitle}
+          {contactInfo.subtitle}
         </span>
       )}
 

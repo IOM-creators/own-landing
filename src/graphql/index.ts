@@ -1,6 +1,6 @@
 import { useGetHeader } from "./queries/header";
 import { useGetHeroBanner } from "./queries/hero-banner";
-import { GET_CONTACT_FORM_ENTRY, useGetContactForm } from "./queries/contact-form";
+import { useGetContactForm } from "./queries/contact-form";
 import { useGetFooter } from "./queries/footer";
 import { useProjects } from "./queries/projects";
 import { useGetAboutSection } from "./queries/about-us";
@@ -16,7 +16,6 @@ export {
   useProjects,
 };
 
-
 export const queryMap: {
   [key: string]: (id: string) => DocumentNode;
 } = {
@@ -24,48 +23,82 @@ export const queryMap: {
     query VideoQuery($id: String!) {
       video(id: $id) {
         title
-      video{
-        url
-      }
-      videoPoster{
-        url
-      }
-      height
-      objectFit
-      autoPlay
-      loop
+        video {
+          url
+        }
+        videoPoster {
+          url
+        }
+        height
+        objectFit
+        autoPlay
+        loop
       }
     }
   `,
   ContactForm: (id: string) => gql`
     query ContactFormQuery($id: String!) {
       contactForm(id: $id) {
-      title
-      subtitle
-  		buttonText
-      successMessage{
-        json
-      }
-      successImage{
-        url
-      }
-      topImage{
-        url
-      }
-      leftImage{
-        url
-      }
-      fieldsCollection{
-        items{
-          ... on FormItem {
-            typeField
-            placeholder
-            required
-            errorMessage
+        title
+        subtitle
+        buttonText
+        successMessage {
+          json
+        }
+        successImage {
+          url
+        }
+        topImage {
+          url
+        }
+        leftImage {
+          url
+        }
+        fieldsCollection {
+          items {
+            ... on FormItem {
+              typeField
+              placeholder
+              required
+              errorMessage
+            }
           }
         }
       }
     }
+  `,
+  ContactInfo: (id: string) => gql`
+    query ContactInfoQuery($id: String!) {
+      contactInfo(id: $id) {
+        title
+        subtitle
+        companyInfoCollection {
+          items {
+            ... on Link {
+              title
+              url
+              icon {
+                url
+              }
+              styleButton
+              buttonType
+            }
+          }
+        }
+        socialInfoCollection {
+          items {
+            ... on Link {
+              title
+              url
+              icon {
+                url
+              }
+              styleButton
+              buttonType
+            }
+          }
+        }
+      }
     }
-  `
+  `,
 };
