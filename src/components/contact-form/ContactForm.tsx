@@ -6,11 +6,10 @@ import axios from "axios";
 import Button from "../button";
 import Image from "../image";
 import RichText from "../rich-text";
-import { useGetContactForm } from "../../graphql/";
 import { Document } from "@contentful/rich-text-types";
 
 interface IContactUsData {
-  section: {
+  contactForm: {
     title: string;
     subtitle: string;
     buttonText: string;
@@ -22,27 +21,30 @@ interface IContactUsData {
     leftImage: {
       url: string;
     };
-    formFields: [
-      {
-        typeField: string;
-        placeholder: string;
-        required: boolean;
-        errorMessage: string;
-      }
-    ];
+    fieldsCollection: {
+      items: FormField[]
+    }
   };
 }
+
+type FormField = {
+  typeField: string;
+  placeholder: string;
+  required: boolean;
+  errorMessage: string;
+}
+
 interface IContactUs {
   className?: string;
   id: string;
+  section: IContactUsData
 }
 
-const ContactForm: React.FC<IContactUs> = ({ id = "", className }) => {
-  const { section }: IContactUsData = useGetContactForm(id);
+const ContactForm: React.FC<IContactUs> = ({ id = "", className, section }) => {
+  const { contactForm } = section
+  if (!contactForm.fieldsCollection?.items) return null;
 
-  if (!section.formFields) return null;
-
-  const combinedObject = section.formFields?.reduce((result, field) => {
+  const combinedObject = contactForm.fieldsCollection?.items?.reduce((result: any, field: { placeholder: string; }) => {
     const key = field.placeholder.toLocaleLowerCase().replace(" ", "_");
     return {
       ...result,
@@ -85,11 +87,11 @@ const ContactForm: React.FC<IContactUs> = ({ id = "", className }) => {
   const onError = (errors: any, e: any) => console.log(errors, e);
 
   const customStyles: React.CSSProperties = {
-    ...(section?.topImage && {
-      "--form-top-img": `url(${section.topImage.url})`,
+    ...(contactForm?.topImage && {
+      "--form-top-img": `url(${contactForm.topImage.url})`,
     }),
-    ...(section?.leftImage && {
-      "--form-left-img": `url(${section.leftImage.url})`,
+    ...(contactForm?.leftImage && {
+      "--form-left-img": `url(${contactForm.leftImage.url})`,
     }),
   } as React.CSSProperties;
 
@@ -98,19 +100,19 @@ const ContactForm: React.FC<IContactUs> = ({ id = "", className }) => {
       className="contact-form max-w-[710px] px-4 py-8 lg:p-[80px] border-contact-form bg-white  w-full mx-auto relative"
       style={customStyles}
     >
-      {section?.title && (
+      {contactForm?.title && (
         <h3
           className={cn({
-            "mb-[40px]": !section.subtitle,
-            "mb-2": section.subtitle,
+            "mb-[40px]": !contactForm.subtitle,
+            "mb-2": contactForm.subtitle,
           })}
         >
-          {section?.title}
+          {contactForm?.title}
         </h3>
       )}
-      {section?.subtitle && (
+      {contactForm?.subtitle && (
         <span className={cn({}, "mb-[40px] block text-lg font-bold")}>
-          {section.subtitle}
+          {contactForm.subtitle}
         </span>
       )}
       <form
@@ -120,7 +122,7 @@ const ContactForm: React.FC<IContactUs> = ({ id = "", className }) => {
         })}
       >
         <div className="grid grid-cols-1 sm:gap-x-4 sm:grid-cols-6">
-          {section.formFields.map((formField, index) => {
+          {contactForm?.fieldsCollection?.items.map((formField: any, index: number) => {
             const fieldName = formField.placeholder
               .toLocaleLowerCase()
               .replace(" ", "_");
@@ -172,14 +174,14 @@ const ContactForm: React.FC<IContactUs> = ({ id = "", className }) => {
         </div>
         <div className="mt-5 flex justify-center">
           <Button type="submit" className="btn btn--primary justify-center">
-            {section.buttonText}
+            {contactForm.buttonText}
           </Button>
         </div>
       </form>
       {isSuccessMessage && (
         <div className="success-message text-center absolute bg-white h-full w-full top-0 left-0 flex flex-col items-center justify-center">
-          <Image src={section.successImage} classWrapper="w-60" />
-          <RichText richText={section.successMessage} />
+          <Image src={contactForm.successImage} classWrapper="w-60" />
+          <RichText richText={contactForm.successMessage} />
         </div>
       )}
     </div>

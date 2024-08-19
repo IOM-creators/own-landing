@@ -5,15 +5,18 @@ import cn from "classnames";
 import Image from "../image";
 import RichText from "../rich-text";
 import Button from "../button";
+import { componentMap } from "@/helpers/componentsMap";
 
 interface ISection {
   id: string;
   className?: string;
   children?: React.ReactNode;
+  section: any
 }
-const Section: React.FC<ISection> = ({ id, className }) => {
+const Section: React.FC<ISection> = ({ id, className, section }) => {
   const refSection = useRef<HTMLElement | null>(null);
-  const { section } = useGetSection(id);
+
+
 
   if (!section?.title) return null;
 
@@ -119,11 +122,15 @@ const Section: React.FC<ISection> = ({ id, className }) => {
             )}
           </div>
         )}
-        {section?.componentsCollection &&
-          section.componentsCollection.items.map(
-            (component: any, index: number) => (
-              <GqlComponent section={component} key={index} />
-            )
+        {section?.components &&
+          section.components.map(
+            (component: any, index: number) => {
+              for (const key of Object.keys(component)) {
+                const updatedKey = key.charAt(0).toUpperCase() + key.slice(1);
+                let ComponentGql = componentMap[updatedKey];
+                return <ComponentGql section={...component} key={index} />
+              }
+            }
           )}
       </div>
     </section>

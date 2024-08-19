@@ -40,10 +40,32 @@ export const queryMap: {
   ContactForm: (id: string) => gql`
     query ContactFormQuery($id: String!) {
       contactForm(id: $id) {
-        title
+      title
       subtitle
   		buttonText
+      successMessage{
+        json
       }
+      successImage{
+        url
+      }
+      topImage{
+        url
+      }
+      leftImage{
+        url
+      }
+      fieldsCollection{
+        items{
+          ... on FormItem {
+            typeField
+            placeholder
+            required
+            errorMessage
+          }
+        }
+      }
+    }
     }
   `
 };

@@ -5,16 +5,16 @@ import Page from "@/components/page";
 import Custom404 from "./404";
 import { GET_SECTION_ENTRY } from "@/graphql/queries/section";
 import { queryMap } from "@/graphql";
+import { CustomNextPageContext } from ".";
 
 export const createApolloClient = () => client;
 
 const SlugPage: NextPage = (props: any) => {
-  console.log('page');
 
-  if (!props?.items?.length) {
+  if (!props?.sections?.length) {
     return <Custom404 />;
   } else {
-    return <Page page={props.items[0]}></Page>;
+    return <Page sections={props.sections}></Page>;
   }
 };
 
@@ -85,7 +85,7 @@ export const getServerSideProps = async ({
     return {
       props: {
         slug,
-        sectionsWithComponents, // Pass sections with their components
+        sections: sectionsWithComponents, // Pass sections with their components
       },
     };
   } catch (error) {
