@@ -1,17 +1,19 @@
 import React from "react";
 import Image from "../image";
 import RichText from "../rich-text";
-import { useGetAboutSection } from "@/graphql/queries/about-us";
 
-interface IAboutSection {}
+interface IAboutSection {
+  id: string;
+  section: any;
+}
 
 type ProjectInfo = {
   headlineInfo: string;
   descriptionInfo: string;
 };
 
-const AboutSection: React.FC<IAboutSection> = () => {
-  const { aboutSection } = useGetAboutSection();
+const AboutSection: React.FC<IAboutSection> = ({ id = "", section }) => {
+  const { aboutSection } = section;
   const {
     title,
     image,
@@ -27,6 +29,7 @@ const AboutSection: React.FC<IAboutSection> = () => {
       return { headlineInfo, descriptionInfo };
     }
   );
+
   return (
     <div>
       <div className="grid grid-cols-1 lg:grid-cols-[_40%_60%] lap:grid-cols-[_25%_75%]  items-center">
