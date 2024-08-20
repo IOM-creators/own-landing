@@ -1,20 +1,7 @@
-import { useGetHeader } from "./queries/header";
-import { useGetHeroBanner } from "./queries/hero-banner";
 import { useGetContactForm } from "./queries/contact-form";
-import { useGetFooter } from "./queries/footer";
-import { useProjects } from "./queries/projects";
-import { useGetAboutSection } from "./queries/about-us";
-import { GET_VIDEO_ENTRY } from "./queries/video";
 import { DocumentNode, gql } from "@apollo/client";
 
-export {
-  useGetHeader,
-  useGetHeroBanner,
-  useGetAboutSection,
-  useGetContactForm,
-  useGetFooter,
-  useProjects,
-};
+export { useGetContactForm };
 
 export const queryMap: {
   [key: string]: (id: string) => DocumentNode;
@@ -318,61 +305,12 @@ export const queryMap: {
       }
     }
   `,
-  Footer: () => gql`
-      query getFooter {
-        footer(id: "3pfAktCL2Fc93kl1bUGzMM") {
-          logo {
-            url
-          }
-          menuCollection {
-            items {
-              ... on Link {
-                title
-                url
-                icon {
-                  url
-                }
-                styleButton
-                buttonType
-              }
-            }
-          }
-          socialCollection {
-            items {
-              ... on Link {
-                title
-                url
-                icon {
-                  url
-                }
-                styleButton
-                buttonType
-              }
-            }
-          }
-          background
-        }
-      }
-    `,
-  Header: () => gql`
-  query getHeader {
-    header(id: "1VZKDQL6LQUZ3szuQl31Ze") {
-      logo {
-        url
-      }
-      contactButton {
-        ... on Link {
-          title
-          url
-          icon {
-            url
-          }
-          styleButton
-          buttonType
-        }
-      }
-      menuCollection {
-        items {
+  ReviewItem: (id: string) => gql`
+    query ReviewItemQuery($id: String!) {
+      reviewItem(id: $id) {
+        name
+        description
+        link {
           ... on Link {
             title
             url
@@ -383,33 +321,82 @@ export const queryMap: {
             buttonType
           }
         }
+        platform {
+          url
+        }
+        paddingTop
+        paddingBottom
       }
-      background
     }
-  }
   `,
-  ReviewItem: (id: string) => gql`
-  query ReviewItem {
-    reviewItem(id: "${id}") {
-      name
-      description
-      link{
-        ...on Link {
+  Footer: () => gql`
+    query getFooter {
+      footer(id: "3pfAktCL2Fc93kl1bUGzMM") {
+        logo {
+          url
+        }
+        menuCollection {
+          items {
+            ... on Link {
+              title
+              url
+              icon {
+                url
+              }
+              styleButton
+              buttonType
+            }
+          }
+        }
+        socialCollection {
+          items {
+            ... on Link {
+              title
+              url
+              icon {
+                url
+              }
+              styleButton
+              buttonType
+            }
+          }
+        }
+        background
+      }
+    }
+  `,
+  Header: () => gql`
+    query getHeader {
+      header(id: "1VZKDQL6LQUZ3szuQl31Ze") {
+        logo {
+          url
+        }
+        contactButton {
+          ... on Link {
             title
             url
-            icon{
+            icon {
               url
             }
             styleButton
             buttonType
+          }
         }
+        menuCollection {
+          items {
+            ... on Link {
+              title
+              url
+              icon {
+                url
+              }
+              styleButton
+              buttonType
+            }
+          }
+        }
+        background
       }
-      platform{
-        url
-      }
-      paddingTop
-      paddingBottom
     }
-  }
-`
+  `,
 };

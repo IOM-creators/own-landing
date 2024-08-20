@@ -54,7 +54,7 @@ const Testimonials: React.FC<ITestimonials> = ({ id = "", section }) => {
         {testimonialsItems.map((testimonial: any, index: number) => (
           <SwiperSlide key={index}>
             <ReviewItem
-              data={{ review: { ...testimonial } }}
+              section={{ reviewItem: testimonial }}
               className="border border-border-color !p-8"
             />
           </SwiperSlide>

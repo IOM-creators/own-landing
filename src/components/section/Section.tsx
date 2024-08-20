@@ -123,7 +123,7 @@ const Section: React.FC<ISection> = ({ id, className, section }) => {
             for (const key of Object.keys(component)) {
               const updatedKey = key.charAt(0).toUpperCase() + key.slice(1);
               let ComponentGql = componentMap[updatedKey];
-              return <ComponentGql section={...component} key={index} />;
+              return <ComponentGql section={{ ...component }} key={index} />;
             }
           })}
       </div>

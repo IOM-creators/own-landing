@@ -3,15 +3,12 @@ import { useProjects, useProjectsTotal } from "@/graphql/queries/projects";
 import Pagination from "@/components/pagination";
 import Image from "@/components/image";
 import { NextPage } from "next/types";
-import { client } from "../_app";
 import Page from "@/components/page";
 import RichText from "@/components/rich-text";
 import Link from "next/link";
 import Custom404 from "../404";
 import { CustomNextPageContext } from "../../types/page-props";
 import { fetchPageContent } from "@/helpers/getData";
-
-export const createApolloClient = () => client;
 
 const SlugPage: NextPage = (props: any) => {
   // Ensure content is consistent between SSR and client-side rendering
@@ -110,7 +107,7 @@ export const getServerSideProps = async ({
 
   try {
     // Fetch the page collections
-    const { sections, header, footer } = await fetchPageContent(slug)
+    const { sections, header, footer } = await fetchPageContent(slug);
     return {
       props: {
         footer: footer,

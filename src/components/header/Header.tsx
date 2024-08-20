@@ -5,27 +5,24 @@ import cn from "classnames";
 import HamburgerMenu from "./Hamburger";
 import Icon from "../icon";
 import HeaderNavigation from "./HeaderNavigation";
-import { useGetHeader } from "../../graphql/";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { HeaderState } from "../../store/types/header";
 import { useTypedSelector } from "@/store/hooks/useTypedSelector";
 import Button from "../button/Button";
 interface IHeader {
-  headerRef: React.ForwardedRef<HTMLDivElement>
-  content: any
+  headerRef: React.ForwardedRef<HTMLDivElement>;
+  content: any;
 }
 
 const Header: React.FC<IHeader> = ({ headerRef, content }) => {
-
-
   const router = useRouter();
   const { pathname } = router;
   const { activeLink, transparent, isHeaderVisible } = useScrollEvent();
   const [firstLoad, setFirstLoad] = useState(false);
   const header = content;
   if (!header) {
-    return null
+    return null;
   }
 
   const { filled }: HeaderState = useTypedSelector((state) => state.header);
@@ -85,7 +82,10 @@ const Header: React.FC<IHeader> = ({ headerRef, content }) => {
         )}
 
         {windowWidth && windowWidth < 1024 && (
-          <HamburgerMenu links={header.menuCollection.items} activeLink={activeLink} />
+          <HamburgerMenu
+            links={header.menuCollection.items}
+            activeLink={activeLink}
+          />
         )}
       </div>
     </header>

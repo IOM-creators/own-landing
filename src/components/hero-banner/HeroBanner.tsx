@@ -5,20 +5,21 @@ import Poster from "../../assets/images/poster.png";
 import Round from "../../assets/images/round.png";
 import Video from "../video";
 import RichText from "../rich-text";
-import { useGetHeroBanner } from "@/graphql";
 import Button from "../button";
 
-interface IHeroSection {}
+interface IHeroSection {
+  section: any;
+}
 
-const HeroSection: React.FC<IHeroSection> = () => {
-  const { heroBanner, loading, error } = useGetHeroBanner();
+const HeroSection: React.FC<IHeroSection> = ({ section }) => {
+  const { heroBanner } = section;
 
   // Memoize the processed heroBanner data
   const memoizedHeroBanner = useMemo(() => {
     if (!heroBanner) return {};
 
     return {
-      titleRichText: heroBanner.titleRichText,
+      titleRichText: heroBanner.titleRichText.json,
       video: heroBanner.video,
       rIghtBlockText: heroBanner.rIghtBlockText,
       callToActionLink: heroBanner.callToActionLink,
@@ -28,9 +29,6 @@ const HeroSection: React.FC<IHeroSection> = () => {
       upworkLink: heroBanner.upworkLink,
     };
   }, [heroBanner]);
-
-  if (loading) return <div>Loading...</div>;
-  if (error) return <div>Error loading hero banner</div>;
 
   const {
     titleRichText,

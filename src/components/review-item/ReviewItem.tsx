@@ -3,53 +3,50 @@ import cn from "classnames";
 
 import Icon from "../icon";
 import Button from "../button";
-import { useGetReviewItem } from "@/graphql/queries/review-item";
 
 interface IReviewItem {
   id?: string;
-  data?: any;
+  section: any;
   className?: string;
 }
-const ReviewItem: React.FC<IReviewItem> = ({
-  id = "",
-  data = { review: {} },
-  className,
-}) => {
-  const { review } = id ? useGetReviewItem(id) : data;
+const ReviewItem: React.FC<IReviewItem> = ({ id = "", section, className }) => {
+  const { reviewItem } = section;
   const customStyles: React.CSSProperties = {
-    ...(review.paddingTop && { "--pd-top": `${review.paddingTop}px` }),
-    ...(review.paddingBottom && { "--pd-top": `${review.paddingBottom}px` }),
+    ...(reviewItem.paddingTop && { "--pd-top": `${reviewItem.paddingTop}px` }),
+    ...(reviewItem.paddingBottom && {
+      "--pd-top": `${reviewItem.paddingBottom}px`,
+    }),
   } as React.CSSProperties;
 
   return (
     <div className={cn({}, className, "review-item")} style={customStyles}>
       <div className="review-item__title flex justify-between">
-        <h4 className="">{review.name}</h4>
+        <h4 className="">{reviewItem.name}</h4>
         <Icon icon="review-comma" />
       </div>
-      {review.description && (
+      {reviewItem.description && (
         <div className="review__description truncate-2 mt-4 mb-10">
-          {review.description}
+          {reviewItem.description}
         </div>
       )}
       <div className="review__footer flex justify-between items-center">
-        {review.link && (
+        {reviewItem.link && (
           <Button
-            typeButton={review.link.buttonType}
-            styleButton={review.link.styleButton}
-            icon={review.link.icon.url}
-            link={review.link.url}
+            typeButton={reviewItem.link.buttonType}
+            styleButton={reviewItem.link.styleButton}
+            icon={reviewItem.link.icon.url}
+            link={reviewItem.link.url}
             className="text-primary-green"
           >
-            {review.link.title}
+            {reviewItem.link.title}
           </Button>
         )}
-        {review.platform && (
+        {reviewItem.platform && (
           <Button
-            typeButton={review.link.buttonType}
-            styleButton={review.link.styleButton}
-            link={review.link.url}
-            icon={review.platform.url}
+            typeButton={reviewItem.link.buttonType}
+            styleButton={reviewItem.link.styleButton}
+            link={reviewItem.link.url}
+            icon={reviewItem.platform.url}
           />
         )}
       </div>

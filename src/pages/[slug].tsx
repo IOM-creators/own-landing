@@ -1,5 +1,4 @@
 import { NextPage } from "next/types";
-import { client } from "./_app";
 import Page from "@/components/page";
 import Custom404 from "./404";
 import { CustomNextPageContext } from "../types/page-props";
@@ -7,7 +6,6 @@ import { useEffect, useState } from "react";
 import { fetchPageContent } from "@/helpers/getData";
 
 // Create Apollo Client
-export const createApolloClient = () => client;
 
 const SlugPage: NextPage = (props: any) => {
   // Ensure content is consistent between SSR and client-side rendering
@@ -37,7 +35,7 @@ export const getServerSideProps = async ({
 
   try {
     // Fetch the page collections
-    const { sections, header, footer } = await fetchPageContent(slug)
+    const { sections, header, footer } = await fetchPageContent(slug);
     return {
       props: {
         footer: footer,
