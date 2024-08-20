@@ -9,6 +9,7 @@ import Button from "@/components/button";
 import { useWindowWidth } from "@/helpers/reactHooks";
 import { useEffect, useState } from "react";
 import Custom404 from "../404";
+import { fetchPageContent } from "@/helpers/getData";
 
 const Projects: NextPage = (props: any) => {
   // State to manage sections on the client side
@@ -37,7 +38,7 @@ const Projects: NextPage = (props: any) => {
   } as React.CSSProperties;
 
   return (
-    <Page sections={clientItems} sectionIndex={0}>
+    <Page sections={props.sections} showChildren sectionIndex={0}>
       <section className="section" style={customStyles}>
         <div className="section__wrapper container">
           <div className="project__header flex flex-wrap justify-between items-start">
@@ -72,19 +73,19 @@ const Projects: NextPage = (props: any) => {
           </div>
           {windowWidth && windowWidth >= 1024
             ? item?.heroImage && (
-                <Image
-                  src={item.heroImage.url}
-                  className="object-cover lg:object-contain"
-                  classWrapper="my-10 before:pt-[100%] lg:before:pt-[34%]"
-                />
-              )
+              <Image
+                src={item.heroImage.url}
+                className="object-cover lg:object-contain"
+                classWrapper="my-10 before:pt-[100%] lg:before:pt-[34%]"
+              />
+            )
             : item?.mobileHeroImage && (
-                <Image
-                  src={item.mobileHeroImage.url}
-                  className="object-cover lg:object-contain"
-                  classWrapper="my-10 before:pt-[100%] lg:before:pt-[34%]"
-                />
-              )}
+              <Image
+                src={item.mobileHeroImage.url}
+                className="object-cover lg:object-contain"
+                classWrapper="my-10 before:pt-[100%] lg:before:pt-[34%]"
+              />
+            )}
         </div>
       </section>
     </Page>
@@ -106,6 +107,7 @@ export const getServerSideProps = async ({
       query: GET_PROJECTS_BY_SLUG(slug),
     });
 
+    const { header, footer, sections } = await fetchPageContent(slug, false, res.data.projectCollection.items[0].pageContent.items)
     // Check if items are available, otherwise return a 404 page
     if (!res.data.projectCollection.items.length) {
       return {
@@ -113,10 +115,14 @@ export const getServerSideProps = async ({
       };
     }
 
+
     return {
       props: {
+        header: header,
+        footer: footer,
         slug: slug,
         items: res.data.projectCollection.items,
+        sections: sections
       },
     };
   } catch (e) {

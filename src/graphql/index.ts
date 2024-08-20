@@ -318,4 +318,98 @@ export const queryMap: {
       }
     }
   `,
+  Footer: () => gql`
+      query getFooter {
+        footer(id: "3pfAktCL2Fc93kl1bUGzMM") {
+          logo {
+            url
+          }
+          menuCollection {
+            items {
+              ... on Link {
+                title
+                url
+                icon {
+                  url
+                }
+                styleButton
+                buttonType
+              }
+            }
+          }
+          socialCollection {
+            items {
+              ... on Link {
+                title
+                url
+                icon {
+                  url
+                }
+                styleButton
+                buttonType
+              }
+            }
+          }
+          background
+        }
+      }
+    `,
+  Header: () => gql`
+  query getHeader {
+    header(id: "1VZKDQL6LQUZ3szuQl31Ze") {
+      logo {
+        url
+      }
+      contactButton {
+        ... on Link {
+          title
+          url
+          icon {
+            url
+          }
+          styleButton
+          buttonType
+        }
+      }
+      menuCollection {
+        items {
+          ... on Link {
+            title
+            url
+            icon {
+              url
+            }
+            styleButton
+            buttonType
+          }
+        }
+      }
+      background
+    }
+  }
+  `,
+  ReviewItem: (id: string) => gql`
+  query ReviewItem {
+    reviewItem(id: "${id}") {
+      name
+      description
+      link{
+        ...on Link {
+            title
+            url
+            icon{
+              url
+            }
+            styleButton
+            buttonType
+        }
+      }
+      platform{
+        url
+      }
+      paddingTop
+      paddingBottom
+    }
+  }
+`
 };

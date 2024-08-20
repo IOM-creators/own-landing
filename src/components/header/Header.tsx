@@ -12,18 +12,24 @@ import { HeaderState } from "../../store/types/header";
 import { useTypedSelector } from "@/store/hooks/useTypedSelector";
 import Button from "../button/Button";
 interface IHeader {
-  headerRef: React.ForwardedRef<HTMLDivElement>;
+  headerRef: React.ForwardedRef<HTMLDivElement>
+  content: any
 }
 
-const Header: React.FC<IHeader> = ({ headerRef }) => {
+const Header: React.FC<IHeader> = ({ headerRef, content }) => {
+
+
   const router = useRouter();
   const { pathname } = router;
   const { activeLink, transparent, isHeaderVisible } = useScrollEvent();
   const [firstLoad, setFirstLoad] = useState(false);
-  const { header } = useGetHeader();
+  const header = content;
+  if (!header) {
+    return null
+  }
+
   const { filled }: HeaderState = useTypedSelector((state) => state.header);
   const windowWidth = useWindowWidth();
-
   useEffect(() => setFirstLoad(true));
 
   const customStyles: React.CSSProperties = {
@@ -53,7 +59,7 @@ const Header: React.FC<IHeader> = ({ headerRef }) => {
             classNameWrapper="mr-auto"
             classname="flex h-full flex-wrap items-center justify-center"
             activeLink={activeLink}
-            links={header.menu}
+            links={header.menuCollection.items}
           />
         )}
         {pathname !== "/" && windowWidth && windowWidth >= 1024 && (
@@ -62,7 +68,7 @@ const Header: React.FC<IHeader> = ({ headerRef }) => {
               classNameWrapper="mx-auto"
               classname="flex h-full flex-wrap items-center justify-center"
               activeLink={activeLink}
-              links={header.menu}
+              links={header.menuCollection.items}
             />
             {header.contactButton && (
               <Button
@@ -79,7 +85,7 @@ const Header: React.FC<IHeader> = ({ headerRef }) => {
         )}
 
         {windowWidth && windowWidth < 1024 && (
-          <HamburgerMenu links={header.menu} activeLink={activeLink} />
+          <HamburgerMenu links={header.menuCollection.items} activeLink={activeLink} />
         )}
       </div>
     </header>

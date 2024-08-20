@@ -1,11 +1,15 @@
 import React from "react";
 import Icon from "../icon";
-import { useGetFooter } from "../../graphql/";
 import Link from "next/link";
 import Button from "../button";
 
-const Footer = () => {
-  const { footer } = useGetFooter();
+const Footer = (props: any) => {
+  const { content: footer } = props;
+
+  if (!footer) {
+    return null
+  }
+
   const customStyles: React.CSSProperties = {
     ...(footer.background && { "--bg-footer": `${footer.background}` }),
   } as React.CSSProperties;
@@ -22,13 +26,12 @@ const Footer = () => {
 
           <div className="footer-item">
             <ul className="text-dark-blue text-base flex flex-wrap flex-col justify-center md:flex-row">
-              {footer.menu.map(
+              {footer?.menuCollection?.items.map(
                 (navItem: { url: string; title: string }, index: number) => {
                   return (
                     <li
-                      className={`px-3 py-2 md:py-0 md:px-5 ${
-                        index === footer.menu.length - 1 ? "md:pr-0" : "md:pr-5"
-                      }`}
+                      className={`px-3 py-2 md:py-0 md:px-5 ${index === footer.menuCollection.length - 1 ? "md:pr-0" : "md:pr-5"
+                        }`}
                       key={index}
                     >
                       <Link
@@ -43,10 +46,10 @@ const Footer = () => {
               )}
             </ul>
           </div>
-          {footer.social && (
+          {footer.socialCollection && (
             <div className="footer-item footer__social">
               <ul className="flex items-center gap-4 justify-center mt-8 lg:mt-0 lg:justify-normal">
-                {footer.social.map((item: any, index: number) => (
+                {footer?.socialCollection?.items.map((item: any, index: number) => (
                   <li key={index}>
                     <Button
                       styleButton={item.styleButton}

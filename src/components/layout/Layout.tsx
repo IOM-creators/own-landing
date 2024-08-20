@@ -13,6 +13,7 @@ const Layout = ({ children }: any) => {
   const headerRef = useRef<HTMLDivElement | null>(null);
   const { pathname } = router;
   const { slug } = router.query;
+  const { props } = children
 
   useEffect(() => {
     const getPageName = () => {
@@ -32,10 +33,10 @@ const Layout = ({ children }: any) => {
 
   return (
     <div className={cn({}, `page-template page-template-${slug || pageName}`)}>
-      <Header headerRef={headerRef} />
+      <Header headerRef={headerRef} content={props.header} />
       <main style={customStyles}>{children}</main>
       <Popup />
-      <Footer />
+      <Footer content={props.footer} />
     </div>
   );
 };
