@@ -61,7 +61,7 @@ const Projects: NextPage = (props: any) => {
             {item?.siteLink && (
               <Button
                 link={item.siteLink}
-                typeButton={item.buttonType}
+                typeButton='Link'
                 styleButton={item.styleButton}
                 className="max-w-[270px] w-full"
               >
@@ -75,19 +75,19 @@ const Projects: NextPage = (props: any) => {
           </div>
           {windowWidth && windowWidth >= 1024
             ? item?.heroImage && (
-                <Image
-                  src={item.heroImage.url}
-                  className="object-cover lg:object-contain"
-                  classWrapper="my-10 before:pt-[100%] lg:before:pt-[34%]"
-                />
-              )
+              <Image
+                src={item.heroImage.url}
+                className="object-cover lg:object-contain"
+                classWrapper="my-10 before:pt-[100%] lg:before:pt-[34%]"
+              />
+            )
             : item?.mobileHeroImage && (
-                <Image
-                  src={item.mobileHeroImage.url}
-                  className="object-cover lg:object-contain"
-                  classWrapper="my-10 before:pt-[100%] lg:before:pt-[34%]"
-                />
-              )}
+              <Image
+                src={item.mobileHeroImage.url}
+                className="object-cover lg:object-contain"
+                classWrapper="my-10 before:pt-[100%] lg:before:pt-[34%]"
+              />
+            )}
         </div>
       </section>
     </Page>

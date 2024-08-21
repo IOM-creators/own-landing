@@ -412,3 +412,19 @@ html {
     transform: scaleY(1);
   }
 }
+
+
+.section__description ol{
+  list-style: auto;
+  padding-left: 20px;
+}
+.section__description ul{
+  list-style: disc;
+  padding-left: 20px;
+}
+.section__description p{
+  margin: 0 0 10px 0;
+}
+.section__description h3{
+  margin: 60px 0 20px 0;
+}

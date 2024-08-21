@@ -17,6 +17,7 @@ interface IButton {
   active?: boolean;
   children?: React.ReactNode;
   className?: string;
+  target?: string;
   eventClick?: MouseEventHandler<HTMLButtonElement>;
 }
 
@@ -43,6 +44,7 @@ const Button: React.FC<IButton> = ({
   className,
   children,
   rightText,
+  target = "_blank",
   eventClick,
   ...props
 }) => {
@@ -81,7 +83,7 @@ const Button: React.FC<IButton> = ({
   return (
     <>
       {typeButton === "Link" && link && (
-        <Link href={link} className={cn(className, buttonStyles[styleButton])}>
+        <Link href={link} target={target} className={cn(className, buttonStyles[styleButton])}>
           {!rightText && children}
           {renderIcon()}
           {rightText && children}

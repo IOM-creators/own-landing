@@ -83,7 +83,7 @@ const Section: React.FC<ISection> = ({ id, className, section }) => {
                   <h2 className="mb-6">{section.title}</h2>
                 ) : (
                   <div className="custom-title text-center mb-6 md:mb-12 md:mb-24 mx-auto max-w-[1050px]">
-                    <RichText richText={section.titleRichtext.json} />
+                    {section.titleRichtext && <RichText richText={section.titleRichtext.json} />}
                   </div>
                 )}
                 {section?.button && (
@@ -105,7 +105,7 @@ const Section: React.FC<ISection> = ({ id, className, section }) => {
               )}
             </div>
             {section?.content && (
-              <div className="section__dexcription text-xl">
+              <div className="section__description text-xl">
                 <RichText richText={section.content.json} />
               </div>
             )}
