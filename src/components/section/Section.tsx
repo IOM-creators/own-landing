@@ -65,7 +65,7 @@ const Section: React.FC<ISection> = ({ id, className, section }) => {
           <div
             className={cn(
               { "col-span-1 lg:col-span-full": section.button },
-              "section__content slideUp"
+              "section__content"
             )}
           >
             <div className="section__header">
@@ -109,7 +109,6 @@ const Section: React.FC<ISection> = ({ id, className, section }) => {
                 <RichText richText={section.content.json} />
               </div>
             )}
-
             {imgUrl && (
               <Image
                 src={imgUrl}

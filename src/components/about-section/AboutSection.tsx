@@ -56,7 +56,7 @@ const AboutSection: React.FC<IAboutSection> = ({ id = "", section }) => {
                         <Image
                           key={index}
                           src={founder.url}
-                          className="object-contain object-left"
+                          className="object-cover object-top rounded-full overflow-hidden"
                           classWrapper="w-20 h-20 ml-[-4px]"
                         />
                       );
