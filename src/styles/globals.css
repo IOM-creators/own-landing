@@ -13,6 +13,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   -webkit-tap-highlight-color: transparent;
+  line-height: 1.4;
 }
 
 p {
@@ -186,19 +187,19 @@ svg {
 
   h1,
   .h1 {
-    @apply text-5xl font-bold md:text-[80px] leading-none;
+    @apply text-4xl font-bold md:text-[80px] leading-none;
   }
   h2,
   .h2 {
-    @apply text-4xl font-bold md:text-[60px] leading-none;
+    @apply text-3xl font-bold md:text-[60px] leading-none;
   }
   h3,
   .h3 {
-    @apply text-3xl font-bold md:text-[40px] leading-none;
+    @apply text-2xl font-bold md:text-[40px] leading-none;
   }
   h4,
   .h4 {
-    @apply text-3xl font-bold md:text-[30px] leading-none;
+    @apply text-xl font-bold md:text-[30px] leading-none;
   }
 
   .custom-title h2 i,
@@ -208,6 +209,11 @@ svg {
   }
 }
 
+@media screen and (max-width: 768px) {
+  .video-wrapper:before {
+    padding-top: 100%;
+  }
+}
 @media screen and (min-width: 1024px) {
   .page-template-contact-us .section:first-of-type:before {
     height: var(--bg-height);

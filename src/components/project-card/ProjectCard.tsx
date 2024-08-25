@@ -34,7 +34,7 @@ const ProjectCard: React.FC<IProjectCard> = ({
           <div className="py-4 md:py-6">
             {card.title && <h3 className="">{card.title}</h3>}
             {card.technologies && (
-              <ul className="technologies flex projects-center gap-4 mt-4">
+              <ul className="technologies flex flex-wrap projects-center gap-4 mt-4">
                 {card.technologies.map((technology: string, index: number) => (
                   <li key={index} className="border rounded-md p-2">
                     <span>{technology}</span>

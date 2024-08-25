@@ -79,11 +79,11 @@ const Section: React.FC<ISection> = ({ id, className, section }) => {
                   "section__header-title"
                 )}
               >
-                {section.title && !section.titleRichtext ? (
+                {section.title && !section.titleRichtext?.json ? (
                   <h2 className="mb-6">{section.title}</h2>
                 ) : (
                   <div className="custom-title text-center mb-6 md:mb-12 md:mb-24 mx-auto max-w-[1050px]">
-                    <RichText richText={section.titleRichtext.json} />
+                    <RichText richText={section.titleRichtext?.json} />
                   </div>
                 )}
                 {section?.button && (
@@ -109,11 +109,12 @@ const Section: React.FC<ISection> = ({ id, className, section }) => {
                 <RichText richText={section.content.json} />
               </div>
             )}
+
             {imgUrl && (
               <Image
                 src={imgUrl}
                 classWrapper="mt-10 lg:mt-20 before:pt-[50%]"
-                className="object-contain"
+                className="object-cover md:object-contain"
               />
             )}
           </div>
