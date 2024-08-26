@@ -1,11 +1,16 @@
 import React from "react";
 
-const Loader = () => (
-  <div>
-    <Spinner />
-    <h4 className="mt-4 text-center">Loading...</h4>
-  </div>
-);
+const Loader = () => {
+  return (
+    <div className="loader">
+      <h2 className="mt-4 text-center">
+        <span>I</span>
+        <span>O</span>
+        <span>M</span>
+      </h2>
+    </div>
+  );
+};
 
 const Spinner = () => (
   <svg

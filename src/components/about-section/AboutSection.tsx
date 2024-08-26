@@ -38,11 +38,10 @@ const AboutSection: React.FC<IAboutSection> = ({ id = "", section }) => {
             <Image onlyImg src={image.url} />
           </div>
         )}
-
         <div className="my-auto flex flex-wrap lap:flex-nowrap gap:8 lap:gap-16">
           <div className="max-w-[300px] w-full">
             {title && (
-              <h2 className="text-3xl lg:text-5xl font-bold uppercase text-nowrap">
+              <h2 className="text-3xl lg:text-5xl font-bold uppercase whitespace-nowrap">
                 {title}
               </h2>
             )}
@@ -56,8 +55,8 @@ const AboutSection: React.FC<IAboutSection> = ({ id = "", section }) => {
                         <Image
                           key={index}
                           src={founder.url}
-                          className="object-cover object-top rounded-full overflow-hidden"
-                          classWrapper="w-20 h-20 ml-[-4px]"
+                          className="object-cover object-top"
+                          classWrapper="w-20 h-20 ml-[-8px] border-4 border-light-gray rounded-full overflow-hidden"
                         />
                       );
                     }

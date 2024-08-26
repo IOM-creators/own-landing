@@ -209,6 +209,40 @@ svg {
   }
 }
 
+.loader {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 99999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #fff;
+}
+.loader span {
+  display: inline-block;
+  transform: scale(0);
+  animation: loader 1.4s 0s linear infinite;
+  font-size: 60px;
+}
+.loader span:nth-of-type(2) {
+  animation-delay: 0.2s;
+}
+.loader span:nth-of-type(3) {
+  animation-delay: 0.4s;
+}
+
+@keyframes loader {
+  50% {
+    transform: scale(1);
+  }
+  0%,
+  100% {
+    transform: scale(0);
+  }
+}
 @media screen and (max-width: 768px) {
   .video-wrapper:before {
     padding-top: 100%;
