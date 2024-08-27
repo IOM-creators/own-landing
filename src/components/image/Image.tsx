@@ -26,15 +26,14 @@ const Image: React.FC<IImage> = ({
       className={className}
     />
   ) : (
-    <div className={cn(classWrapper, "img-wrapper")}>
-      <LazyLoadImage
-        src={src}
-        alt={alt}
-        effect="opacity"
-        threshold={500}
-        className={className}
-      />
-    </div>
+    <LazyLoadImage
+      src={src}
+      alt={alt}
+      effect="opacity"
+      threshold={500}
+      wrapperClassName={classWrapper}
+      className={className}
+    />
   );
 };
 

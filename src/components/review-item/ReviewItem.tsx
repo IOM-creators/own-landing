@@ -14,7 +14,7 @@ const ReviewItem: React.FC<IReviewItem> = ({ id = "", section, className }) => {
   const customStyles: React.CSSProperties = {
     ...(reviewItem.paddingTop && { "--pd-top": `${reviewItem.paddingTop}px` }),
     ...(reviewItem.paddingBottom && {
-      "--pd-top": `${reviewItem.paddingBottom}px`,
+      "--pd-bottom": `${reviewItem.paddingBottom}px`,
     }),
   } as React.CSSProperties;
 
