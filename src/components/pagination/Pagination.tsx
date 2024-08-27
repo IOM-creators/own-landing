@@ -1,7 +1,8 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useMemo, useCallback } from "react";
 import cn from "classnames";
 import Icon from "../icon";
 import { useRouter } from "next/router";
+import Link from "next/link";
 
 interface IPagination {
   currentPage: number;
@@ -9,6 +10,7 @@ interface IPagination {
   pagesTotal: number;
   perPage: number;
 }
+
 const Pagination: React.FC<IPagination> = ({
   currentPage,
   setCurrentPage,
@@ -19,69 +21,75 @@ const Pagination: React.FC<IPagination> = ({
   const { pages } = router.query;
   const initPage = Number(pages) ? Number(pages) : 1;
   const totalPages = Math.ceil(pagesTotal / perPage);
-  const pagesPagination = Array.from(
-    { length: totalPages },
-    (_, index) => index + 1
+
+  // Memoize the array of pages for pagination
+  const pagesPagination = useMemo(
+    () => Array.from({ length: totalPages }, (_, index) => index + 1),
+    [totalPages]
   );
 
   useEffect(() => {
     setCurrentPage(initPage);
-  }, [pages]);
-
-  const handlePage = (e: MouseEvent, page: number) => {
-    e.preventDefault();
-    setCurrentPage(page);
-    router.push({
-      query: { pages: page },
-    });
-  };
+  }, [initPage, setCurrentPage]);
 
   return (
     <nav className="my-10" aria-label="Page navigation">
       <ul className="flex items-center justify-center -space-x-px h-10 text-base">
         <li className="p-2">
-          <a
-            href="#"
-            className=" border  rounded-s-lg flex items-center justify-center px-4 h-10 leading-tight text-blue bg-white border border-blue  hover:bg-dark-blue hover:text-white"
-            onClick={(e: any) =>
-              handlePage(e, currentPage <= 1 ? 1 : currentPage - 1)
-            }
+          <Link
+            href={{ query: { pages: currentPage <= 1 ? 1 : currentPage - 1 } }}
+            passHref
+            className={cn(
+              "flex items-center justify-center px-4 h-10 text-black bg-light-gray hover:bg-primary-green hover:text-white",
+              {
+                "bg-light-gray text-gray pointer-events-none":
+                  currentPage === 1,
+              }
+            )}
+            aria-disabled={currentPage === 1}
           >
             <span className="sr-only">Previous</span>
             <Icon icon="arrow-prev" />
-          </a>
+          </Link>
         </li>
         {pagesPagination.map((p) => (
           <li key={p} className="p-2">
-            <a
-              href="#"
+            <Link
+              href={{ query: { pages: p } }}
+              passHref
               className={cn(
                 {
-                  "bg-dark-blue text-white": p === currentPage,
-                  "text-blue bg-white": p !== currentPage,
+                  "bg-primary-green text-white": p === currentPage,
+                  "text-black bg-light-gray": p !== currentPage,
                 },
-                "flex items-center justify-center px-4 h-10 leading-tight  border border-blue hover:bg-dark-blue hover:text-white"
+                "flex items-center justify-center px-4 h-10 bg-light-gray hover:bg-primary-orange hover:text-white"
               )}
-              onClick={(e: any) => handlePage(e, p)}
+              aria-current={p === currentPage ? "page" : undefined}
             >
               {p}
-            </a>
+            </Link>
           </li>
         ))}
         <li className="p-2">
-          <a
-            href="#"
-            className="flex items-center justify-center px-4 h-10 leading-tight text-blue bg-white border border-blue rounded-e-lg hover:bg-dark-blue hover:text-white"
-            onClick={(e: any) =>
-              handlePage(
-                e,
-                currentPage < totalPages ? currentPage + 1 : totalPages
-              )
-            }
+          <Link
+            href={{
+              query: {
+                pages: currentPage < totalPages ? currentPage + 1 : totalPages,
+              },
+            }}
+            passHref
+            className={cn(
+              "flex items-center justify-center px-4 h-10 text-black bg-light-gray hover:bg-primary-green hover:text-white",
+              {
+                "bg-light-gray text-gray pointer-events-none":
+                  currentPage === totalPages,
+              }
+            )}
+            aria-disabled={currentPage === totalPages}
           >
             <span className="sr-only">Next</span>
             <Icon icon="arrow-next" />
-          </a>
+          </Link>
         </li>
       </ul>
     </nav>

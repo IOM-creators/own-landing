@@ -3,7 +3,6 @@ import { useEffect, useRef, useState } from "react";
 import Footer from "../footer";
 import Header from "../header";
 import cn from "classnames";
-import ContactButton from "../contact-button";
 import Popup from "../popup";
 import { useActions } from "@/store/hooks/useActions";
 
@@ -13,6 +12,8 @@ const Layout = ({ children }: any) => {
   const { headerState } = useActions();
   const headerRef = useRef<HTMLDivElement | null>(null);
   const { pathname } = router;
+  const { slug } = router.query;
+  const { props } = children
 
   useEffect(() => {
     const getPageName = () => {
@@ -25,20 +26,17 @@ const Layout = ({ children }: any) => {
     getPageName();
   }, [pathname]);
 
+  const customStyles: React.CSSProperties = {
+    "--mg-top":
+      pathname !== "/" ? `${headerRef.current?.clientHeight || 0}px` : 0,
+  } as React.CSSProperties;
+
   return (
-    <div className={cn({}, `page-template page-template-${pageName}`)}>
-      <Header headerRef={headerRef} />
-      <main
-        style={{
-          marginTop:
-            pathname !== "/" ? `${headerRef.current?.clientHeight || 0}px` : 0,
-        }}
-      >
-        {children}
-      </main>
-      <ContactButton />
+    <div className={cn({}, `page-template page-template-${slug || pageName}`)}>
+      <Header headerRef={headerRef} content={props.header} />
+      <main style={customStyles}>{children}</main>
       <Popup />
-      <Footer />
+      <Footer content={props.footer} />
     </div>
   );
 };

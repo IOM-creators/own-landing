@@ -37,36 +37,76 @@ const SVGGenerate: React.FC<ISVGGenerate> = ({
       case "arrow-next":
         return (
           <svg
-            className="w-3 h-3 rtl:rotate-180"
-            aria-hidden="true"
-            xmlns="http://www.w3.org/2000/svg"
+            className={className}
+            width="15"
+            height="12"
+            viewBox="0 0 15 12"
             fill="none"
-            viewBox="0 0 6 10"
+            xmlns="http://www.w3.org/2000/svg"
           >
             <path
+              d="M8.57349 1.41821L13.1553 6L8.57349 10.5818"
               stroke="currentColor"
-              strokeLinecap="round"
-              strokeLinejoin="round"
               strokeWidth="2"
-              d="m1 9 4-4-4-4"
+            />
+            <path
+              d="M12.8445 6L0.844482 6"
+              stroke="currentColor"
+              strokeWidth="2"
             />
           </svg>
         );
       case "arrow-prev":
         return (
           <svg
-            className="w-3 h-3 rtl:rotate-180"
-            aria-hidden="true"
-            xmlns="http://www.w3.org/2000/svg"
+            className={className}
+            width="15"
+            height="12"
+            viewBox="0 0 15 12"
             fill="none"
-            viewBox="0 0 6 10"
+            xmlns="http://www.w3.org/2000/svg"
           >
             <path
+              d="M6.42651 1.41821L1.84472 6L6.42651 10.5818"
               stroke="currentColor"
-              strokeLinecap="round"
-              strokeLinejoin="round"
               strokeWidth="2"
-              d="M5 1 1 5l4 4"
+            />
+            <path
+              d="M2.15552 6L14.1555 6"
+              stroke="currentColor"
+              strokeWidth="2"
+            />
+          </svg>
+        );
+      case "arrow-bottom":
+        return (
+          <svg
+            className={className}
+            width="14"
+            height="8"
+            viewBox="0 0 14 8"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M6.99965 5.1714L11.9495 0.22168L13.3637 1.63589L6.99965 7.9999L0.635742 1.63589L2.04995 0.22168L6.99965 5.1714Z"
+              fill="#F38173"
+            />
+          </svg>
+        );
+      case "review-comma":
+        return (
+          <svg
+            className={className}
+            width="41"
+            height="26"
+            viewBox="0 0 41 26"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M20.5 26L27.4101 0H41L30.6348 26H20.5ZM0 26L6.91011 0H20.5L10.1348 26H0Z"
+              fill="#E8E2DC"
             />
           </svg>
         );
@@ -177,7 +217,7 @@ const SVGGenerate: React.FC<ISVGGenerate> = ({
                 className={strokeClass}
                 id="Vector"
                 d="M18 18L12 12M12 12L6 6M12 12L18 6M12 12L6 18"
-                stroke="#000000"
+                stroke="currentColor"
                 strokeWidth="2"
                 strokeLinecap="round"
                 strokeLinejoin="round"

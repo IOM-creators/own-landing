@@ -35,7 +35,7 @@ const HamburgerMenu: React.FC<IHamburgerMenu> = ({
   }, [pathname]);
   return (
     <div className={`overflow-hidden  ml-auto mr-0 `}>
-      <Button onClick={toggleMenu} className="py-2">
+      <Button eventClick={toggleMenu} styleButton="Only Icon" className="py-2">
         {isOpen ? (
           <Icon icon="hamburger-close" />
         ) : (

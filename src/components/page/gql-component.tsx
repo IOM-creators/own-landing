@@ -1,35 +1,25 @@
-import { componentMap } from "@/helpers/componentsMap";
-import { useMemo } from "react";
+import { componentMap } from '@/helpers/componentsMap';
+import React, { useState, useEffect } from 'react';
+
+// Simple in-memory cache
+const cache = new Map();
 
 const GqlComponent = (props: any) => {
   const { section, alterType } = props;
-  let ComponentGql = componentMap[section.__typename];
+  // const [cachedData, setCachedData] = useState(null);
 
-  const shouldForceGql = useMemo(() => {
-    if (props.forceGql === true) {
-      return true;
-    }
-
-    if (!ComponentGql) {
-      return false;
-    }
-
-    if (Object.keys(section).length > 3) {
-      return false;
-    }
-
-    if (section.__typename === undefined || section.sys === undefined) {
-      return false;
-    }
-
-    return true;
-  }, [ComponentGql, props.forceGql]);
-
-  if (!ComponentGql) {
-    return <></>;
+  // Determine the component to render based on __typename
+  if (!section) {
+    return null
   }
 
-  return <ComponentGql id={section.sys.id} />;
+  let ComponentGql = componentMap[section.__typename];
+
+  // Generate a cache key based on the section id or another unique identifier
+
+
+
+  return <ComponentGql section={section} />;
 };
 
 export default GqlComponent;

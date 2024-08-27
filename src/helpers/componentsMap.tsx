@@ -4,40 +4,37 @@ export const componentMap: any = {
   HeroBanner: dynamic(() =>
     import("../components/hero-banner").then((module) => module.default)
   ),
-  Banner: dynamic(() =>
-    import("../components/banner").then((module) => module.default)
-  ),
-  ContactUs: dynamic(() =>
-    import("../components/sections/contact-us").then((module) => module.default)
+  AboutSection: dynamic(() =>
+    import("../components/about-section").then((module) => module.default)
   ),
   ContactForm: dynamic(() =>
     import("../components/contact-form").then((module) => module.default)
   ),
-  AboutUs: dynamic(() =>
-    import("../components/sections/about-us").then((module) => module.default)
-  ),
-  Portfolio: dynamic(() =>
-    import("../components/sections/portfolio").then((module) => module.default)
-  ),
-  ServicesOffered: dynamic(() =>
-    import("../components/sections/services-offered").then(
-      (module) => module.default
-    )
-  ),
-  WhyChooseUs: dynamic(() =>
-    import("../components/sections/why-choose-us").then(
-      (module) => module.default
-    )
-  ),
-  CoreTechnologies: dynamic(() =>
-    import("../components/sections/technologies").then(
-      (module) => module.default
-    )
-  ),
-  Feedbacks: dynamic(() =>
-    import("../components/sections/feedbacks").then((module) => module.default)
+  ContactInfo: dynamic(() =>
+    import("../components/contact-info").then((module) => module.default)
   ),
   Section: dynamic(() =>
     import("../components/section").then((module) => module.default)
+  ),
+  Video: dynamic(() =>
+    import("../components/video").then((module) => module.default)
+  ),
+  ReviewItem: dynamic(() =>
+    import("../components/review-item").then((module) => module.default)
+  ),
+  ProjectCard: dynamic(() =>
+    import("../components/project-card").then((module) => module.default)
+  ),
+  Service: dynamic(() =>
+    import("../components/service").then((module) => module.default)
+  ),
+  Accordion: dynamic(() =>
+    import("../components/accordion").then((module) => module.default)
+  ),
+  Technologies: dynamic(() =>
+    import("../components/technologies").then((module) => module.default)
+  ),
+  Testimonials: dynamic(() =>
+    import("../components/testimonials").then((module) => module.default)
   ),
 };

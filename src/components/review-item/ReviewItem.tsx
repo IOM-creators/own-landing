@@ -2,44 +2,57 @@ import React from "react";
 import cn from "classnames";
 
 import Icon from "../icon";
-import TitleSection from "../title-section";
+import Button from "../button";
 
 interface IReviewItem {
-  feedback: {
-    name: string;
-    stars: number;
-    response: string;
-    linkText: string;
-    linkUrl: string;
-  };
+  id?: string;
+  section: any;
   className?: string;
 }
-const ReviewItem: React.FC<IReviewItem> = ({ feedback, className }) => {
+const ReviewItem: React.FC<IReviewItem> = ({ id = "", section, className }) => {
+  const { reviewItem } = section;
+  const customStyles: React.CSSProperties = {
+    ...(reviewItem.paddingTop && { "--pd-top": `${reviewItem.paddingTop}px` }),
+    ...(reviewItem.paddingBottom && {
+      "--pd-bottom": `${reviewItem.paddingBottom}px`,
+    }),
+  } as React.CSSProperties;
+
   return (
-    <div className="text-center py-2 ">
-      <div className="flex items-center justify-center w-10 h-10 mb-5 mx-auto rounded-full bg-gray">
-        <span className="text-700 text-2xl text-white">{feedback.name[0]}</span>
+    <div
+      className={cn({}, className, "review-item flex flex-col h-full")}
+      style={customStyles}
+    >
+      <div className="review-item__title flex justify-between">
+        <h4 className="">{reviewItem.name}</h4>
+        <Icon icon="review-comma" />
       </div>
-      <TitleSection tag="h3" className="text-center" fontSize="mtext-xl">
-        {feedback.name}
-      </TitleSection>
-      <div className="flex justify-center my-5">
-        {[1, 2, 3, 4, 5].map((i) => (
-          <Icon
-            key={i}
-            icon="star"
-            className={cn({ "fill-green": i <= feedback.stars })}
+      {reviewItem.description && (
+        <div className="review__description truncate-2 mt-4 mb-10">
+          {reviewItem.description}
+        </div>
+      )}
+      <div className="review__footer flex justify-between items-center mt-auto">
+        {reviewItem.link && (
+          <Button
+            typeButton={reviewItem.link.buttonType}
+            styleButton={reviewItem.link.styleButton}
+            icon={reviewItem.link.icon.url}
+            link={reviewItem.link.url}
+            className="text-primary-green"
+          >
+            {reviewItem.link.title}
+          </Button>
+        )}
+        {reviewItem.platform && (
+          <Button
+            typeButton={reviewItem.link.buttonType}
+            styleButton={reviewItem.link.styleButton}
+            link={reviewItem.link.url}
+            icon={reviewItem.platform.url}
           />
-        ))}
+        )}
       </div>
-      <i className="truncate-2">"{feedback.response}"</i>
-      <br />
-      <a
-        href={feedback.linkUrl}
-        className="mt-3 pb-1 relative before:block before:left-0  before:absolute before:content-'' before:w-full before:top-full before:h-px before:bg-dark-blue"
-      >
-        {feedback.linkText}
-      </a>
     </div>
   );
 };

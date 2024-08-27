@@ -1,43 +1,51 @@
-import { NextPage, NextPageContext } from "next/types";
-import { GET_PAGE_COLLECTIONS } from "@/graphql/queries/page-collection";
-import { client } from "./_app";
+import { NextPage } from "next/types";
 import Page from "@/components/page";
+import Custom404 from "./404";
+import { CustomNextPageContext } from "../types/page-props";
+import { useEffect, useState } from "react";
+import { fetchPageContent } from "@/helpers/getData";
 
-export const createApolloClient = () => client;
+// Create Apollo Client
 
 const SlugPage: NextPage = (props: any) => {
-  return <Page page={props.items[0]}></Page>;
+  // Ensure content is consistent between SSR and client-side rendering
+  const [clientSections, setClientSections] = useState<any[]>([]);
+
+  useEffect(() => {
+    // Set sections only on the client side to prevent hydration mismatch
+    setClientSections(props.sections || []);
+  }, [props.sections]);
+
+  // If no sections are found, show the 404 page
+  if (!props?.sections?.length) {
+    return <Custom404 />;
+  } else {
+    // Render the page with sections
+    return <Page sections={clientSections}></Page>;
+  }
 };
 
-export interface CustomNextPageContext extends NextPageContext {
-  params: {
-    slug: string;
-  };
-  id: string;
-}
-
+// Server-side rendering for the page
 export const getServerSideProps = async ({
   locale,
   params,
   query,
 }: CustomNextPageContext) => {
   const slug = "index" as string;
-  const client = createApolloClient();
-  try {
-    const res = await client.query({
-      query: GET_PAGE_COLLECTIONS(),
-      variables: {
-        slug: slug,
-      },
-    });
 
+  try {
+    // Fetch the page collections
+    const { sections, header, footer } = await fetchPageContent(slug);
     return {
       props: {
-        slug: slug,
-        items: res.data.pageCollection.items,
+        footer: footer,
+        header: header,
+        slug,
+        sections: sections, // Pass sections with their components
       },
     };
-  } catch (e) {
+  } catch (error) {
+    console.error("Error fetching data:", error);
     return {
       notFound: true,
     };

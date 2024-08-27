@@ -11,6 +11,7 @@ export interface IHeaderNavigation {
   activeLink?: string | null;
   setOpenNavChange?: React.Dispatch<React.SetStateAction<boolean>>;
   classname?: string;
+  classNameWrapper?: string;
 }
 
 export interface IHamburgerMenu {

@@ -7,6 +7,7 @@ import { useActions } from "@/store/hooks/useActions";
 
 const HeaderNavigation: React.FC<IHeaderNavigation> = ({
   classname = "",
+  classNameWrapper,
   activeLink,
   navigationAnchor,
   links,
@@ -23,7 +24,7 @@ const HeaderNavigation: React.FC<IHeaderNavigation> = ({
     headerState({ filled: false });
   };
   return (
-    <nav className="mr-auto">
+    <nav className={classNameWrapper}>
       <ul className={classname}>
         {navigationAnchor &&
           navigationAnchor.map((navItem: string, index: number) => {
@@ -57,7 +58,7 @@ const HeaderNavigation: React.FC<IHeaderNavigation> = ({
               key={index}
             >
               <Link
-                href={navItem.url}
+                href={navItem.url || ""}
                 onClick={handleHidemenu}
                 className={cn({
                   "border-b":
