@@ -48,7 +48,7 @@ jobs:
            unzip -o build.zip
            rm -r build.zip
            npm install --production
-           npm run start
+           PORT=3001 npm run start
            curl -I http://localhost:3000  # Перевірте, чи сервер працює
          EOF
       env:
