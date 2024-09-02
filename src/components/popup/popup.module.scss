@@ -26,6 +26,7 @@
   &__wrapper {
     position: relative;
     max-width: 690px;
+    min-height: 50%;
     max-height: 70%;
     width: 100%;
     background: var(--white);
@@ -35,12 +36,6 @@
       width: 100%;
     }
   }
-  // &__content {
-  //   padding: 30px 50px;
-  //   @media (max-width: 768px) {
-  //     padding: 20px;
-  //   }
-  // }
   &__close {
     position: absolute;
     top: 20px;

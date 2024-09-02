@@ -3,6 +3,7 @@
 @tailwind utilities;
 
 :root {
+  --white: #fff;
 }
 
 .App {
@@ -213,7 +214,12 @@ svg {
     font-family: "Fraunces", serif;
   }
 }
-
+.btn--loading {
+  background: url("data:image/svg+xml;base64,PHN2ZyB2ZXJzaW9uPSIxLjEiIGlkPSJMOSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgeD0iMHB4IiB5PSIwcHgiIHZpZXdCb3g9IjAgMCAxMDAgMTAwIiBlbmFibGUtYmFja2dyb3VuZD0ibmV3IDAgMCAwIDAiIHhtbDpzcGFjZT0icHJlc2VydmUiPgogICAgPHBhdGggZmlsbD0iI2ZmZiIgZD0iTTczLDUwYzAtMTIuNy0xMC4zLTIzLTIzLTIzUzI3LDM3LjMsMjcsNTAgTTMwLjksNTBjMC0xMC41LDguNS0xOS4xLDE5LjEtMTkuMVM2OS4xLDM5LjUsNjkuMSw1MCI+CiAgICAgIDxhbmltYXRlVHJhbnNmb3JtIGF0dHJpYnV0ZU5hbWU9InRyYW5zZm9ybSIgYXR0cmlidXRlVHlwZT0iWE1MIiB0eXBlPSJyb3RhdGUiIGR1cj0iMXMiIGZyb209IjAgNTAgNTAiIHRvPSIzNjAgNTAgNTAiIHJlcGVhdENvdW50PSJpbmRlZmluaXRlIj48L2FuaW1hdGVUcmFuc2Zvcm0+CiAgPC9wYXRoPgo8L3N2Zz4=")
+    no-repeat center/contain;
+  @apply text-[0px] bg-primary-orange;
+  pointer-events: none;
+}
 .loader {
   position: absolute;
   top: 0;
@@ -224,19 +230,9 @@ svg {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: #fff;
 }
-.loader span {
-  display: inline-block;
-  transform: scale(0);
-  animation: loader 1.4s 0s linear infinite;
-  font-size: 60px;
-}
-.loader span:nth-of-type(2) {
-  animation-delay: 0.2s;
-}
-.loader span:nth-of-type(3) {
-  animation-delay: 0.4s;
+.loader svg {
+  max-width: 50px;
 }
 
 @keyframes loader {

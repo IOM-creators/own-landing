@@ -88,7 +88,7 @@ const ContactForm: React.FC<IContactUs> = ({
       },
     });
     axiosInstance
-      .post("https://iom-creators.com/mail", data)
+      .post("api/mail", data)
       .then(() => {
         updateMessage(true);
         seSisSending(false);
@@ -188,21 +188,29 @@ const ContactForm: React.FC<IContactUs> = ({
                 }
               )}
               {errorMessage && (
-                <div className="error-message">
+                <div className="error-message col-span-6">
                   <p className="text-error">{errorMessage}</p>
                 </div>
               )}
             </div>
             <div className="mt-5 flex justify-center">
-              <Button type="submit" className="btn btn--primary justify-center">
+              <Button
+                type="submit"
+                className={cn("btn btn--primary justify-center", {
+                  "btn--loading": isSending,
+                })}
+              >
                 {contactForm.buttonText}
               </Button>
             </div>
           </form>
           {isSuccessMessage && (
             <div className="success-message text-center absolute bg-white h-full w-full top-0 left-0 flex flex-col items-center justify-center">
-              <Image src={contactForm.successImage} classWrapper="w-60" />
-              <RichText richText={contactForm.successMessage} />
+              <Image
+                src={contactForm.successImage.url}
+                classWrapper="w-60 !flex justify-center"
+              />
+              <RichText richText={contactForm.successMessage.json} />
             </div>
           )}
         </>
