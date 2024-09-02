@@ -11,8 +11,21 @@ export const client = new ApolloClient({
   headers: {
     Authorization: `Bearer ${process.env.REACT_APP_CONTENTFUL_TOCKEN}`,
   },
-  cache: new InMemoryCache(),
+  cache: new InMemoryCache({
+    typePolicies: {
+      Query: {
+        fields: {
+          myField: {
+            merge(existing = [], incoming) {
+              return incoming;
+            },
+          },
+        },
+      },
+    },
+  }),
 });
+
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
