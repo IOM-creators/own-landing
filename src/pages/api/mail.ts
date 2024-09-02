@@ -86,10 +86,11 @@ export default async function handler(
     try {
       await transporter.sendMail(mailOptions);
       res.status(200).json({ status: "Email sent successfully" });
-    } catch (error) {
-      res
-        .status(500)
-        .json({ status: "Error sending email", error: error?.message });
+    } catch (error: any) {
+      res.status(500).json({
+        status: "Error sending email",
+        error: error.message,
+      });
     }
   } else {
     res.status(405).json({ status: "Method not allowed" });
