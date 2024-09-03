@@ -13,6 +13,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   -webkit-tap-highlight-color: transparent;
+  line-height: 1.4;
 }
 
 p {
@@ -44,6 +45,11 @@ svg {
 }
 .video-wrapper video {
   object-fit: var(--video-fit, none);
+}
+@media screen and (max-width: 768px) {
+  .video-wrapper video {
+    object-fit: fill;
+  }
 }
 .video-wrapper:before {
   padding-top: var(--video-height, 100vh);
@@ -186,19 +192,19 @@ svg {
 
   h1,
   .h1 {
-    @apply text-5xl font-bold md:text-[80px] leading-none;
+    @apply text-4xl font-bold md:text-[80px] leading-none;
   }
   h2,
   .h2 {
-    @apply text-4xl font-bold md:text-[60px] leading-none;
+    @apply text-3xl font-bold md:text-[60px] leading-none;
   }
   h3,
   .h3 {
-    @apply text-3xl font-bold md:text-[40px] leading-none;
+    @apply text-2xl font-bold md:text-[40px] leading-none;
   }
   h4,
   .h4 {
-    @apply text-3xl font-bold md:text-[30px] leading-none;
+    @apply text-xl font-bold md:text-[30px] leading-none;
   }
 
   .custom-title h2 i,
@@ -208,6 +214,45 @@ svg {
   }
 }
 
+.loader {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 99999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #fff;
+}
+.loader span {
+  display: inline-block;
+  transform: scale(0);
+  animation: loader 1.4s 0s linear infinite;
+  font-size: 60px;
+}
+.loader span:nth-of-type(2) {
+  animation-delay: 0.2s;
+}
+.loader span:nth-of-type(3) {
+  animation-delay: 0.4s;
+}
+
+@keyframes loader {
+  50% {
+    transform: scale(1);
+  }
+  0%,
+  100% {
+    transform: scale(0);
+  }
+}
+@media screen and (max-width: 768px) {
+  .video-wrapper:before {
+    padding-top: 100%;
+  }
+}
 @media screen and (min-width: 1024px) {
   .page-template-contact-us .section:first-of-type:before {
     height: var(--bg-height);
@@ -238,4 +283,15 @@ svg {
     transform: translate(-70%, -10%);
     z-index: -1;
   }
+}
+
+.animated-block {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.animated-block.visible {
+  opacity: 1;
+  transform: translateY(0);
 }

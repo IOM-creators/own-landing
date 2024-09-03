@@ -14,12 +14,15 @@ const ReviewItem: React.FC<IReviewItem> = ({ id = "", section, className }) => {
   const customStyles: React.CSSProperties = {
     ...(reviewItem.paddingTop && { "--pd-top": `${reviewItem.paddingTop}px` }),
     ...(reviewItem.paddingBottom && {
-      "--pd-top": `${reviewItem.paddingBottom}px`,
+      "--pd-bottom": `${reviewItem.paddingBottom}px`,
     }),
   } as React.CSSProperties;
 
   return (
-    <div className={cn({}, className, "review-item")} style={customStyles}>
+    <div
+      className={cn({}, className, "review-item flex flex-col h-full")}
+      style={customStyles}
+    >
       <div className="review-item__title flex justify-between">
         <h4 className="">{reviewItem.name}</h4>
         <Icon icon="review-comma" />
@@ -29,7 +32,7 @@ const ReviewItem: React.FC<IReviewItem> = ({ id = "", section, className }) => {
           {reviewItem.description}
         </div>
       )}
-      <div className="review__footer flex justify-between items-center">
+      <div className="review__footer flex justify-between items-center mt-auto">
         {reviewItem.link && (
           <Button
             typeButton={reviewItem.link.buttonType}

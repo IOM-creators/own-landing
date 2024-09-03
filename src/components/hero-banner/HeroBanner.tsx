@@ -6,6 +6,7 @@ import Round from "../../assets/images/round.png";
 import Video from "../video";
 import RichText from "../rich-text";
 import Button from "../button";
+import AnimatedBlock from "../animation-block";
 
 interface IHeroSection {
   section: any;
