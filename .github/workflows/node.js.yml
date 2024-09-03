@@ -52,6 +52,8 @@ jobs:
            ls -l 
            unzip -o build.zip
            rm -r build.zip
+           /root/.nvm/versions/node/v22.7.0/bin/npm i
+           /root/.nvm/versions/node/v22.7.0/bin/npm run build
            /root/.nvm/versions/node/v22.7.0/bin/pm2 restart nextjs-app
          EOF
       env:
