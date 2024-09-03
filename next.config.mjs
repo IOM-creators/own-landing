@@ -2,8 +2,8 @@
 const nextConfig = {
   reactStrictMode: true,
   env: {
-    REACT_APP_CONTENTFUL_ID: process.env.REACT_APP_CONTENTFUL_ID,
-    REACT_APP_CONTENTFUL_TOCKEN: process.env.REACT_APP_CONTENTFUL_TOCKEN,
+    NEXT_PUBLIC_CONTENTFUL_ID: process.env.NEXT_PUBLIC_CONTENTFUL_ID,
+    NEXT_PUBLIC_CONTENTFUL_TOKEN: process.env.NEXT_PUBLIC_CONTENTFUL_TOKEN,
   },
   experimental: {
     pagesDir: "src/pages",
