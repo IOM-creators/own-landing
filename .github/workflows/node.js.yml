@@ -45,7 +45,7 @@ jobs:
     - name: SSH into Server and Extract ZIP Archive
       run: |
          sshpass -p "${{ secrets.SSH_PASSWORD }}" ssh -o StrictHostKeyChecking=no "${{ secrets.SSH_USERNAME }}"@"${{ secrets.SSH_HOST }}" << 'EOF'
-           cd ./public_html
+           cd ./own-landing
            ls -l 
            unzip -o build.zip
            rm -r build.zip
