@@ -40,7 +40,7 @@ jobs:
         username: ${{ secrets.SSH_USERNAME }}
         password: ${{ secrets.SSH_PASSWORD }}
         source: ./build.zip
-        target: ./public_html
+        target: ./own-landing
       
     - name: SSH into Server and Extract ZIP Archive
       run: |
@@ -49,6 +49,7 @@ jobs:
            ls -l 
            unzip -o build.zip
            rm -r build.zip
+           npm install -g pm2
            pm2 restart nextjs-app
          EOF
       env:
