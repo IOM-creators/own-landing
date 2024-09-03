@@ -71,7 +71,7 @@ const NavigationLoader = (props: any) => {
       className="absolute top-0 left-0 w-full h-full bg-white z-50"
     >
       <div
-        className="h-1 bg-blue absolute left-0"
+        className="h-1 bg-primary-orange absolute left-0"
         style={{
           width: `${progress}%`,
           transition: "width 0.3s ease-in-out",

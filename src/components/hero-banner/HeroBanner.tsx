@@ -14,8 +14,6 @@ interface IHeroSection {
 
 const HeroSection: React.FC<IHeroSection> = ({ section }) => {
   const { heroBanner } = section;
-  console.log("=====================0000========================");
-  // Memoize the processed heroBanner data
   const memoizedHeroBanner = useMemo(() => {
     if (!heroBanner) return {};
 
