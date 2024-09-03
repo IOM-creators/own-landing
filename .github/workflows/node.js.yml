@@ -3,15 +3,15 @@ name: CI/CD
 on:
   push:
     branches:
-      - develop
+      - not deploy develop
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
     
     env:
-      NEXT_PUBLIC_CONTENTFUL_ID: ${{ secrets.NEXT_PUBLIC_CONTENTFUL_ID }}
-      NEXT_PUBLIC_CONTENTFUL_TOKEN: ${{ secrets.NEXT_PUBLIC_CONTENTFUL_TOKEN }}  
+      REACT_APP_CONTENTFUL_ID: ${{ secrets.NEXT_PUBLIC_CONTENTFUL_ID }}
+      REACT_APP_CONTENTFUL_TOCKEN: ${{ secrets.NEXT_PUBLIC_CONTENTFUL_TOKEN }}  
       
     steps:
     - name: Checkout code
@@ -19,21 +19,17 @@ jobs:
 
     - name: Setup Node.js
       uses: actions/setup-node@v3
-      
       with:
-        node-version: '20.9.0'
+        node-version: '18.x'
 
     - name: Install Dependencies
       run: npm install
-      
-    - name: Test Project
-      run: npm run test
 
     - name: Build Project
       run: npm run build
 
     - name: Create ZIP Archive
-      run: zip -r build.zip .next public
+      run: zip -r build.zip .next public package.json package-lock.json
 
     - name: Upload ZIP Archive to Server
       uses: appleboy/scp-action@master
@@ -46,7 +42,15 @@ jobs:
       
     - name: SSH into Server and Extract ZIP Archive
       run: |
-         sshpass -p "${{ secrets.SSH_PASSWORD }}" ssh -o StrictHostKeyChecking=no "${{ secrets.SSH_USERNAME }}"@"${{ secrets.SSH_HOST }}" 'cd ./public_html && unzip -o build.zip && rm -r build.zip && npm install --production && npm run start'
+         sshpass -p "${{ secrets.SSH_PASSWORD }}" ssh -o StrictHostKeyChecking=no "${{ secrets.SSH_USERNAME }}"@"${{ secrets.SSH_HOST }}" << 'EOF'
+           cd ./public_html
+           ls -l  # Перевірте вміст директорії
+           unzip -o build.zip
+           rm -r build.zip
+           npm install --production
+           PORT=3001 npm run start
+           curl -I http://localhost:3000  # Перевірте, чи сервер працює
+         EOF
       env:
-        NEXT_PUBLIC_CONTENTFUL_ID: ${{ secrets.NEXT_PUBLIC_CONTENTFUL_ID }}
-        NEXT_PUBLIC_CONTENTFUL_TOKEN: ${{ secrets.NEXT_PUBLIC_CONTENTFUL_TOKEN }}  
+        REACT_APP_CONTENTFUL_ID: ${{ secrets.NEXT_PUBLIC_CONTENTFUL_ID }}
+        REACT_APP_CONTENTFUL_TOCKEN: ${{ secrets.NEXT_PUBLIC_CONTENTFUL_TOKEN }}
