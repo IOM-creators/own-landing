@@ -44,12 +44,12 @@ jobs:
       
     - name: SSH into Server and Extract ZIP Archive
       run: |
-         sshpass -p "${{ secrets.SSH_PASSWORD }}" ssh -o StrictHostKeyChecking=no "${{ secrets.SSH_USERNAME }}"@"${{ secrets.SSH_HOST }}" /bin/bash << 'EOF'
+         sshpass -p "${{ secrets.SSH_PASSWORD }}" ssh -o StrictHostKeyChecking=no "${{ secrets.SSH_USERNAME }}"@"${{ secrets.SSH_HOST }}"  << 'EOF'
            cd ./own-landing
            ls -l 
            unzip -o build.zip
            rm -r build.zip
-           pm2 restart nextjs-app
+           /root/.nvm/versions/node/v22.7.0/bin/pm2 restart nextjs-app
          EOF
       env:
         EMAIL_USER: ${{ secrets.EMAIL_USER }}
