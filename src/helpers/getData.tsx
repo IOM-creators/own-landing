@@ -42,6 +42,7 @@ export async function fetchPageContent(
             const { data: sectionData, loading } = await client.query({
                 query: GET_SECTION_ENTRY(item.sys.id),
                 variables: { id: item.sys.id },
+                fetchPolicy: 'network-only',
             });
 
             const section = sectionData.section;
