@@ -45,6 +45,9 @@ jobs:
     - name: SSH into Server and Extract ZIP Archive
       run: |
          sshpass -p "${{ secrets.SSH_PASSWORD }}" ssh -o StrictHostKeyChecking=no "${{ secrets.SSH_USERNAME }}"@"${{ secrets.SSH_HOST }}"  << 'EOF'
+           export NVM_DIR="$HOME/.nvm"
+           [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+           [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion (optional)
            cd ./own-landing
            ls -l 
            unzip -o build.zip
