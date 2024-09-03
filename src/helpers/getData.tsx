@@ -31,6 +31,7 @@ export async function fetchPageContent(
             const { data: pageData } = await client.query({
                 query: GET_PAGE_COLLECTIONS(),
                 variables: { slug },
+                fetchPolicy: 'network-only',
             });
             return pageData.pageCollection.items[0].pageContent.items;
         })());
@@ -60,6 +61,7 @@ export async function fetchPageContent(
                     const { data: componentData } = await client.query({
                         query: queryFunction(component.sys.id),
                         variables: { id: component.sys.id },
+                        fetchPolicy: 'network-only',
                     });
 
                     return componentData;

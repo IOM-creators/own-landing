@@ -43,7 +43,6 @@ export const getServerSideProps = async ({
         slug,
         sections: sections, // Pass sections with their components
       },
-      revalidate: 10000
     };
   } catch (error) {
     console.error("Error fetching data:", error);
