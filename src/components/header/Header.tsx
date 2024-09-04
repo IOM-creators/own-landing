@@ -16,7 +16,6 @@ interface IHeader {
 }
 
 const Header: React.FC<IHeader> = ({ headerRef, content }) => {
-  console.log("test-deploy");
   const router = useRouter();
   const { pathname } = router;
   const { activeLink, transparent, isHeaderVisible } = useScrollEvent();
