@@ -3,42 +3,60 @@ import cn from "classnames";
 import Icon from "../icon";
 import { useRouter } from "next/router";
 import Link from "next/link";
+import { useTypedSelector } from "@/store/hooks/useTypedSelector";
+import { HeaderState } from "@/store/types/header";
 
 interface IPagination {
   currentPage: number;
   setCurrentPage: (value: number) => void;
   pagesTotal: number;
   perPage: number;
+  sectionRef: React.RefObject<HTMLDivElement>;
 }
-
 const Pagination: React.FC<IPagination> = ({
   currentPage,
   setCurrentPage,
   pagesTotal,
   perPage,
+  sectionRef,
 }) => {
+  const { height }: HeaderState = useTypedSelector((state) => state.header);
   const router = useRouter();
-  const { pages } = router.query;
-  const initPage = Number(pages) ? Number(pages) : 1;
   const totalPages = Math.ceil(pagesTotal / perPage);
 
-  // Memoize the array of pages for pagination
-  const pagesPagination = useMemo(
-    () => Array.from({ length: totalPages }, (_, index) => index + 1),
-    [totalPages]
+  const handlePageChange = useCallback(
+    (page: number) => {
+      setCurrentPage(page);
+      router.push(
+        {
+          query: { ...router.query, pages: page },
+        },
+        undefined,
+        { shallow: true }
+      );
+
+      if (sectionRef?.current) {
+        const headerHeight = height || 0;
+        const sectionPosition =
+          sectionRef.current.getBoundingClientRect().top +
+          window.scrollY -
+          headerHeight;
+        window.scrollTo({ top: sectionPosition, behavior: "smooth" });
+      }
+    },
+    [router, setCurrentPage]
   );
 
-  useEffect(() => {
-    setCurrentPage(initPage);
-  }, [initPage, setCurrentPage]);
+  const handlePrevious = () => handlePageChange(currentPage - 1);
+  const handleNext = () => handlePageChange(currentPage + 1);
 
   return (
     <nav className="my-10" aria-label="Page navigation">
       <ul className="flex items-center justify-center -space-x-px h-10 text-base">
         <li className="p-2">
-          <Link
-            href={{ query: { pages: currentPage <= 1 ? 1 : currentPage - 1 } }}
-            passHref
+          <button
+            onClick={handlePrevious}
+            disabled={currentPage === 1}
             className={cn(
               "flex items-center justify-center px-4 h-10 text-black bg-light-gray hover:bg-primary-green hover:text-white",
               {
@@ -46,38 +64,32 @@ const Pagination: React.FC<IPagination> = ({
                   currentPage === 1,
               }
             )}
-            aria-disabled={currentPage === 1}
           >
             <span className="sr-only">Previous</span>
             <Icon icon="arrow-prev" />
-          </Link>
+          </button>
         </li>
-        {pagesPagination.map((p) => (
-          <li key={p} className="p-2">
-            <Link
-              href={{ query: { pages: p } }}
-              passHref
+        {Array.from({ length: totalPages }, (_, index) => (
+          <li key={index + 1} className="p-2">
+            <button
+              onClick={() => handlePageChange(index + 1)}
               className={cn(
                 {
-                  "bg-primary-green text-white": p === currentPage,
-                  "text-black bg-light-gray": p !== currentPage,
+                  "bg-primary-green text-white": index + 1 === currentPage,
+                  "text-black bg-light-gray": index + 1 !== currentPage,
                 },
                 "flex items-center justify-center px-4 h-10 bg-light-gray hover:bg-primary-orange hover:text-white"
               )}
-              aria-current={p === currentPage ? "page" : undefined}
+              aria-current={index + 1 === currentPage ? "page" : undefined}
             >
-              {p}
-            </Link>
+              {index + 1}
+            </button>
           </li>
         ))}
         <li className="p-2">
-          <Link
-            href={{
-              query: {
-                pages: currentPage < totalPages ? currentPage + 1 : totalPages,
-              },
-            }}
-            passHref
+          <button
+            onClick={handleNext}
+            disabled={currentPage === totalPages}
             className={cn(
               "flex items-center justify-center px-4 h-10 text-black bg-light-gray hover:bg-primary-green hover:text-white",
               {
@@ -85,11 +97,10 @@ const Pagination: React.FC<IPagination> = ({
                   currentPage === totalPages,
               }
             )}
-            aria-disabled={currentPage === totalPages}
           >
             <span className="sr-only">Next</span>
             <Icon icon="arrow-next" />
-          </Link>
+          </button>
         </li>
       </ul>
     </nav>

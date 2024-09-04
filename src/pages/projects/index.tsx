@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Pagination from "@/components/pagination";
 import Image from "@/components/image";
 import { NextPage } from "next/types";
@@ -13,6 +13,7 @@ import { useProjects, useProjectsTotal } from "@/graphql";
 const SlugPage: NextPage = (props: any) => {
   // Ensure content is consistent between SSR and client-side rendering
   const [clientSections, setClientSections] = useState<any[]>([]);
+  const sectionRef = useRef<HTMLDivElement>(null); // Створення ref для секції
 
   useEffect(() => {
     // Set sections only on the client side to prevent hydration mismatch
@@ -34,7 +35,7 @@ const SlugPage: NextPage = (props: any) => {
 
   return (
     <Page sections={clientSections} sectionIndex={2}>
-      <section className="section" style={customStyles}>
+      <section className="section" style={customStyles} ref={sectionRef}>
         <div className="section__wrapper container">
           <nav>
             <ul className="grid ms:grid-cols-1 items-start  lg:grid-cols-2 gap-6">
@@ -89,6 +90,7 @@ const SlugPage: NextPage = (props: any) => {
               currentPage={currentPage}
               pagesTotal={total}
               perPage={PAGE_SIZE}
+              sectionRef={sectionRef}
             />
           )}
         </div>
