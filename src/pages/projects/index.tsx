@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import { useProjects, useProjectsTotal } from "@/graphql/queries/projects";
 import Pagination from "@/components/pagination";
 import Image from "@/components/image";
 import { NextPage } from "next/types";
@@ -9,6 +8,7 @@ import Link from "next/link";
 import Custom404 from "../404";
 import { CustomNextPageContext } from "../../types/page-props";
 import { fetchPageContent } from "@/helpers/getData";
+import { useProjects, useProjectsTotal } from "@/graphql";
 
 const SlugPage: NextPage = (props: any) => {
   // Ensure content is consistent between SSR and client-side rendering

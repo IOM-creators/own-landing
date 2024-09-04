@@ -1,7 +1,8 @@
 import { useGetContactForm } from "./queries/contact-form";
+import { useProjects, useProjectsTotal } from "./queries/projects";
 import { DocumentNode, gql } from "@apollo/client";
 
-export { useGetContactForm };
+export { useGetContactForm, useProjects, useProjectsTotal };
 
 export const queryMap: {
   [key: string]: (id: string) => DocumentNode;
