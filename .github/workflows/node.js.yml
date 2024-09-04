@@ -15,8 +15,8 @@ jobs:
     env:
       EMAIL_USER: ${{ secrets.EMAIL_USER }}
       EMAIL_PASS: ${{ secrets.EMAIL_PASS }}
-      REACT_APP_CONTENTFUL_ID: ${{ secrets.NEXT_PUBLIC_CONTENTFUL_ID }}
-      REACT_APP_CONTENTFUL_TOKEN: ${{ secrets.NEXT_PUBLIC_CONTENTFUL_TOKEN }}  
+      NEXT_PUBLIC_CONTENTFUL_ID: ${{ secrets.NEXT_PUBLIC_CONTENTFUL_ID }}
+      NEXT_PUBLIC_CONTENTFUL_TOKEN: ${{ secrets.NEXT_PUBLIC_CONTENTFUL_TOKEN }}  
 
     steps:
     - name: Checkout code
@@ -58,5 +58,5 @@ jobs:
       env:
         EMAIL_USER: ${{ secrets.EMAIL_USER }}
         EMAIL_PASS: ${{ secrets.EMAIL_PASS }}
-        REACT_APP_CONTENTFUL_ID: ${{ secrets.NEXT_PUBLIC_CONTENTFUL_ID }}
-        REACT_APP_CONTENTFUL_TOKEN: ${{ secrets.NEXT_PUBLIC_CONTENTFUL_TOKEN }}
+        NEXT_PUBLIC_CONTENTFUL_ID: ${{ secrets.NEXT_PUBLIC_CONTENTFUL_ID }}
+        NEXT_PUBLIC_CONTENTFUL_TOKEN: ${{ secrets.NEXT_PUBLIC_CONTENTFUL_TOKEN }}
