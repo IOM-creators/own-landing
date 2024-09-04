@@ -8,13 +8,16 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
-    
+    strategy:
+      matrix:
+        node-version: ['20.x', '18.x', '16.x']
+        
     env:
       EMAIL_USER: ${{ secrets.EMAIL_USER }}
       EMAIL_PASS: ${{ secrets.EMAIL_PASS }}
       REACT_APP_CONTENTFUL_ID: ${{ secrets.NEXT_PUBLIC_CONTENTFUL_ID }}
-      REACT_APP_CONTENTFUL_TOCKEN: ${{ secrets.NEXT_PUBLIC_CONTENTFUL_TOKEN }}  
-      
+      REACT_APP_CONTENTFUL_TOKEN: ${{ secrets.NEXT_PUBLIC_CONTENTFUL_TOKEN }}  
+
     steps:
     - name: Checkout code
       uses: actions/checkout@v2
@@ -22,7 +25,7 @@ jobs:
     - name: Setup Node.js
       uses: actions/setup-node@v3
       with:
-        node-version: '18.x'
+        node-version: ${{ matrix.node-version }}
 
     - name: Install Dependencies
       run: npm install
@@ -41,21 +44,21 @@ jobs:
         password: ${{ secrets.SSH_PASSWORD }}
         source: ./build.zip
         target: ./own-landing
-      
+
     - name: SSH into Server and Extract ZIP Archive
       run: |
-         sshpass -p "${{ secrets.SSH_PASSWORD }}" ssh -o StrictHostKeyChecking=no "${{ secrets.SSH_USERNAME }}"@"${{ secrets.SSH_HOST }}"  << 'EOF'
-           export NVM_DIR="$HOME/.nvm"
-           [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-           [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion (optional)
-           cd ./own-landing
-           ls -l 
-           unzip -o build.zip
-           rm -r build.zip
-           /root/.nvm/versions/node/v22.7.0/bin/pm2 restart nextjs-app
-         EOF
+        sshpass -p "${{ secrets.SSH_PASSWORD }}" ssh -o StrictHostKeyChecking=no "${{ secrets.SSH_USERNAME }}"@"${{ secrets.SSH_HOST }}" << 'EOF'
+          export NVM_DIR="$HOME/.nvm"
+          [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+          [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion (optional)
+          cd ~/own-landing
+          rm -rf ./*
+          unzip -o build.zip
+          rm -r build.zip
+          pm2 restart iom-creators  || pm2 start pm2.config.js
+        EOF
       env:
         EMAIL_USER: ${{ secrets.EMAIL_USER }}
         EMAIL_PASS: ${{ secrets.EMAIL_PASS }}
         REACT_APP_CONTENTFUL_ID: ${{ secrets.NEXT_PUBLIC_CONTENTFUL_ID }}
-        REACT_APP_CONTENTFUL_TOCKEN: ${{ secrets.NEXT_PUBLIC_CONTENTFUL_TOKEN }}
+        REACT_APP_CONTENTFUL_TOKEN: ${{ secrets.NEXT_PUBLIC_CONTENTFUL_TOKEN }}
