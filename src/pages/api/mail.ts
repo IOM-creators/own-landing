@@ -52,13 +52,13 @@ export default async function handler(
           margin-top: 20px;
       }
       th, td {
-          border: 1px solid #dddddd;
+          border: 1px solid #436F65;
           text-align: left;
           padding: 12px;
       }
       th {
           text-transform: capitalize;
-          background-color: #f2f2f2;
+          background-color: #F38173;
       }
       strong {
           font-weight: bold;

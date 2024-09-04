@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node-version: ['20.x', '18.x', '16.x']
+        node-version: ['20.x']
         
     env:
       EMAIL_USER: ${{ secrets.EMAIL_USER }}
@@ -49,10 +49,9 @@ jobs:
       run: |
         sshpass -p "${{ secrets.SSH_PASSWORD }}" ssh -o StrictHostKeyChecking=no "${{ secrets.SSH_USERNAME }}"@"${{ secrets.SSH_HOST }}" << 'EOF'
           export NVM_DIR="$HOME/.nvm"
-          [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-          [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion (optional)
-          cd ~/own-landing
-          rm -rf ./*
+          [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" 
+          [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion" 
+          cd ./own-landing
           unzip -o build.zip
           rm -r build.zip
           pm2 restart iom-creators  || pm2 start pm2.config.js
