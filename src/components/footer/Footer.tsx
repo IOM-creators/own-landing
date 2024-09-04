@@ -1,54 +1,68 @@
 import React from "react";
-import Image from "../image";
 import Icon from "../icon";
-import { useGetFooter } from "../../graphql/";
+import Link from "next/link";
 import Button from "../button";
 
-const Footer = () => {
-  const { footer } = useGetFooter();
-  const scrollToTop = () => {
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth",
-    });
-  };
-  return (
-    <footer className="footer container py-12 font-serif">
-      <div className="lg:flex lg:justify-between text-center lg:text-left items-center">
-        <div className="footer-item  mb-5 lg:mb-0 lg:max-w-[300px] lg:mr-5">
-          <Button onClick={scrollToTop} className="mx-auto">
-            <Icon icon="light-logo" className="inline-block" />
-          </Button>
-        </div>
+const Footer = (props: any) => {
+  const { content: footer } = props;
 
-        <div className="footer-item">
-          <ul className="text-dark-blue text-base flex flex-wrap flex-col md:flex-row">
-            {footer.navigation.map((navItem: string, index: number) => {
-              const navLink = navItem.split(" ").join("");
-              return (
-                <li className="p-3 md:p-5" key={index}>
-                  <a
-                    href={"#" + navLink}
-                    className=" hover:underline font-semibold"
-                  >
-                    {navItem}
-                  </a>
-                </li>
-              );
-            })}
-          </ul>
+  if (!footer) {
+    return null
+  }
+
+  const customStyles: React.CSSProperties = {
+    ...(footer.background && { "--bg-footer": `${footer.background}` }),
+  } as React.CSSProperties;
+
+  return (
+    <footer className="footer py-12 font-serif" style={customStyles}>
+      <div className="footer__wrapper container">
+        <div className="lg:flex text-center lg:text-left items-center justify-between">
+          <div className="footer-item  mb-5 lg:mb-0 lg:max-w-[300px]s">
+            <Link href="/">
+              <Icon icon="light-logo" className="inline-block w-16 lg:w-20" />
+            </Link>
+          </div>
+
+          <div className="footer-item">
+            <ul className="text-dark-blue text-base flex flex-wrap flex-col justify-center md:flex-row">
+              {footer?.menuCollection?.items.map(
+                (navItem: { url: string; title: string }, index: number) => {
+                  return (
+                    <li
+                      className={`px-3 py-2 md:py-0 md:px-5 ${index === footer.menuCollection.length - 1 ? "md:pr-0" : "md:pr-5"
+                        }`}
+                      key={index}
+                    >
+                      <Link
+                        href={navItem.url || ""}
+                        className=" hover:underline font-semibold text-lg "
+                      >
+                        {navItem.title}
+                      </Link>
+                    </li>
+                  );
+                }
+              )}
+            </ul>
+          </div>
+          {footer.socialCollection && (
+            <div className="footer-item footer__social">
+              <ul className="flex items-center gap-4 justify-center mt-8 lg:mt-0 lg:justify-normal">
+                {footer?.socialCollection?.items.map((item: any, index: number) => (
+                  <li key={index}>
+                    <Button
+                      styleButton={item.styleButton}
+                      typeButton={item.buttonType}
+                      link={item.url}
+                      icon={item.icon.url}
+                    ></Button>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
         </div>
-      </div>
-      <div className="mt-5">
-        <ul className="flex justify-center items-center">
-          {footer.socials.map((item: any, index: number) => (
-            <li className="m-2" key={index}>
-              <a href={item.link} target="blank" aria-label={item.title}>
-                <Image src={item.icon.url} classWrapper="w-8 h-8" />
-              </a>
-            </li>
-          ))}
-        </ul>
       </div>
     </footer>
   );

@@ -3,38 +3,39 @@ name: CI/CD
 on:
   push:
     branches:
-      - main
+      - develop
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
-    
+    strategy:
+      matrix:
+        node-version: ['20.x']
+        
     env:
-      REACT_APP_CONTENTFUL_ID: ${{ secrets.REACT_APP_CONTENTFUL_ID }}
-      REACT_APP_CONTENTFUL_TOCKEN: ${{ secrets.REACT_APP_CONTENTFUL_TOCKEN }}  
-      
+      EMAIL_USER: ${{ secrets.EMAIL_USER }}
+      EMAIL_PASS: ${{ secrets.EMAIL_PASS }}
+      REACT_APP_CONTENTFUL_ID: ${{ secrets.NEXT_PUBLIC_CONTENTFUL_ID }}
+      REACT_APP_CONTENTFUL_TOKEN: ${{ secrets.NEXT_PUBLIC_CONTENTFUL_TOKEN }}  
+
     steps:
     - name: Checkout code
       uses: actions/checkout@v2
 
     - name: Setup Node.js
       uses: actions/setup-node@v3
-      
       with:
-        node-version: '20.9.0'
+        node-version: ${{ matrix.node-version }}
 
     - name: Install Dependencies
       run: npm install
-      
-    - name: Test Project
-      run: npm run test
-      
+
     - name: Build Project
       run: npm run build
-      
+
     - name: Create ZIP Archive
-      run: zip -r build.zip build
-      
+      run: zip -r build.zip .next public package.json package-lock.json
+
     - name: Upload ZIP Archive to Server
       uses: appleboy/scp-action@master
       with:
@@ -42,12 +43,20 @@ jobs:
         username: ${{ secrets.SSH_USERNAME }}
         password: ${{ secrets.SSH_PASSWORD }}
         source: ./build.zip
-        target: ./public_html
-      
+        target: ./own-landing
+        
     - name: SSH into Server and Extract ZIP Archive
       run: |
-         sshpass -p "${{ secrets.SSH_PASSWORD }}" ssh -o StrictHostKeyChecking=no "${{ secrets.SSH_USERNAME }}"@"${{ secrets.SSH_HOST }}" 'cd ./public_html && unzip -o build.zip && rm -r static && mv build/* ./ && rm -r build.zip && rm -r build'
+        sshpass -p "${{ secrets.SSH_PASSWORD }}" ssh -o StrictHostKeyChecking=no "${{ secrets.SSH_USERNAME }}"@"${{ secrets.SSH_HOST }}" << 'EOF'
+          cd ./own-landing
+          rm -r .next
+          unzip -o build.zip
+          rm -r build.zip
+          pm2 restart iom-creators
+          pm2 save
+        EOF
       env:
-        REACT_APP_CONTENTFUL_ID: ${{ secrets.REACT_APP_CONTENTFUL_ID }}
-        REACT_APP_CONTENTFUL_TOCKEN: ${{ secrets.REACT_APP_CONTENTFUL_TOCKEN }}  
-        
+        EMAIL_USER: ${{ secrets.EMAIL_USER }}
+        EMAIL_PASS: ${{ secrets.EMAIL_PASS }}
+        REACT_APP_CONTENTFUL_ID: ${{ secrets.NEXT_PUBLIC_CONTENTFUL_ID }}
+        REACT_APP_CONTENTFUL_TOKEN: ${{ secrets.NEXT_PUBLIC_CONTENTFUL_TOKEN }}

@@ -1,67 +1,127 @@
-import React from "react";
-import { TypeAnimation } from "react-type-animation";
-import { useGetHeroBanner } from "../../graphql";
-import styles from "./hero-banner.module.scss";
-interface ILetter {
-  letter: string;
-  fullText: string;
-  delay: number;
-}
+import React, { useMemo } from "react";
+import cn from "classnames";
+import Image from "../image";
+import Poster from "../../assets/images/poster.png";
+import Round from "../../assets/images/round.png";
+import Video from "../video";
+import RichText from "../rich-text";
+import Button from "../button";
+import AnimatedBlock from "../animation-block";
 
 interface IHeroSection {
-  showAnimation?: boolean;
+  section: any;
 }
 
-const HeroSection: React.FC<IHeroSection> = ({ showAnimation = false }) => {
-  const { heroBanner } = useGetHeroBanner();
+const HeroSection: React.FC<IHeroSection> = ({ section }) => {
+  const { heroBanner } = section;
+  const memoizedHeroBanner = useMemo(() => {
+    if (!heroBanner) return {};
 
-  const letters: ILetter[] =
-    heroBanner.abbreviation.map((text: any, index: number) => ({
-      letter: text.slice(0, 1),
-      fullText: `- ${text}`,
-      delay: index * 5 * 250,
-    })) || [];
+    return {
+      titleRichText: heroBanner.titleRichText.json,
+      video: heroBanner.video,
+      rIghtBlockText: heroBanner.rIghtBlockText,
+      callToActionLink: heroBanner.callToActionLink,
+      button: heroBanner.button,
+      topRatedImage: heroBanner.topRatedImage,
+      jobSuccessImage: heroBanner.jobSuccessImage,
+      upworkLink: heroBanner.upworkLink,
+    };
+  }, [heroBanner]);
+
+  const {
+    titleRichText,
+    video,
+    rIghtBlockText,
+    callToActionLink,
+    button,
+    topRatedImage,
+    jobSuccessImage,
+    upworkLink,
+  } = memoizedHeroBanner;
   return (
-    <section id="hero-banner" className="overflow-hidden text-white">
-      <div className="relative w-full h-screen bg-dark-blue lg:bg-ellipse bg-contain bg-right-top bg-no-repeat">
-        <div className="absolute inset-0 flex flex-col items-left justify-center container mx-lg">
-          <div className="text-left max-w-3xl lap:max-w-6xl">
-            <h1>
-              {letters.map((item: ILetter, index: number) => {
-                return (
-                  <template
-                    className="flex my-3 md:my-6 text-xl md:text-5xl"
-                    key={index}
-                  >
-                    {!showAnimation && (
-                      <span className="mr-2">
-                        {item.letter} {item.fullText}
-                      </span>
-                    )}
-                    {showAnimation && (
-                      <span className="mr-2">{item.letter}</span>
-                    )}
-                    {showAnimation && (
-                      <TypeAnimation
-                        key={index}
-                        sequence={["", item.delay, `${item.fullText}`]}
-                        speed={50}
-                        cursor={false}
-                      />
-                    )}
-                  </template>
-                );
-              })}
-            </h1>
+    <div id="hero-banner" className={cn("text-dark-blue relative")}>
+      <div className=" w-full h-screen relative grid grid-cols-1 lap:grid-cols-[_45%_55%] justify-center items-center">
+        <div className="relative inset-0 justify-center w-full lap:pr-12">
+          <div className=" custom-title text-left max-w-3xl lap:max-w-6xl">
+            <RichText richText={titleRichText} />
+          </div>
+          {button?.url && (
+            <Button
+              styleButton={button.styleButton}
+              typeButton={button.buttonType}
+              className="justify-between max-w-[270px] w-full mt-14"
+              icon={button.icon.url}
+            >
+              {button.title}
+            </Button>
+          )}
+        </div>
+        <div className="relative right-0 w-full h-full  hidden lap:block">
+          {video?.url && (
+            <Video
+              src={video.url}
+              poster={Poster.src}
+              className="absolute w-[calc(100%-110px)] h-full top-0 left-0 !object-cover"
+              section={video}
+            />
+          )}
+          <div className="flex flex-col	justify-end absolute right-0  top-0 max-w-[30%] w-full h-[40%] bg-primary-green text-white p-8">
+            <span className="text-xl font-bold">{rIghtBlockText}</span>
+            {callToActionLink?.url && (
+              <Button
+                styleButton={callToActionLink.styleButton}
+                typeButton={callToActionLink.buttonType}
+                className="text-xl pt-2 min-w-0 justify-start"
+                classNameIcon="ml-4"
+                icon={callToActionLink.icon.url}
+              >
+                {callToActionLink?.title}
+              </Button>
+            )}
+            <div className="absolute right-0 top-0 w-2/3">
+              <Image src={Round.src} />
+            </div>
           </div>
         </div>
-        <div className={styles.stars}>
-          <div className={styles.stars_1}></div>
-          <div className={styles.stars_2}></div>
-          <div className={styles.stars_3}></div>
+      </div>
+      <div className="absolute bottom-8">
+        {upworkLink?.url && (
+          <Button
+            link={upworkLink.url}
+            className="flex items-center text-xl font-bold"
+            styleButton={upworkLink.styleButton}
+            typeButton={upworkLink.buttonType}
+            icon={upworkLink.icon.url}
+          >
+            {upworkLink.title}
+          </Button>
+        )}
+
+        <div className=" grid grid-cols-2 gap-4 mt-5">
+          {jobSuccessImage && (
+            <div className="flex items-center">
+              <Image
+                onlyImg
+                className="w-6 mr-2.5"
+                src={jobSuccessImage.url}
+              ></Image>
+              {jobSuccessImage.title}
+            </div>
+          )}
+          {topRatedImage && (
+            <div className="flex items-center">
+              <Image
+                onlyImg
+                className="w-6 mr-2.5"
+                src={topRatedImage.url}
+              ></Image>
+              {topRatedImage.title}
+            </div>
+          )}
         </div>
       </div>
-    </section>
+    </div>
   );
 };
 

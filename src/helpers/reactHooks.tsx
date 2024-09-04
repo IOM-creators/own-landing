@@ -1,24 +1,9 @@
 import { useCallback, useEffect, useState } from "react";
-// import { NavigateFunction } from "react-router-dom";
-// import { UseTranslationResponse } from "react-i18next";
-
-// export const useLanguageFromURL = (
-//   navigate: NavigateFunction,
-//   translation: UseTranslationResponse<any, any>
-// ) => {
-//   useEffect(() => {
-//     const languageFromURL = window.location.pathname.split("/")[1];
-//     const keys =
-//       (translation.i18n.options.resources &&
-//         Object.keys(translation.i18n.options.resources)) ||
-//       [];
-//     keys.includes(languageFromURL)
-//       ? translation.i18n.changeLanguage(languageFromURL)
-//       : navigate("/en");
-//   }, [navigate, translation.i18n]);
-// };
 
 export const useScrollEvent = () => {
+  if (typeof document == "undefined") {
+    return { isHeaderVisible: null, activeLink: null, transparent: null };
+  }
   const [isHeaderVisible, setIsHeaderVisible] = useState(true);
   const [activeLink, setActiveLink] = useState("");
   const [transparent, setTransparent] = useState(true);
@@ -50,7 +35,7 @@ export const useScrollEvent = () => {
           setActiveLink("");
         }
       });
-      setTransparent(currentScrollPos <= header?.clientHeight);
+      setTransparent(currentScrollPos <= 10);
       setIsHeaderVisible(isScrollingUp || currentScrollPos === 0);
       setYPos(currentScrollPos);
     },
@@ -69,15 +54,22 @@ export const useScrollEvent = () => {
 
   return { isHeaderVisible, activeLink, transparent };
 };
-
 export const useWindowWidth = () => {
-  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+  const [windowWidth, setWindowWidth] = useState<number | null>(null);
 
   useEffect(() => {
-    const handleResize = () => {
-      setWindowWidth(window.innerWidth);
+    const getWindowWidth = () => {
+      return typeof window !== "undefined" ? window.innerWidth : null;
     };
+
+    setWindowWidth(getWindowWidth());
+
+    const handleResize = () => {
+      setWindowWidth(getWindowWidth());
+    };
+
     window.addEventListener("resize", handleResize);
+
     return () => {
       window.removeEventListener("resize", handleResize);
     };
@@ -144,4 +136,33 @@ export const useScrollAnimationForOne = (
   }, [elementsRef, isAnimated, setIsAnimated]);
 
   return isAnimated;
+};
+
+function getWindowDimensions() {
+  const { innerWidth: width, innerHeight: height } = window;
+  return {
+    width,
+    height,
+  };
+}
+
+export const useWindowDimensions = () => {
+  const [windowDimensions, setWindowDimensions] = useState(
+    typeof window !== "undefined"
+      ? getWindowDimensions()
+      : { width: 0, height: 0 }
+  );
+
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+
+    function handleResize() {
+      setWindowDimensions(getWindowDimensions());
+    }
+
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  return windowDimensions;
 };
