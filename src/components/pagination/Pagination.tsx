@@ -45,8 +45,9 @@ const Pagination: React.FC<IPagination> = ({
         const headerHeight = height || 0;
         const sectionPosition =
           sectionRef.current.getBoundingClientRect().top +
-          scrollTop -
-          headerHeight;
+          scrollTop +
+          -headerHeight -
+          20;
         window.scrollTo({ top: sectionPosition, behavior: "smooth" });
       }
     },
