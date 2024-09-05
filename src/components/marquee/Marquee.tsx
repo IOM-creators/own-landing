@@ -12,7 +12,7 @@ const Marquee: React.FC<MarqueeProps> = ({ children }) => {
     const marquee = marqueeRef.current;
     const marqueeInner = marqueeInnerRef.current;
     let animationFrameId: number;
-    const speed = 1;
+    const speed = 0.5;
 
     const moveMarquee = () => {
       if (marquee && marqueeInner) {
@@ -35,6 +35,7 @@ const Marquee: React.FC<MarqueeProps> = ({ children }) => {
       className="flex flex-nowrap overflow-hidden w-full whitespace-nowrap"
     >
       <div ref={marqueeInnerRef} className="inline-block">
+        {children}
         {children}
         {children}
       </div>

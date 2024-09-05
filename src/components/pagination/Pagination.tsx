@@ -36,10 +36,16 @@ const Pagination: React.FC<IPagination> = ({
       );
 
       if (sectionRef?.current) {
+        const scrollTop =
+          window.pageYOffset ||
+          document.documentElement.scrollTop ||
+          document.body.scrollTop ||
+          0;
+
         const headerHeight = height || 0;
         const sectionPosition =
           sectionRef.current.getBoundingClientRect().top +
-          window.scrollY -
+          scrollTop -
           headerHeight;
         window.scrollTo({ top: sectionPosition, behavior: "smooth" });
       }
