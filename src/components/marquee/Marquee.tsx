@@ -12,7 +12,7 @@ const Marquee: React.FC<MarqueeProps> = ({ children }) => {
     const marquee = marqueeRef.current;
     const marqueeInner = marqueeInnerRef.current;
     let animationFrameId: number;
-    const speed = 0.5;
+    const speed = 1;
 
     const moveMarquee = () => {
       if (marquee && marqueeInner) {

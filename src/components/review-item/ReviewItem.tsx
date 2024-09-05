@@ -46,8 +46,8 @@ const ReviewItem: React.FC<IReviewItem> = ({ id = "", section, className }) => {
         )}
         {reviewItem.platform && (
           <Button
-            typeButton={reviewItem.link.buttonType}
-            styleButton={reviewItem.link.styleButton}
+            typeButton="Link"
+            styleButton="Only Icon"
             link={reviewItem.link.url}
             icon={reviewItem.platform.url}
           />
