@@ -4,6 +4,7 @@ import Custom404 from "./404";
 import { CustomNextPageContext } from "../types/page-props";
 import { useEffect, useState } from "react";
 import { fetchPageContent } from "@/helpers/getData";
+import { setCookie, getCookie } from "cookies-next";
 
 // Create Apollo Client
 
@@ -30,14 +31,24 @@ export const getServerSideProps = async ({
   locale,
   params,
   query,
+  req,
+  res,
 }: CustomNextPageContext) => {
   const slug = "index" as string;
+
+  setCookie("user-token", "example-token", {
+    req,
+    res,
+    maxAge: 60 * 60 * 24 * 7,
+  });
+  const userToken = getCookie("user-token", { req, res }) || null;
 
   try {
     // Fetch the page collections
     const { sections, header, footer } = await fetchPageContent(slug);
     return {
       props: {
+        userToken,
         footer: footer,
         header: header,
         slug,

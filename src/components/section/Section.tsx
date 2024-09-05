@@ -10,9 +10,10 @@ interface ISection {
   id: string;
   className?: string;
   children?: React.ReactNode;
+  tagH1: boolean;
   section: any;
 }
-const Section: React.FC<ISection> = ({ id, className, section }) => {
+const Section: React.FC<ISection> = ({ id, className, section, tagH1 }) => {
   const refSection = useRef<HTMLElement | null>(null);
 
   if (!section) return null;
@@ -82,7 +83,11 @@ const Section: React.FC<ISection> = ({ id, className, section }) => {
                   )}
                 >
                   {section.title && !section.titleRichtext?.json ? (
-                    <h2 className="mb-6">{section.title}</h2>
+                    tagH1 ? (
+                      <h1 className="mb-6">{section.title}</h1>
+                    ) : (
+                      <h2 className="mb-6">{section.title}</h2>
+                    )
                   ) : (
                     <div className="custom-title text-center mb-6 md:mb-12 md:mb-24 mx-auto max-w-[1050px]">
                       <RichText richText={section.titleRichtext?.json} />
