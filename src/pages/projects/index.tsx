@@ -26,7 +26,8 @@ const SlugPage: NextPage = (props: any) => {
   }
   const PAGE_SIZE = 4;
   const [currentPage, setCurrentPage] = useState<number>(1);
-  const { total } = useProjectsTotal();
+  const { total, slugs } = useProjectsTotal();
+
   const { content } = useProjects((currentPage - 1) * PAGE_SIZE);
   const customStyles: React.CSSProperties = {
     "--pd-top": `0px`,

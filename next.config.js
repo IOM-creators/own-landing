@@ -1,5 +1,5 @@
 /** @type {import('next').NextConfig} */
-const nextConfig = {
+module.exports = {
   reactStrictMode: true,
   env: {
     NEXT_PUBLIC_CONTENTFUL_ID: process.env.NEXT_PUBLIC_CONTENTFUL_ID,
@@ -9,5 +9,3 @@ const nextConfig = {
     pagesDir: "src/pages",
   },
 };
-
-export default nextConfig;
