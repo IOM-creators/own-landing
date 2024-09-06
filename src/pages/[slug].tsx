@@ -30,18 +30,25 @@ export const getServerSideProps = async ({
   locale,
   params,
   query,
+  req,
+  res,
 }: CustomNextPageContext) => {
   const slug = params.slug as string;
 
   try {
     // Fetch the page collections
-    const { sections, header, footer } = await fetchPageContent(slug);
+    const { sections, header, footer, userToken } = await fetchPageContent(
+      slug,
+      req,
+      res
+    );
     return {
       props: {
         footer: footer,
         header: header,
         slug,
         sections: sections, // Pass sections with their components
+        userToken,
       },
     };
   } catch (error) {

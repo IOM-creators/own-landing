@@ -105,15 +105,18 @@ export const useProjects = (skip: number) => {
 };
 export const useProjectsTotal = () => {
   const { loading, error, data } = useQuery(GET_PROJECTS(), {
-    variables: { limit: 1, skip: 1 },
+    variables: { limit: 100, skip: 0 },
   });
   const section = data?.projectCollection || {};
+
   const total = section.total || 0;
+  const slugs = section?.items?.map((item: any) => item.slug) || [];
 
   return {
     loading,
     error,
     total,
+    slugs,
   };
 };
 

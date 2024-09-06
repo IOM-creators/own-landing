@@ -61,7 +61,7 @@ const Projects: NextPage = (props: any) => {
             {item?.siteLink && (
               <Button
                 link={item.siteLink}
-                typeButton='Link'
+                typeButton="Link"
                 styleButton={item.styleButton}
                 className="max-w-[270px] w-full"
               >
@@ -75,19 +75,19 @@ const Projects: NextPage = (props: any) => {
           </div>
           {windowWidth && windowWidth >= 1024
             ? item?.heroImage && (
-              <Image
-                src={item.heroImage.url}
-                className="object-cover lg:object-contain"
-                classWrapper="my-10 before:pt-[100%] lg:before:pt-[34%]"
-              />
-            )
+                <Image
+                  src={item.heroImage.url}
+                  className="object-cover lg:object-contain"
+                  classWrapper="my-10 before:pt-[100%] lg:before:pt-[34%]"
+                />
+              )
             : item?.mobileHeroImage && (
-              <Image
-                src={item.mobileHeroImage.url}
-                className="object-cover lg:object-contain"
-                classWrapper="my-10 before:pt-[100%] lg:before:pt-[34%]"
-              />
-            )}
+                <Image
+                  src={item.mobileHeroImage.url}
+                  className="object-cover lg:object-contain"
+                  classWrapper="my-10 before:pt-[100%] lg:before:pt-[34%]"
+                />
+              )}
         </div>
       </section>
     </Page>
@@ -100,22 +100,26 @@ export const getServerSideProps = async ({
   locale,
   params,
   query,
+  req,
+  res,
 }: CustomNextPageContext) => {
   const slug = params.slug as string;
   const client = createApolloClient();
 
   try {
-    const res = await client.query({
+    const response = await client.query({
       query: GET_PROJECTS_BY_SLUG(slug),
     });
 
-    const { header, footer, sections } = await fetchPageContent(
+    const { header, footer, sections, userToken } = await fetchPageContent(
       slug,
+      req,
+      res,
       false,
-      res.data.projectCollection.items[0].pageContent.items
+      response.data.projectCollection.items[0].pageContent.items
     );
     // Check if items are available, otherwise return a 404 page
-    if (!res.data.projectCollection.items.length) {
+    if (!response.data.projectCollection.items.length) {
       return {
         notFound: true,
       };
@@ -126,8 +130,9 @@ export const getServerSideProps = async ({
         header: header,
         footer: footer,
         slug: slug,
-        items: res.data.projectCollection.items,
+        items: response.data.projectCollection.items,
         sections: sections,
+        userToken,
       },
     };
   } catch (e) {
