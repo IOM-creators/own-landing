@@ -33,9 +33,9 @@ const Seo: React.FC<ISeo> = ({
   imagePath,
   pageKeywords,
 }) => {
-  const [currentUrl, setCurrentUrl] = useState("");
-
-  // Set URL only on the client side
+  const [currentUrl, setCurrentUrl] = useState(
+    process.env.NEXT_PUBLIC_SITE_URL
+  );
   useEffect(() => {
     if (typeof window !== "undefined") {
       setCurrentUrl(window.location.href);

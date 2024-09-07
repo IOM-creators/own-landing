@@ -5,7 +5,6 @@ import Layout from "@/components/layout";
 import { Provider } from "react-redux";
 import { ApolloClient, InMemoryCache, ApolloProvider } from "@apollo/client";
 import store from "../store";
-import Script from "next/script";
 import { useEffect } from "react";
 import { useRouter } from "next/router";
 
