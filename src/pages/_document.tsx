@@ -9,7 +9,7 @@ export default function Document() {
         <Seo />
         <script
           async
-          src={`https://www.googletagmanager.com/gtag/js?id=G-HGJRVM3CM2`}
+          src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_ANALITICS_ID}`}
         />
         <script
           dangerouslySetInnerHTML={{
@@ -17,7 +17,7 @@ export default function Document() {
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
-            gtag('config', 'G-HGJRVM3CM2', {
+            gtag('config', '${process.env.NEXT_PUBLIC_ANALITICS_ID}', {
               page_path: window.location.pathname,
             });
             `,

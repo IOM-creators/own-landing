@@ -8,8 +8,6 @@ import store from "../store";
 import { useEffect } from "react";
 import { useRouter } from "next/router";
 
-const GA_TRACKING_ID = "G-HGJRVM3CM2";
-
 export const client = new ApolloClient({
   uri: `https://graphql.contentful.com/content/v1/spaces/${process.env.NEXT_PUBLIC_CONTENTFUL_ID}`,
   headers: {
@@ -36,7 +34,7 @@ export default function App({ Component, pageProps }: AppProps) {
   useEffect(() => {
     const handleRouteChange = (url: string) => {
       if (typeof window.gtag !== "undefined") {
-        window.gtag("config", GA_TRACKING_ID, {
+        window.gtag("config", process.env.NEXT_PUBLIC_ANALITICS_ID, {
           page_path: url,
         });
       }

@@ -69,7 +69,8 @@ export async function handler(req: NextApiRequest, res: NextApiResponse) {
       },
     });
 
-    const url: string = "https://iom-creators.com/";
+    const url: string =
+      process.env.NEXT_PUBLIC_SITE_URL || "https://iom-creators.com/";
     const sitemap = generateSiteMap(
       url,
       pagesResponse.data.items,

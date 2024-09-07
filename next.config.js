@@ -15,6 +15,11 @@ module.exports = {
         destination: "/api/sitemap.xml",
         permanent: true,
       },
+      {
+        source: "/index",
+        destination: "/",
+        permanent: true,
+      },
     ];
   },
 };
