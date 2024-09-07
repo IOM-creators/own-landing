@@ -1,3 +1,4 @@
+import Seo from "@/components/seo";
 import { Html, Head, Main, NextScript } from "next/document";
 
 export default function Document() {
@@ -5,7 +6,7 @@ export default function Document() {
     <Html lang="en">
       <Head>
         <link rel="manifest" href="/manifest.json" />
-        {/* Google Analytics Script */}
+        <Seo />
         <script
           async
           src={`https://www.googletagmanager.com/gtag/js?id=G-HGJRVM3CM2`}
