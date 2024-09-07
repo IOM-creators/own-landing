@@ -43,7 +43,7 @@ export async function fetchPageContent(
         variables: { slug },
         fetchPolicy: "network-only",
       });
-      return pageData.pageCollection.items[0].pageContent.items;
+      return pageData.pageCollection?.items[0]?.pageContent?.items || [];
     })());
 
   // Fetch sections and their associated components

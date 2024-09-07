@@ -100,7 +100,6 @@ const SlugPage: NextPage = (props: any) => {
   );
 };
 
-// Server-side rendering for the page
 export const getServerSideProps = async ({
   locale,
   params,
@@ -111,18 +110,22 @@ export const getServerSideProps = async ({
   const slug = "projects" as string;
 
   try {
-    // Fetch the page collections
     const { sections, header, footer, userToken } = await fetchPageContent(
       slug,
       req,
       res
     );
+    if (!sections || !sections.length) {
+      return {
+        notFound: true,
+      };
+    }
     return {
       props: {
-        footer: footer,
-        header: header,
+        footer,
+        header,
         slug,
-        sections: sections, // Pass sections with their components
+        sections,
         userToken,
       },
     };

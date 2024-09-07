@@ -14,23 +14,18 @@ import { fetchPageContent } from "@/helpers/getData";
 export const createApolloClient = () => client;
 
 const Projects: NextPage = (props: any) => {
-  // State to manage sections on the client side
   const [clientItems, setClientItems] = useState<any[]>([]);
-
-  // Use window width for responsive rendering
   const windowWidth: number = useWindowWidth() || 0;
 
   useEffect(() => {
-    // Ensure client-side sections are consistent with server-side
     setClientItems(props.items || []);
   }, [props.items]);
 
-  // If no items are found, return null or a 404 component
   if (!props?.items?.length) {
     return <Custom404 />;
   }
 
-  const item = clientItems[0]; // Assuming you are displaying the first item
+  const item = clientItems[0];
 
   const customStyles: React.CSSProperties = {
     "--pd-top": `100px`,
@@ -118,7 +113,6 @@ export const getServerSideProps = async ({
       false,
       response.data.projectCollection.items[0].pageContent.items
     );
-    // Check if items are available, otherwise return a 404 page
     if (!response.data.projectCollection.items.length) {
       return {
         notFound: true,
@@ -127,11 +121,11 @@ export const getServerSideProps = async ({
 
     return {
       props: {
-        header: header,
-        footer: footer,
-        slug: slug,
+        header,
+        footer,
+        slug,
         items: response.data.projectCollection.items,
-        sections: sections,
+        sections,
         userToken,
       },
     };
