@@ -9,7 +9,7 @@ export async function fetchPageContent(
   req: any,
   res: any,
   fetchOnlyHeaderFooter = false,
-  items?: any[]
+  items?: any
 ) {
   setCookie("user-token", "example-token", {
     req,
@@ -33,66 +33,71 @@ export async function fetchPageContent(
     };
   }
 
-  const pageContentData: any =
-    items ||
-    (await (async () => {
-      const { data: pageData } = await client.query({
-        query: GET_PAGE_COLLECTIONS(),
-        variables: { slug },
-        fetchPolicy: "network-only",
-      });
+  const pageContentData: any = items
+    ? {
+        title: items?.title || "",
+        items: items?.pageContent?.items || [],
+      }
+    : await (async () => {
+        const { data: pageData } = await client.query({
+          query: GET_PAGE_COLLECTIONS(),
+          variables: { slug },
+          fetchPolicy: "network-only",
+        });
 
-      return {
-        title: pageData.pageCollection?.items[0]?.title || "",
-        items: pageData.pageCollection?.items[0]?.pageContent?.items || [],
-      };
-    })());
+        return {
+          title: pageData.pageCollection?.items[0]?.title || "",
+          items: pageData.pageCollection?.items[0]?.pageContent?.items || [],
+        };
+      })();
 
   // Fetch sections and their associated components
   const sectionsWithComponents = await Promise.all(
-    pageContentData.items.map(async (item: any) => {
-      const { data: sectionData, loading } = await client.query({
-        query: GET_SECTION_ENTRY(item.sys.id),
-        variables: { id: item.sys.id },
-        fetchPolicy: "network-only",
-      });
-
-      const section = sectionData.section;
-      const components = section.componentsCollection.items;
-
-      // Fetch data for each component in the section
-      const componentsData = await Promise.all(
-        components.map(async (component: any) => {
-          const queryFunction = queryMap[component.__typename];
-
-          if (!queryFunction) {
-            throw new Error(
-              `No query found for component type: ${component.__typename}`
-            );
-          }
-
-          const { data: componentData } = await client.query({
-            query: queryFunction(component.sys.id),
-            variables: { id: component.sys.id },
+    pageContentData?.items
+      ? pageContentData.items.map(async (item: any) => {
+          const { data: sectionData, loading } = await client.query({
+            query: GET_SECTION_ENTRY(item.sys.id),
+            variables: { id: item.sys.id },
             fetchPolicy: "network-only",
           });
 
-          return componentData;
-        })
-      );
+          const section = sectionData.section;
+          const components = section.componentsCollection.items;
 
-      return {
-        loading,
-        section: {
-          ...section,
-          components: componentsData,
-        },
-      };
-    })
+          // Fetch data for each component in the section
+          const componentsData = await Promise.all(
+            components.map(async (component: any) => {
+              const queryFunction = queryMap[component.__typename];
+
+              if (!queryFunction) {
+                throw new Error(
+                  `No query found for component type: ${component.__typename}`
+                );
+              }
+
+              const { data: componentData } = await client.query({
+                query: queryFunction(component.sys.id),
+                variables: { id: component.sys.id },
+                fetchPolicy: "network-only",
+              });
+
+              return componentData;
+            })
+          );
+
+          return {
+            loading,
+            section: {
+              ...section,
+              components: componentsData,
+            },
+          };
+        })
+      : []
   );
 
   return {
-    title: pageContentData.title,
+    title: pageContentData?.title || "",
     sections: sectionsWithComponents,
     header: headerData.data.header,
     footer: footerData.data.footer,

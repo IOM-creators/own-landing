@@ -112,11 +112,7 @@ export const getServerSideProps = async ({
   try {
     const { sections, header, footer, userToken, title } =
       await fetchPageContent(slug, req, res);
-    if (!sections || !sections.length) {
-      return {
-        notFound: true,
-      };
-    }
+
     return {
       props: {
         title,

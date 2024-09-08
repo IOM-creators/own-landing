@@ -112,14 +112,8 @@ export const getServerSideProps = async ({
         req,
         res,
         false,
-        response.data.projectCollection.items[0].pageContent.items
+        response.data.projectCollection.items[0]
       );
-    if (!response.data.projectCollection.items.length) {
-      return {
-        notFound: true,
-      };
-    }
-
     return {
       props: {
         title,

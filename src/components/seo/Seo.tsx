@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Helmet } from "react-helmet";
+import Head from "next/head";
 
 interface ISeo {
   title?: string;
@@ -50,7 +50,7 @@ const Seo: React.FC<ISeo> = ({
   };
 
   return (
-    <>
+    <Head>
       <title>{seoData.title}</title>
       <meta name="description" content={seoData.description} />
       <meta name="keywords" content={seoData.pageKeywords} />
@@ -67,7 +67,7 @@ const Seo: React.FC<ISeo> = ({
       <meta name="twitter:description" content={seoData.description} />
       <meta name="twitter:image" content={seoData.imagePath} />
       <meta name="twitter:card" content="summary_large_image" />
-    </>
+    </Head>
   );
 };
 
