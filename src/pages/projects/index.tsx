@@ -35,7 +35,7 @@ const SlugPage: NextPage = (props: any) => {
   } as React.CSSProperties;
 
   return (
-    <Page sections={clientSections} sectionIndex={2}>
+    <Page sections={clientSections} sectionIndex={2} title={props.title}>
       <section className="section" style={customStyles} ref={sectionRef}>
         <div className="section__wrapper container">
           <nav>
@@ -110,11 +110,8 @@ export const getServerSideProps = async ({
   const slug = "projects" as string;
 
   try {
-    const { sections, header, footer, userToken } = await fetchPageContent(
-      slug,
-      req,
-      res
-    );
+    const { sections, header, footer, userToken, title } =
+      await fetchPageContent(slug, req, res);
     if (!sections || !sections.length) {
       return {
         notFound: true,
@@ -122,6 +119,7 @@ export const getServerSideProps = async ({
     }
     return {
       props: {
+        title,
         footer,
         header,
         slug,

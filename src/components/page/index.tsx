@@ -1,12 +1,13 @@
 import Cookies from "../cookies";
 import NavigationLoader from "../navigation-loader/NavigationLoader";
+import Seo from "../seo";
 import GqlComponent from "./gql-component";
 
 const Page = (props: any) => {
-  const { sections, children, sectionIndex } = props;
-
+  const { sections, children, sectionIndex, title } = props;
   return (
     <>
+      <Seo title={title} />
       <NavigationLoader />
       {sections &&
         sections.map(({ section }: any, index: number) => {

@@ -43,14 +43,14 @@ const Seo: React.FC<ISeo> = ({
   }, []);
 
   const seoData: ISeo = {
-    title: title || defaultSeoData.title,
+    title: title ? title + " | " + defaultSeoData.title : defaultSeoData.title,
     description: description || defaultSeoData.description,
     pageKeywords: pageKeywords || defaultSeoData.pageKeywords,
     imagePath: imagePath || `${currentUrl}/assets/images/iom.png`,
   };
 
   return (
-    <Helmet>
+    <>
       <title>{seoData.title}</title>
       <meta name="description" content={seoData.description} />
       <meta name="keywords" content={seoData.pageKeywords} />
@@ -67,7 +67,7 @@ const Seo: React.FC<ISeo> = ({
       <meta name="twitter:description" content={seoData.description} />
       <meta name="twitter:image" content={seoData.imagePath} />
       <meta name="twitter:card" content="summary_large_image" />
-    </Helmet>
+    </>
   );
 };
 

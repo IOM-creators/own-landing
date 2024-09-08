@@ -35,7 +35,7 @@ const Projects: NextPage = (props: any) => {
   } as React.CSSProperties;
 
   return (
-    <Page sections={props.sections} sectionIndex={0}>
+    <Page sections={props.sections} sectionIndex={0} title={props.title}>
       <section className="section" style={customStyles}>
         <div className="section__wrapper container">
           <div className="project__header flex flex-wrap justify-between items-start">
@@ -106,13 +106,14 @@ export const getServerSideProps = async ({
       query: GET_PROJECTS_BY_SLUG(slug),
     });
 
-    const { header, footer, sections, userToken } = await fetchPageContent(
-      slug,
-      req,
-      res,
-      false,
-      response.data.projectCollection.items[0].pageContent.items
-    );
+    const { header, footer, sections, userToken, title } =
+      await fetchPageContent(
+        slug,
+        req,
+        res,
+        false,
+        response.data.projectCollection.items[0].pageContent.items
+      );
     if (!response.data.projectCollection.items.length) {
       return {
         notFound: true,
@@ -121,6 +122,7 @@ export const getServerSideProps = async ({
 
     return {
       props: {
+        title,
         header,
         footer,
         slug,

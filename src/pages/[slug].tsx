@@ -15,7 +15,7 @@ const SlugPage: NextPage = (props: any) => {
   if (!props?.sections?.length) {
     return <Custom404 />;
   } else {
-    return <Page sections={clientSections}></Page>;
+    return <Page sections={clientSections} title={props.title}></Page>;
   }
 };
 export const getServerSideProps = async ({
@@ -28,11 +28,8 @@ export const getServerSideProps = async ({
   const slug = params.slug as string;
 
   try {
-    const { sections, header, footer, userToken } = await fetchPageContent(
-      slug,
-      req,
-      res
-    );
+    const { sections, header, footer, userToken, title } =
+      await fetchPageContent(slug, req, res);
 
     if (!sections || !sections.length) {
       return {
@@ -42,6 +39,7 @@ export const getServerSideProps = async ({
 
     return {
       props: {
+        title,
         footer,
         header,
         slug,

@@ -18,7 +18,6 @@ export async function fetchPageContent(
   });
   const userToken = getCookie("user-token", { req, res }) || null;
 
-  // Fetch header and footer
   const queryFooter = queryMap["Footer"];
   const queryHeader = queryMap["Header"];
 
@@ -34,8 +33,7 @@ export async function fetchPageContent(
     };
   }
 
-  // Use provided items or fetch page collections if not fetching only header and footer
-  const pageContentItems =
+  const pageContentData: any =
     items ||
     (await (async () => {
       const { data: pageData } = await client.query({
@@ -43,12 +41,16 @@ export async function fetchPageContent(
         variables: { slug },
         fetchPolicy: "network-only",
       });
-      return pageData.pageCollection?.items[0]?.pageContent?.items || [];
+
+      return {
+        title: pageData.pageCollection?.items[0]?.title || "",
+        items: pageData.pageCollection?.items[0]?.pageContent?.items || [],
+      };
     })());
 
   // Fetch sections and their associated components
   const sectionsWithComponents = await Promise.all(
-    pageContentItems.map(async (item: any) => {
+    pageContentData.items.map(async (item: any) => {
       const { data: sectionData, loading } = await client.query({
         query: GET_SECTION_ENTRY(item.sys.id),
         variables: { id: item.sys.id },
@@ -90,6 +92,7 @@ export async function fetchPageContent(
   );
 
   return {
+    title: pageContentData.title,
     sections: sectionsWithComponents,
     header: headerData.data.header,
     footer: footerData.data.footer,
