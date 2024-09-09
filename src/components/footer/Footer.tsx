@@ -22,7 +22,7 @@ const Footer = (props: any) => {
             <Link href="/">
               <Icon
                 icon="new-logo"
-                className="inline-block w-16 md:w-20 lg:w-20"
+                className="inline-block w-16 md:w-20 md:h-auto xl:w-24"
               />
             </Link>
           </div>

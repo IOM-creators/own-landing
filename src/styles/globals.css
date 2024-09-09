@@ -293,3 +293,24 @@ svg {
   opacity: 1;
   transform: translateY(0);
 }
+
+.animation-logo {
+  overflow: initial;
+}
+.animation-logo .logo-acronyms {
+  transform: translate(-50px);
+  animation: logoAcronyms 1s forwards;
+  opacity: 0;
+}
+.animation-logo .logo-text {
+  transform: translateX(-50px);
+  animation: logoAcronyms 1s 0.1s forwards;
+  opacity: 0;
+}
+
+@keyframes logoAcronyms {
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}

@@ -95,9 +95,7 @@ html {
   transform: scaleY(0);
   animation: moveUpDown 5s linear infinite;
 }
-.animation-logo {
-  animation: animLogo 1s linear forwards;
-}
+
 .scale-show {
   transform: scale(0);
   animation: scaleShow 0.5s 1s linear forwards;
@@ -411,18 +409,17 @@ html {
   }
 }
 
-
-.section__description ol{
+.section__description ol {
   list-style: auto;
   padding-left: 20px;
 }
-.section__description ul{
+.section__description ul {
   list-style: disc;
   padding-left: 20px;
 }
-.section__description p{
+.section__description p {
   margin: 0 0 10px 0;
 }
-.section__description h3{
+.section__description h3 {
   margin: 60px 0 20px 0;
 }
