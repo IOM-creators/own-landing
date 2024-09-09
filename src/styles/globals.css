@@ -87,7 +87,7 @@ svg {
   grid-template-columns: 100%;
   min-height: 100vh;
 }
-.header .container {
+.container {
   max-width: 1440px;
 }
 .page-template:not(.page-template-index) .header:not(.bg-white) {

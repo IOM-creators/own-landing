@@ -20,7 +20,10 @@ const Footer = (props: any) => {
         <div className="lg:flex text-center lg:text-left items-center justify-between">
           <div className="footer-item  mb-5 lg:mb-0 lg:max-w-[300px]s">
             <Link href="/">
-              <Icon icon="new-logo" className="inline-block w-16 lg:w-20" />
+              <Icon
+                icon="new-logo"
+                className="inline-block w-16 md:w-20 lg:w-20"
+              />
             </Link>
           </div>
 
