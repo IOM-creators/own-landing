@@ -48,8 +48,8 @@ const Header: React.FC<IHeader> = ({ headerRef, content }) => {
       )}
     >
       <div className="container flex items-center font-serif text-base font-semibold">
-        <Link href="/">
-          <Icon className="w-12 lg:w-20 mr-10" icon="light-logo" />
+        <Link href="/" className="mr-6">
+          <Icon className="w-6 lg:w-20 mr-10" icon="new-logo" />
         </Link>
         {windowWidth && windowWidth >= 1024 && pathname === "/" && (
           <HeaderNavigation

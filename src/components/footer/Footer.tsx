@@ -7,7 +7,7 @@ const Footer = (props: any) => {
   const { content: footer } = props;
 
   if (!footer) {
-    return null
+    return null;
   }
 
   const customStyles: React.CSSProperties = {
@@ -20,7 +20,7 @@ const Footer = (props: any) => {
         <div className="lg:flex text-center lg:text-left items-center justify-between">
           <div className="footer-item  mb-5 lg:mb-0 lg:max-w-[300px]s">
             <Link href="/">
-              <Icon icon="light-logo" className="inline-block w-16 lg:w-20" />
+              <Icon icon="new-logo" className="inline-block w-16 lg:w-20" />
             </Link>
           </div>
 
@@ -30,8 +30,11 @@ const Footer = (props: any) => {
                 (navItem: { url: string; title: string }, index: number) => {
                   return (
                     <li
-                      className={`px-3 py-2 md:py-0 md:px-5 ${index === footer.menuCollection.length - 1 ? "md:pr-0" : "md:pr-5"
-                        }`}
+                      className={`px-3 py-2 md:py-0 md:px-5 ${
+                        index === footer.menuCollection.length - 1
+                          ? "md:pr-0"
+                          : "md:pr-5"
+                      }`}
                       key={index}
                     >
                       <Link
@@ -49,16 +52,18 @@ const Footer = (props: any) => {
           {footer.socialCollection && (
             <div className="footer-item footer__social">
               <ul className="flex items-center gap-4 justify-center mt-8 lg:mt-0 lg:justify-normal">
-                {footer?.socialCollection?.items.map((item: any, index: number) => (
-                  <li key={index}>
-                    <Button
-                      styleButton={item.styleButton}
-                      typeButton={item.buttonType}
-                      link={item.url}
-                      icon={item.icon.url}
-                    ></Button>
-                  </li>
-                ))}
+                {footer?.socialCollection?.items.map(
+                  (item: any, index: number) => (
+                    <li key={index}>
+                      <Button
+                        styleButton={item.styleButton}
+                        typeButton={item.buttonType}
+                        link={item.url}
+                        icon={item.icon.url}
+                      ></Button>
+                    </li>
+                  )
+                )}
               </ul>
             </div>
           )}
