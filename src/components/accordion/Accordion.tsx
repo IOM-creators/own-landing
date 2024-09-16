@@ -49,14 +49,20 @@ const Accordion: React.FC<AccordionProps> = ({
         <h2 className="mb-10">{accordion.title}</h2>
         <div className="accordion__items">
           {accordionItems.map((item: AccordionItemProps, index: number) => (
-            <div key={index} className="accordion__item">
+            <div
+              key={index}
+              className={cn(
+                {
+                  "border-b-[1px] border-border-color":
+                    index === accordionItems.length - 1,
+                },
+                "accordion__item border-t-[1px] border-border-color"
+              )}
+            >
               <div
                 className={cn(
-                  {
-                    "border-b-[1px] border-border-color":
-                      index === accordionItems.length - 1,
-                  },
-                  "accordion-title w-full flex justify-between gap-6 text-2xl lg:text-3xl py-9 border-t-[1px] border-border-color cursor-pointer"
+                  {},
+                  "accordion-title w-full flex justify-between gap-6 text-2xl lg:text-3xl py-9 cursor-pointer"
                 )}
                 onClick={() => handleToggle(index)}
               >
@@ -72,7 +78,7 @@ const Accordion: React.FC<AccordionProps> = ({
                 />
               </div>
               {activeIndex === index && (
-                <div className="accordion-content leading-normal">
+                <div className="accordion-content leading-normal pb-9">
                   {item.description && (
                     <RichText richText={item.description.json} />
                   )}
