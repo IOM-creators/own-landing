@@ -1,44 +1,49 @@
-import { motion, useAnimation } from "framer-motion";
-import { useEffect } from "react";
-import { useInView } from "react-intersection-observer";
+import { ReactNode, useEffect } from "react";
 
-interface AnimatedBlockProps {
-  children: React.ReactNode;
+interface IAnimateBlock {
+  animationType?: string;
+  children: ReactNode;
 }
 
-const AnimatedBlock: React.FC<AnimatedBlockProps> = ({ children }) => {
-  const controls = useAnimation();
-  const [ref, inView] = useInView({
-    triggerOnce: true,
-    threshold: 0.2,
-  });
-
+const AnimateBlock: React.FC<IAnimateBlock> = ({
+  children,
+  animationType = "",
+}) => {
   useEffect(() => {
-    if (inView) {
-      controls.start("visible");
-    }
-  }, [controls, inView]);
+    // Ensure the code runs only on the client-side
+    if (typeof window === "undefined") return;
 
-  const variants = {
-    hidden: { opacity: 0, y: 1 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: 0.3, delay: 0.1 },
-    },
-  };
+    // Select all elements with the data-animate attribute
+    const blocks = document.querySelectorAll<HTMLElement>("[data-animate]");
 
-  return (
-    <motion.div
-      ref={ref}
-      initial="hidden"
-      animate={controls}
-      variants={variants}
-      className="your-block-class"
-    >
-      {children}
-    </motion.div>
-  );
+    const observerOptions: IntersectionObserverInit = {
+      root: null,
+      rootMargin: "0px",
+      threshold: 0.2,
+    };
+
+    const observer = new IntersectionObserver((entries, observer) => {
+      entries.forEach((entry, index) => {
+        if (entry.isIntersecting) {
+          setTimeout(() => {
+            const target = entry.target as HTMLElement;
+            target.classList.add("visible");
+            target.dataset.time = (index * 300).toString();
+          }, index * 300);
+          observer.unobserve(entry.target);
+        }
+      });
+    }, observerOptions);
+
+    blocks.forEach((block) => observer.observe(block));
+
+    // Clean up observer on component unmount
+    return () => {
+      blocks.forEach((block) => observer.unobserve(block));
+    };
+  }, []); // Empty dependency array ensures this runs only once
+
+  return <div data-animate={animationType}>{children}</div>;
 };
 
-export default AnimatedBlock;
+export default AnimateBlock;

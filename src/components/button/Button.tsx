@@ -81,7 +81,11 @@ const Button: React.FC<IButton> = ({
   return (
     <>
       {typeButton === "Link" && link && (
-        <Link href={link} className={cn(className, buttonStyles[styleButton])}>
+        <Link
+          href={link}
+          className={cn(className, buttonStyles[styleButton])}
+          {...props}
+        >
           {!rightText && children}
           {renderIcon()}
           {rightText && children}

@@ -10,6 +10,7 @@ import { useEffect, useState } from "react";
 import { HeaderState } from "../../store/types/header";
 import { useTypedSelector } from "@/store/hooks/useTypedSelector";
 import Button from "../button/Button";
+import AnimationBlock from "../animation-block";
 interface IHeader {
   headerRef: React.ForwardedRef<HTMLDivElement>;
   content: any;

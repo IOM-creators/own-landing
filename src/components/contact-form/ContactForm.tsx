@@ -121,12 +121,16 @@ const ContactForm: React.FC<IContactUs> = ({
               "mb-[40px]": !contactForm.subtitle,
               "mb-2": contactForm.subtitle,
             })}
+            data-animate="moveRight"
           >
             {contactForm?.title}
           </h3>
         )}
         {contactForm?.subtitle && (
-          <span className={cn({}, "mb-[40px] block text-lg font-bold")}>
+          <span
+            className={cn({}, "mb-[40px] block text-lg font-bold")}
+            data-animate="moveRight"
+          >
             {contactForm.subtitle}
           </span>
         )}
@@ -143,7 +147,11 @@ const ContactForm: React.FC<IContactUs> = ({
                   .toLocaleLowerCase()
                   .replace(" ", "_");
                 return (
-                  <div className={cn("my-2 sm:col-span-6")} key={index}>
+                  <div
+                    className={cn("my-2 sm:col-span-6")}
+                    key={index}
+                    data-animate="moveRight"
+                  >
                     <label htmlFor={fieldName}></label>
                     <Controller
                       name={fieldName}
@@ -197,13 +205,17 @@ const ContactForm: React.FC<IContactUs> = ({
               className={cn("btn btn--primary justify-center", {
                 "btn--loading": isSending,
               })}
+              data-animate="moveRight"
             >
               {contactForm.buttonText}
             </Button>
           </div>
         </form>
         {isSuccessMessage && (
-          <div className="success-message text-center absolute bg-white h-full w-full top-0 left-0 flex flex-col items-center justify-center">
+          <div
+            className="success-message text-center absolute bg-white h-full w-full top-0 left-0 flex flex-col items-center justify-center"
+            data-animate="moveUp"
+          >
             <Image
               src={contactForm.successImage.url}
               classWrapper="w-60 !flex justify-center"

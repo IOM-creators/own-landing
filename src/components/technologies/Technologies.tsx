@@ -13,7 +13,7 @@ const Technologies: React.FC<ITechnologies> = ({ id = "", section }) => {
 
   if (!technologies) return null;
   return (
-    <div className="technologies">
+    <div className="technologies" data-animate="fadeIn">
       <Marquee>
         {technologiesItems.map((item: any, index: number) => (
           <div

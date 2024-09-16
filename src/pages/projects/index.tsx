@@ -44,7 +44,11 @@ const SlugPage: NextPage = (props: any) => {
                 content.items &&
                 content.items.map((item: any) => {
                   return (
-                    <li key={item.slug} className="relative">
+                    <li
+                      key={item.slug}
+                      className="relative"
+                      data-animate="moveUp"
+                    >
                       {item?.image && (
                         <Image
                           src={item.image.url}

@@ -7,6 +7,7 @@ import Video from "../video";
 import RichText from "../rich-text";
 import Button from "../button";
 import AnimatedBlock from "../animation-block";
+import AnimationBlock from "../animation-block";
 
 interface IHeroSection {
   section: any;
@@ -43,7 +44,10 @@ const HeroSection: React.FC<IHeroSection> = ({ section }) => {
     <div id="hero-banner" className={cn("text-dark-blue relative")}>
       <div className=" w-full h-screen relative grid grid-cols-1 lap:grid-cols-[_45%_55%] justify-center items-center">
         <div className="relative inset-0 justify-center w-full lap:pr-12">
-          <div className=" custom-title text-left max-w-3xl lap:max-w-6xl">
+          <div
+            className=" custom-title text-left max-w-3xl lap:max-w-6xl"
+            data-animate="moveRight"
+          >
             <RichText richText={titleRichText} />
           </div>
           {button?.url && (
@@ -52,6 +56,7 @@ const HeroSection: React.FC<IHeroSection> = ({ section }) => {
               typeButton={button.buttonType}
               className="justify-between max-w-[270px] w-full mt-14"
               icon={button.icon.url}
+              data-animate="moveRight"
             >
               {button.title}
             </Button>
@@ -85,7 +90,7 @@ const HeroSection: React.FC<IHeroSection> = ({ section }) => {
           </div>
         </div>
       </div>
-      <div className="absolute bottom-8">
+      <div className="absolute bottom-8" data-animate="moveRight">
         {upworkLink?.url && (
           <Button
             link={upworkLink.url}
@@ -98,9 +103,9 @@ const HeroSection: React.FC<IHeroSection> = ({ section }) => {
           </Button>
         )}
 
-        <div className=" grid grid-cols-2 gap-4 mt-5">
+        <div className="grid grid-cols-2 gap-4 mt-5">
           {jobSuccessImage && (
-            <div className="flex items-center">
+            <div className="flex items-center" data-animate="moveRight">
               <Image
                 onlyImg
                 className="w-6 mr-2.5"
@@ -110,7 +115,7 @@ const HeroSection: React.FC<IHeroSection> = ({ section }) => {
             </div>
           )}
           {topRatedImage && (
-            <div className="flex items-center">
+            <div className="flex items-center" data-animate="moveRight">
               <Image
                 onlyImg
                 className="w-6 mr-2.5"

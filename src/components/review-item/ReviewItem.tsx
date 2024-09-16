@@ -9,7 +9,12 @@ interface IReviewItem {
   section: any;
   className?: string;
 }
-const ReviewItem: React.FC<IReviewItem> = ({ id = "", section, className }) => {
+const ReviewItem: React.FC<IReviewItem> = ({
+  id = "",
+  section,
+  className,
+  ...props
+}) => {
   const { reviewItem } = section;
   const customStyles: React.CSSProperties = {
     ...(reviewItem.paddingTop && { "--pd-top": `${reviewItem.paddingTop}px` }),
@@ -22,6 +27,7 @@ const ReviewItem: React.FC<IReviewItem> = ({ id = "", section, className }) => {
     <div
       className={cn({}, className, "review-item flex flex-col h-full")}
       style={customStyles}
+      {...props}
     >
       <div className="review-item__title flex justify-between">
         <h4 className="">{reviewItem.name}</h4>

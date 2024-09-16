@@ -40,8 +40,11 @@ const Testimonials: React.FC<ITestimonials> = ({ id = "", section }) => {
   return (
     <div className="testimonials">
       <div className="testimonials__header flex items-center justify-between mb-10">
-        <h2>{testimonials.title}</h2>
-        <div className="slider-buttom-wrapper relative flex justify-between self-end hidden md:flex">
+        <h2 data-animate="moveRight">{testimonials.title}</h2>
+        <div
+          className="slider-buttom-wrapper relative flex justify-between self-end hidden md:flex"
+          data-animate="moveLeft"
+        >
           <div className="swiper-button-prev p-4 cursor-pointer hover:text-primary-orange">
             <Icon icon="arrow-prev" />
           </div>
@@ -56,6 +59,7 @@ const Testimonials: React.FC<ITestimonials> = ({ id = "", section }) => {
             <ReviewItem
               section={{ reviewItem: testimonial }}
               className="border border-border-color !p-8"
+              data-animate="fadeIn"
             />
           </SwiperSlide>
         ))}

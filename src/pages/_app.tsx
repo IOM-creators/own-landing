@@ -7,7 +7,7 @@ import { ApolloClient, InMemoryCache, ApolloProvider } from "@apollo/client";
 import store from "../store";
 import { useEffect } from "react";
 import { useRouter } from "next/router";
-
+import { useGlobalAnimationObserver } from "../helpers/useGlobalAnimationObserver";
 export const client = new ApolloClient({
   uri: `https://graphql.contentful.com/content/v1/spaces/${process.env.NEXT_PUBLIC_CONTENTFUL_ID}`,
   headers: {
@@ -44,6 +44,7 @@ export default function App({ Component, pageProps }: AppProps) {
       router.events.off("routeChangeComplete", handleRouteChange);
     };
   }, [router.events]);
+  useGlobalAnimationObserver();
 
   return (
     <Provider store={store}>

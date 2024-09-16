@@ -21,7 +21,7 @@ const ProjectCard: React.FC<IProjectCard> = ({
   if (!card) return null;
 
   return (
-    <div className="project-card">
+    <div className="project-card" data-animate="moveUp">
       <div className="relative">
         {card?.image && (
           <Image
