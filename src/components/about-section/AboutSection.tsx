@@ -32,14 +32,19 @@ const AboutSection: React.FC<IAboutSection> = ({ id = "", section }) => {
 
   return (
     <div>
-      <div className="grid grid-cols-1 lg:grid-cols-[_40%_60%] lap:grid-cols-[_25%_75%]  items-center">
+      <div className="grid grid-cols-1 lg:grid-cols-[_40%_60%] lap:grid-cols-[_40%_60%] items-center">
         {image && (
-          <div className="hidden lg:block">
-            <Image onlyImg src={image.url} />
+          <div className="">
+            {title && (
+              <h2 className="text-3xl mt-[1rem] mb-6 lg:text-5xl font-bold uppercase whitespace-nowrap">
+                {title}
+              </h2>
+            )}
+            {image && <Image onlyImg src={image.url} />}
           </div>
         )}
-        <div className="my-auto flex flex-wrap lap:flex-nowrap gap:8 lap:gap-16">
-          <div className="max-w-[300px] w-full">
+        <div className="lg:ml-10">
+          {/* <div className="max-w-[300px] w-full">
             {title && (
               <h2 className="text-3xl lg:text-5xl font-bold uppercase whitespace-nowrap">
                 {title}
@@ -68,7 +73,7 @@ const AboutSection: React.FC<IAboutSection> = ({ id = "", section }) => {
                 </h3>
               )}
             </div>
-          </div>
+          </div> */}
 
           <div className="text-xl col-span-3  lap:col-span-1">
             {content && <RichText richText={content.json} />}
