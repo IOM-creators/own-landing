@@ -114,13 +114,16 @@ const ContactForm: React.FC<IContactUs> = ({
       className="contact-form max-w-[710px] px-4 py-8 lg:p-[80px] border-contact-form bg-white  w-full mx-auto relative"
       style={customStyles}
     >
-      <>
+      <div className="overflow-hidden">
         {contactForm?.title && (
           <h3
-            className={cn({
-              "mb-[40px]": !contactForm.subtitle,
-              "mb-2": contactForm.subtitle,
-            })}
+            className={cn(
+              {
+                "mb-[40px]": !contactForm.subtitle,
+                "mb-2": contactForm.subtitle,
+              },
+              " overflow-hidden"
+            )}
             data-animate="moveRight"
           >
             {contactForm?.title}
@@ -223,7 +226,7 @@ const ContactForm: React.FC<IContactUs> = ({
             <RichText richText={contactForm.successMessage.json} />
           </div>
         )}
-      </>
+      </div>
     </div>
   );
 };
