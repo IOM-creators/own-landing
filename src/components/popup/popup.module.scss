@@ -42,4 +42,8 @@
     right: 20px;
     z-index: 1;
   }
+  [data-animate="moveRight"] {
+    transform: translateX(0);
+    opacity: 1;
+  }
 }
