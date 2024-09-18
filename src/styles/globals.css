@@ -177,10 +177,10 @@ svg {
     group-hover: translate-x-2 transition-transform duration-300;
   }
   .btn--primary {
-    @apply justify-between py-4 px-6 h-max min-w-[180px] bg-primary-orange hover:bg-orange-dark transition-colors text-white text-lg font-bold;
+    @apply justify-between py-4 px-6 h-max min-w-[180px] bg-primary-orange hover:bg-orange-dark  text-white text-lg font-bold;
   }
   .btn--secondary {
-    @apply justify-between py-4 px-6 h-max min-w-[180px] bg-primary-green hover:bg-green-dark transition-colors text-white text-lg font-bold;
+    @apply justify-between py-4 px-6 h-max min-w-[180px] bg-primary-green hover:bg-green-dark  text-white text-lg font-bold;
   }
   .btn--arrow {
     @apply flex items-center font-bold;

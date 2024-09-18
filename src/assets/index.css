@@ -43,7 +43,7 @@ html {
 
 [data-animate="moveLeft"].visible {
   opacity: 1;
-  transform: translate(0, 0);
+  transform: translateX(0);
 }
 
 [data-animate="moveRight"] {
@@ -65,6 +65,9 @@ html {
 @media screen and (max-width: 768px) {
   [data-animate="moveUp"] {
     transform: translateY(50px);
+  }
+  [data-animate="moveRight"] {
+    transform: translateX(-50px);
   }
   .testimonials [data-animate="fadeIn"] {
     opacity: 1;
