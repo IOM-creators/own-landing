@@ -14,13 +14,11 @@ const ContactInfo: React.FC<IContactUs> = ({ id = "", className, section }) => {
 
   return (
     <div className="contact-info">
-      {contactInfo?.title && (
-        <h1 data-animate="moveRight">{contactInfo.title}</h1>
-      )}
+      {contactInfo?.title && <h1 data-animate="moveUp">{contactInfo.title}</h1>}
       {contactInfo?.subtitle && (
         <span
           className="block text-base lg:text-xl font-bold mt-4"
-          data-animate="moveRight"
+          data-animate="moveUp"
         >
           {contactInfo.subtitle}
         </span>
@@ -41,7 +39,7 @@ const ContactInfo: React.FC<IContactUs> = ({ id = "", className, section }) => {
                   rightText
                   icon={item?.icon?.url}
                   className="flex items-center"
-                  data-animate="moveRight"
+                  data-animate="moveUp"
                 >
                   {item.title}
                 </Button>
@@ -57,7 +55,7 @@ const ContactInfo: React.FC<IContactUs> = ({ id = "", className, section }) => {
               <li
                 key={index}
                 className="p-4 md:py-5 md:px-10 text-base lg:text-xl font-bold bg-light-gray shrink-0"
-                data-animate="moveRight"
+                data-animate="moveUp"
               >
                 <Button
                   styleButton={item.styleButton}

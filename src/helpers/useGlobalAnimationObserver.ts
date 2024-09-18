@@ -4,12 +4,9 @@ import { useRouter } from "next/router";
 export const useGlobalAnimationObserver = () => {
   const router = useRouter();
 
-  const initObserver = () => {
+  const initObserver = (): (() => void) | null => {
     const blocks = document.querySelectorAll<HTMLElement>("[data-animate]");
-    if (blocks.length === 0) return; // Ensure there are elements to observe
-
-    console.log("blocks", blocks);
-
+    if (blocks.length === 0) return null;
     const observerOptions: IntersectionObserverInit = {
       root: null,
       rootMargin: "0px",
@@ -20,22 +17,18 @@ export const useGlobalAnimationObserver = () => {
       entries.forEach((entry, index) => {
         if (entry.isIntersecting) {
           const target = entry.target as HTMLElement;
-          // Delay adding the class for a staggered effect
           setTimeout(() => {
             target.classList.add("visible");
             target.dataset.time = (index * 300).toString();
           }, index * 300);
 
-          // Stop observing the element once it is visible
           observer.unobserve(entry.target);
         }
       });
     }, observerOptions);
 
-    // Observe each block
     blocks.forEach((block) => observer.observe(block));
 
-    // Handle sections already in the viewport on load
     blocks.forEach((block, index) => {
       const target = block as HTMLElement;
       const rect = target.getBoundingClientRect();
@@ -47,7 +40,6 @@ export const useGlobalAnimationObserver = () => {
       }
     });
 
-    // Return a cleanup function to disconnect the observer
     return () => {
       blocks.forEach((block) => observer.unobserve(block));
     };
@@ -59,7 +51,6 @@ export const useGlobalAnimationObserver = () => {
       if (blocks.length > 0) {
         initObserver();
       } else {
-        // Retry if no elements are found
         setTimeout(() => checkContentAndInit(100), 100);
       }
     }, delay);
@@ -68,16 +59,14 @@ export const useGlobalAnimationObserver = () => {
   useEffect(() => {
     let cleanupObserver: (() => void) | null = null;
 
-    // Initial content check on mount or reload
     checkContentAndInit();
 
     const handleRouteChangeComplete = () => {
-      // Clean up previous observer
       if (cleanupObserver) cleanupObserver();
 
-      // Delay checking content on route change to ensure content is loaded
       setTimeout(() => {
-        checkContentAndInit(300); // Delay initialization slightly to allow content to load
+        cleanupObserver = initObserver();
+        checkContentAndInit(300);
       }, 300);
     };
 
