@@ -56,9 +56,9 @@ svg {
 .video-wrapper:before {
   padding-top: var(--video-height, 100vh);
 }
-.truncate-2 {
+.truncate-4 {
   display: -webkit-box;
-  -webkit-line-clamp: 2;
+  -webkit-line-clamp: 4;
   -webkit-box-orient: vertical;
   overflow: hidden;
 }

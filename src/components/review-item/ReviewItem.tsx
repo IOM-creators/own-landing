@@ -34,7 +34,7 @@ const ReviewItem: React.FC<IReviewItem> = ({
         <Icon icon="review-comma" />
       </div>
       {reviewItem.description && (
-        <div className="review__description truncate-2 mt-4 mb-10">
+        <div className="review__description truncate-4 mt-4 mb-10">
           {reviewItem.description}
         </div>
       )}
