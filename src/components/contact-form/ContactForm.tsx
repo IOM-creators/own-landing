@@ -212,10 +212,7 @@ const ContactForm: React.FC<IContactUs> = ({
           </div>
         </form>
         {isSuccessMessage && (
-          <div
-            className="success-message text-center absolute bg-white h-full w-full top-0 left-0 flex flex-col items-center justify-center"
-            data-animate="moveUp"
-          >
+          <div className="success-message text-center absolute bg-white h-full w-full top-0 left-0 flex flex-col items-center justify-center">
             <Image
               src={contactForm.successImage.url}
               classWrapper="w-60 !flex justify-center"
