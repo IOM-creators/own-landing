@@ -6,6 +6,7 @@ export const useGlobalAnimationObserver = () => {
 
   const initObserver = (): (() => void) | null => {
     const blocks = document.querySelectorAll<HTMLElement>("[data-animate]");
+
     if (blocks.length === 0) return null;
     const observerOptions: IntersectionObserverInit = {
       root: null,
