@@ -44,7 +44,7 @@ export default function App({ Component, pageProps }: AppProps) {
       router.events.off("routeChangeComplete", handleRouteChange);
     };
   }, [router.events]);
-  useGlobalAnimationObserver();
+  // useGlobalAnimationObserver();
 
   return (
     <Provider store={store}>
