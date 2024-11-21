@@ -56,6 +56,7 @@ const HeroSection: React.FC<IHeroSection> = ({ section }) => {
               initial={{ opacity: 0, x: -30 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.5, delay: 0.3 }}
+              viewport={{ once: true, amount: 0.1 }}
             >
               <Button
                 styleButton={button.styleButton}
@@ -103,6 +104,7 @@ const HeroSection: React.FC<IHeroSection> = ({ section }) => {
         initial={{ opacity: 0, x: -30 }}
         whileInView={{ opacity: 1, x: 0 }}
         transition={{ duration: 0.5, delay: 0.3 }}
+        viewport={{ once: true, amount: 0.1 }}
       >
         {upworkLink?.url && (
           <Button

@@ -42,6 +42,7 @@ const AboutSection: React.FC<IAboutSection> = ({ id = "", section }) => {
                 initial={{ opacity: 0, x: -30 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.5, delay: 0.3 }}
+                viewport={{ once: true, amount: 0.1 }}
               >
                 {title}
               </motion.h2>
@@ -51,6 +52,7 @@ const AboutSection: React.FC<IAboutSection> = ({ id = "", section }) => {
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.3 }}
+                viewport={{ once: true, amount: 0.1 }}
               >
                 <Image onlyImg src={image.url} />
               </motion.div>
@@ -95,6 +97,7 @@ const AboutSection: React.FC<IAboutSection> = ({ id = "", section }) => {
                 initial={{ opacity: 0, x: 30 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.5, delay: 0.3 }}
+                viewport={{ once: true, amount: 0.1 }}
               >
                 <RichText richText={content.json} />
               </motion.div>
@@ -110,6 +113,7 @@ const AboutSection: React.FC<IAboutSection> = ({ id = "", section }) => {
                         initial={{ opacity: 0, x: 30 }}
                         whileInView={{ opacity: 1, x: 0 }}
                         transition={{ duration: 0.5, delay: 0.3 * index }}
+                        viewport={{ once: true, amount: 0.1 }}
                       >
                         {headlineInfo}
                         <br />
