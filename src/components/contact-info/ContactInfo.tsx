@@ -1,5 +1,6 @@
 import React from "react";
 import Button from "../button";
+import { motion } from "framer-motion";
 
 interface IContactUs {
   className?: string;
@@ -14,23 +15,36 @@ const ContactInfo: React.FC<IContactUs> = ({ id = "", className, section }) => {
 
   return (
     <div className="contact-info">
-      {contactInfo?.title && <h1 data-animate="moveUp">{contactInfo.title}</h1>}
+      {contactInfo?.title && (
+        <motion.h1
+          initial={{ opacity: 0, x: -30 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.5, delay: 0.3 }}
+        >
+          {contactInfo.title}
+        </motion.h1>
+      )}
       {contactInfo?.subtitle && (
-        <span
+        <motion.span
           className="block text-base lg:text-xl font-bold mt-4"
-          data-animate="moveUp"
+          initial={{ opacity: 0, x: -30 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.5, delay: 0.6 }}
         >
           {contactInfo.subtitle}
-        </span>
+        </motion.span>
       )}
 
       {companyInfo && (
         <div className="contact-info__comany mt-12 mb-6 lg:mt-20 lg:mb-12">
           <ul className="flex flex-col">
             {companyInfo.map((item: any, index: number) => (
-              <li
+              <motion.li
                 key={index}
                 className="my-2 lg:my-4 text-base lg:text-xl font-bold"
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.3 * index }}
               >
                 <Button
                   link={item.url}
@@ -39,11 +53,10 @@ const ContactInfo: React.FC<IContactUs> = ({ id = "", className, section }) => {
                   rightText
                   icon={item?.icon?.url}
                   className="flex items-center"
-                  data-animate="moveUp"
                 >
                   {item.title}
                 </Button>
-              </li>
+              </motion.li>
             ))}
           </ul>
         </div>
@@ -52,10 +65,12 @@ const ContactInfo: React.FC<IContactUs> = ({ id = "", className, section }) => {
         <div className="contact-info__social my-6 lg:my-12">
           <ul className="flex flex-row gap-2 flex-wrap lap:flex-nowrap">
             {socialInfo.map((item: any, index: number) => (
-              <li
+              <motion.li
                 key={index}
                 className="p-4 md:py-5 md:px-10 text-base lg:text-xl font-bold bg-light-gray shrink-0"
-                data-animate="moveUp"
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.3 * index }}
               >
                 <Button
                   styleButton={item.styleButton}
@@ -67,7 +82,7 @@ const ContactInfo: React.FC<IContactUs> = ({ id = "", className, section }) => {
                 >
                   {item.title}
                 </Button>
-              </li>
+              </motion.li>
             ))}
           </ul>
         </div>

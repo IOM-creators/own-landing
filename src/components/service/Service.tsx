@@ -10,10 +10,7 @@ interface IService {
 const Service: React.FC<IService> = ({ id = "", className, section }) => {
   const content = section;
   return (
-    <div
-      className="border-gray border p-[30px] inline-block "
-      data-animate="moveUp"
-    >
+    <div className="border-gray border p-[30px] inline-block ">
       <Image
         onlyImg
         className="w-10 h-10 mb-10"

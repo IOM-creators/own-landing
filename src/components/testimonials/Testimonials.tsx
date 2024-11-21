@@ -3,6 +3,7 @@ import Slider from "../slider";
 import { SwiperSlide } from "swiper/react";
 import ReviewItem from "../review-item";
 import Icon from "../icon";
+import { motion } from "framer-motion";
 
 interface ITestimonials {
   id?: string;
@@ -40,11 +41,8 @@ const Testimonials: React.FC<ITestimonials> = ({ id = "", section }) => {
   return (
     <div className="testimonials">
       <div className="testimonials__header flex items-center justify-between mb-10">
-        <h2 data-animate="moveRight">{testimonials.title}</h2>
-        <div
-          className="slider-buttom-wrapper relative flex justify-between self-end hidden md:flex"
-          data-animate="moveLeft"
-        >
+        <h2>{testimonials.title}</h2>
+        <div className="slider-buttom-wrapper relative flex justify-between self-end hidden md:flex">
           <div className="swiper-button-prev p-4 cursor-pointer hover:text-primary-orange">
             <Icon icon="arrow-prev" />
           </div>
@@ -55,12 +53,17 @@ const Testimonials: React.FC<ITestimonials> = ({ id = "", section }) => {
       </div>
       <Slider params={sliderParams}>
         {testimonialsItems.map((testimonial: any, index: number) => (
-          <SwiperSlide key={index}>
-            <ReviewItem
-              section={{ reviewItem: testimonial }}
-              className="border border-border-color !p-8"
-              data-animate="fadeIn"
-            />
+          <SwiperSlide key={index} className="h-auto">
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.3 * index }}
+            >
+              <ReviewItem
+                section={{ reviewItem: testimonial }}
+                className="border border-border-color !p-8"
+              />
+            </motion.div>
           </SwiperSlide>
         ))}
       </Slider>

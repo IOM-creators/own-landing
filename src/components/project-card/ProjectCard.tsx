@@ -4,6 +4,7 @@ import cn from "classnames";
 import Image from "../image";
 import RichText from "../rich-text";
 import Link from "next/link";
+import { motion } from "framer-motion";
 
 interface IProjectCard {
   id: string;
@@ -21,7 +22,7 @@ const ProjectCard: React.FC<IProjectCard> = ({
   if (!card) return null;
 
   return (
-    <div className="project-card" data-animate="moveUp">
+    <div className="project-card">
       <div className="relative">
         {card?.image && (
           <Image
