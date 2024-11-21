@@ -88,6 +88,7 @@ const Section: React.FC<ISection> = ({ id, className, section, tagH1 }) => {
                       initial={{ opacity: 0, x: -30 }}
                       whileInView={{ opacity: 1, x: 0 }}
                       transition={{ duration: 0.5, delay: 0.3 }}
+                      viewport={{ once: true, amount: 0.1 }}
                     >
                       {section.title}
                     </motion.h1>
@@ -97,6 +98,7 @@ const Section: React.FC<ISection> = ({ id, className, section, tagH1 }) => {
                       initial={{ opacity: 0, x: -30 }}
                       whileInView={{ opacity: 1, x: 0 }}
                       transition={{ duration: 0.5, delay: 0.3 }}
+                      viewport={{ once: true, amount: 0.1 }}
                     >
                       {section.title}
                     </motion.h2>
@@ -106,6 +108,7 @@ const Section: React.FC<ISection> = ({ id, className, section, tagH1 }) => {
                     initial={{ opacity: 0, x: -30 }}
                     whileInView={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.5, delay: 0.3 }}
+                    viewport={{ once: true, amount: 0.1 }}
                     className="custom-title text-center mb-6 md:mb-12 md:mb-24 mx-auto max-w-[1050px]"
                   >
                     <RichText richText={section.titleRichtext?.json} />
@@ -116,6 +119,7 @@ const Section: React.FC<ISection> = ({ id, className, section, tagH1 }) => {
                     initial={{ opacity: 0, x: 30 }}
                     whileInView={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.5, delay: 0.3 }}
+                    viewport={{ once: true, amount: 0.1 }}
                   >
                     <Button
                       styleButton={section.button.styleButton}
@@ -135,6 +139,7 @@ const Section: React.FC<ISection> = ({ id, className, section, tagH1 }) => {
                   initial={{ opacity: 0, x: -30 }}
                   whileInView={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.5, delay: 0.3 }}
+                  viewport={{ once: true, amount: 0.1 }}
                 >
                   {section.subtitle}
                 </motion.span>
@@ -146,6 +151,7 @@ const Section: React.FC<ISection> = ({ id, className, section, tagH1 }) => {
                 initial={{ opacity: 0, x: 30 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.5, delay: 0.3 }}
+                viewport={{ once: true, amount: 0.1 }}
               >
                 <RichText richText={section.content.json} />
               </motion.div>
@@ -155,6 +161,7 @@ const Section: React.FC<ISection> = ({ id, className, section, tagH1 }) => {
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.3 }}
+                viewport={{ once: true, amount: 0.1 }}
               >
                 <Image
                   src={imgUrl}
@@ -175,6 +182,7 @@ const Section: React.FC<ISection> = ({ id, className, section, tagH1 }) => {
                   initial={{ opacity: 0, y: 30 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: 0.3 * index }}
+                  viewport={{ once: true, amount: 0.1 }}
                 >
                   <ComponentGql section={{ ...component }} key={index} />{" "}
                 </motion.div>

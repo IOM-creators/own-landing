@@ -125,6 +125,7 @@ const ContactForm: React.FC<IContactUs> = ({
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.5, delay: 0.3 }}
+            viewport={{ once: true, amount: 0.1 }}
           >
             {contactForm?.title}
           </motion.h3>
@@ -135,6 +136,7 @@ const ContactForm: React.FC<IContactUs> = ({
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.5, delay: 0.3 }}
+            viewport={{ once: true, amount: 0.1 }}
           >
             {contactForm.subtitle}
           </motion.span>
@@ -158,6 +160,7 @@ const ContactForm: React.FC<IContactUs> = ({
                     initial={{ opacity: 0, x: -30 }}
                     whileInView={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.5, delay: 0.3 * index }}
+                    viewport={{ once: true, amount: 0.1 }}
                   >
                     <label htmlFor={fieldName}></label>
                     <Controller
@@ -197,6 +200,7 @@ const ContactForm: React.FC<IContactUs> = ({
                         initial={{ opacity: 0, x: -30 }}
                         whileInView={{ opacity: 1, x: 0 }}
                         transition={{ duration: 0.5, delay: 0.3 }}
+                        viewport={{ once: true, amount: 0.1 }}
                       >
                         {formField.errorMessage}
                       </motion.span>
@@ -211,6 +215,7 @@ const ContactForm: React.FC<IContactUs> = ({
                 initial={{ opacity: 0, x: -30 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.5, delay: 0.3 }}
+                viewport={{ once: true, amount: 0.1 }}
               >
                 <p className="text-error">{errorMessage}</p>
               </motion.div>
@@ -221,6 +226,7 @@ const ContactForm: React.FC<IContactUs> = ({
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.5, delay: 0.3 }}
+            viewport={{ once: true, amount: 0.1 }}
           >
             <Button
               type="submit"
@@ -238,6 +244,7 @@ const ContactForm: React.FC<IContactUs> = ({
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.3 }}
+            viewport={{ once: true, amount: 0.1 }}
           >
             <Image
               src={contactForm.successImage.url}
