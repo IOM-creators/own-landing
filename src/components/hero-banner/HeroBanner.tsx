@@ -6,8 +6,7 @@ import Round from "../../assets/images/round.png";
 import Video from "../video";
 import RichText from "../rich-text";
 import Button from "../button";
-import AnimatedBlock from "../animation-block";
-import AnimationBlock from "../animation-block";
+import { motion } from "framer-motion";
 
 interface IHeroSection {
   section: any;
@@ -44,22 +43,29 @@ const HeroSection: React.FC<IHeroSection> = ({ section }) => {
     <div id="hero-banner" className={cn("text-dark-blue relative")}>
       <div className=" w-full h-screen relative grid grid-cols-1 lap:grid-cols-[_45%_55%] justify-center items-center">
         <div className="relative inset-0 justify-center w-full lap:pr-12">
-          <div
+          <motion.div
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.5 }}
             className=" custom-title text-left max-w-3xl lap:max-w-6xl"
-            data-animate="moveRight"
           >
             <RichText richText={titleRichText} />
-          </div>
+          </motion.div>
           {button?.url && (
-            <Button
-              styleButton={button.styleButton}
-              typeButton={button.buttonType}
-              className="justify-between max-w-[270px] w-full mt-14"
-              icon={button.icon.url}
-              data-animate="moveRight"
+            <motion.div
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.5, delay: 0.3 }}
             >
-              {button.title}
-            </Button>
+              <Button
+                styleButton={button.styleButton}
+                typeButton={button.buttonType}
+                className="justify-between max-w-[270px] w-full mt-14"
+                icon={button.icon.url}
+              >
+                {button.title}
+              </Button>
+            </motion.div>
           )}
         </div>
         <div className="relative right-0 w-full h-full  hidden lap:block">
@@ -71,6 +77,7 @@ const HeroSection: React.FC<IHeroSection> = ({ section }) => {
               section={video}
             />
           )}
+
           <div className="flex flex-col	justify-end absolute right-0  top-0 max-w-[30%] w-full h-[40%] bg-primary-green text-white p-8">
             <span className="text-xl font-bold">{rIghtBlockText}</span>
             {callToActionLink?.url && (
@@ -90,7 +97,13 @@ const HeroSection: React.FC<IHeroSection> = ({ section }) => {
           </div>
         </div>
       </div>
-      <div className="absolute bottom-8" data-animate="moveRight">
+
+      <motion.div
+        className="absolute bottom-8"
+        initial={{ opacity: 0, x: -30 }}
+        whileInView={{ opacity: 1, x: 0 }}
+        transition={{ duration: 0.5, delay: 0.3 }}
+      >
         {upworkLink?.url && (
           <Button
             link={upworkLink.url}
@@ -105,7 +118,7 @@ const HeroSection: React.FC<IHeroSection> = ({ section }) => {
 
         <div className="grid grid-cols-2 gap-4 mt-5">
           {jobSuccessImage && (
-            <div className="flex items-center" data-animate="moveRight">
+            <div className="flex items-center">
               <Image
                 onlyImg
                 className="w-6 mr-2.5"
@@ -115,7 +128,7 @@ const HeroSection: React.FC<IHeroSection> = ({ section }) => {
             </div>
           )}
           {topRatedImage && (
-            <div className="flex items-center" data-animate="moveRight">
+            <div className="flex items-center">
               <Image
                 onlyImg
                 className="w-6 mr-2.5"
@@ -125,7 +138,7 @@ const HeroSection: React.FC<IHeroSection> = ({ section }) => {
             </div>
           )}
         </div>
-      </div>
+      </motion.div>
     </div>
   );
 };

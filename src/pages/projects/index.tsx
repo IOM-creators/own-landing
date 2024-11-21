@@ -9,6 +9,7 @@ import Custom404 from "../404";
 import { CustomNextPageContext } from "../../types/page-props";
 import { fetchPageContent } from "@/helpers/getData";
 import { useProjects, useProjectsTotal } from "@/graphql";
+import { motion } from "framer-motion";
 
 const SlugPage: NextPage = (props: any) => {
   // Ensure content is consistent between SSR and client-side rendering
@@ -42,12 +43,14 @@ const SlugPage: NextPage = (props: any) => {
             <ul className="grid ms:grid-cols-1 items-start  lg:grid-cols-2 gap-6">
               {content &&
                 content.items &&
-                content.items.map((item: any) => {
+                content.items.map((item: any, index: number) => {
                   return (
-                    <li
+                    <motion.li
                       key={item.slug}
                       className="relative"
-                      data-animate="moveUp"
+                      initial={{ opacity: 0, y: 30 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.5, delay: 0.3 * index }}
                     >
                       {item?.image && (
                         <Image
@@ -84,7 +87,7 @@ const SlugPage: NextPage = (props: any) => {
                         href={`/projects/${item.slug}`}
                         className="text-xl top-0 left-0 absolute w-full h-full"
                       ></Link>
-                    </li>
+                    </motion.li>
                   );
                 })}
             </ul>

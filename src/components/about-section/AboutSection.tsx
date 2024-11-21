@@ -1,6 +1,7 @@
 import React from "react";
 import Image from "../image";
 import RichText from "../rich-text";
+import { motion } from "framer-motion";
 
 interface IAboutSection {
   id: string;
@@ -36,17 +37,23 @@ const AboutSection: React.FC<IAboutSection> = ({ id = "", section }) => {
         {image && (
           <div>
             {title && (
-              <h2
+              <motion.h2
                 className="text-3xl mt-[1rem] mb-6 lg:text-5xl font-bold uppercase whitespace-nowrap"
-                data-animate="moveRight"
+                initial={{ opacity: 0, x: -30 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.5, delay: 0.3 }}
               >
                 {title}
-              </h2>
+              </motion.h2>
             )}
             {image && (
-              <div data-animate="moveUp">
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.3 }}
+              >
                 <Image onlyImg src={image.url} />
-              </div>
+              </motion.div>
             )}
           </div>
         )}
@@ -84,32 +91,32 @@ const AboutSection: React.FC<IAboutSection> = ({ id = "", section }) => {
 
           <div className="text-xl col-span-3  lap:col-span-1">
             {content && (
-              <div data-animate="moveUp">
+              <motion.div
+                initial={{ opacity: 0, x: 30 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.5, delay: 0.3 }}
+              >
                 <RichText richText={content.json} />
-              </div>
+              </motion.div>
             )}
-            <div
-              className="flex gap-4 lg:gap-12 mt-8 lg:mt-12"
-              data-animate="moveUp"
-            >
+            <div className="flex gap-4 lg:gap-12 mt-8 lg:mt-12">
               {parsedInfo &&
                 parsedInfo.map(
                   ({ headlineInfo, descriptionInfo }, index: number) => {
                     return (
-                      <span
+                      <motion.span
                         key={index}
                         className="text-3xl lg:text-5xl font-bold"
-                        data-animate="moveUp"
+                        initial={{ opacity: 0, x: 30 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        transition={{ duration: 0.5, delay: 0.3 * index }}
                       >
                         {headlineInfo}
                         <br />
-                        <span
-                          className="text-xs lg:text-xl"
-                          data-animate="moveUp"
-                        >
+                        <span className="text-xs lg:text-xl">
                           {descriptionInfo}
                         </span>
-                      </span>
+                      </motion.span>
                     );
                   }
                 )}

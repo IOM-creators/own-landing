@@ -9,6 +9,7 @@ import RichText from "../rich-text";
 import { Document } from "@contentful/rich-text-types";
 import { useGetContactForm } from "@/graphql";
 import Loader from "../loader";
+import { motion } from "framer-motion";
 
 interface IContactUsData {
   contactForm: {
@@ -116,23 +117,27 @@ const ContactForm: React.FC<IContactUs> = ({
     >
       <>
         {contactForm?.title && (
-          <h3
+          <motion.h3
             className={cn({
               "mb-[40px]": !contactForm.subtitle,
               "mb-2": contactForm.subtitle,
             })}
-            data-animate="moveRight"
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.5, delay: 0.3 }}
           >
             {contactForm?.title}
-          </h3>
+          </motion.h3>
         )}
         {contactForm?.subtitle && (
-          <span
+          <motion.span
             className={cn({}, "mb-[40px] block text-lg font-bold")}
-            data-animate="moveRight"
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.5, delay: 0.3 }}
           >
             {contactForm.subtitle}
-          </span>
+          </motion.span>
         )}
         <form
           onSubmit={handleSubmit(onSubmit, onError)}
@@ -147,10 +152,12 @@ const ContactForm: React.FC<IContactUs> = ({
                   .toLocaleLowerCase()
                   .replace(" ", "_");
                 return (
-                  <div
+                  <motion.div
                     className={cn("my-2 sm:col-span-6")}
                     key={index}
-                    data-animate="moveRight"
+                    initial={{ opacity: 0, x: -30 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 0.5, delay: 0.3 * index }}
                   >
                     <label htmlFor={fieldName}></label>
                     <Controller
@@ -185,40 +192,59 @@ const ContactForm: React.FC<IContactUs> = ({
                       }}
                     />
                     {errors[fieldName] && (
-                      <span className="text-error">
+                      <motion.span
+                        className="text-error"
+                        initial={{ opacity: 0, x: -30 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        transition={{ duration: 0.5, delay: 0.3 }}
+                      >
                         {formField.errorMessage}
-                      </span>
+                      </motion.span>
                     )}
-                  </div>
+                  </motion.div>
                 );
               }
             )}
             {errorMessage && (
-              <div className="error-message col-span-6">
+              <motion.div
+                className="error-message col-span-6"
+                initial={{ opacity: 0, x: -30 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.5, delay: 0.3 }}
+              >
                 <p className="text-error">{errorMessage}</p>
-              </div>
+              </motion.div>
             )}
           </div>
-          <div className="mt-5 flex justify-center">
+          <motion.div
+            className="mt-5 flex justify-center"
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.5, delay: 0.3 }}
+          >
             <Button
               type="submit"
               className={cn("btn btn--primary justify-center", {
                 "btn--loading": isSending,
               })}
-              data-animate="moveRight"
             >
               {contactForm.buttonText}
             </Button>
-          </div>
+          </motion.div>
         </form>
         {isSuccessMessage && (
-          <div className="success-message text-center absolute bg-white h-full w-full top-0 left-0 flex flex-col items-center justify-center">
+          <motion.div
+            className="success-message text-center absolute bg-white h-full w-full top-0 left-0 flex flex-col items-center justify-center"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.3 }}
+          >
             <Image
               src={contactForm.successImage.url}
               classWrapper="w-60 !flex justify-center"
             />
             <RichText richText={contactForm.successMessage.json} />
-          </div>
+          </motion.div>
         )}
       </>
     </div>

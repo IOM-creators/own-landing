@@ -46,9 +46,7 @@ const Accordion: React.FC<AccordionProps> = ({
       )}
     >
       <div className="accordion__content lg:max-w-[800px] w-full">
-        <h2 className="mb-10" data-animate="moveRight">
-          {accordion.title}
-        </h2>
+        <h2 className="mb-10">{accordion.title}</h2>
         <div className="accordion__items">
           {accordionItems.map((item: AccordionItemProps, index: number) => (
             <div
@@ -60,7 +58,6 @@ const Accordion: React.FC<AccordionProps> = ({
                 },
                 "accordion__item border-t-[1px] border-border-color"
               )}
-              data-animate="moveRight"
             >
               <div
                 className={cn(
@@ -92,10 +89,7 @@ const Accordion: React.FC<AccordionProps> = ({
         </div>
       </div>
       {accordion.image && (
-        <div
-          className="accordion__image mx-auto lg:mx-0 max-w-[250px] md:max-w-[420px] w-full order-[-1] lg:order-none"
-          data-animate="moveUp"
-        >
+        <div className="accordion__image mx-auto lg:mx-0 max-w-[250px] md:max-w-[420px] w-full order-[-1] lg:order-none">
           <Image
             src={accordion.image.url}
             className="object-contain"

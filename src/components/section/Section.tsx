@@ -4,6 +4,7 @@ import Image from "../image";
 import RichText from "../rich-text";
 import Button from "../button";
 import { componentMap } from "@/helpers/componentsMap";
+import { motion } from "framer-motion";
 
 interface ISection {
   id: string;
@@ -82,60 +83,85 @@ const Section: React.FC<ISection> = ({ id, className, section, tagH1 }) => {
               >
                 {section.title && !section.titleRichtext?.json ? (
                   tagH1 ? (
-                    <h1 className="mb-6" data-animate="moveRight">
+                    <motion.h1
+                      className="mb-6"
+                      initial={{ opacity: 0, x: -30 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      transition={{ duration: 0.5, delay: 0.3 }}
+                    >
                       {section.title}
-                    </h1>
+                    </motion.h1>
                   ) : (
-                    <h2 className="mb-6" data-animate="moveRight">
+                    <motion.h2
+                      className="mb-6"
+                      initial={{ opacity: 0, x: -30 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      transition={{ duration: 0.5, delay: 0.3 }}
+                    >
                       {section.title}
-                    </h2>
+                    </motion.h2>
                   )
                 ) : (
-                  <div
+                  <motion.div
+                    initial={{ opacity: 0, x: -30 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 0.5, delay: 0.3 }}
                     className="custom-title text-center mb-6 md:mb-12 md:mb-24 mx-auto max-w-[1050px]"
-                    data-animate="moveUp"
                   >
                     <RichText richText={section.titleRichtext?.json} />
-                  </div>
+                  </motion.div>
                 )}
                 {section?.button && (
-                  <Button
-                    styleButton={section.button.styleButton}
-                    typeButton={section.button.buttonType}
-                    icon={section.button.icon.url}
-                    link={section.button.url}
-                    className="w-full md:w-auto"
-                    data-animate="moveLeft"
+                  <motion.div
+                    initial={{ opacity: 0, x: 30 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 0.5, delay: 0.3 }}
                   >
-                    {section.button.title}
-                  </Button>
+                    <Button
+                      styleButton={section.button.styleButton}
+                      typeButton={section.button.buttonType}
+                      icon={section.button.icon.url}
+                      link={section.button.url}
+                      className="w-full md:w-auto"
+                    >
+                      {section.button.title}
+                    </Button>
+                  </motion.div>
                 )}
               </div>
               {section.subtitle && (
-                <span
+                <motion.span
                   className="block text-xl font-bold mt-4"
-                  data-animate="moveRight"
+                  initial={{ opacity: 0, x: -30 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.5, delay: 0.3 }}
                 >
                   {section.subtitle}
-                </span>
+                </motion.span>
               )}
             </div>
             {section?.content && (
-              <div
+              <motion.div
                 className="section__dexcription text-xl"
-                data-animate="moveUp"
+                initial={{ opacity: 0, x: 30 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.5, delay: 0.3 }}
               >
                 <RichText richText={section.content.json} />
-              </div>
+              </motion.div>
             )}
             {imgUrl && (
-              <div data-animate="moveUp">
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.3 }}
+              >
                 <Image
                   src={imgUrl}
                   classWrapper="mt-10 lg:mt-20 before:pt-[61%] md:before:pt-[50%]"
                   className="object-cover md:object-contain"
                 />
-              </div>
+              </motion.div>
             )}
           </div>
         )}
@@ -144,7 +170,15 @@ const Section: React.FC<ISection> = ({ id, className, section, tagH1 }) => {
             for (const key of Object.keys(component)) {
               const updatedKey = key.charAt(0).toUpperCase() + key.slice(1);
               let ComponentGql = componentMap[updatedKey];
-              return <ComponentGql section={{ ...component }} key={index} />;
+              return (
+                <motion.div
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: 0.3 * index }}
+                >
+                  <ComponentGql section={{ ...component }} key={index} />{" "}
+                </motion.div>
+              );
             }
           })}
       </div>
