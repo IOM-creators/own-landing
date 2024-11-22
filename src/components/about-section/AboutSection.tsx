@@ -54,7 +54,7 @@ const AboutSection: React.FC<IAboutSection> = ({ id = "", section }) => {
                 transition={{ duration: 0.5, delay: 0.3 }}
                 viewport={{ once: true, amount: 0.1 }}
               >
-                <Image onlyImg src={image.url} />
+                <Image onlyImg src={image.url} alt="About us" />
               </motion.div>
             )}
           </div>

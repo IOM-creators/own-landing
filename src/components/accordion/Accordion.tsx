@@ -92,6 +92,7 @@ const Accordion: React.FC<AccordionProps> = ({
         <div className="accordion__image mx-auto lg:mx-0 max-w-[250px] md:max-w-[420px] w-full order-[-1] lg:order-none">
           <Image
             src={accordion.image.url}
+            alt="Why Choose Us"
             className="object-contain"
             classWrapper="before:pt-[50%] lg:before:pt-[100%]"
           />

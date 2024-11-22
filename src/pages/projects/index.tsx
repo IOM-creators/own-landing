@@ -56,6 +56,7 @@ const SlugPage: NextPage = (props: any) => {
                       {item?.image && (
                         <Image
                           src={item.image.url}
+                          alt="Project"
                           className="object-cover"
                           classWrapper="before:pt-[70%]"
                         />

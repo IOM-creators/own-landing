@@ -27,6 +27,7 @@ const ProjectCard: React.FC<IProjectCard> = ({
         {card?.image && (
           <Image
             src={card.image.url}
+            alt="Project"
             className="object-cover"
             classWrapper="before:pt-[70%]"
           />

@@ -72,6 +72,7 @@ const Projects: NextPage = (props: any) => {
             ? item?.heroImage && (
                 <Image
                   src={item.heroImage.url}
+                  alt="Hero Projects"
                   className="object-cover lg:object-contain"
                   classWrapper="my-10 before:pt-[100%] lg:before:pt-[34%]"
                 />
@@ -79,6 +80,7 @@ const Projects: NextPage = (props: any) => {
             : item?.mobileHeroImage && (
                 <Image
                   src={item.mobileHeroImage.url}
+                  alt="Mobile Hero Projects"
                   className="object-cover lg:object-contain"
                   classWrapper="my-10 before:pt-[100%] lg:before:pt-[34%]"
                 />

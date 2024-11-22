@@ -69,6 +69,7 @@ const Button: React.FC<IButton> = ({
       <Image
         onlyImg
         src={icon}
+        alt="Button"
         className={cn(classNameIcon, {
           "mr-3 group-hover:translate-x-[-8px] transition-transform duration-300":
             rightText,

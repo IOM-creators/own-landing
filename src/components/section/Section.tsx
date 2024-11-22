@@ -165,6 +165,7 @@ const Section: React.FC<ISection> = ({ id, className, section, tagH1 }) => {
               >
                 <Image
                   src={imgUrl}
+                  alt="Section"
                   classWrapper="mt-10 lg:mt-20 before:pt-[61%] md:before:pt-[50%]"
                   className="object-cover md:object-contain"
                 />

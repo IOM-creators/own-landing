@@ -248,6 +248,7 @@ const ContactForm: React.FC<IContactUs> = ({
           >
             <Image
               src={contactForm.successImage.url}
+              alt="Contact us"
               classWrapper="w-60 !flex justify-center"
             />
             <RichText richText={contactForm.successMessage.json} />

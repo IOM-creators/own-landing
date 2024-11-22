@@ -15,6 +15,7 @@ const Service: React.FC<IService> = ({ id = "", className, section }) => {
         onlyImg
         className="w-10 h-10 mb-10"
         src={content?.service?.image?.url}
+        alt="Service"
       ></Image>
       <h3 className="text-primary-green  mb-5 text-[30px] font-semibold leading-[30px]">
         {content?.service.title}

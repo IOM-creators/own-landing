@@ -93,7 +93,7 @@ const HeroSection: React.FC<IHeroSection> = ({ section }) => {
               </Button>
             )}
             <div className="absolute right-0 top-0 w-2/3">
-              <Image src={Round.src} />
+              <Image src={Round.src} alt="Hero banner" />
             </div>
           </div>
         </div>
@@ -124,6 +124,7 @@ const HeroSection: React.FC<IHeroSection> = ({ section }) => {
               <Image
                 onlyImg
                 className="w-6 mr-2.5"
+                alt="Job Success"
                 src={jobSuccessImage.url}
               ></Image>
               {jobSuccessImage.title}
@@ -135,6 +136,7 @@ const HeroSection: React.FC<IHeroSection> = ({ section }) => {
                 onlyImg
                 className="w-6 mr-2.5"
                 src={topRatedImage.url}
+                alt="Top Rated"
               ></Image>
               {topRatedImage.title}
             </div>
