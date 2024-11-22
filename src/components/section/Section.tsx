@@ -180,12 +180,13 @@ const Section: React.FC<ISection> = ({ id, className, section, tagH1 }) => {
               let ComponentGql = componentMap[updatedKey];
               return (
                 <motion.div
+                  key={index}
                   initial={{ opacity: 0, y: 30 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: 0.3 * index }}
                   viewport={{ once: true, amount: 0.1 }}
                 >
-                  <ComponentGql section={{ ...component }} key={index} />{" "}
+                  <ComponentGql section={{ ...component }} />{" "}
                 </motion.div>
               );
             }
