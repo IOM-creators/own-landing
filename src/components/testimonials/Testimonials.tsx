@@ -39,7 +39,13 @@ const Testimonials: React.FC<ITestimonials> = ({ id = "", section }) => {
   if (!testimonials) return null;
 
   return (
-    <div className="testimonials">
+    <motion.div
+      initial={{ opacity: 0, y: 10 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.3, delay: 0.2 }}
+      viewport={{ once: true, amount: 0.1 }}
+      className="testimonials"
+    >
       <div className="testimonials__header flex items-center justify-between mb-10">
         <h2>{testimonials.title}</h2>
         <div className="slider-buttom-wrapper relative flex justify-between self-end hidden md:flex">
@@ -54,22 +60,15 @@ const Testimonials: React.FC<ITestimonials> = ({ id = "", section }) => {
       <Slider params={sliderParams}>
         {testimonialsItems.map((testimonial: any, index: number) => (
           <SwiperSlide key={index} className="h-auto">
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.3 * index }}
-              viewport={{ once: true, amount: 0.1 }}
-            >
-              <ReviewItem
-                section={{ reviewItem: testimonial }}
-                className="border border-border-color !p-8"
-              />
-            </motion.div>
+            <ReviewItem
+              section={{ reviewItem: testimonial }}
+              className="border border-border-color !p-8"
+            />
           </SwiperSlide>
         ))}
       </Slider>
       <div className="swiper-pagination-testimonials mt-10 text-center"></div>
-    </div>
+    </motion.div>
   );
 };
 

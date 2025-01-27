@@ -5,6 +5,7 @@ import { useTypedSelector } from "../../store/hooks/useTypedSelector";
 import Link from "next/link";
 import cn from "classnames";
 import Image from "../image";
+import clsx from "clsx";
 
 interface IButton {
   icon?: string;
@@ -70,7 +71,7 @@ const Button: React.FC<IButton> = ({
         onlyImg
         src={icon}
         alt="Button"
-        className={cn(classNameIcon, {
+        className={clsx(classNameIcon, {
           "mr-3 group-hover:translate-x-[-8px] transition-transform duration-300":
             rightText,
           "ml-3 group-hover:translate-x-2 transition-transform duration-300":

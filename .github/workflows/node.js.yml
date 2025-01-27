@@ -50,8 +50,9 @@ jobs:
           rm -r .next
           unzip -o build.zip
           rm -r build.zip
+          npm install
+          npm run build
           pm2 restart iom-creators
-          pm2 save
         EOF
       env:
         NEXT_PUBLIC_CONTENTFUL_ID: ${{ secrets.NEXT_PUBLIC_CONTENTFUL_ID }}
