@@ -42,7 +42,7 @@ const Projects: NextPage = (props: any) => {
             <div className="mb-4">
               {item?.title && <h2 className="mb-4 text-black">{item.title}</h2>}
               {item?.technologies && (
-                <ul className="technologies flex items-center gap-4 mt-2">
+                <ul className="technologies flex items-center gap-4 mt-2 flex-wrap">
                   {item.technologies.map(
                     (technology: string, index: number) => (
                       <li key={index} className="bg-white p-2">
