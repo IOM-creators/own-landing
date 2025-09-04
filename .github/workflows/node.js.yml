@@ -15,6 +15,7 @@ jobs:
     env:
       NEXT_PUBLIC_CONTENTFUL_ID: ${{ secrets.NEXT_PUBLIC_CONTENTFUL_ID }}
       NEXT_PUBLIC_CONTENTFUL_TOKEN: ${{ secrets.NEXT_PUBLIC_CONTENTFUL_TOKEN }}  
+      NEXT_PUBLIC_ANALITICS_ID: ${{ secrets.NEXT_PUBLIC_ANALITICS_ID }}  
 
     steps:
     - name: Checkout code
@@ -57,3 +58,4 @@ jobs:
       env:
         NEXT_PUBLIC_CONTENTFUL_ID: ${{ secrets.NEXT_PUBLIC_CONTENTFUL_ID }}
         NEXT_PUBLIC_CONTENTFUL_TOKEN: ${{ secrets.NEXT_PUBLIC_CONTENTFUL_TOKEN }}
+        NEXT_PUBLIC_ANALITICS_ID: ${{ secrets.NEXT_PUBLIC_ANALITICS_ID }}
